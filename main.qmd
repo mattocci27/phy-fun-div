@@ -1,0 +1,1330 @@
+---
+pagetitle: "Phylogenetic diversity, functional diversity and trait-based approaches"
+author: "Masatoshi Katabuchi"
+date: "November 8, 2022"
+host: "XTBG AFEC"
+institute: "XTBG, CAS"
+strip-comments: true
+format:
+  revealjs:
+    logo: images/xtbg_logo.png
+    slide-number: true
+    multiplex: true
+    # theme: simple
+    theme: assets/rladies.scss
+    show-slide-number: all
+    controls: true
+    # width: 1280
+    # height: 720
+    width: 1920
+    height: 1080
+    css: [assets/custom.css, assets/tachyons-addon.css]
+    include-after: |
+      <link rel="stylesheet" href="assets/syntax-highlight.css">
+      <link rel="stylesheet" href="assets/fontawesome-free-6.1.1-web/css/all.min.css">
+      <script src="assets/fontawesome-free-6.1.1-web/js/all.min.js"></script>
+callout-icon: false
+execute:
+  echo: true
+---
+
+```{r external, child="setup.Rmd", include=FALSE}
+```
+
+::: title-box
+<h2>
+
+`r rmarkdown::metadata$pagetitle`
+
+</h2>
+
+🧑‍💻 [`r rmarkdown::metadata$author` \@ `r rmarkdown::metadata$institute`]{.author}
+
+
+`r rotating_text(c('<i class="fa-solid fa-envelope"></i> mattocci27@gmail.com', '<i class="fa-brands fa-twitter"></i> @mattocci', '<i class="fa-brands fa-github"></i> github.com/mattocci27/xxxx', '<i class="fa-solid fa-globe"></i> https://mattocci27.github.io/'))`
+:::
+
+
+<br><br>
+
+::: {.absolute .top-0 .blue .w-100}
+[`r rmarkdown::metadata$date`]{.blue .fl} [`r rmarkdown::metadata$host`]{.fr .blue}
+:::
+
+::: notes
+hoge
+:::
+
+
+---
+
+## Phylogenetic diversity, functional diversity and trait-based approaches
+
+<img src="https://cdn-images-1.medium.com/max/800/1*3O597Dv2NGbNzg_dWRu2Hw.png"
+alt="phylo" width="180" />
+
+Masatoshi Katabuchi | katabuchi@xtbg.ac.cn | AFEC-X 2022::XTBG | 2022-11-9
+
+<!-- this ends up being the title slide since seal = FALSE-->
+
+---
+
+
+## Objective
+
+::: large
+We Learn:
+
+- Why we use trait and phylogenetic diversity
+
+- How to calculate trait and phylogenetic diversity
+
+- Trait-based approaches
+:::
+
+
+---
+
+## Community Assembly and Species Coexistence
+
+For over a century, filed ecologist have been characterizing patterns in ecological communities and trying to draw theoretical inferences form the resulting data.
+
+
+<!-- <img src="images/sp_coex.jpg" width="65%" style="display: block; margin: auto;"/> -->
+
+---
+
+
+## Central Questions:
+
+::: columns
+::: {.column width="50%"}
+- Why do species occurs at the particular places?
+
+- Why do some pairs of species coexist while others not?
+
+::: incremental
+
+
+- **Environmental filtering**:
+  - [**Ecologically similar**]{.blue} species should coexist in ecologically similar environments.
+- **Limiting similarity**:
+  - [**Ecologically dissimilar**]{.orange} species should coexist because too similar species competing for the same resources cannot stably coexist.
+- **Neutral theory**:
+  - Dispersal and stochastic demographic processes explain species coexistence and species differences are not important.
+
+:::
+
+:::
+
+::: {.column width="50%"}
+![](images/tree_dist.png)
+:::
+:::
+
+
+::: footer
+Russo, Sabrina E., Stuart J. Davies, David A. King, and Sylvester Tan. “Soil-Related Performance Variation and Distributions of Tree Species in a Bornean Rain Forest.” Journal of Ecology 93, no. 5 (2005): 879–89.
+:::
+
+---
+
+## How can we quantify ecological similarity of coexisting species?
+
+---
+
+
+## How to quantify ecological communities `r emo::ji("leaf")`
+
+---
+
+## 1a) First-order properties of single communities
+
+::: columns
+::: {.column width="50%"}
+- A **vector** of species abundance
+
+- Species composition
+
+```{r, echo=FALSE}
+ab1 <- c(4, 300, 56, 23) |> as.matrix()
+rownames(ab1) <- paste0("Sp", 1:4)
+colnames(ab1) <- "Site1"
+ab1 |>
+  knitr::kable(format = "html")
+```
+```{r, echo=FALSE, fig.retina=3, fig.height=5}
+ggplot(ab1 |> as.data.frame(), aes(x = rank(-ab1), y = ab1)) +
+  geom_point() +
+  geom_line() +
+  xlab("Species rank") +
+  ylab("Abundance rank") +
+  ggtitle("Species abundance distribution")
+```
+
+:::
+
+::: {.column width="50%"}
+::: fragment
+- Species richness = 4
+:::
+
+::: fragment
+- Simpson's evenness = 1/ Σfreq<sub>i</sub><sup>2</sup> = (4/383)<sup>2</sup> + (300/383)<sup>2</sup> + (56/383)<sup>2</sup> + (23/383)<sup>2</sup>
+:::
+
+:::
+
+:::
+
+---
+
+## 1a) First-order properties of single communities
+
+Which community is more diverse?
+
+![](./images/com_simple.png)
+
+::: columns
+::: {.column width="50%"}
+::: fragment
+- Species richness = 2
+
+- What is the chance to get the same species?
+:::
+:::
+
+::: {.column width="50%"}
+::: fragment
+- A: $\frac{9}{10} \times \frac{8}{9} + \frac{1}{10} \times \frac{0}{9} = 0.8$
+
+- B: $\frac{5}{10} \times \frac{4}{9} + \frac{5}{10} \times \frac{4}{9}  \simeq 0.44$
+:::
+:::
+:::
+
+---
+
+## 1a) First-order properties of single communities
+
+::: columns
+::: {.column width="50%"}
+Which community is more diverse?
+
+![](./images/com_simple.png)
+
+- A: $\frac{9}{10} \times \frac{8}{9} + \frac{1}{10} \times \frac{0}{9} = 0.8$
+
+
+- B: $\frac{5}{10} \times \frac{4}{9} + \frac{5}{10} \times \frac{4}{9}  \simeq 0.44$
+
+- We prefer that large values indicate more diverse communities.
+:::
+
+::: {.column width="50%"}
+::: fragment
+- Diversity of A: 1 - 0.8 = 0.2
+
+- Diversity of B: 1 - 0.44 = 0.56
+:::
+::: fragment
+- Simpson's Index of Diversity:
+  $D = 1 - \Sigma\frac{n_i(n_i - 1)}{N_i(N_i - 1)}$
+
+
+- Simpson's Index of Diversity (ver. 2):
+  $D = 1 - \Sigma p_i^2$
+:::
+:::
+:::
+
+::: footer
+*n*: number of individuals of each species,
+*N*: total number of individuals of all species,
+*p*: relative species abundance
+:::
+
+---
+
+## 1a) First-order properties of single communities
+
+::: columns
+::: {.column width="50%"}
+Another simple way to describe diversity?
+
+![](./images/com_simple.png)
+
+- A: Sp.1: 0.9, Sp.2: 0.1
+
+- B: Sp.1: 0.5, Sp.2: 0.5
+
+- Diversity of A: 0.9 $\times$ 0.1 = 0.09?
+
+- Diversity of B: 0.5 $\times$ 0.5 = 0.025?
+
+- Diversity $\times$ Diversity? What is the unit?
+
+:::
+
+::: {.column width="50%"}
+::: fragment
+- $\mathrm{log}(x \times y) = \mathrm{log}(x) + \mathrm{log}(y)$
+:::
+::: fragment
+- A: $0.9 \times \mathrm{log}(0.9) + 0.1 \times \mathrm{log}(0.1) \simeq -0.32$
+- B: $0.5 \times \mathrm{log}(0.5) + 0.5 \times \mathrm{log}(0.5) \simeq -0.69$
+:::
+
+::: fragment
+- We prefer that large values indicate more diverse communities.
+- A: $-1 \times (-0.32) = 0.32$
+- B: $-1 \times (-0.69) = 0.69$
+:::
+::: fragment
+- Shannon Diversity Index: $H' = -\Sigma p_i\mathrm{log}p_i$
+:::
+:::
+:::
+
+::: footer
+*p*: relative species abundance
+:::
+
+---
+
+## 1b) First-order properties of multiple communities (Beta diversity)
+
+::: footer
+[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
+:::
+
+::: columns
+::: {.column width="50%"}
+- Species $\times$ site **matrix**
+- Metacommunity
+
+```{r, echo=FALSE}
+ab <- cbind(c(4, 300, 56, 23),
+            c(0, 250, 120, 18),
+            c(315, 0, 74, 101),
+            c(23, 18, 0, 0))
+rownames(ab) <- paste("Sp.", 1:4)
+colnames(ab) <- paste("Site", 1:4)
+ab %>%
+  knitr::kable(format = "html")
+```
+:::
+::: {.column width="50%"}
+::: fragment
+- Dissimilarity matrix (site $\times$ site)
+
+```{r, echo=FALSE}
+library(vegan)
+
+vegdist(t(ab), method = "bray") %>%
+  as.matrix %>%
+  round(2) %>%
+  knitr::kable(format = "html")
+```
+
+e.g., Bray–Curtis dissimilarity
+
+$BC_{ij}=1-2\frac{\sum min\left(S_{A,i}\mbox{, } S_{B,i}\right)}{\sum S_{A,i}+\sum S_{B,i}}$
+
+Site 1 vs Site 2:  1 - (2 * (0 + 250 + 56 + 18) / (4 +300 + 56 + 23 + 0 + 250 + 120 + 18)) = 0.16
+
+:::
+:::
+:::
+
+---
+
+## 2a) Second-Order properties with site characteristics (1950s ~)
+
+::: columns
+::: {.column width="50%"}
+
+```{r, echo=FALSE}
+env <- rbind(c(780, 2500, 480, 1200),
+            c(21, 11, 24, 19),
+            c(1500, 1900, 700, 4500))
+rownames(env) <- paste("Env.", 1:3)
+colnames(env) <- paste("Site", 1:4)
+
+rbind(ab, env) |>
+  kbl(booktabs = TRUE, escape = FALSE, format = "html") |>
+  kable_styling(latex_options = c("striped", "HOLD_position")) |>
+  pack_rows("Abundance", 1, 4) |>
+  pack_rows("Env", 5, 7)
+```
+
+:::
+::: {.column width="50%"}
+- "Species $\times$ site" and "site $\times$ environment"
+:::
+:::
+
+## 2a) Second-Order properties with site characteristics (1950s ~)
+
+::: columns
+::: {.column width="50%"}
+
+```{r, echo=FALSE}
+rownames(env) <- c("Elevation (m)", "MAT (\U2103)", "MAP (mm)")
+
+rbind(ab, env) |>
+  kbl(booktabs = TRUE, escape = FALSE, format = "html") |>
+  kable_styling(latex_options = c("striped", "HOLD_position")) |>
+  pack_rows("Abundance", 1, 4) |>
+  pack_rows("Env", 5, 7)
+```
+
+:::
+::: {.column width="50%"}
+- "Species $\times$ site" and "site $\times$ environment"
+
+
+::: fragment
+- Diversity-environment relationships
+:::
+
+::: fragment
+- Composition-environment relationships
+    - Multivariate ordination: placing the survey plots "in order" based on their multivariate species composition.
+:::
+:::
+
+:::
+
+---
+
+## 2b) Second-Order properties with species characteristics (2000s ~)
+
+::: columns
+::: {.column width="50%"}
+
+```{r, echo=FALSE}
+rbind(ab, env) |>
+  kbl(booktabs = TRUE, escape = FALSE, format = "html") |>
+  kable_styling(latex_options = c("striped", "HOLD_position")) |>
+  pack_rows("Abundance", 1, 4) |>
+  pack_rows("Env", 5, 7)
+```
+
+:::
+::: {.column width="50%"}
+
+```{r, echo=FALSE}
+set.seed(123)
+trait <- cbind(rlnorm(4, log(2), 0.8),
+               rlnorm(4, 1.5, 0.6),
+               rlnorm(4, 1, 0.6),
+               rlnorm(4, 3)) |> round(1)
+
+rownames(trait) <- paste("Sp", 1:4)
+colnames(trait) <- paste("Trait", 1:4)
+
+trait %>%
+  knitr::kable(format = "html")
+```
+
+- "Trait $\times$ species", "species $\times$ site", "site $\times$ environment"
+
+:::
+:::
+
+---
+
+## 2b) Second-Order properties with species characteristics (2000s ~)
+
+::: columns
+::: {.column width="50%"}
+
+```{r, echo=FALSE}
+rbind(ab, env) |>
+  kbl(booktabs = TRUE, escape = FALSE, format = "html") |>
+  kable_styling(latex_options = c("striped", "HOLD_position")) |>
+  pack_rows("Abundance", 1, 4) |>
+  pack_rows("Env", 5, 7)
+```
+
+:::
+::: {.column width="50%"}
+
+```{r, echo=FALSE}
+colnames(trait) <- c("Leaf N", "Amax", "Rdark", "LL")
+
+trait %>%
+  knitr::kable(format = "html")
+```
+
+- "Trait $\times$ species", "species $\times$ site", "site $\times$ environment"
+
+::: fragment
+- Trait diversity and composition
+
+- Trait composition-environment relationships
+:::
+:::
+:::
+
+---
+
+## How to measure species characteristics?
+
+::: columns
+::: {.column width="30%"}
+Photosynthetic rates
+
+![](images/li6800-hero3.png)
+:::
+
+::: {.column width="70%"}
+::: fragment
+![](images/1200px-BorneoRainforest_DSC_9267.jpg)
+:::
+:::
+
+:::
+
+---
+
+## Assuming closely related species are more ecologically similar
+
+### Genus:species ratio: Relatedness as a substitute for ecological similarity
+
+::: fragment
+Community with 3 genus and 3 species (3:3) vs community with 1 genus and 3 species (1:3)
+:::
+
+::: fragment
+- A [**high**]{.orange} genus:species ratio indicates distantly related and ecologically
+  dissimilar species coexist.
+
+  - [**Limiting similarity**]{.orange}
+:::
+
+::: fragment
+- A [**low**]{.blue} genus:species ratio indicates closely related and ecologically
+  similar species coexist.
+
+   - [**Environmental filtering**]{.blue}
+:::
+
+---
+
+## Genus:species ratio
+
+::: footer
+[1] Swenson, N. G. The assembly of tropical tree communities - the advances and shortcomings of phylogenetic and functional trait analyses. Ecography 36, 264–276 (2013).
+:::
+
+- The genus:species ratio type of study in plant community ecology started ~1910
+  and was popular until 1990's
+
+::: fragment
+- A large criticism of genus:species ratio analyses is that they do not take
+  account for the different ages of genera and species
+    - Two species in a relatively young genus may be expected to be more similar than two species in a relatively old genus.
+:::
+
+---
+
+## Solution for the genus:species ratio problem = Use phylogenetic trees
+
+```{r, echo=FALSE}
+aa <- c(1, 3, 5, 9, 11, 13)
+#aa <- c(1, 2, 3, 5, 6, 6)
+#aa <- 1:3
+#names(aa) <- LETTERS[1:6]
+names(aa) <- c("E", "D", "F", "B", "A", "C")
+
+t <- aa %>%
+  dist %>%
+  hclust %>%
+  as.phylo
+
+t0 <- aa %>%
+  dist %>%
+  hclust
+
+plot(t,
+   show.tip.label = FALSE,
+   direction = "downward",
+   main = "Phylogeny")
+```
+
+## Phylodiversity
+
+::: footer
+[1] Dimensions of Biodiversity: National Science Foundation
+:::
+
+::: columns
+::: {.column width="50%"}
+![](images/div-dim.png)
+:::
+
+::: {.column width="50%"}
+- In the 1990's conservation biologists recognized the *biodiversity* is not only species diversity
+
+    - Biodiversity has several axes or dimensions including genetic, taxonomic, phylogenetic and functional diversity
+:::
+:::
+
+---
+
+## Phylodiversity
+
+::: footer
+[1] Faith D.P. (1992) Conservation evaluation and phylogenetic diversity. Biological Conservation, 61, 1-10.
+:::
+
+::: incremental
+- Phylogenetic diversity was first formalized by Dan Faith in 1992
+- He proposed a metic called PD that is also commonly referred to as Faith's
+  Index
+- Many additional metics have now been generated but this metic is still
+  widely used, especially in the context of conservation
+  Index
+:::
+
+
+---
+
+## Faith's Index (PD)
+
+::: footer
+[1] Faith D.P. (1992) Conservation evaluation and phylogenetic diversity. Biological Conservation, 61, 1-10.
+:::
+
+::: columns
+::: {.column width="50%"}
+
+```{r, echo=FALSE}
+my_samp <- rep(1, 6) %>% as.matrix %>% t
+colnames(my_samp) <- names(aa)
+rownames(my_samp) <- "site1"
+total_pd <- pd(my_samp, t)[1,1]
+
+plot(t,
+   show.tip.label = FALSE,
+   direction = "rightwards")
+
+edgelabels(t$edge.length,
+          #  adj = c(0.5, -0.5),
+           frame = "none",
+           bg = "white",
+           cex = 2,
+           col = "blue",
+           font = 2)
+```
+
+- Total branch length = `r total_pd`
+
+:::
+
+
+::: {.column width="50%"}
+
+::: fragment
+- PD is the sum of the lengths of all those branches that are members of the corresponding minimum spanning path
+:::
+
+::: fragment
+- PD is the phylogenetic analogue of taxon richness and is expressed as the number of tree units which are found in a sample
+:::
+
+::: fragment
+- PD will correlate with species richness
+:::
+
+:::
+:::
+
+---
+
+## Faith's Index (PD)
+
+::: footer
+[1] Faith D.P. (1992) Conservation evaluation and phylogenetic diversity. Biological Conservation, 61, 1-10.
+:::
+
+::: columns
+::: {.column width="50%"}
+
+```{r, echo=FALSE}
+my_samp1 <- my_samp
+my_samp1[, 4:6] <- 0
+pd1 <- pd(my_samp1, t)[1,1]
+
+plot(t,
+   show.tip.label = FALSE,
+   direction = "rightwards")
+
+edgelabels(t$edge.length,
+          #  adj = c(0.5, 0.5),
+           frame = "none",
+           bg = "white",
+           col = "blue",
+           cex = 2,
+           font = 2)
+
+tiplabels(
+          pch = 21,
+          cex = 4,
+          col = NA,
+          bg = rep(c("blue", NA), each = 3))
+```
+
+:::
+
+::: {.column width="50%"}
+- Total branch length = `r pd1`
+:::
+:::
+
+---
+
+## Faith's Index (PD)
+
+::: footer
+[1] Faith D.P. (1992) Conservation evaluation and phylogenetic diversity. Biological Conservation, 61, 1-10.
+:::
+
+::: columns
+::: {.column width="50%"}
+
+```{r, echo=FALSE}
+my_samp2 <- my_samp
+my_samp2[, c(2, 4, 6)] <- 0
+pd2 <- pd(my_samp2, t)[1,1]
+
+plot(t,
+   show.tip.label = FALSE,
+   direction = "rightwards")
+
+edgelabels(t$edge.length,
+          #  adj = c(0.5, -0.5),
+           frame = "none",
+           bg = "white",
+           col = "blue",
+           cex = 2,
+           font = 2)
+
+tiplabels(
+          pch = 21,
+          cex = 4,
+          col = NA,
+          bg = rep(c("blue", NA), 3))
+```
+:::
+
+::: {.column width="50%"}
+- Total branch length = `r pd2`
+:::
+
+:::
+
+---
+
+## Pethcey's functional diversity (FD)
+
+::: footer
+[1] Petchey, O. L. & Gaston, K. J. Functional diversity (FD), species richness and community composition. Ecology Letters 5, 402–411 (2002).
+:::
+
+
+::: columns
+::: {.column width="50%"}
+![](images/functional_dendrogram.png)
+:::
+
+::: {.column width="50%"}
+
+- FD is proposed by Owen Petchey in 2002
+
+::: fragment
+- FD is the total branch length of the functional dendrogram.
+:::
+
+::: fragment
+- Analogous to PD
+:::
+
+:::
+:::
+
+---
+
+## Beyond Faith's Index (PD)
+
+::: footer
+[1] Webb, C.O., 2000. Exploring the Phylogenetic Structure of Ecological Communities: An Example for Rain Forest Trees. The American Naturalist 156, 145–155. https://doi.org/10.1086/303378
+:::
+
+- Solution for genus:species = Use phylogenetic trees to estimate the
+  relatedness of coexisting species
+
+    - This solution was first proposed by Cam Webb in 2000
+
+
+::: columns
+::: {.column width="50%"}
+```{r com-phylo, fig.width =4, fig.height=4.5}
+aa2 <- c(1, 3, 5, 9, 11, 13)
+names(aa2) <- c("E", "F", "D", "B", "A", "C")
+
+t2 <- aa2 |>
+  dist() |>
+  hclust() |>
+  as.phylo()
+
+plot(t2,
+   show.tip.label = FALSE,
+   direction = "rightwards",
+   main = "Community phylogeny",
+   cex.main = 2
+)
+
+tiplabels(t2$tip.label,
+          cex = 1.5,
+          frame = "none")
+```
+:::
+
+::: {.column width="50%"}
+::: fragment
+
+**Distance matrix**
+
+
+```{r com-dist}
+tmp <- rep(1, 6)
+names(tmp) <- LETTERS[1:6]
+dist_all <- tmp |> dist()
+dist_all[1:15] <- c(1, 2, 4, 5, 5,
+                    2, 4, 5, 5,
+                    3, 4, 4,
+                    2, 2,
+                    1)
+mat_all <- dist_all |> as.matrix()
+
+dist_all
+```
+
+:::
+:::
+:::
+
+---
+
+## Mean Pairwise Distance (MPD) and Net Related Index (NRI)
+
+
+::: footer
+[1] $MPD = \frac{1}{n} \sum^{n}_{i} \sum^n_j \delta_{i,j} \; i \neq j$, where
+$\delta_{i, j}$ is the pairwise distance between species *i* and *j*
+:::
+
+Greatest possible mean pairwise node distance for a community of 4 taxa: 22 / 6 pairs = 3.66 (for A, B, E, F)
+
+::: columns
+::: {.column width="50%"}
+```{r com-phylo, fig.width =4, fig.height=4.5}
+```
+:::
+
+::: {.column width="50%"}
+```{r com-dist}
+```
+:::
+
+:::
+
+
+
+## Mean Pairwise Distance (MPD) and Net Related Index (NRI)
+
+
+::: footer
+[1] $MPD = \frac{1}{n} \sum^{n}_{i} \sum^n_j \delta_{i,j} \; i \neq j$, where
+$\delta_{i, j}$ is the pairwise distance between species *i* and *j*
+:::
+
+Greatest possible mean pairwise node distance for a community of 4 taxa: 22 / 6 pairs = 3.66 (for A, B, E, F)
+
+::: columns
+::: {.column width="50%"}
+Community 1; A, B, C, D
+
+```{r}
+dist1 <- mat_all[LETTERS[1:4], LETTERS[1:4]] %>% as.dist
+dist1
+```
+
+**MPD** = (1 + 2 + 2 + 4 + 4 + 3) / 6 = 2.66
+
+**NRI** = 1 - (2.66 / 3.66) = 0.273
+:::
+
+::: {.column width="50%"}
+
+Community 2; A, B, E, F
+
+```{r}
+dist2 <- mat_all[c("A", "B", "E", "F"), c("A", "B", "E", "F")]  %>% as.dist
+dist2
+```
+
+**MNTD** = (1 + 1 + 1 + 1) / 4 = 1
+
+**NTI** = 1 - (1 / 2.0) = 0.5
+
+:::
+
+:::
+
+---
+
+## Sparks community phylogeny
+
+<img src="images/sparks.png" width =80%>
+
+---
+
+## Do phylogenetically related species have similar ecological niches?
+
+::: footer
+[1] https://en.wikipedia.org/wiki/Anolis_ecomorphs
+:::
+
+
+::: columns
+::: {.column width="50%"}
+![](images/anole.jpg)
+:::
+
+::: {.column width="50%"}
+::: incremental
+- We are assuming that related species are ecologically similar
+
+- Related species sometimes have very different traits
+:::
+
+:::
+:::
+
+---
+
+## Functional dendrogram vs. phylogeny
+
+::: footer
+[1] Losos, J. B., Jackman, T. R., Larson, A., De Queiroz, K. & Rodríguez-Schettino, L. Contingency and determinism in replicated adaptive radiations of island lizards. Science 279, 2115–2118 (1998).
+:::
+
+::: columns
+::: {.column width="50%"}
+![](images/Losos1998.png)
+:::
+
+::: {.column width="50%"}
+::: incremental
+
+- A: Functional dendrogram based on ecomorph
+
+- B: Phylogeny indicates frequent evolution of traits
+
+- Phylogenetically similar = Functional (ecologically) similar??
+
+:::
+
+:::
+:::
+
+---
+
+## Putting traits on the tips of phylogeny: phylogenetic signal
+
+::: footer
+[1] Blomberg, S. P., T. Garland Jr., A. R. Ives (2003) Testing for phylogenetic signal in comparative data: Behavioral traits are more labile. Evolution, 57, 717-745.
+:::
+
+::: columns
+::: {.column width="50%"}
+![](images/phylo-sig.png)
+:::
+
+::: {.column width="50%"}
+::: incremental
+
+- Phylogenetic signal (K) quantifies if the focal traits were inherited from their recent or old common ancestor
+
+- Large K indicates phylogenetic coservatism and small K indicates phylogenetic divergence
+
+- (Phylogenetic signal (K): the ratio of the mean squared error of the tip data measured from the phylogneitic corrected mean nd the mean squared error based on the variance–covariance matrix derived from the given phylogeny under the assumption of Brownian motion)
+
+:::
+
+:::
+:::
+
+## Phylogenetic conservatism matters
+
+![](images/Cavender3.jpg)
+
+::: footer
+[1] Cavender‐Bares, J., Ackerly, D. D., Baum, D. A. & Bazzaz, F. A. Phylogenetic Overdispersion in Floridian Oak Communities. The American Naturalist 163, 823–843 (2004).
+:::
+
+---
+
+## Phylogenetic conservatism matters (cont.)
+
+![](./images/Cavender_tab.jpg)
+
+::: footer
+[1] Cavender‐Bares, J., Ackerly, D. D., Baum, D. A. & Bazzaz, F. A. Phylogenetic Overdispersion in Floridian Oak Communities. The American Naturalist 163, 823–843 (2004).
+:::
+
+---
+
+## The phylogenetic middleman problem
+
+::: footer
+[1] Swenson, N. G. The assembly of tropical tree communities - the advances and shortcomings of phylogenetic and functional trait analyses. Ecography 36, 264–276 (2013).
+:::
+
+
+::: columns
+::: {.column width=40%}
+![](./images/phylo-trait.png)
+:::
+
+::: {.column width=60%}
+::: incremental
+- Phylogeny as a proxy for the functional or ecological similarity of species.
+
+- Measuring trait data and arraying it on the phylogenetic tree to demonstrate phylogenetic signal in function so that their phylogenetically-based inferences could be supported.
+
+- Compared to simply measuring the trait dispersion, this approach is very indirect.
+
+- This approach should be avoided! (phylogeny and traits are useful to make meaningful evolutionary inferences)
+:::
+:::
+
+:::
+
+---
+
+## Plant functional traits
+
+Measurable properties of plants that are indicative of ecological strategies
+
+::: columns
+::: {.column width=50%}
+"Hard" traits: e.g., Photosynthetic rates
+
+![](https://www.licor.com/env/products/photosynthesis/LI-6800/images/li6800-hero3.png)
+:::
+
+::: {.column width=50%}
+"Soft" traits: e.g., LMA (leaf mass per area)
+
+![](images/LMA.png)
+:::
+:::
+
+---
+
+## Leaf Economic Spectrum (LES)
+
+::: footer
+[1] Reich, P. B. et al. From tropics to tundra: Global convergence in plant functioning. PNAS 94, 13730–13734 (1997).
+
+[2] Wright, I. J., P. B. Reich, M. Westoby et al. The worldwide leaf economics spectrum. Nature 428, 821–827 (2004).
+
+[3] Osnas, J. L. D. et al. Global leaf trait relationships: Mass, area, and the leaf economics spectrum. Science 340, 741–744 (2013).
+
+[4] Katabuchi, M. et al. Decomposing leaf mass into photosynthetic and structural components explains divergent patterns of trait variation within and among plant species. bioRxiv https://doi.org/10.1101/116855 (2017)
+:::
+
+::: columns
+::: {.column width=35%}
+![](images/LES2004.png)
+:::
+
+::: {.column width=65%}
+::: incremental
+- LES describes pairwise correlations among a bunch of leaf traits from the global leaf database called GLOPNET
+- Peter Reich first formulated the idea of LES
+- Peter Reich, Ian Wright, Mark Westoby and other people confirmed the generality of the LES
+- Global leaf function constrained to a single axis (75 % of variation in the 6 traits)
+- Multidimensional (leaf) functional diversity can be mapped into a one dimensionnal index
+- Controversial (!!)
+:::
+:::
+:::
+
+---
+
+## Rebuilding community ecology from functional traits
+
+::: footer
+[1] McGill, B. J., Enquist, B. J., Weiher, E. & Westoby, M. Rebuilding community ecology from functional traits. Trends in Ecology and Evolution 21, 178–185 (2006).
+:::
+
+::: incremental
+- Non-trait based statement
+
+   - *Campanula aparinoides* is found only in infertile habitats.
+
+- Trait-based statement
+
+   - Compact plants with canopy area < 30 cm <sup>2</sup>  and small or absent leaves are restricted to marshes with < 18 $\mu$ g g <sup>-1</sup> soil P.
+:::
+
+---
+
+
+## Rebuilding community ecology from functional traits
+
+::: footer
+[1] McGill, B. J., Enquist, B. J., Weiher, E. & Westoby, M. Rebuilding community ecology from functional traits. Trends in Ecology and Evolution 21, 178–185 (2006).
+:::
+
+::: incremental
+- Go beyond 'How many species and why?' to ask 'How much variation in traits and why?'
+- Go beyond 'In what environments does a species occur?’ to ask 'What traits and environmental variables are most important in determining fundamental niche?'
+- Go beyond 'What are the most important niche dimensions?' to ask 'What traits are most decisive in translating from fundamental niche to realized niche?'
+- Go beyond 'How does population dynamics determine abundance?' to ask 'How does the performance of species in the interaction milieu determine their ranking of abundance or biomass?'
+- Go beyond 'How does space affect population dynamics?' to ask 'How do environmental gradients affect community structuring?'
+:::
+
+---
+
+## Convex hull volume (functional richness)
+
+
+::: footer
+[1] Cornwell, W. K., Schwilk, L. D. W. & Ackerly, D. D. A trait-based test for habitat filtering: convex hull volume. Ecology 87, 1465–71 (2006).
+:::
+
+::: columns
+::: {.column width=30%}
+![](./images/convexhull.png)
+:::
+::: {.column width=70%}
+::: incremental
+
+- California woody-plant communities (43 plot, 54 species, 3 traits)
+
+- Is trait volume of California woody-plant communities significantly less than expected by chance?
+    - **Environmental filtering**
+
+:::
+:::
+:::
+
+---
+
+## Convex hull volume (functional richness)
+
+::: footer
+[1] Cornwell, W. K., Schwilk, L. D. W. & Ackerly, D. D. A trait-based test for habitat filtering: convex hull volume. Ecology 87, 1465–71 (2006).
+:::
+
+::: columns
+::: {.column width=40%}
+![](./images/convexhull2.png)
+:::
+
+::: {.column width=60%}
+::: incremental
+
+- Species in 40 out of 43 plots occupied less trait space than would be expected by chance
+
+- Consistent with environmental filtering
+
+:::
+:::
+:::
+
+---
+
+## Community assembly and trait distribution
+
+
+::: footer
+[1] Cornwell, W. K. & Ackerly, D. D. Community assembly and shifts in plant trait distributions across an environmental gradient in coastal California. Ecological Monographs 79, 109–126 (2009).
+:::
+
+![](images/trait_dist.png)
+
+---
+
+
+##  Environmental filtering and limiting similarity can occur at the same time
+
+
+::: footer
+[1] Kraft, N. J. B., Valencia, R. & Ackerly, D. D. Functional Traits and Niche-Based Tree Community Assembly in an Amazonian Forest. Science 322, 580–582 (2008).
+:::
+
+::: columns
+::: {.column width=40%}
+![](./images/Kraft2008.png)
+:::
+
+::: {.column width=60%}
+::: incremental
+
+- Yasuni topical tree communities, 25ha, 625 20m x 20m quadrats, 1089 species!
+
+- Consistent with environmental filtering
+
+- A: Ridgetops have lower than expected SLA and valleys have higher
+    - Traits match with environment conditions
+
+- B: Seed mass shows broader distribution than expected - Limiting similarity
+
+- C: Range of SLA is smaller than expected - Environmental filtering
+
+:::
+:::
+:::
+
+---
+
+## How ecological processes might influence community assembly
+
+```{r, echo=FALSE}
+tbl <- tribble(~`Process / Facotr`, ~Pattern,
+  "Enviromental filtering", "Clustring",
+  "Limiting similarity / Compitative eclusion", "Overdispersion",
+  "Competitive hierarchy / directional compation", "Clustring",
+  "Herbivors / Prasites / Pathogens", "Overdispersion",
+  "Pollinator-mediated competition", "Overdispersion",
+  "Nurse plants", "Overdispersion",
+  "Pollinator facilitation", "Clustering",
+  "Neutral theory", "Random"
+)
+
+knitr::kable(tbl) |>
+  pack_rows("Biotic factor", 1, 1) |>
+  pack_rows("Abiotic factor (competition)", 2, 5) |>
+  pack_rows("Abiotic factor (facilitation)", 6, 7) |>
+  pack_rows("Stochastic process", 8, 8)
+```
+
+
+---
+
+##  Competitive hierarchy
+
+
+::: footer
+[1] $t_A$ and $t_B$ are the functional traits values of species A and B
+
+[2] Kunstler, G. et al. Competitive interactions between forest trees are driven by species’ trait hierarchy, not phylogenetic or functional similarity: Implications for forest community assembly. Ecology Letters 15, 831–840 (2012).
+:::
+
+::: columns
+::: {.column width=50%}
+![](./images/comp-hier1.jpg){width="350px"}
+
+### Limiting similarity
+
+Competitive interaction strengths between species will increase with decreasing niche distance, measured as their absolute traits distance $|t_A - t_B|$
+:::
+
+::: {.column width=50%}
+![](./images/comp-hier2.jpg){width="350px"}
+
+### Competitive hierarchy
+
+Competitive effect of species A on species B will increase with increasing $t_A - t_B$.
+:::
+
+:::
+
+---
+
+## Plant–herbivore interactions
+
+
+::: footer
+[1] Endara, M.-J. et al. The role of plant secondary metabolites in shaping regional and local plant community assembly. Journal of Ecology 110, 34–45 (2022).
+:::
+
+::: columns
+::: {.column width=40%}
+![](./images/endra.png)
+:::
+
+::: {.column width=60%}
+::: incremental
+
+- 6000+ secondary metabolites from nearly 100 species in a diverse Neotropical plant clade across the whole Amazonia
+
+- More different in their defensive chemistry than expected by chance
+
+- Plant–herbivore interactions promotes species diveristy
+:::
+:::
+:::
+
+---
+
+## Facilitation
+
+
+::: footer
+[1] López-Angulo, J., Swenson, N. G., Cavieres, L. A. & Escudero, A. Interactions between abiotic gradients determine functional and phylogenetic diversity patterns in Mediterranean-type climate mountains in the Andes. Journal of Vegetation Science 29, 245–254 (2018).
+:::
+
+::: columns
+::: {.column width=40%}
+![](./images/lopez-angulo-re.png)
+:::
+
+::: {.column width=60%}
+::: incremental
+
+- Apline plants in the Andes
+
+- Funcional dispersion in harsh environments (hihger potential solar radiation)
+
+- Facilitation tends to dominate interactions when environmental harshness increases
+
+:::
+:::
+:::
+
+---
+
+
+## Summary `r emo::ji("beer")`
+
+::: incremental
+- Why do we use trait and phylogenetic diversity?
+
+  - We want to quantify ecological similarities of species and multiple dimension of
+    biodiversity.
+
+- Trait-based approaches
+
+  - They will make "ecology" more quantitative and predictive.
+
+- How to calculate trait and phylogenetic diversity anyway?
+
+  - We have some R practice.
+:::
+
+---
+
+## References
+
+-  The slides are made using [Quarto](https://quarto.org/) with [Emi Tanaka's](https://github.com/emitanaka/talks) CSS design.
+
+-  Source code for the slides can be found at [mattocci27/phy-fun-div](https://github.com/mattocci27/phy-fun-div)

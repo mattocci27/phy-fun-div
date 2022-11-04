@@ -1,0 +1,431 @@
+---
+title: Diversity calculation
+author: "Masatoshi Katabuchi"
+date: "2022/11/9"
+fontsize: 12pt
+format:
+  html:
+    theme: cosmo #readable #sandstone #spacelab #flatly
+    # highlight: pygments #tango #kate
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    smooth-scroll: true
+    embed-resources: false
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE,
+                      warning=FALSE,
+                      cache=TRUE,
+                      message=FALSE)
+
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+<a href="https://twitter.com/mattocci"><i class="fa fa-twitter fa-1x"></i> Twitter</a>
+<a href="https://github.com/mattocci27/"><i class="fa fa-github fa-1x"></i> Github</a>
+<a href="mailto:mattocci27@gmail.com"><i class="fa fa-envelope fa-1x"></i> Email</a>
+
+Course materials for 2022-11-09 AFEC at XTBG.
+
+# Objectives
+
+- prepare species $\times$ site matrix and trait data from csv files.
+- calculate diversity indices.
+
+# Prerequisites
+
+Clone this repo.
+
+```
+git clone https://github.com/mattocci27/phy-fun-div.git
+```
+
+The following command install all the R packages required for this course.
+
+```{r, eval=FALSE}
+renv::restore()
+```
+
+Otherwise, please install those packages manually (I might miss some other packages).
+
+```{r, eval=FALSE}
+install.packages("picante")
+install.packages("FD")
+install.packages("tidyverse")
+install.packages("rmarkdown")
+install.packages("DT")
+```
+
+Load packages.
+
+```{r}
+library(picante)
+library(FD)
+library(tidyverse)
+library(rmarkdown)
+```
+
+# Data
+
+## Community
+
+First, we import the community data.
+I prefer `read_csv` but `read.csv` is fine tool
+
+```{r}
+d <- read_csv("data/samp.csv")
+d
+DT::datatable(d)
+```
+
+Then, we want to make a species $\times$ site matrix.
+`tapply` is an useful function here.
+
+```{r}
+tapply(d$abund, d$Species, sum)
+```
+
+```{r}
+samp <- tapply(d$abund, list(d$Site, d$Species), sum)
+samp
+class(samp)
+```
+
+## Phylogeny
+
+```{r, fig.height=20}
+phylo <- read.tree("data/dummy_tree.newick")
+plot(phylo)
+```
+
+## Traits
+
+| Abbreviation | Trait                                      | Unit              |
+| ------------ | ------------------------------------------ | ----------------- |
+| LMA          | Leaf mass per area                         | g m^-2^           |
+| LL           | Leaf lifespans (longevity)                 | months            |
+| Amass        | Maximum photosynthetic rates per unit mass | nnoml g^-1^ s^-^1 |
+| Rmass        | Dark respiration rates per unit mass       | nnoml g^-1^ s^-^1 |
+| Nmass        | Leaf nitrogen per unit mass                | %                 |
+| Pmass        | Leaf phosphorus per unit mass              | %                 |
+| WD           | Wood density                               | g cm^-3^          |
+| SM           | Seed dry mass                              | mg                |
+
+
+```{r}
+trait <- read_csv("data/dummy_trait.csv")
+
+DT::datatable(trait)
+```
+
+## Check how traits look like first
+
+```{r}
+trait_long <- trait |>
+  pivot_longer(LMA:SM, names_to = "trait")
+
+trait_long
+
+ggplot(trait_long, aes(x = value)) +
+  geom_histogram(position = "identity") +
+  facet_wrap(~ trait, scale = "free")
+```
+
+
+Probably we can do log-transformation for all the traits except for WD.
+
+```{r}
+
+trait2 <- trait |>
+  mutate(logLMA = log(LMA),
+         logLL = log(LL),
+         logAmass = log(Amass),
+         logRmass = log(Rmass),
+         logNmass = log(Nmass),
+         logPmass = log(Pmass),
+         logSM = log(SM)) |>
+  dplyr::select(sp, logLMA, logLL, logAmass, logRmass, logNmass, logPmass, WD, logSM)
+
+DT::datatable(trait2)
+
+```
+
+```{r}
+trait2 |>
+  pivot_longer(logLMA:logSM, names_to = "trait") |>
+  ggplot(aes(x = value)) +
+  geom_histogram(position = "identity") +
+  facet_wrap(~ trait, scale = "free")
+```
+
+# First-order metrics (without phylogeny or traits)
+
+## Species richness
+
+```{r}
+samp > 0
+apply(samp > 0, 1, sum)
+```
+
+## Shannon
+
+$H' = - \sum_i^n p_i\mathrm{log}p_i$, where $p_i$ is the relative abundance for
+species *i*.
+
+```{r}
+shannon <- function(abund) {
+ p0 <- abund / sum(abund)
+ p <- p0[p0 > 0]
+ -sum(p * log(p))
+}
+```
+
+```{r}
+apply(samp, 1, shannon)
+```
+
+You don't have to reinvent the wheel.
+
+```{r}
+vegan::diversity(samp, index = "shannon")
+```
+
+## Nonmetric Multidimensional Scaling (NMDS)
+
+```{r}
+res_mds <- metaMDS(samp)
+
+plot(res_mds)
+```
+
+We can use the function ordiplot and orditorp to add text to the plot in place of points to make some more sense.
+
+```{r}
+ordiplot(res_mds, type = "n")
+orditorp(res_mds, display = "species", col = "red", air = 0.01)
+orditorp(res_mds, display = "sites", cex = 1.25, air = 0.01)
+```
+
+# Phylogenetic metrics
+
+## Branch length based metric
+
+### PD
+
+```{r}
+res_pd <- pd(samp, phylo)
+res_pd
+```
+
+
+You can always see the help.
+
+```{r, eval=FALSE}
+?pd
+```
+
+
+## Distance based metric
+
+`cophenetic()` creates distance matrices based on phylogenetic trees. Let's see the first 5 species.
+
+```{r}
+cophenetic(phylo)[1:5, 1:5]
+```
+
+
+### MPD
+
+$MPD = \frac{1}{n} \Sigma^n_i \Sigma^n_j \delta_{i,j} \; i \neq j$, where
+$\delta_{i, j}$ is the pairwised distance between species *i* and *j*
+
+```{r}
+res_mpd <- mpd(samp, cophenetic(phylo))
+res_mpd
+```
+
+The above vector shows MPD for each site.
+
+### MNTD
+
+$MNTD = \frac{1}{n} \Sigma^n_i min \delta_{i,j} \; i \neq j$, where $min \delta_{i, j}$ is the minimum distance between species *i* and all other species in the community.
+
+```{r}
+res_mntd <- mntd(samp, cophenetic(phylo))
+res_mntd
+```
+
+
+
+# Functional metrics
+
+## Community weighted means (CWM)
+
+$$
+CWM_i = \frac{\sum_{j=1}^n a_{ij} \times t_{j}}{\sum_{j=1}^n a_{ij}}
+$$
+
+or
+
+$$
+CWM_i = \frac{\vec{a_i} \cdot \vec{t}}{\sum_{j=1}^n a_{ij}},
+$$
+
+where $a_{ij}$ is the abundance of species *j* in community *i*, and $t_{j}$ is a trait value of species *j*.
+
+```{r}
+tmp <- trait2 |>
+  filter(sp %in% colnames(samp))
+
+tmp
+
+(ab <- apply(samp, 1, sum))
+# inner product
+(CWS <- samp %*% as.matrix(tmp[,-1]))
+```
+```{r}
+(CWM <- CWS / ab)
+```
+
+**The species $\times$ site matrix and the species $\times$ trait matrix became the trait $\times$ site matrix.**
+
+## Distance based metrics
+
+### Prepare a trait distance matrix
+
+We have a `data.fame` or `tibble` object of traits.
+First, we need to prepare a trait matrix, then a distance matrix based on trait values.
+
+```{r}
+trait_mat0 <- as.matrix(trait2[, -1])
+rownames(trait_mat0) <- trait2$sp
+```
+
+Let's see a subset of the trait matrix
+
+```{r}
+trait_mat0[1:5, 1:5]
+```
+
+Then, we will make trait distance matrix based on the Euclidean distance. There are
+other distance measures, for example [Gower's Distance](https://www.rdocumentation.org/packages/gower/versions/0.2.1/topics/gower_dist), but we focus on the Euclidean distance today.
+
+Before calculating distance, we need to make sure unit change in distances is
+same for different traits.
+We will scale trait values so that they have mean = 0 and SD = 1.
+(e.g., $(X_i - \mu) / \sigma$)
+
+```{r, fig.height=6}
+# (trait_mat0 - mean(trait_mat0)) / sd(trait_mat0)
+trait_mat <- scale(trait_mat0)
+
+par(mfrow = c(2, 2))
+hist(trait_mat0[, "logLMA"])
+hist(trait_mat[, "logLMA"])
+hist(trait_mat0[, "WD"])
+hist(trait_mat[, "WD"])
+par(mfrow = c(1, 1))
+
+```
+
+Now we can make a trait distance matrix.
+
+```{r}
+trait_dm <- as.matrix(dist(trait_mat))
+```
+
+Let's see the first 5 species.
+
+
+```{r}
+trait_dm[1:5, 1:5]
+```
+
+### MPD
+
+```{r}
+mpd(samp, trait_dm)
+ses.mpd(samp, trait_dm)
+```
+
+**Effect size (ES)**
+
+$$
+ES = \frac{\bar{x_1} - \bar{x_2}}{\sigma} \sim Normal(\bar{x_1} - \bar{x_2}, 1)
+$$
+
+where $\bar{x_1}$ is the mean value of $x_1$, $\bar{x_2}$ is the mean value of $x_2$, and $\sigma$
+is the standard deviation of the pooled data.
+
+```{r, echo=FALSE}
+xx2 <- seq(-3, 3, length = 80)
+yy2 <- dnorm(xx2, 0, 1)
+plot(xx2, yy2, type = "l",
+     main = "Normal(0, 1)",
+     xlab = "X", ylab = "Density")
+```
+
+In null model analyses, we can translate this into a standardized effect size
+(SES):
+
+$$
+SES = \frac{obs - \bar{rand}}{\sigma_{rand}}
+$$
+
+where obs is the observed metric, $\bar{rand}$ is the mean value of the metric in
+null communities, and $\sigma_{rand}$ is the standard deviation of the metric in
+the null communities.
+
+
+### MNTD
+
+```{r}
+mntd(samp, trait_dm)
+ses.mntd(samp, trait_dm)
+```
+
+## Branch length based metric
+
+### FD
+
+We will make a functional dendrogram using clustering methods. We use [UPGMA](https://en.wikipedia.org/wiki/UPGMA) in
+this example.
+
+```{r, fig.width=15, fig.height=15}
+
+t_clust <- hclust(dist(trait_mat), method = "average")
+
+plot(t_clust)
+
+```
+
+
+### More functional diversity metrics
+
+```{r, eval=TRUE}
+res_fd <- dbFD(trait_mat[colnames(samp), ], samp)
+res_fd
+```
+
+<iframe src="appendixA.htm" width="900" height="1200" allowfullscreen frameborder="0"></iframe>
+
+# Related
+
+- Aiba, M., Katabuchi, M., Takafumi, H., Matsuzaki, S.S., Sasaki, T. and Hiura, T. (2013), Robustness of trait distribution metrics for community assembly studies under the uncertainties of assembly processes. Ecology, 94: 2873-2885. [doi:10.1890/13-0269.1](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/13-0269.1)
+
+- [Phylogenetic diversity in R](https://daijiang.name/en/2014/05/04/notes-func-phylo-book-1/)
+
+- [Functional diversity in R](https://daijiang.name/en/2014/05/11/functional-diversity-in-r/)
+
+- [Biodiversity analysis in R](https://www.kembellab.ca/r-workshop/biodivR/SK_Biodiversity_R.html)
+
+- [Measuring functional diveristy in R](http://traits-dgs.nceas.ucsb.edu/workspace/r/r-tutorial-for-measuring-functional-diversity/Measuring%20Functional%20Diversity%20in%20R.pdf/attachment_download/file)
+
+
+# Computing Environment
+
+```{r}
+devtools::session_info()
+```

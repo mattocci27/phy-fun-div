@@ -1,0 +1,192 @@
+/*-- scss:defaults --*/
+
+@import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+// fonts
+$font-family-sans-serif: Lato, sans-serif !default;
+
+// colors
+$body-bg: #fff !default;
+$body-color: #000 !default;
+$link-color: #00008b !default;
+$selection-bg: rgba(0, 0, 0, 0.99);
+
+// headings
+$presentation-heading-font: "News Cycle", sans-serif !default;
+
+/*-- scss:rules --*/
+
+.reveal .slide blockquote {
+  border-left: 3px solid $text-muted;
+  padding-left: 0.5em;
+}
+
+
+.cell-output-stdout pre code {
+  background-color: #E8E8E8;
+  font-size: 2em;
+  line-height: 50px;
+}
+
+code span {
+  color: #007BA5;
+}
+
+div.sourceCode {
+  background-color: #181818;
+  color: #eaeaea;
+}
+
+div.sourceCode pre code {
+  background-color: #181818;
+  color: #eaeaea;
+}
+
+code span.at {
+  color: #7aa6da;
+}
+
+code span.ot {
+  color: #007BA5;
+}
+
+code span.ss {
+  color: #20794D;
+}
+
+code span.an {
+  color: #5E5E5E;
+}
+
+code span.fu {
+  color: #c397d8;
+}
+
+code span.st {
+  color: #b9ca4a;
+}
+
+code span.cf {
+  color: #007BA5;
+}
+
+code span.op {
+  color: #5E5E5E;
+}
+
+code span.er {
+  color: #AD0000;
+}
+
+code span.bn {
+  color: #AD0000;
+}
+
+code span.al {
+  color: #AD0000;
+}
+
+code span.va {
+  color: #111111;
+}
+
+code span.pp {
+  color: #AD0000;
+}
+
+code span.in {
+  color: #5E5E5E;
+}
+
+code span.vs {
+  color: #20794D;
+}
+
+code span.wa {
+  color: #5E5E5E;
+  font-style: italic;
+}
+
+code span.do {
+  color: #5E5E5E;
+  font-style: italic;
+}
+
+code span.ch {
+  color: #20794D;
+}
+
+code span.dt {
+  color: #AD0000;
+}
+
+code span.fl {
+  color: #AD0000;
+}
+
+code span.co {
+  color: #5E5E5E;
+}
+
+code span.cv {
+  color: #5E5E5E;
+  font-style: italic;
+}
+
+code span.cn {
+  color: #8f5902;
+}
+
+code span.sc {
+  color: #e78c45;
+}
+
+code span.dv {
+  color: #d54e53;
+}
+
+code span.kw {
+  color: #007BA5;
+}
+
+/****
+
+PRIMARY PALETTE
+
+Monash Blue is our most identifiable colour. It conveys youthfulness, possibility and openness. It should always be considered first.
+
+Black conveys prestige, timelessness and sophistication.
+
+White is often shown as white space and conveys the brand personality of being open and youthful.
+
+Greys can be any percentage of black and provides additional flexibility to our primary colour palette.
+
+The primary colour palette is preferred for digital work.
+
+****/
+
+.monash-bg-blue { background-color: #006DAE!important; }
+.monash-bg-gray80 { background-color: #5A5A5A!important; }
+.monash-bg-gray50 { background-color: #969696!important; }
+.monash-bg-gray10 { background-color: #E6E6E6!important; }
+.monash-bg-white { background-color: #FFFFFF!important; }
+.monash-bg-black { background-color: #000000!important; }
+
+.rladies-purple, .rladies-purple code, .rladies-purple a { color: #562457!important; }
+.rladies-red, .rladies-red code, .rladies-red a { color: #ff0000!important; }
+.rladies-orange, .rladies-orange code, .rladies-orange a { color: #ffa500!important; }
+.rladies-yellow, .rladies-yellow code, .rladies-yellow a { color: #ffff00!important; }
+.rladies-green, .rladies-green code, .rladies-green a { color: #008000!important; }
+.rladies-blue, .rladies-blue code, .rladies-blue a { color: #0000ff!important; }
+.rladies-indigo, .rladies-indigo code, .rladies-indigo a { color: #4b0082!important; }
+.rladies-violet, .rladies-violet code, .rladies-violet a { color: #ee82ee!important; }
+
+.monash-blue, .monash-blue code, .monash-blue a { color: #006DAE!important; }
+.monash-black, .monash-black code, .monash-black a { color: #000000!important; }
+.monash-white, .monash-white code, .monash-white a { color: #FFFFFF!important; }
+
+
+
+
+

@@ -1,0 +1,102 @@
+```{r load-pkgs}
+# Do not change the order of the first two chunks
+
+options(htmltools.dir.version = FALSE)
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE, fig.retina = 3)
+library(tidyverse)
+library(fontawesome) # from github: https://github.com/rstudio/fontawesome
+library(kableExtra)
+library(picante)
+library(entropart)
+library(patchwork)
+library(gganimate)
+```
+
+```{r setup-options}
+knitr::opts_chunk$set(
+  echo       = FALSE,
+  eval       = TRUE,
+  warning    = FALSE,
+  message    = FALSE,
+  tidy       = FALSE,
+  size       = 'normalsize',
+  background = '#F7F7F7',
+  comment    = ' ',
+  #dev        ='svg',
+  dev.args   = list(bg = 'transparent'),
+  cache      = FALSE,
+  cache.path ='cache/',
+  cache.vars = NULL,
+  cache.lazy = TRUE,
+  fig.path   ='figure/',
+  fig.align  ='center',
+  fig.show   ='hold',
+  fig.retina = 3
+)
+# options(crayon.enabled = TRUE)
+# this is necessary so that the code doesn't wrap
+options(width = 1000)
+
+
+
+largefontthm <- theme_bw() + theme(
+    axis.title        = element_text(size = 18),
+    axis.text         = element_text(size = 16),
+    strip.text        = element_text(size = 20),
+    plot.title = element_text(size = 22),
+    plot.subtitle = element_text(size = 18),
+    plot.caption = element_text(size = 14),
+    legend.text = element_text(size = 14),
+    legend.title = element_text(size = 16)
+    )
+
+invthm <- theme_minimal() +
+  theme(
+    panel.background  = element_rect(fill = 'transparent', colour = NA),
+    plot.background   = element_rect(fill = 'transparent', colour = NA),
+    legend.background = element_rect(fill = 'transparent', colour = NA),
+    legend.key        = element_rect(fill = 'transparent', colour = NA),
+    axis.title        = element_text(size = 18),
+    axis.text         = element_text(size = 16),
+    strip.text        = element_text(size = 20)
+  )
+
+voidthm <- theme_void() +
+  theme(
+    panel.background  = element_rect(fill = 'transparent', colour = NA),
+    plot.background   = element_rect(fill = 'transparent', colour = NA),
+    legend.background = element_rect(fill = 'transparent', colour = NA),
+    legend.key        = element_rect(fill = 'transparent', colour = NA),
+    strip.text        = element_text(size = 20),
+    plot.title = element_text(size=28, face="bold")
+  )
+
+#theme_set(invthm)
+#theme_get()
+theme_set(largefontthm)
+```
+
+
+```{r}
+rotating_text <- function(x, align = "center") {
+  glue::glue('
+<div style="overflow: hidden; height: 1.2em;">
+<ul class="content__container__list {align}" style="text-align: {align}">
+<li class="content__container__list__item">{x[1]}</li>
+<li class="content__container__list__item">{x[2]}</li>
+<li class="content__container__list__item">{x[3]}</li>
+<li class="content__container__list__item">{x[4]}</li>
+</ul>
+</div>')
+}
+
+fa_list <- function(x, incremental = FALSE) {
+  icons <- names(x)
+  fragment <- ifelse(incremental, "fragment", "")
+  items <- glue::glue('<li class="{fragment}"><span class="fa-li"><i class="{icons}"></i></span> {x}</li>')
+  paste('<ul class="fa-ul">',
+        paste(items, collapse = "\n"),
+        "</ul>", sep = "\n")
+}
+```

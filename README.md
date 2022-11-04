@@ -1,8 +1,8 @@
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
-# AFEC2021: Phylogenetic diversity, functional diversity and trait-based approaches
+# AFEC2022: Phylogenetic diversity, functional diversity and trait-based approaches
 
-Slides and materials for 2021-11-10 AFEC at XTBG.
+Slides and materials for 2022-11-09 AFEC at XTBG.
 
 View the accompanying slides [here](https://forest-canopy.github.io/assets/PDFD/FDPD.html) and course materials [here](https://forest-canopy.github.io/assets/PDFD/diversity.html)
 
@@ -14,3 +14,6 @@ View the accompanying slides [here](https://forest-canopy.github.io/assets/PDFD/
 
 - Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
 
+- [DanyangDai/brownbag_2022_10_11](https://github.com/DanyangDai/brownbag_2022_10_11)
+
+- [emitanaka/talks](https://github.com/emitanaka/talks)
