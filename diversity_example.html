@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Masatoshi Katabuchi">
-<meta name="dcterms.date" content="2022-11-09">
+<meta name="dcterms.date" content="2022-11-08">
 
 <title>Diversity calculation</title>
 <style>
@@ -176,7 +176,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 9, 2022</p>
+      <p class="date">November 8, 2022</p>
     </div>
   </div>
     
@@ -186,7 +186,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <p><a href="https://twitter.com/mattocci"><i class="fa fa-twitter fa-1x"></i> Twitter</a> <a href="https://github.com/mattocci27/"><i class="fa fa-github fa-1x"></i> Github</a> <a href="mailto:mattocci27@gmail.com"><i class="fa fa-envelope fa-1x"></i> Email</a></p>
-<p>Course materials for 2022-11-09 AFEC at XTBG.</p>
+<p>Course materials for 2022-11-08 AFEC at XTBG.</p>
 <section id="objectives" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Objectives</h1>
 <ul>
@@ -198,7 +198,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1 data-number="2"><span class="header-section-number">2</span> Prerequisites</h1>
 <p>Clone this repo.</p>
 <pre><code>git clone https://github.com/mattocci27/phy-fun-div.git</code></pre>
-<p>The following command install all the R packages required for this course.</p>
+<p>The following command installs all the R packages required for this course.</p>
 <div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-1_efcacef05bb3b198094e70b8a6369455">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -222,7 +222,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1 data-number="3"><span class="header-section-number">3</span> Data</h1>
 <section id="community" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="community"><span class="header-section-number">3.1</span> Community</h2>
-<p>First, we import the community data. I prefer <code>read_csv</code> but <code>read.csv</code> is fine tool</p>
+<p>First, we import the community data. I prefer <code>read_csv</code> but <code>read.csv</code> is fine too.</p>
 <div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-4_093418c8007fa33b631ce8c47c72b48f">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/samp.csv"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -752,8 +752,8 @@ Beilschmiedia_robusta           1.579930              0.000000</code></pre>
 </div>
 </div>
 </section>
-<section id="mpd-1" class="level3" data-number="6.2.2">
-<h3 data-number="6.2.2" class="anchored" data-anchor-id="mpd-1"><span class="header-section-number">6.2.2</span> MPD</h3>
+<section id="mpd-mean-pairwise-distance" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="mpd-mean-pairwise-distance"><span class="header-section-number">6.2.2</span> MPD (Mean Pairwise Distance)</h3>
 <div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-30_3ba5a1580384cc4d3963dbf6408396c2">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mpd</span>(samp, trait_dm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -791,9 +791,12 @@ SES = \frac{obs - \bar{rand}}{\sigma_{rand}}
 \]</span></p>
 <p>where obs is the observed metric, <span class="math inline">\(\bar{rand}\)</span> is the mean value of the metric in null communities, and <span class="math inline">\(\sigma_{rand}\)</span> is the standard deviation of the metric in the null communities.</p>
 </section>
-<section id="mntd-1" class="level3" data-number="6.2.3">
-<h3 data-number="6.2.3" class="anchored" data-anchor-id="mntd-1"><span class="header-section-number">6.2.3</span> MNTD</h3>
-<div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-32_553f3fab9632b22efd3d1dd766eb79fa">
+<section id="mntd-mean-nearest-taxon-distance" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="mntd-mean-nearest-taxon-distance"><span class="header-section-number">6.2.3</span> MNTD (Mean Nearest Taxon Distance)</h3>
+<div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-32_b1960dd9911594a75bfe7d30716e3d1c">
+
+</div>
+<div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-33_338797e26cea70cfb4e02c534f9aca54">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mntd</span>(samp, trait_dm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]       NA 2.504352 2.697074 1.873825 2.613585</code></pre>
@@ -821,18 +824,18 @@ Site5      0.342  999</code></pre>
 <section id="fd" class="level3" data-number="6.3.1">
 <h3 data-number="6.3.1" class="anchored" data-anchor-id="fd"><span class="header-section-number">6.3.1</span> FD</h3>
 <p>We will make a functional dendrogram using clustering methods. We use <a href="https://en.wikipedia.org/wiki/UPGMA">UPGMA</a> in this example.</p>
-<div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-33_a03f613692c699f8e30ae37b1a8b15e2">
+<div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-34_862196e5db20aea71f89abdc5192f9e4">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>t_clust <span class="ot">&lt;-</span> <span class="fu">hclust</span>(<span class="fu">dist</span>(trait_mat), <span class="at">method =</span> <span class="st">"average"</span>)</span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t_clust)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="diversity_example_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" width="1440"></p>
+<p><img src="diversity_example_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="1440"></p>
 </div>
 </div>
 </section>
 <section id="more-functional-diversity-metrics" class="level3" data-number="6.3.2">
 <h3 data-number="6.3.2" class="anchored" data-anchor-id="more-functional-diversity-metrics"><span class="header-section-number">6.3.2</span> More functional diversity metrics</h3>
-<div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-34_92fd505fd034340863e1c4c5a79ffc14">
+<div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-35_5176603fcd4eb88cabdeefe306f4f453">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>res_fd <span class="ot">&lt;-</span> <span class="fu">dbFD</span>(trait_mat[<span class="fu">colnames</span>(samp), ], samp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>FEVe: Could not be calculated for communities with &lt;3 functionally singular species. 
@@ -902,12 +905,12 @@ Site5 -0.4833418 -0.9701997</code></pre>
 <li><p><a href="https://daijiang.name/en/2014/05/04/notes-func-phylo-book-1/">Phylogenetic diversity in R</a></p></li>
 <li><p><a href="https://daijiang.name/en/2014/05/11/functional-diversity-in-r/">Functional diversity in R</a></p></li>
 <li><p><a href="https://www.kembellab.ca/r-workshop/biodivR/SK_Biodiversity_R.html">Biodiversity analysis in R</a></p></li>
-<li><p><a href="http://traits-dgs.nceas.ucsb.edu/workspace/r/r-tutorial-for-measuring-functional-diversity/Measuring%20Functional%20Diversity%20in%20R.pdf/attachment_download/file">Measuring functional diveristy in R</a></p></li>
+<li><p><a href="http://traits-dgs.nceas.ucsb.edu/workspace/r/r-tutorial-for-measuring-functional-diversity/Measuring%20Functional%20Diversity%20in%20R.pdf/attachment_download/file">Measuring functional diversity in R</a></p></li>
 </ul>
 </section>
 <section id="computing-environment" class="level1" data-number="8">
 <h1 data-number="8"><span class="header-section-number">8</span> Computing Environment</h1>
-<div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-35_be97bf7cfc06763961309dbd49b1482e">
+<div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-36_f06da4bea72590fe5c61b9d1890e1006">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>─ Session info ───────────────────────────────────────────────────────────────
@@ -920,7 +923,7 @@ Site5 -0.4833418 -0.9701997</code></pre>
  collate  en_US.UTF-8
  ctype    en_US.UTF-8
  tz       Asia/Shanghai
- date     2022-11-04
+ date     2022-11-05
  pandoc   2.19.2 @ /opt/homebrew/bin/ (via rmarkdown)
 
 ─ Packages ───────────────────────────────────────────────────────────────────
@@ -930,10 +933,7 @@ Site5 -0.4833418 -0.9701997</code></pre>
  P ape           * 5.6-2    2022-03-02 [?] CRAN (R 4.2.0)
  P assertthat      0.2.1    2019-03-21 [?] CRAN (R 4.2.0)
  P backports       1.4.1    2021-12-13 [?] CRAN (R 4.2.0)
- P bit             4.0.4    2020-08-04 [?] CRAN (R 4.2.0)
- P bit64           4.0.5    2020-08-30 [?] CRAN (R 4.2.0)
  P broom           1.0.1    2022-08-29 [?] CRAN (R 4.2.0)
- P bslib           0.4.0    2022-07-16 [?] CRAN (R 4.2.0)
  P cachem          1.0.6    2021-08-19 [?] CRAN (R 4.2.0)
  P callr           3.7.3    2022-11-02 [?] CRAN (R 4.2.2)
  P cellranger      1.1.0    2016-07-27 [?] CRAN (R 4.2.0)
@@ -942,17 +942,14 @@ Site5 -0.4833418 -0.9701997</code></pre>
  P codetools       0.2-18   2020-11-04 [?] CRAN (R 4.2.2)
  P colorspace      2.0-3    2022-02-21 [?] CRAN (R 4.2.0)
  P crayon          1.5.2    2022-09-29 [?] CRAN (R 4.2.0)
- P crosstalk       1.2.0    2021-11-04 [?] CRAN (R 4.2.0)
  P DBI             1.1.3    2022-06-18 [?] CRAN (R 4.2.0)
  P dbplyr          2.2.1    2022-06-27 [?] CRAN (R 4.2.0)
  P devtools        2.4.5    2022-10-11 [?] CRAN (R 4.2.0)
  P digest          0.6.30   2022-10-18 [?] CRAN (R 4.2.0)
  P dplyr         * 1.0.10   2022-09-01 [?] CRAN (R 4.2.0)
- P DT              0.26     2022-10-19 [?] CRAN (R 4.2.0)
  P ellipsis        0.3.2    2021-04-29 [?] CRAN (R 4.2.0)
  P evaluate        0.17     2022-10-07 [?] CRAN (R 4.2.0)
  P fansi           1.0.3    2022-03-24 [?] CRAN (R 4.2.0)
- P farver          2.1.1    2022-07-06 [?] CRAN (R 4.2.0)
  P fastmap         1.1.0    2021-01-25 [?] CRAN (R 4.2.0)
  P FD            * 1.0-12.1 2022-05-02 [?] CRAN (R 4.2.0)
  P forcats       * 0.5.2    2022-08-19 [?] CRAN (R 4.2.0)
@@ -971,10 +968,8 @@ Site5 -0.4833418 -0.9701997</code></pre>
  P htmlwidgets     1.5.4    2021-09-08 [?] CRAN (R 4.2.0)
  P httpuv          1.6.6    2022-09-08 [?] CRAN (R 4.2.0)
  P httr            1.4.4    2022-08-17 [?] CRAN (R 4.2.0)
- P jquerylib       0.1.4    2021-04-26 [?] CRAN (R 4.2.0)
  P jsonlite        1.8.3    2022-10-21 [?] CRAN (R 4.2.0)
  P knitr           1.40     2022-08-24 [?] CRAN (R 4.2.0)
- P labeling        0.4.2    2020-10-20 [?] CRAN (R 4.2.0)
  P later           1.3.0    2021-08-18 [?] CRAN (R 4.2.0)
  P lattice       * 0.20-45  2021-09-22 [?] CRAN (R 4.2.2)
  P lifecycle       1.0.3    2022-10-07 [?] CRAN (R 4.2.0)
@@ -1012,7 +1007,6 @@ Site5 -0.4833418 -0.9701997</code></pre>
  P rlang           1.0.6    2022-09-24 [?] CRAN (R 4.2.0)
  P rmarkdown     * 2.17     2022-10-07 [?] CRAN (R 4.2.0)
  P rvest           1.0.3    2022-08-19 [?] CRAN (R 4.2.0)
- P sass            0.4.2    2022-07-16 [?] CRAN (R 4.2.0)
  P scales          1.2.1    2022-08-20 [?] CRAN (R 4.2.0)
  P sessioninfo     1.2.2    2021-12-06 [?] CRAN (R 4.2.0)
  P shiny           1.7.3    2022-10-25 [?] CRAN (R 4.2.0)
@@ -1028,7 +1022,6 @@ Site5 -0.4833418 -0.9701997</code></pre>
  P utf8            1.2.2    2021-07-24 [?] CRAN (R 4.2.0)
  P vctrs           0.5.0    2022-10-22 [?] CRAN (R 4.2.0)
  P vegan         * 2.6-4    2022-10-11 [?] CRAN (R 4.2.0)
- P vroom           1.6.0    2022-09-30 [?] CRAN (R 4.2.0)
  P withr           2.5.0    2022-03-03 [?] CRAN (R 4.2.0)
  P xfun            0.34     2022-10-18 [?] CRAN (R 4.2.0)
  P xml2            1.3.3    2021-11-30 [?] CRAN (R 4.2.0)

@@ -890,7 +890,7 @@ Greatest possible mean pairwise node distance for a community of 4 taxa: 22 / 6 
 
 :::
 
-
+---
 
 ## Mean Pairwise Distance (MPD) and Net Related Index (NRI)
 
@@ -925,6 +925,78 @@ dist2 <- mat_all[c("A", "B", "E", "F"), c("A", "B", "E", "F")]  %>% as.dist
 dist2
 ```
 
+**MPD** = (1 + 5 + 5 + 5+ 5 + 1) / 6 = 3.66
+
+**NRI** = 1 - (3.66 / 3.66) = 0
+
+:::
+
+:::
+
+::: fragment
+
+Community 1 is more phylogenetically similar.
+
+:::
+
+---
+
+## Mean Nearest Nodal Distance (MNTD) and Nearest Taxa Index (NTI)
+
+::: footer
+[1] $MNTD = \frac{1}{n} \sum^n_i min \delta_{i,j} \; i \neq j$, where $min \delta_{i, j}$ is the minimum distance between species *i* and all other species in the community.
+:::
+
+Greatest possible nearest nodal distance for a community of 4 taxa = 2 (for A, C, D, F)
+(A to C = 2, D to F = 2)
+
+::: columns
+::: {.column width="50%"}
+```{r com-phylo, fig.width =4, fig.height=4.5}
+```
+:::
+
+::: {.column width="50%"}
+```{r com-dist}
+```
+:::
+
+:::
+
+---
+
+## Mean Nearest Nodal Distance (MNTD) and Nearest Taxa Index (NTI)
+
+::: footer
+[1] $MNTD = \frac{1}{n} \sum^n_i min \delta_{i,j} \; i \neq j$, where $min \delta_{i, j}$ is the minimum distance between species *i* and all other species in the community.
+:::
+
+
+```{r}
+dist3 <- mat_all[c("A", "C", "D", "F"), c("A", "C", "D", "F")]  %>% as.dist
+```
+
+::: columns
+::: {.column width="50%"}
+Community 1; A, B, C, D
+
+```{r}
+dist1
+```
+
+**MNTD** = (1 + 2 + 2 + 4 + 4 + 3) / 6 = 2.66
+
+**NTI** = 1 - (2.66 / 3.66) = 0.273
+:::
+
+::: {.column width="50%"}
+
+Community 2; A, B, E, F
+
+```{r}
+dist2
+```
+
 **MNTD** = (1 + 1 + 1 + 1) / 4 = 1
 
 **NTI** = 1 - (1 / 2.0) = 0.5
@@ -933,11 +1005,22 @@ dist2
 
 :::
 
----
+::: fragment
+Community 2 is more phylogenetically similar (in tips).
+:::
+
+::: note
+MPD is more sensitive to the overall tree topology, while MNTD is more sensitive to the tip of the tree.
+:::
 
 ## Sparks community phylogeny
 
 <img src="images/sparks.png" width =80%>
+
+
+::: note
+breaK?
+:::
 
 ---
 

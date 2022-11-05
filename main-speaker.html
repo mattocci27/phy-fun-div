@@ -425,7 +425,7 @@
 <h2>How can we quantify ecological similarity of coexisting species?</h2>
 </section>
 <section id="how-to-quantify-ecological-communities" class="slide level2">
-<h2>How to quantify ecological communities 🍂</h2>
+<h2>How to quantify ecological communities 🍁</h2>
 <div>
 <ul>
 <li class="fragment"><p>Species</p></li>
@@ -1467,15 +1467,94 @@
   F 5 5 1</code></pre>
 </div>
 </div>
+<p><strong>MPD</strong> = (1 + 5 + 5 + 5+ 5 + 1) / 6 = 3.66</p>
+<p><strong>NRI</strong> = 1 - (3.66 / 3.66) = 0</p>
+</div>
+</div>
+<div class="fragment">
+<p>Community 1 is more phylogenetically similar.</p>
+</div>
+</section>
+<section id="mean-nearest-nodal-distance-mntd-and-nearest-taxa-index-nti" class="slide level2">
+<h2>Mean Nearest Nodal Distance (MNTD) and Nearest Taxa Index (NTI)</h2>
+<div class="footer">
+<p>[1] <span class="math inline">\(MNTD = \frac{1}{n} \sum^n_i min \delta_{i,j} \; i \neq j\)</span>, where <span class="math inline">\(min \delta_{i, j}\)</span> is the minimum distance between species <em>i</em> and all other species in the community.</p>
+</div>
+<p>Greatest possible nearest nodal distance for a community of 4 taxa = 2 (for A, C, D, F) (A to C = 2, D to F = 2)</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figure/com-phylo-1.png" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code>    A B C D E
+  B 1        
+  C 2 2      
+  D 4 4 3    
+  E 5 5 4 2  
+  F 5 5 4 2 1</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="mean-nearest-nodal-distance-mntd-and-nearest-taxa-index-nti-1" class="slide level2">
+<h2>Mean Nearest Nodal Distance (MNTD) and Nearest Taxa Index (NTI)</h2>
+<div class="footer">
+<p>[1] <span class="math inline">\(MNTD = \frac{1}{n} \sum^n_i min \delta_{i,j} \; i \neq j\)</span>, where <span class="math inline">\(min \delta_{i, j}\)</span> is the minimum distance between species <em>i</em> and all other species in the community.</p>
+</div>
+<div class="cell" data-layout-align="center">
+
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Community 1; A, B, C, D</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code>    A B C
+  B 1    
+  C 2 2  
+  D 4 4 3</code></pre>
+</div>
+</div>
+<p><strong>MNTD</strong> = (1 + 2 + 2 + 4 + 4 + 3) / 6 = 2.66</p>
+<p><strong>NTI</strong> = 1 - (2.66 / 3.66) = 0.273</p>
+</div><div class="column" style="width:50%;">
+<p>Community 2; A, B, E, F</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code>    A B E
+  B 1    
+  E 5 5  
+  F 5 5 1</code></pre>
+</div>
+</div>
 <p><strong>MNTD</strong> = (1 + 1 + 1 + 1) / 4 = 1</p>
 <p><strong>NTI</strong> = 1 - (1 / 2.0) = 0.5</p>
 </div>
+</div>
+<div class="fragment">
+<p>Community 2 is more phylogenetically similar (in tips).</p>
+</div>
+<div class="note">
+<p>MPD is more sensitive to the overall tree topology, while MNTD is more sensitive to the tip of the tree.</p>
 </div>
 </section>
 <section id="sparks-community-phylogeny" class="slide level2">
 <h2>Sparks community phylogeny</h2>
 
-<img src="images/sparks.png" width="80%" class="r-stretch"></section>
+<img src="images/sparks.png" width="80%" class="r-stretch"><div class="note">
+<p>breaK?</p>
+</div>
+</section>
 <section id="do-phylogenetically-related-species-have-similar-ecological-niches" class="slide level2">
 <h2>Do phylogenetically related species have similar ecological niches?</h2>
 <div class="footer">

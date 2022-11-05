@@ -1,7 +1,7 @@
 ---
 title: Diversity calculation
 author: "Masatoshi Katabuchi"
-date: "2022/11/9"
+date: "2022/11/8"
 fontsize: 12pt
 format:
   html:
@@ -27,7 +27,7 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 <a href="https://github.com/mattocci27/"><i class="fa fa-github fa-1x"></i> Github</a>
 <a href="mailto:mattocci27@gmail.com"><i class="fa fa-envelope fa-1x"></i> Email</a>
 
-Course materials for 2022-11-09 AFEC at XTBG.
+Course materials for 2022-11-08 AFEC at XTBG.
 
 # Objectives
 
@@ -42,7 +42,7 @@ Clone this repo.
 git clone https://github.com/mattocci27/phy-fun-div.git
 ```
 
-The following command install all the R packages required for this course.
+The following command installs all the R packages required for this course.
 
 ```{r, eval=FALSE}
 renv::restore()
@@ -72,7 +72,7 @@ library(rmarkdown)
 ## Community
 
 First, we import the community data.
-I prefer `read_csv` but `read.csv` is fine tool
+I prefer `read_csv` but `read.csv` is fine too.
 
 ```{r}
 d <- read_csv("data/samp.csv")
@@ -340,7 +340,7 @@ Let's see the first 5 species.
 trait_dm[1:5, 1:5]
 ```
 
-### MPD
+### MPD (Mean Pairwise Distance)
 
 ```{r}
 mpd(samp, trait_dm)
@@ -375,7 +375,9 @@ where obs is the observed metric, $\bar{rand}$ is the mean value of the metric i
 null communities, and $\sigma_{rand}$ is the standard deviation of the metric in
 the null communities.
 
-### MNTD
+### MNTD (Mean Nearest Taxon Distance)
+
+```{r}
 
 ```{r}
 mntd(samp, trait_dm)
@@ -390,11 +392,9 @@ We will make a functional dendrogram using clustering methods. We use [UPGMA](ht
 this example.
 
 ```{r, fig.width=15, fig.height=15}
-
 t_clust <- hclust(dist(trait_mat), method = "average")
 
 plot(t_clust)
-
 ```
 
 
@@ -417,7 +417,7 @@ res_fd
 
 - [Biodiversity analysis in R](https://www.kembellab.ca/r-workshop/biodivR/SK_Biodiversity_R.html)
 
-- [Measuring functional diveristy in R](http://traits-dgs.nceas.ucsb.edu/workspace/r/r-tutorial-for-measuring-functional-diversity/Measuring%20Functional%20Diversity%20in%20R.pdf/attachment_download/file)
+- [Measuring functional diversity in R](http://traits-dgs.nceas.ucsb.edu/workspace/r/r-tutorial-for-measuring-functional-diversity/Measuring%20Functional%20Diversity%20in%20R.pdf/attachment_download/file)
 
 
 # Computing Environment
