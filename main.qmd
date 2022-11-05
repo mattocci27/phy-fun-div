@@ -14,10 +14,10 @@ format:
     theme: assets/rladies.scss
     show-slide-number: all
     controls: true
-    # width: 1440
-    # height: 810
-    width: 1920
-    height: 1080
+    width: 1440
+    height: 810
+    # width: 1920
+    # height: 1080
     css: [assets/custom.css, assets/tachyons-addon.css]
     include-after: |
       <link rel="stylesheet" href="assets/syntax-highlight.css">
@@ -73,7 +73,7 @@ We Learn:
 - Trait-based approaches
 :::
 
-
+<!--  -->
 ---
 
 ## Community Assembly and Species Coexistence
@@ -90,6 +90,7 @@ For over a century, filed ecologist have been characterizing patterns in ecologi
 
 ::: columns
 ::: {.column width="50%"}
+::: small
 - Why do species occurs at the particular places?
 
 - Why do some pairs of species coexist while others not?
@@ -104,7 +105,7 @@ For over a century, filed ecologist have been characterizing patterns in ecologi
   - Dispersal and stochastic demographic processes explain species coexistence and species differences are not important.
 
 :::
-
+:::
 :::
 
 ::: {.column width="50%"}
@@ -127,6 +128,7 @@ Russo, Sabrina E., Stuart J. Davies, David A. King, and Sylvester Tan. “Soil-R
 ## How to quantify ecological communities `r emo::ji("leaf")`
 
 
+::: large
 ::: incremental
 
 - Species
@@ -135,6 +137,7 @@ Russo, Sabrina E., Stuart J. Davies, David A. King, and Sylvester Tan. “Soil-R
 
 - Species + Site information + Species information (2000s ~)
 
+:::
 :::
 
 
@@ -159,10 +162,10 @@ rownames(ab1) <- paste0("Sp. ", 1:4)
 colnames(ab1) <- "Site1"
 ab1 |>
   knitr::kable(format = "html") |>
-  kable_material(c("striped", "hover"))
-
+  kable_material(c("striped", "hover"), font_size = 28, full_width = FALSE)
 ```
-```{r, echo=FALSE, fig.retina=3, fig.height=5, fig.width=7}
+
+```{r, echo=FALSE, fig.retina=3, fig.height=3, fig.width=6}
 ggplot(ab1 |> as.data.frame(), aes(x = rank(-ab1), y = ab1)) +
   geom_point(size = 5) +
   geom_line() +
@@ -170,9 +173,9 @@ ggplot(ab1 |> as.data.frame(), aes(x = rank(-ab1), y = ab1)) +
   ylab("Abundance") +
   ggtitle("Species abundance distribution") +
   theme(
-    axis.title        = element_text(size = 28),
-    axis.text         = element_text(size = 28),
-    plot.title = element_text(size = 28))
+    axis.title        = element_text(size = 24),
+    axis.text         = element_text(size = 24),
+    plot.title = element_text(size = 24))
 ```
 
 :::
@@ -269,12 +272,13 @@ Which community is more diverse?
 
 
 ::: columns
-::: {.column width="40%"}
+::: {.column width="45%"}
 Another simple way to describe diversity?
 
 ![](./images/com_simple.png)
 
 ::: incremental
+::: small
 - A: $p_1$ = 0.9, $p_2$ = 0.1
 
 - B: $p_1$ = 0.5, $p_2$ = 0.5
@@ -287,8 +291,10 @@ Another simple way to describe diversity?
 
 :::
 :::
+:::
 
-::: {.column width="60%"}
+::: {.column width="55%"}
+::: small
 ::: fragment
 - $\mathrm{log}(x \times y) = \mathrm{log}(x) + \mathrm{log}(y)$
 :::
@@ -306,6 +312,7 @@ Another simple way to describe diversity?
 :::
 ::: fragment
 - Shannon Diversity Index: $H' = -\Sigma p_i\mathrm{log}p_i$
+:::
 :::
 :::
 :::
@@ -329,7 +336,7 @@ Another simple way to describe diversity?
 
 ---
 
-## 1b) First-order properties of multiple communities (Beta diversity)
+## 1b) First-order properties of multiple communities (Beta diversity){.small}
 
 ::: footer
 [1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
@@ -367,20 +374,18 @@ vegdist(t(ab), method = "bray") %>%
   # kable_material(c("striped", "hover"), font_size = 32)
   kable_material(c("striped", "hover"))
 ```
-
 e.g., Bray–Curtis dissimilarity
 
 $BC_{ij}=1-2\frac{\sum min\left(S_{A,i}\mbox{, } S_{B,i}\right)}{\sum S_{A,i}+\sum S_{B,i}}$
 
 Site 1 vs Site 2:  1 - (2 * (0 + 250 + 56 + 18) / (4 +300 + 56 + 23 + 0 + 250 + 120 + 18)) = 0.16
-
 :::
 :::
 :::
 
 ---
 
-## 2a) Second-Order properties with site characteristics (1950s ~)
+## 2a) Second-Order properties with site characteristics (1950s ~){.small}
 
 ::: footer
 [1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
@@ -409,7 +414,7 @@ rbind(ab, env) |>
 :::
 :::
 
-## 2a) Second-Order properties with site characteristics (1950s ~)
+## 2a) Second-Order properties with site characteristics (1950s ~){.small}
 
 ::: footer
 [1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
@@ -451,7 +456,7 @@ E.g., Sp. 1 may prefer higher temperature with lower rainfall.
 
 ---
 
-## 2b) Second-Order properties with species characteristics (2000s ~)
+## 2b) Second-Order properties with species characteristics (2000s ~){.small}
 
 ::: footer
 [1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
@@ -593,7 +598,7 @@ Community with 3 genus and 3 species (3:3) vs community with 1 genus and 3 speci
 
 ---
 
-## Solution for the genus:species ratio problem = Use phylogenetic trees
+## Solution for the genus:species ratio problem = Use phylogenetic trees{.small}
 
 ```{r, echo=FALSE}
 aa <- c(1, 3, 5, 9, 11, 13)
@@ -882,7 +887,7 @@ dist_all
 
 ---
 
-## Mean Pairwise Distance (MPD) and Net Related Index (NRI)
+## Mean Pairwise Distance (MPD) and Net Related Index (NRI){.small}
 
 
 ::: footer
@@ -907,7 +912,7 @@ Greatest possible mean pairwise node distance for a community of 4 taxa: 22 / 6 
 
 ---
 
-## Mean Pairwise Distance (MPD) and Net Related Index (NRI)
+## Mean Pairwise Distance (MPD) and Net Related Index (NRI){.small}
 
 
 ::: footer
@@ -956,7 +961,7 @@ Community 1 is more phylogenetically similar.
 
 ---
 
-## Mean Nearest Nodal Distance (MNTD) and Nearest Taxa Index (NTI)
+## Mean Nearest Nodal Distance (MNTD) and Nearest Taxa Index (NTI){.small}
 
 ::: footer
 [1] $MNTD = \frac{1}{n} \sum^n_i min \delta_{i,j} \; i \neq j$, where $min \delta_{i, j}$ is the minimum distance between species *i* and all other species in the community.
@@ -980,7 +985,7 @@ Greatest possible nearest nodal distance for a community of 4 taxa = 2 (for A, C
 
 ---
 
-## Mean Nearest Nodal Distance (MNTD) and Nearest Taxa Index (NTI)
+## Mean Nearest Nodal Distance (MNTD) and Nearest Taxa Index (NTI){.small}
 
 ::: footer
 [1] $MNTD = \frac{1}{n} \sum^n_i min \delta_{i,j} \; i \neq j$, where $min \delta_{i, j}$ is the minimum distance between species *i* and all other species in the community.
@@ -995,10 +1000,13 @@ dist3 <- mat_all[c("A", "C", "D", "F"), c("A", "C", "D", "F")]  %>% as.dist
 ::: {.column width="50%"}
 Community 1; A, B, C, D
 
+
+::: small
 - A -> B
 - B -> A
 - C -> (A, B)
 - D -> C
+:::
 
 ```{r}
 dist1
@@ -1013,10 +1021,12 @@ dist1
 
 Community 2; A, B, E, F
 
+::: small
 - A -> B
 - B -> A
 - E -> F
 - F -> E
+:::
 
 ```{r}
 dist2
@@ -1049,7 +1059,7 @@ break?
 
 ---
 
-## Do phylogenetically related species have similar ecological niches?
+## Do phylogenetically related species have similar ecological niches?{.small}
 
 ::: footer
 [1] https://en.wikipedia.org/wiki/Anolis_ecomorphs
@@ -1100,18 +1110,18 @@ break?
 
 ---
 
-## Putting traits on the tips of phylogeny: phylogenetic signal
+## Putting traits on the tips of phylogeny: phylogenetic signal{.small}
 
 ::: footer
 [1] Blomberg, S. P., T. Garland Jr., A. R. Ives (2003) Testing for phylogenetic signal in comparative data: Behavioral traits are more labile. Evolution, 57, 717-745.
 :::
 
 ::: columns
-::: {.column width="50%"}
+::: {.column width="30%"}
 ![](images/phylo-sig.png)
 :::
 
-::: {.column width="50%"}
+::: {.column width="70%"}
 ::: incremental
 
 - Phylogenetic signal (K) quantifies if the focal traits were inherited from their recent or old common ancestor
@@ -1158,11 +1168,11 @@ Short explanation
 
 
 ::: columns
-::: {.column width=40%}
+::: {.column width=35%}
 ![](./images/phylo-trait.png)
 :::
 
-::: {.column width=60%}
+::: {.column width=65%}
 ::: incremental
 - Phylogeny as a proxy for the functional or ecological similarity of species.
 
@@ -1211,18 +1221,20 @@ Measurable properties of plants that are indicative of ecological strategies
 :::
 
 ::: columns
-::: {.column width=30%}
+::: {.column width=20%}
 ![](images/LES2004.png)
 :::
 
-::: {.column width=70%}
+::: {.column width=80%}
 ::: incremental
+::: small
 - LES describes pairwise correlations among a bunch of leaf traits from the global leaf database called GLOPNET
 - Peter Reich first formulated the idea of LES
 - Peter Reich, Ian Wright, Mark Westoby and other people confirmed the generality of the LES
 - Global leaf function constrained to a single axis (75 % of variation in the 6 traits)
 - Multidimensional (leaf) functional diversity can be mapped into a one dimensionnal index
 - Controversial (!!)
+:::
 :::
 :::
 :::
@@ -1272,10 +1284,10 @@ Measurable properties of plants that are indicative of ecological strategies
 :::
 
 ::: columns
-::: {.column width=30%}
+::: {.column width=18%}
 ![](./images/convexhull.png)
 :::
-::: {.column width=70%}
+::: {.column width=82%}
 ::: incremental
 
 - California woody-plant communities (43 plot, 54 species, 3 traits)
@@ -1357,7 +1369,7 @@ Measurable properties of plants that are indicative of ecological strategies
 
 ---
 
-## How ecological processes might influence community assembly
+## How ecological processes might influence community assembly{.small}
 
 ```{r, echo=FALSE}
 tbl <- tribble(~`Process / Facotr`, ~Pattern,
@@ -1376,7 +1388,7 @@ knitr::kable(tbl) |>
   pack_rows("Abiotic factor (competition)", 2, 5) |>
   pack_rows("Abiotic factor (facilitation)", 6, 7) |>
   pack_rows("Stochastic process", 8, 8) |>
-  kable_material(c("striped", "hover"))
+  kable_material(c("striped", "hover"), font_size = 30)
 ```
 
 
@@ -1393,7 +1405,7 @@ knitr::kable(tbl) |>
 
 ::: columns
 ::: {.column width=50%}
-![](./images/comp-hier1.jpg){width="350px"}
+![](./images/comp-hier1.jpg){width="200px"}
 
 ### Limiting similarity
 
@@ -1401,7 +1413,7 @@ Competitive interaction strengths between species will increase with decreasing 
 :::
 
 ::: {.column width=50%}
-![](./images/comp-hier2.jpg){width="350px"}
+![](./images/comp-hier2.jpg){width="200px"}
 
 ### Competitive hierarchy
 

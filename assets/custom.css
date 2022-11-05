@@ -82,7 +82,11 @@ h2 {
 }
 
 .small {
-  font-size: 0.5em;
+  font-size: 0.8em;
+}
+
+.large {
+  font-size: 1.2em;
 }
 
 .location {
