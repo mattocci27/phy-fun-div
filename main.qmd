@@ -14,8 +14,10 @@ format:
     theme: assets/rladies.scss
     show-slide-number: all
     controls: true
-    width: 1440
-    height: 810
+    # width: 1440
+    # height: 810
+    width: 1920
+    height: 1080
     css: [assets/custom.css, assets/tachyons-addon.css]
     include-after: |
       <link rel="stylesheet" href="assets/syntax-highlight.css">
@@ -1124,7 +1126,7 @@ break?
 :::
 :::
 
-::: note
+::: notes
 Short explanation
 :::
 
