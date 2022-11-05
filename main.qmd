@@ -14,10 +14,8 @@ format:
     theme: assets/rladies.scss
     show-slide-number: all
     controls: true
-    # width: 1280
-    # height: 720
-    width: 1920
-    height: 1080
+    width: 1440
+    height: 810
     css: [assets/custom.css, assets/tachyons-addon.css]
     include-after: |
       <link rel="stylesheet" href="assets/syntax-highlight.css">
@@ -31,6 +29,8 @@ execute:
 ```{r external, child="setup.Rmd", include=FALSE}
 ```
 
+##  {#title-slide background="images/tree_bg.png" background-size="40%"}
+
 ::: title-box
 <h2>
 
@@ -38,10 +38,12 @@ execute:
 
 </h2>
 
-🧑‍💻 [`r rmarkdown::metadata$author` \@ `r rmarkdown::metadata$institute`]{.author}
+<h3>
+🧑🏻‍💻 [`r rmarkdown::metadata$author` \@ `r rmarkdown::metadata$institute`]{.author}
 
 
-`r rotating_text(c('<i class="fa-solid fa-envelope"></i> mattocci27@gmail.com', '<i class="fa-brands fa-twitter"></i> @mattocci', '<i class="fa-brands fa-github"></i> github.com/mattocci27/xxxx', '<i class="fa-solid fa-globe"></i> https://mattocci27.github.io/'))`
+`r rotating_text(c('<i class="fa-solid fa-envelope"></i> mattocci27@gmail.com', '<i class="fa-brands fa-twitter"></i> @mattocci', '<i class="fa-brands fa-github"></i> github.com/mattocci27/phy-fun-div', '<i class="fa-solid fa-globe"></i> https://mattocci27.github.io'))`
+</h3>
 :::
 
 
@@ -55,20 +57,7 @@ execute:
 hoge
 :::
 
-
 ---
-
-## Phylogenetic diversity, functional diversity and trait-based approaches
-
-<img src="https://cdn-images-1.medium.com/max/800/1*3O597Dv2NGbNzg_dWRu2Hw.png"
-alt="phylo" width="180" />
-
-Masatoshi Katabuchi | katabuchi@xtbg.ac.cn | AFEC-X 2022::XTBG | 2022-11-9
-
-<!-- this ends up being the title slide since seal = FALSE-->
-
----
-
 
 ## Objective
 
@@ -105,7 +94,6 @@ For over a century, filed ecologist have been characterizing patterns in ecologi
 
 ::: incremental
 
-
 - **Environmental filtering**:
   - [**Ecologically similar**]{.blue} species should coexist in ecologically similar environments.
 - **Limiting similarity**:
@@ -136,9 +124,26 @@ Russo, Sabrina E., Stuart J. Davies, David A. King, and Sylvester Tan. “Soil-R
 
 ## How to quantify ecological communities `r emo::ji("leaf")`
 
+
+::: incremental
+
+- Species
+
+- Species + Site information (1950s ~)
+
+- Species + Site information + Species information (2000s ~)
+
+:::
+
+
 ---
 
 ## 1a) First-order properties of single communities
+
+::: footer
+[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
+:::
+
 
 ::: columns
 ::: {.column width="50%"}
@@ -148,18 +153,24 @@ Russo, Sabrina E., Stuart J. Davies, David A. King, and Sylvester Tan. “Soil-R
 
 ```{r, echo=FALSE}
 ab1 <- c(4, 300, 56, 23) |> as.matrix()
-rownames(ab1) <- paste0("Sp", 1:4)
+rownames(ab1) <- paste0("Sp. ", 1:4)
 colnames(ab1) <- "Site1"
 ab1 |>
-  knitr::kable(format = "html")
+  knitr::kable(format = "html") |>
+  kable_material(c("striped", "hover"))
+
 ```
-```{r, echo=FALSE, fig.retina=3, fig.height=5}
+```{r, echo=FALSE, fig.retina=3, fig.height=5, fig.width=7}
 ggplot(ab1 |> as.data.frame(), aes(x = rank(-ab1), y = ab1)) +
-  geom_point() +
+  geom_point(size = 5) +
   geom_line() +
-  xlab("Species rank") +
-  ylab("Abundance rank") +
-  ggtitle("Species abundance distribution")
+  xlab("Abundance rank") +
+  ylab("Abundance") +
+  ggtitle("Species abundance distribution") +
+  theme(
+    axis.title        = element_text(size = 28),
+    axis.text         = element_text(size = 28),
+    plot.title = element_text(size = 28))
 ```
 
 :::
@@ -181,9 +192,13 @@ ggplot(ab1 |> as.data.frame(), aes(x = rank(-ab1), y = ab1)) +
 
 ## 1a) First-order properties of single communities
 
+::: footer
+[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
+:::
+
 Which community is more diverse?
 
-![](./images/com_simple.png)
+![](images/com_simple.png)
 
 ::: columns
 ::: {.column width="50%"}
@@ -242,21 +257,25 @@ Which community is more diverse?
 *n*: number of individuals of each species,
 *N*: total number of individuals of all species,
 *p*: relative species abundance
+
+[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
 :::
 
 ---
 
 ## 1a) First-order properties of single communities
 
+
 ::: columns
-::: {.column width="50%"}
+::: {.column width="40%"}
 Another simple way to describe diversity?
 
 ![](./images/com_simple.png)
 
-- A: Sp.1: 0.9, Sp.2: 0.1
+::: incremental
+- A: $p_1$ = 0.9, $p_2$ = 0.1
 
-- B: Sp.1: 0.5, Sp.2: 0.5
+- B: $p_1$ = 0.5, $p_2$ = 0.5
 
 - Diversity of A: 0.9 $\times$ 0.1 = 0.09?
 
@@ -265,8 +284,9 @@ Another simple way to describe diversity?
 - Diversity $\times$ Diversity? What is the unit?
 
 :::
+:::
 
-::: {.column width="50%"}
+::: {.column width="60%"}
 ::: fragment
 - $\mathrm{log}(x \times y) = \mathrm{log}(x) + \mathrm{log}(y)$
 :::
@@ -288,6 +308,8 @@ Another simple way to describe diversity?
 
 ::: footer
 *p*: relative species abundance
+
+[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
 :::
 
 ---
@@ -311,7 +333,9 @@ ab <- cbind(c(4, 300, 56, 23),
 rownames(ab) <- paste("Sp.", 1:4)
 colnames(ab) <- paste("Site", 1:4)
 ab %>%
-  knitr::kable(format = "html")
+  knitr::kable(format = "html") |>
+  # kable_material(c("striped", "hover"), font_size = 32)
+  kable_material(c("striped", "hover"))
 ```
 :::
 ::: {.column width="50%"}
@@ -324,7 +348,9 @@ library(vegan)
 vegdist(t(ab), method = "bray") %>%
   as.matrix %>%
   round(2) %>%
-  knitr::kable(format = "html")
+  knitr::kable(format = "html") |>
+  # kable_material(c("striped", "hover"), font_size = 32)
+  kable_material(c("striped", "hover"))
 ```
 
 e.g., Bray–Curtis dissimilarity
@@ -341,6 +367,10 @@ Site 1 vs Site 2:  1 - (2 * (0 + 250 + 56 + 18) / (4 +300 + 56 + 23 + 0 + 250 + 
 
 ## 2a) Second-Order properties with site characteristics (1950s ~)
 
+::: footer
+[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
+:::
+
 ::: columns
 ::: {.column width="50%"}
 
@@ -353,7 +383,7 @@ colnames(env) <- paste("Site", 1:4)
 
 rbind(ab, env) |>
   kbl(booktabs = TRUE, escape = FALSE, format = "html") |>
-  kable_styling(latex_options = c("striped", "HOLD_position")) |>
+  kable_material(c("striped", "hover"), font_size = 32) |>
   pack_rows("Abundance", 1, 4) |>
   pack_rows("Env", 5, 7)
 ```
@@ -366,6 +396,10 @@ rbind(ab, env) |>
 
 ## 2a) Second-Order properties with site characteristics (1950s ~)
 
+::: footer
+[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
+:::
+
 ::: columns
 ::: {.column width="50%"}
 
@@ -374,7 +408,7 @@ rownames(env) <- c("Elevation (m)", "MAT (\U2103)", "MAP (mm)")
 
 rbind(ab, env) |>
   kbl(booktabs = TRUE, escape = FALSE, format = "html") |>
-  kable_styling(latex_options = c("striped", "HOLD_position")) |>
+  kable_material(c("striped", "hover"), font_size = 32) |>
   pack_rows("Abundance", 1, 4) |>
   pack_rows("Env", 5, 7)
 ```
@@ -396,9 +430,17 @@ rbind(ab, env) |>
 
 :::
 
+::: note
+E.g., Sp. 1 may prefer higher temperature with lower rainfall.
+:::
+
 ---
 
 ## 2b) Second-Order properties with species characteristics (2000s ~)
+
+::: footer
+[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
+:::
 
 ::: columns
 ::: {.column width="50%"}
@@ -406,7 +448,7 @@ rbind(ab, env) |>
 ```{r, echo=FALSE}
 rbind(ab, env) |>
   kbl(booktabs = TRUE, escape = FALSE, format = "html") |>
-  kable_styling(latex_options = c("striped", "HOLD_position")) |>
+  kable_material(c("striped", "hover"), font_size = 32) |>
   pack_rows("Abundance", 1, 4) |>
   pack_rows("Env", 5, 7)
 ```
@@ -425,7 +467,8 @@ rownames(trait) <- paste("Sp", 1:4)
 colnames(trait) <- paste("Trait", 1:4)
 
 trait %>%
-  knitr::kable(format = "html")
+  knitr::kable(format = "html") |>
+  kable_material(c("striped", "hover"), font_size = 32)
 ```
 
 - "Trait $\times$ species", "species $\times$ site", "site $\times$ environment"
@@ -437,13 +480,17 @@ trait %>%
 
 ## 2b) Second-Order properties with species characteristics (2000s ~)
 
+::: footer
+[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
+:::
+
 ::: columns
 ::: {.column width="50%"}
 
 ```{r, echo=FALSE}
 rbind(ab, env) |>
   kbl(booktabs = TRUE, escape = FALSE, format = "html") |>
-  kable_styling(latex_options = c("striped", "HOLD_position")) |>
+  kable_material(c("striped", "hover"), font_size = 32) |>
   pack_rows("Abundance", 1, 4) |>
   pack_rows("Env", 5, 7)
 ```
@@ -455,7 +502,8 @@ rbind(ab, env) |>
 colnames(trait) <- c("Leaf N", "Amax", "Rdark", "LL")
 
 trait %>%
-  knitr::kable(format = "html")
+  knitr::kable(format = "html") |>
+  kable_material(c("striped", "hover"), font_size = 32)
 ```
 
 - "Trait $\times$ species", "species $\times$ site", "site $\times$ environment"
@@ -962,11 +1010,16 @@ dist2
 
 - Large K indicates phylogenetic coservatism and small K indicates phylogenetic divergence
 
-- (Phylogenetic signal (K): the ratio of the mean squared error of the tip data measured from the phylogneitic corrected mean nd the mean squared error based on the variance–covariance matrix derived from the given phylogeny under the assumption of Brownian motion)
+- Phylogenetic signal (K): the ratio of the mean squared error (MSE) of observed trait values to the MSE of under Brownian motion evolution (short explanation).
+
 
 :::
 
 :::
+:::
+
+::: note
+Short explanation
 :::
 
 ## Phylogenetic conservatism matters
@@ -1050,11 +1103,11 @@ Measurable properties of plants that are indicative of ecological strategies
 :::
 
 ::: columns
-::: {.column width=35%}
+::: {.column width=30%}
 ![](images/LES2004.png)
 :::
 
-::: {.column width=65%}
+::: {.column width=70%}
 ::: incremental
 - LES describes pairwise correlations among a bunch of leaf traits from the global leaf database called GLOPNET
 - Peter Reich first formulated the idea of LES
@@ -1214,7 +1267,8 @@ knitr::kable(tbl) |>
   pack_rows("Biotic factor", 1, 1) |>
   pack_rows("Abiotic factor (competition)", 2, 5) |>
   pack_rows("Abiotic factor (facilitation)", 6, 7) |>
-  pack_rows("Stochastic process", 8, 8)
+  pack_rows("Stochastic process", 8, 8) |>
+  kable_material(c("striped", "hover"))
 ```
 
 
@@ -1259,7 +1313,7 @@ Competitive effect of species A on species B will increase with increasing $t_A 
 
 ::: columns
 ::: {.column width=40%}
-![](./images/endra.png)
+![](./images/endra_re.png)
 :::
 
 ::: {.column width=60%}
@@ -1316,6 +1370,8 @@ Competitive effect of species A on species B will increase with increasing $t_A 
 
   - They will make "ecology" more quantitative and predictive.
 
+  - We only fouced on a "snapshot" of biodiversity (predicting future biodiversity is another story)
+
 - How to calculate trait and phylogenetic diversity anyway?
 
   - We have some R practice.
@@ -1323,8 +1379,8 @@ Competitive effect of species A on species B will increase with increasing $t_A 
 
 ---
 
-## References
+## About the slides
 
--  The slides are made using [Quarto](https://quarto.org/) with [Emi Tanaka's](https://github.com/emitanaka/talks) CSS design.
+-  The slides are made using [Quarto](https://quarto.org/) with [Emi Tanaka's](https://github.com/emitanaka/talks) CSS design and [Danyang Dai's](https://github.com/DanyangDai/brownbag_2022_10_11) template.
 
 -  Source code for the slides can be found at [mattocci27/phy-fun-div](https://github.com/mattocci27/phy-fun-div)

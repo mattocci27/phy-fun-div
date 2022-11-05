@@ -1,0 +1,7 @@
+name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+.Random.seed|object|c2da65c162d821cb|||||||||||||||
+div_ex|stem|187f35e2829eee08|91255bf67468336d|d84d7cdd1c3c4b08|-586105860|diversity_example_files*diversity_example.html*diversity_example.qmd|t19301.1578043767s|cab2cfebb1693f91|111023|file|local|vector|||3.462||
+ex_tree|stem|91ae5d81c62e4662|62941d73814c282e|abc32271385ce91b|-1805294981|images/tree_bg.png*images/tree_bg.pdf|t19301.208401729s|01c1f3c61a3476a7|1449202|file|local|vector|||2.034||
+main|stem|bd90efb48f6358e0|6e8e1f984541470d|d84d7cdd1c3c4b08|669725655|main_files*main.html*main.qmd|t19301.3545772623s|2daf2f825f725665|5969027|file|local|vector|||7.778||
+my_ggsave|function|f95c949784d28668|||||||||||||||
+plot_ex_tree|function|9a6f35f846baf1e5|||||||||||||||

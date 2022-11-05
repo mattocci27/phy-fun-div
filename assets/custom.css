@@ -10,7 +10,7 @@
 
 #title-slide h2 {
   font-size: 2.3em!important;
-  color: #562457;
+  /* color: #562457; */
 }
 
 .speech {
@@ -55,14 +55,12 @@ h2 {
 }
 
 
-<!---
-.reveal .footer {
-  background-color: rgba(255, 255, 255, 0.8);
+/* .reveal .footer {
+  background-color: rgba(0, 255, 255, 0.8);
+  font-size: 0.5em !important;
   padding-top: 10px;
   padding-bottom: 10px;
-}
-
----!>
+} */
 
 
 .cite-compact {
@@ -126,7 +124,7 @@ h2 {
 
 #title-slide {
   text-align: left;
-  background-image: "images/rladies_mel.jpg";
+  background-image: "images/tree_bg.png";
   background-size: 50%;
 }
 

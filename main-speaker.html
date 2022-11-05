@@ -330,13 +330,14 @@
     <div class="slides">
 
 
-<section class="slide level2">
-
+<section id="title-slide" class="slide level2 center" data-background="images/tree_bg.png" data-background-size="40%">
+<h2></h2>
 <div class="title-box">
 <h2>
 <p>Phylogenetic diversity, functional diversity and trait-based approaches</p>
 </h2>
-<p>🧑‍💻 <span class="author">Masatoshi Katabuchi @ XTBG, CAS</span></p>
+<h3>
+<p>🧑🏻‍💻 <span class="author">Masatoshi Katabuchi @ XTBG, CAS</span></p>
 <div style="overflow: hidden; height: 1.2em;">
 <ul class="content__container__list center" style="text-align: center">
 <li class="content__container__list__item">
@@ -346,13 +347,14 @@
 <i class="fa-brands fa-twitter"></i> <span class="citation" data-cites="mattocci">@mattocci</span>
 </li>
 <li class="content__container__list__item">
-<i class="fa-brands fa-github"></i> github.com/mattocci27/xxxx
+<i class="fa-brands fa-github"></i> github.com/mattocci27/phy-fun-div
 </li>
 <li class="content__container__list__item">
-<i class="fa-solid fa-globe"></i> https://mattocci27.github.io/
+<i class="fa-solid fa-globe"></i> https://mattocci27.github.io
 </li>
 </ul>
 </div>
+</h3>
 </div>
 <p><br><br></p>
 <div class="absolute top-0 blue w-100" style="">
@@ -371,11 +373,6 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section id="phylogenetic-diversity-functional-diversity-and-trait-based-approaches" class="slide level2">
-<h2>Phylogenetic diversity, functional diversity and trait-based approaches</h2>
-
-<img src="https://cdn-images-1.medium.com/max/800/1*3O597Dv2NGbNzg_dWRu2Hw.png" alt="phylo" width="180" class="r-stretch"><p>Masatoshi Katabuchi | katabuchi@xtbg.ac.cn | AFEC-X 2022::XTBG | 2022-11-9</p>
 </section>
 <section id="objective" class="slide level2">
 <h2>Objective</h2>
@@ -428,10 +425,20 @@
 <h2>How can we quantify ecological similarity of coexisting species?</h2>
 </section>
 <section id="how-to-quantify-ecological-communities" class="slide level2">
-<h2>How to quantify ecological communities 🍃</h2>
+<h2>How to quantify ecological communities 🍂</h2>
+<div>
+<ul>
+<li class="fragment"><p>Species</p></li>
+<li class="fragment"><p>Species + Site information (1950s ~)</p></li>
+<li class="fragment"><p>Species + Site information + Species information (2000s ~)</p></li>
+</ul>
+</div>
 </section>
 <section id="a-first-order-properties-of-single-communities" class="slide level2">
 <h2>1a) First-order properties of single communities</h2>
+<div class="footer">
+<p>[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press</p>
+</div>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
@@ -441,7 +448,7 @@
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<table>
+<table class=" lightable-material lightable-striped lightable-hover" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
    <th style="text-align:left;">   </th>
@@ -450,19 +457,19 @@
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> Sp1 </td>
+   <td style="text-align:left;"> Sp. 1 </td>
    <td style="text-align:right;"> 4 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Sp2 </td>
+   <td style="text-align:left;"> Sp. 2 </td>
    <td style="text-align:right;"> 300 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Sp3 </td>
+   <td style="text-align:left;"> Sp. 3 </td>
    <td style="text-align:right;"> 56 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> Sp4 </td>
+   <td style="text-align:left;"> Sp. 4 </td>
    <td style="text-align:right;"> 23 </td>
   </tr>
 </tbody>
@@ -474,7 +481,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figure/unnamed-chunk-2-1.png" width="960"></p>
+<p><img data-src="figure/unnamed-chunk-2-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -495,9 +502,12 @@
 </section>
 <section id="a-first-order-properties-of-single-communities-1" class="slide level2">
 <h2>1a) First-order properties of single communities</h2>
+<div class="footer">
+<p>[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press</p>
+</div>
 <p>Which community is more diverse?</p>
 
-<img data-src="./images/com_simple.png" class="r-stretch"><div class="columns">
+<img data-src="images/com_simple.png" class="r-stretch"><div class="columns">
 <div class="column" style="width:50%;">
 <div class="fragment">
 <ul>
@@ -543,22 +553,25 @@
 </div>
 <div class="footer">
 <p><em>n</em>: number of individuals of each species, <em>N</em>: total number of individuals of all species, <em>p</em>: relative species abundance</p>
+<p>[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press</p>
 </div>
 </section>
 <section id="a-first-order-properties-of-single-communities-3" class="slide level2">
 <h2>1a) First-order properties of single communities</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:40%;">
 <p>Another simple way to describe diversity?</p>
 <p><img data-src="./images/com_simple.png"></p>
+<div>
 <ul>
-<li><p>A: Sp.1: 0.9, Sp.2: 0.1</p></li>
-<li><p>B: Sp.1: 0.5, Sp.2: 0.5</p></li>
-<li><p>Diversity of A: 0.9 <span class="math inline">\(\times\)</span> 0.1 = 0.09?</p></li>
-<li><p>Diversity of B: 0.5 <span class="math inline">\(\times\)</span> 0.5 = 0.025?</p></li>
-<li><p>Diversity <span class="math inline">\(\times\)</span> Diversity? What is the unit?</p></li>
+<li class="fragment"><p>A: <span class="math inline">\(p_1\)</span> = 0.9, <span class="math inline">\(p_2\)</span> = 0.1</p></li>
+<li class="fragment"><p>B: <span class="math inline">\(p_1\)</span> = 0.5, <span class="math inline">\(p_2\)</span> = 0.5</p></li>
+<li class="fragment"><p>Diversity of A: 0.9 <span class="math inline">\(\times\)</span> 0.1 = 0.09?</p></li>
+<li class="fragment"><p>Diversity of B: 0.5 <span class="math inline">\(\times\)</span> 0.5 = 0.025?</p></li>
+<li class="fragment"><p>Diversity <span class="math inline">\(\times\)</span> Diversity? What is the unit?</p></li>
 </ul>
-</div><div class="column" style="width:50%;">
+</div>
+</div><div class="column" style="width:60%;">
 <div class="fragment">
 <ul>
 <li><span class="math inline">\(\mathrm{log}(x \times y) = \mathrm{log}(x) + \mathrm{log}(y)\)</span></li>
@@ -586,6 +599,7 @@
 </div>
 <div class="footer">
 <p><em>p</em>: relative species abundance</p>
+<p>[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press</p>
 </div>
 </section>
 <section id="b-first-order-properties-of-multiple-communities-beta-diversity" class="slide level2">
@@ -602,7 +616,7 @@
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<table>
+<table class=" lightable-material lightable-striped lightable-hover" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
    <th style="text-align:left;">   </th>
@@ -654,7 +668,7 @@
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<table>
+<table class=" lightable-material lightable-striped lightable-hover" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
    <th style="text-align:left;">   </th>
@@ -707,12 +721,15 @@
 </section>
 <section id="a-second-order-properties-with-site-characteristics-1950s" class="slide level2">
 <h2>2a) Second-Order properties with site characteristics (1950s ~)</h2>
+<div class="footer">
+<p>[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press</p>
+</div>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<table class="table" style="margin-left: auto; margin-right: auto;">
+<table class=" lightable-material lightable-striped lightable-hover" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
    <th style="text-align:left;">   </th>
@@ -788,12 +805,15 @@
 </section>
 <section id="a-second-order-properties-with-site-characteristics-1950s-1" class="slide level2">
 <h2>2a) Second-Order properties with site characteristics (1950s ~)</h2>
+<div class="footer">
+<p>[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press</p>
+</div>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<table class="table" style="margin-left: auto; margin-right: auto;">
+<table class=" lightable-material lightable-striped lightable-hover" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
    <th style="text-align:left;">   </th>
@@ -879,15 +899,21 @@
 </div>
 </div>
 </div>
+<div class="note">
+<p>E.g., Sp. 1 may prefer higher temperature with lower rainfall.</p>
+</div>
 </section>
 <section id="b-second-order-properties-with-species-characteristics-2000s" class="slide level2">
 <h2>2b) Second-Order properties with species characteristics (2000s ~)</h2>
+<div class="footer">
+<p>[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press</p>
+</div>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<table class="table" style="margin-left: auto; margin-right: auto;">
+<table class=" lightable-material lightable-striped lightable-hover" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
    <th style="text-align:left;">   </th>
@@ -958,7 +984,7 @@
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<table>
+<table class=" lightable-material lightable-striped lightable-hover" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
    <th style="text-align:left;">   </th>
@@ -1010,12 +1036,15 @@
 </section>
 <section id="b-second-order-properties-with-species-characteristics-2000s-1" class="slide level2">
 <h2>2b) Second-Order properties with species characteristics (2000s ~)</h2>
+<div class="footer">
+<p>[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press</p>
+</div>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<table class="table" style="margin-left: auto; margin-right: auto;">
+<table class=" lightable-material lightable-striped lightable-hover" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
    <th style="text-align:left;">   </th>
@@ -1086,7 +1115,7 @@
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<table>
+<table class=" lightable-material lightable-striped lightable-hover" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
    <th style="text-align:left;">   </th>
@@ -1497,10 +1526,13 @@
 <ul>
 <li class="fragment"><p>Phylogenetic signal (K) quantifies if the focal traits were inherited from their recent or old common ancestor</p></li>
 <li class="fragment"><p>Large K indicates phylogenetic coservatism and small K indicates phylogenetic divergence</p></li>
-<li class="fragment"><p>(Phylogenetic signal (K): the ratio of the mean squared error of the tip data measured from the phylogneitic corrected mean nd the mean squared error based on the variance–covariance matrix derived from the given phylogeny under the assumption of Brownian motion)</p></li>
+<li class="fragment"><p>Phylogenetic signal (K): the ratio of the mean squared error (MSE) of observed trait values to the MSE of under Brownian motion evolution (short explanation).</p></li>
 </ul>
 </div>
 </div>
+</div>
+<div class="note">
+<p>Short explanation</p>
 </div>
 </section>
 <section id="phylogenetic-conservatism-matters" class="slide level2">
@@ -1559,9 +1591,9 @@
 <p>[4] Katabuchi, M. et al.&nbsp;Decomposing leaf mass into photosynthetic and structural components explains divergent patterns of trait variation within and among plant species. bioRxiv https://doi.org/10.1101/116855 (2017)</p>
 </div>
 <div class="columns">
-<div class="column" style="width:35%;">
+<div class="column" style="width:30%;">
 <p><img data-src="images/LES2004.png"></p>
-</div><div class="column" style="width:65%;">
+</div><div class="column" style="width:70%;">
 <div>
 <ul>
 <li class="fragment">LES describes pairwise correlations among a bunch of leaf traits from the global leaf database called GLOPNET</li>
@@ -1683,7 +1715,7 @@
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<table>
+<table class=" lightable-material lightable-striped lightable-hover" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
    <th style="text-align:left;"> Process / Facotr </th>
@@ -1758,7 +1790,7 @@
 </div>
 <div class="columns">
 <div class="column" style="width:40%;">
-<p><img data-src="./images/endra.png"></p>
+<p><img data-src="./images/endra_re.png"></p>
 </div><div class="column" style="width:60%;">
 <div>
 <ul>
@@ -1799,7 +1831,8 @@
 </ul></li>
 <li class="fragment"><p>Trait-based approaches</p>
 <ul>
-<li class="fragment">They will make “ecology” more quantitative and predictive.</li>
+<li class="fragment"><p>They will make “ecology” more quantitative and predictive.</p></li>
+<li class="fragment"><p>We only fouced on a “snapshot” of biodiversity (predicting future biodiversity is another story)</p></li>
 </ul></li>
 <li class="fragment"><p>How to calculate trait and phylogenetic diversity anyway?</p>
 <ul>
@@ -1808,10 +1841,10 @@
 </ul>
 </div>
 </section>
-<section id="references" class="slide level2">
-<h2>References</h2>
+<section id="about-the-slides" class="slide level2">
+<h2>About the slides</h2>
 <ul>
-<li><p>The slides are made using <a href="https://quarto.org/">Quarto</a> with <a href="https://github.com/emitanaka/talks">Emi Tanaka’s</a> CSS design.</p></li>
+<li><p>The slides are made using <a href="https://quarto.org/">Quarto</a> with <a href="https://github.com/emitanaka/talks">Emi Tanaka’s</a> CSS design and <a href="https://github.com/DanyangDai/brownbag_2022_10_11">Danyang Dai’s</a> template.</p></li>
 <li><p>Source code for the slides can be found at <a href="https://github.com/mattocci27/phy-fun-div">mattocci27/phy-fun-div</a></p></li>
 </ul>
 
@@ -1999,9 +2032,9 @@
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1920,
+        width: 1440,
 
-        height: 1080,
+        height: 810,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,

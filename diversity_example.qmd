@@ -137,7 +137,6 @@ ggplot(trait_long, aes(x = value)) +
 Probably we can do log-transformation for all the traits except for WD.
 
 ```{r}
-
 trait2 <- trait |>
   mutate(logLMA = log(LMA),
          logLL = log(LL),
@@ -149,7 +148,6 @@ trait2 <- trait |>
   dplyr::select(sp, logLMA, logLL, logAmass, logRmass, logNmass, logPmass, WD, logSM)
 
 DT::datatable(trait2)
-
 ```
 
 ```{r}
@@ -327,7 +325,6 @@ hist(trait_mat[, "logLMA"])
 hist(trait_mat0[, "WD"])
 hist(trait_mat[, "WD"])
 par(mfrow = c(1, 1))
-
 ```
 
 Now we can make a trait distance matrix.
@@ -377,7 +374,6 @@ $$
 where obs is the observed metric, $\bar{rand}$ is the mean value of the metric in
 null communities, and $\sigma_{rand}$ is the standard deviation of the metric in
 the null communities.
-
 
 ### MNTD
 
