@@ -51,9 +51,10 @@ execute:
 
 <br><br>
 
-::: {.absolute .top-0 .blue .w-100}
-[`r rmarkdown::metadata$date`]{.blue .fl} [`r rmarkdown::metadata$host`]{.fr .blue}
+::: {.absolute .top-0 .w-100}
+[`r rmarkdown::metadata$date`]{.fl} [`r rmarkdown::metadata$host`]{.fr}
 :::
+
 
 ::: notes
 hoge
@@ -231,7 +232,7 @@ Which community is more diverse?
 ::: {.column width="50%"}
 Which community is more diverse?
 
-![](./images/com_simple.png)
+![](images/com_simple.png)
 
 - A: $\frac{9}{10} \times \frac{8}{9} + \frac{1}{10} \times \frac{0}{9} = 0.8$
 
@@ -275,7 +276,7 @@ Which community is more diverse?
 ::: {.column width="45%"}
 Another simple way to describe diversity?
 
-![](./images/com_simple.png)
+![](images/com_simple.png)
 
 ::: incremental
 ::: small
@@ -1285,7 +1286,7 @@ Measurable properties of plants that are indicative of ecological strategies
 
 ::: columns
 ::: {.column width=18%}
-![](./images/convexhull.png)
+![](images/convexhull.png)
 :::
 ::: {.column width=82%}
 ::: incremental
@@ -1309,7 +1310,7 @@ Measurable properties of plants that are indicative of ecological strategies
 
 ::: columns
 ::: {.column width=40%}
-![](./images/convexhull2.png)
+![](images/convexhull2.png)
 :::
 
 ::: {.column width=60%}
@@ -1433,7 +1434,7 @@ Competitive effect of species A on species B will increase with increasing $t_A 
 
 ::: columns
 ::: {.column width=40%}
-![](./images/endra_re.png)
+![](images/endra_re.png)
 :::
 
 ::: {.column width=60%}
@@ -1459,7 +1460,7 @@ Competitive effect of species A on species B will increase with increasing $t_A 
 
 ::: columns
 ::: {.column width=40%}
-![](./images/lopez-angulo-re.png)
+![](images/lopez-angulo-re.png)
 :::
 
 ::: {.column width=60%}
