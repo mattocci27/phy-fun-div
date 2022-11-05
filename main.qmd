@@ -290,15 +290,17 @@ Another simple way to describe diversity?
 ::: fragment
 - $\mathrm{log}(x \times y) = \mathrm{log}(x) + \mathrm{log}(y)$
 :::
+
 ::: fragment
-- A: $0.9 \times \mathrm{log}(0.9) + 0.1 \times \mathrm{log}(0.1) \simeq -0.32$
-- B: $0.5 \times \mathrm{log}(0.5) + 0.5 \times \mathrm{log}(0.5) \simeq -0.69$
+- Expectations:
+  - A: $0.9 \times \mathrm{log}(0.9) + 0.1 \times \mathrm{log}(0.1) \simeq -0.32$
+  - B: $0.5 \times \mathrm{log}(0.5) + 0.5 \times \mathrm{log}(0.5) \simeq -0.69$
 :::
 
 ::: fragment
 - We prefer that large values indicate more diverse communities.
-- A: $-1 \times (-0.32) = 0.32$
-- B: $-1 \times (-0.69) = 0.69$
+  - A: $-1 \times (-0.32) = 0.32$
+  - B: $-1 \times (-0.69) = 0.69$
 :::
 ::: fragment
 - Shannon Diversity Index: $H' = -\Sigma p_i\mathrm{log}p_i$
@@ -310,6 +312,17 @@ Another simple way to describe diversity?
 *p*: relative species abundance
 
 [1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
+:::
+
+
+::: notes
+
+- If we use log, multiplication becomes addition.
+
+- Expectations to get a particular species (abundance weighted)
+
+- The mathematical theory of communication (0 or 1 data)
+
 :::
 
 ---
@@ -430,7 +443,7 @@ rbind(ab, env) |>
 
 :::
 
-::: note
+::: notes
 E.g., Sp. 1 may prefer higher temperature with lower rainfall.
 :::
 
@@ -980,18 +993,28 @@ dist3 <- mat_all[c("A", "C", "D", "F"), c("A", "C", "D", "F")]  %>% as.dist
 ::: {.column width="50%"}
 Community 1; A, B, C, D
 
+- A -> B
+- B -> A
+- C -> (A, B)
+- D -> C
+
 ```{r}
 dist1
 ```
 
-**MNTD** = (1 + 2 + 2 + 4 + 4 + 3) / 6 = 2.66
+**MNTD** = (1 + 1 + 2 + 3) / 4 = 1.75
 
-**NTI** = 1 - (2.66 / 3.66) = 0.273
+**NTI** = 1 - (1.75 / 2.0) = 0.125
 :::
 
 ::: {.column width="50%"}
 
 Community 2; A, B, E, F
+
+- A -> B
+- B -> A
+- E -> F
+- F -> E
 
 ```{r}
 dist2
@@ -1009,7 +1032,7 @@ dist2
 Community 2 is more phylogenetically similar (in tips).
 :::
 
-::: note
+::: notes
 MPD is more sensitive to the overall tree topology, while MNTD is more sensitive to the tip of the tree.
 :::
 
@@ -1018,8 +1041,8 @@ MPD is more sensitive to the overall tree topology, while MNTD is more sensitive
 <img src="images/sparks.png" width =80%>
 
 
-::: note
-breaK?
+::: notes
+break?
 :::
 
 ---

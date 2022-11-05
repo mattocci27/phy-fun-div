@@ -425,7 +425,7 @@
 <h2>How can we quantify ecological similarity of coexisting species?</h2>
 </section>
 <section id="how-to-quantify-ecological-communities" class="slide level2">
-<h2>How to quantify ecological communities 🍁</h2>
+<h2>How to quantify ecological communities 🌿</h2>
 <div>
 <ul>
 <li class="fragment"><p>Species</p></li>
@@ -579,15 +579,20 @@
 </div>
 <div class="fragment">
 <ul>
+<li>Expectations:
+<ul>
 <li>A: <span class="math inline">\(0.9 \times \mathrm{log}(0.9) + 0.1 \times \mathrm{log}(0.1) \simeq -0.32\)</span></li>
 <li>B: <span class="math inline">\(0.5 \times \mathrm{log}(0.5) + 0.5 \times \mathrm{log}(0.5) \simeq -0.69\)</span></li>
+</ul></li>
 </ul>
 </div>
 <div class="fragment">
 <ul>
-<li>We prefer that large values indicate more diverse communities.</li>
+<li>We prefer that large values indicate more diverse communities.
+<ul>
 <li>A: <span class="math inline">\(-1 \times (-0.32) = 0.32\)</span></li>
 <li>B: <span class="math inline">\(-1 \times (-0.69) = 0.69\)</span></li>
+</ul></li>
 </ul>
 </div>
 <div class="fragment">
@@ -601,6 +606,23 @@
 <p><em>p</em>: relative species abundance</p>
 <p>[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press</p>
 </div>
+<aside class="notes">
+<ul>
+<li><p>If we use log, multiplication becomes addition.</p></li>
+<li><p>Expectations to get a particular species (abundance weighted)</p></li>
+<li><p>The mathematical theory of communication (0 or 1 data)</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="b-first-order-properties-of-multiple-communities-beta-diversity" class="slide level2">
 <h2>1b) First-order properties of multiple communities (Beta diversity)</h2>
@@ -899,9 +921,19 @@
 </div>
 </div>
 </div>
-<div class="note">
+<aside class="notes">
 <p>E.g., Sp. 1 may prefer higher temperature with lower rainfall.</p>
-</div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="b-second-order-properties-with-species-characteristics-2000s" class="slide level2">
 <h2>2b) Second-Order properties with species characteristics (2000s ~)</h2>
@@ -1517,6 +1549,12 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Community 1; A, B, C, D</p>
+<ul>
+<li>A -&gt; B</li>
+<li>B -&gt; A</li>
+<li>C -&gt; (A, B)</li>
+<li>D -&gt; C</li>
+</ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
 <pre><code>    A B C
@@ -1525,10 +1563,16 @@
   D 4 4 3</code></pre>
 </div>
 </div>
-<p><strong>MNTD</strong> = (1 + 2 + 2 + 4 + 4 + 3) / 6 = 2.66</p>
-<p><strong>NTI</strong> = 1 - (2.66 / 3.66) = 0.273</p>
+<p><strong>MNTD</strong> = (1 + 1 + 2 + 3) / 4 = 1.75</p>
+<p><strong>NTI</strong> = 1 - (1.75 / 2.0) = 0.125</p>
 </div><div class="column" style="width:50%;">
 <p>Community 2; A, B, E, F</p>
+<ul>
+<li>A -&gt; B</li>
+<li>B -&gt; A</li>
+<li>E -&gt; F</li>
+<li>F -&gt; E</li>
+</ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
 <pre><code>    A B E
@@ -1544,16 +1588,36 @@
 <div class="fragment">
 <p>Community 2 is more phylogenetically similar (in tips).</p>
 </div>
-<div class="note">
+<aside class="notes">
 <p>MPD is more sensitive to the overall tree topology, while MNTD is more sensitive to the tip of the tree.</p>
-</div>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="sparks-community-phylogeny" class="slide level2">
 <h2>Sparks community phylogeny</h2>
 
-<img src="images/sparks.png" width="80%" class="r-stretch"><div class="note">
-<p>breaK?</p>
-</div>
+<img src="images/sparks.png" width="80%" class="r-stretch"><aside class="notes">
+<p>break?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="do-phylogenetically-related-species-have-similar-ecological-niches" class="slide level2">
 <h2>Do phylogenetically related species have similar ecological niches?</h2>
