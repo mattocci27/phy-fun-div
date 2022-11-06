@@ -67,9 +67,9 @@ hoge
 ::: large
 We Learn:
 
-- Why we use trait and phylogenetic diversity
+- Why we use functional and phylogenetic diversity
 
-- How to calculate trait and phylogenetic diversity
+- How to calculate functional and phylogenetic diversity
 
 - Trait-based approaches
 :::
@@ -81,8 +81,7 @@ We Learn:
 
 For over a century, filed ecologist have been characterizing patterns in ecological communities and trying to draw theoretical inferences form the resulting data.
 
-
-<!-- <img src="images/sp_coex.jpg" width="65%" style="display: block; margin: auto;"/> -->
+<img src="images/sp_coex.jpg" width="65%" style="display: block; margin: auto;"/>
 
 ---
 
@@ -499,7 +498,7 @@ trait %>%
 
 ---
 
-## 2b) Second-Order properties with species characteristics (2000s ~)
+## 2b) Second-Order properties with species characteristics (2000s ~){.small}
 
 ::: footer
 [1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
@@ -558,26 +557,77 @@ Photosynthetic rates
 
 ---
 
-## Assuming closely related species are more ecologically similar
+## Assuming closely related species are more ecologically similar{.small}
 
-### Genus:species ratio: Relatedness as a substitute for ecological similarity
+-  Genus:species ratio: Relatedness as a substitute for ecological similarity
 
 ::: fragment
-Community with 3 genus and 3 species (3:3) vs community with 1 genus and 3 species (1:3)
+::: columns
+::: {.column width="50%"}
+Community with 1 genus and 3 species (1:3)
+
+![](images/ratio1.png)
 :::
 
-::: fragment
-- A [**high**]{.orange} genus:species ratio indicates distantly related and ecologically
-  dissimilar species coexist.
+::: {.column width="50%"}
+Community with 3 genus and 3 species (3:3)
 
-  - [**Limiting similarity**]{.orange}
+![](images/ratio2.png)
+:::
+:::
 :::
 
-::: fragment
+::: incremental
 - A [**low**]{.blue} genus:species ratio indicates closely related and ecologically
   similar species coexist.
 
    - [**Environmental filtering**]{.blue}
+
+- A [**high**]{.orange} genus:species ratio indicates distantly related and ecologically
+  dissimilar species coexist.
+
+  - [**Limiting similarity**]{.orange}
+
+:::
+
+::: notes
+Species that I collected
+:::
+
+---
+
+## Assuming closely related species are more ecologically similar{.small}
+
+-  Genus:species ratio: Relatedness as a substitute for ecological similarity
+
+::: columns
+::: {.column width="50%"}
+Community with 3 genus and 3 species (3:3)
+
+![](images/ratio3.png)
+:::
+
+::: {.column width="50%"}
+Community with 3 genus and 3 species (3:3)
+
+![](images/ratio2.png)
+:::
+:::
+
+- A [**low**]{.blue} genus:species ratio indicates closely related and ecologically
+  similar species coexist.
+
+   - [**Environmental filtering?**]{.blue}
+
+- A [**high**]{.orange} genus:species ratio indicates distantly related and ecologically
+  dissimilar species coexist.
+
+  - [**Limiting similarity?**]{.orange}
+
+::: notes
+- Macaranga: Euphorbiaceae
+- Artocarups: Moraceae
+- Ilex: Aquifoliaceae
 :::
 
 ---
@@ -670,7 +720,7 @@ plot(t,
 ::: columns
 ::: {.column width="50%"}
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.height = 8}
 my_samp <- rep(1, 6) %>% as.matrix %>% t
 colnames(my_samp) <- names(aa)
 rownames(my_samp) <- "site1"
@@ -681,10 +731,9 @@ plot(t,
    direction = "rightwards")
 
 edgelabels(t$edge.length,
-          #  adj = c(0.5, -0.5),
            frame = "none",
            bg = "white",
-           cex = 2,
+           cex = 3,
            col = "blue",
            font = 2)
 ```
@@ -722,7 +771,7 @@ edgelabels(t$edge.length,
 ::: columns
 ::: {.column width="50%"}
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.height = 8}
 my_samp1 <- my_samp
 my_samp1[, 4:6] <- 0
 pd1 <- pd(my_samp1, t)[1,1]
@@ -736,7 +785,7 @@ edgelabels(t$edge.length,
            frame = "none",
            bg = "white",
            col = "blue",
-           cex = 2,
+           cex = 3,
            font = 2)
 
 tiplabels(
@@ -764,7 +813,7 @@ tiplabels(
 ::: columns
 ::: {.column width="50%"}
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.height=8}
 my_samp2 <- my_samp
 my_samp2[, c(2, 4, 6)] <- 0
 pd2 <- pd(my_samp2, t)[1,1]
@@ -778,7 +827,7 @@ edgelabels(t$edge.length,
            frame = "none",
            bg = "white",
            col = "blue",
-           cex = 2,
+           cex = 3,
            font = 2)
 
 tiplabels(
@@ -896,7 +945,7 @@ dist_all
 $\delta_{i, j}$ is the pairwise distance between species *i* and *j*
 :::
 
-Greatest possible mean pairwise node distance for a community of 4 taxa: 22 / 6 pairs = 3.66 (for A, B, E, F)
+Greatest possible mean pairwise node distance for a community of 4 taxa: 22 / 6 pairs = 3.66 (A, B, E, F)
 
 ::: columns
 ::: {.column width="50%"}
@@ -921,7 +970,7 @@ Greatest possible mean pairwise node distance for a community of 4 taxa: 22 / 6 
 $\delta_{i, j}$ is the pairwise distance between species *i* and *j*
 :::
 
-Greatest possible mean pairwise node distance for a community of 4 taxa: 22 / 6 pairs = 3.66 (for A, B, E, F)
+Greatest possible mean pairwise node distance for a community of 4 taxa: 22 / 6 pairs = 3.66 (A, B, E, F)
 
 ::: columns
 ::: {.column width="50%"}
@@ -955,9 +1004,9 @@ dist2
 :::
 
 ::: fragment
-
+::: large
 Community 1 is more phylogenetically similar.
-
+:::
 :::
 
 ---
@@ -968,8 +1017,7 @@ Community 1 is more phylogenetically similar.
 [1] $MNTD = \frac{1}{n} \sum^n_i min \delta_{i,j} \; i \neq j$, where $min \delta_{i, j}$ is the minimum distance between species *i* and all other species in the community.
 :::
 
-Greatest possible nearest nodal distance for a community of 4 taxa = 2 (for A, C, D, F)
-(A to C = 2, D to F = 2)
+Greatest possible nearest nodal distance for a community of 4 taxa = 2 (A, C, D, F; A to C = 2, D to F = 2)
 
 ::: columns
 ::: {.column width="50%"}
@@ -1042,7 +1090,9 @@ dist2
 :::
 
 ::: fragment
+::: large
 Community 2 is more phylogenetically similar (in tips).
+:::
 :::
 
 ::: notes
@@ -1051,8 +1101,7 @@ MPD is more sensitive to the overall tree topology, while MNTD is more sensitive
 
 ## Sparks community phylogeny
 
-<img src="images/sparks.png" width =80%>
-
+<img src="images/sparks.png" width =80% style="display: block; margin: auto;"/>
 
 ::: notes
 break?
@@ -1068,23 +1117,27 @@ break?
 
 
 ::: columns
-::: {.column width="50%"}
+::: {.column width="45%"}
 ![](images/anole.jpg)
 :::
 
-::: {.column width="50%"}
+::: {.column width="55%"}
 ::: incremental
 - We are assuming that related species are ecologically similar
 
-- Related species sometimes have very different traits
+- Related species sometimes have very different traits and ecological niches (e.g., grass-bush, trunk, trunk-crown, trunk-ground and twig ecomorphs)
 :::
 
 :::
+:::
+
+::: notes
+- study was done in 1998, but pepole usullay ignore something inconvinient
 :::
 
 ---
 
-## Functional dendrogram vs. phylogeny
+## Functional dendrogram vs. phylogeny (Anole example){.small}
 
 ::: footer
 [1] Losos, J. B., Jackman, T. R., Larson, A., De Queiroz, K. & Rodríguez-Schettino, L. Contingency and determinism in replicated adaptive radiations of island lizards. Science 279, 2115–2118 (1998).
@@ -1101,6 +1154,8 @@ break?
 - A: Functional dendrogram based on ecomorph
 
 - B: Phylogeny indicates frequent evolution of traits
+
+- They do not match at all (!!)
 
 - Phylogenetically similar = Functional (ecologically) similar??
 
@@ -1143,7 +1198,7 @@ Short explanation
 
 ## Phylogenetic conservatism matters
 
-![](images/Cavender3.jpg)
+<img src="images/Cavender3.jpg" width="80%" style="display: block; margin: auto;"/>
 
 ::: footer
 [1] Cavender‐Bares, J., Ackerly, D. D., Baum, D. A. & Bazzaz, F. A. Phylogenetic Overdispersion in Floridian Oak Communities. The American Naturalist 163, 823–843 (2004).
@@ -1233,7 +1288,7 @@ Measurable properties of plants that are indicative of ecological strategies
 - Peter Reich first formulated the idea of LES
 - Peter Reich, Ian Wright, Mark Westoby and other people confirmed the generality of the LES
 - Global leaf function constrained to a single axis (75 % of variation in the 6 traits)
-- Multidimensional (leaf) functional diversity can be mapped into a one dimensionnal index
+- Multidimensional (leaf) functional diversity can be mapped into a one dimensional index
 - Controversial (!!)
 :::
 :::
@@ -1333,12 +1388,12 @@ Measurable properties of plants that are indicative of ecological strategies
 [1] Cornwell, W. K. & Ackerly, D. D. Community assembly and shifts in plant trait distributions across an environmental gradient in coastal California. Ecological Monographs 79, 109–126 (2009).
 :::
 
-![](images/trait_dist.png)
+<img src="images/trait_dist.png" width="80%" style="display: block; margin: auto;"/>
 
 ---
 
 
-##  Environmental filtering and limiting similarity can occur at the same time
+## Environmental filtering and limiting similarity can occur at the same time{.small}
 
 
 ::: footer
@@ -1486,6 +1541,8 @@ Competitive effect of species A on species B will increase with increasing $t_A 
 
   - We want to quantify ecological similarities of species and multiple dimension of
     biodiversity.
+
+  - We need to be very caful when we use or develope ways to map multiple dimension of biodiversity to a few dimension of diversity.
 
 - Trait-based approaches
 
