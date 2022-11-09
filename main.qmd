@@ -285,7 +285,7 @@ Another simple way to describe diversity?
 
 - Diversity of A: 0.9 $\times$ 0.1 = 0.09?
 
-- Diversity of B: 0.5 $\times$ 0.5 = 0.025?
+- Diversity of B: 0.5 $\times$ 0.5 = 0.25?
 
 - Diversity $\times$ Diversity? What is the unit?
 
