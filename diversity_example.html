@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Masatoshi Katabuchi">
-<meta name="dcterms.date" content="2022-11-08">
+<meta name="dcterms.date" content="2023-11-16">
 
 <title>Diversity calculation</title>
 <style>
@@ -19,9 +19,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -48,43 +49,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -100,18 +71,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="diversity_example_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <style>html{ scroll-behavior: smooth; }</style>
 
-<link href="diversity_example_files/libs/font-awesome-5.1.0/css/all.css" rel="stylesheet">
-<link href="diversity_example_files/libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet">
-<script src="diversity_example_files/libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="diversity_example_files/libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
+<link href="diversity_example_files/libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="diversity_example_files/libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <link href="diversity_example_files/libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="diversity_example_files/libs/datatables-binding-0.26/datatables.js"></script>
+<script src="diversity_example_files/libs/datatables-binding-0.30/datatables.js"></script>
 <script src="diversity_example_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<link href="diversity_example_files/libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="diversity_example_files/libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="diversity_example_files/libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+<link href="diversity_example_files/libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="diversity_example_files/libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="diversity_example_files/libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script>
 <link href="diversity_example_files/libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
 <script src="diversity_example_files/libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -124,34 +96,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul class="collapse">
-  <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives"><span class="toc-section-number">1</span>  Objectives</a></li>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites"><span class="toc-section-number">2</span>  Prerequisites</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="toc-section-number">3</span>  Data</a>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives"><span class="header-section-number">1</span> Objectives</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites"><span class="header-section-number">2</span> Prerequisites</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">3</span> Data</a>
   <ul class="collapse">
-  <li><a href="#community" id="toc-community" class="nav-link" data-scroll-target="#community"><span class="toc-section-number">3.1</span>  Community</a></li>
-  <li><a href="#phylogeny" id="toc-phylogeny" class="nav-link" data-scroll-target="#phylogeny"><span class="toc-section-number">3.2</span>  Phylogeny</a></li>
-  <li><a href="#traits" id="toc-traits" class="nav-link" data-scroll-target="#traits"><span class="toc-section-number">3.3</span>  Traits</a></li>
-  <li><a href="#check-how-traits-look-like-first" id="toc-check-how-traits-look-like-first" class="nav-link" data-scroll-target="#check-how-traits-look-like-first"><span class="toc-section-number">3.4</span>  Check how traits look like first</a></li>
+  <li><a href="#community" id="toc-community" class="nav-link" data-scroll-target="#community"><span class="header-section-number">3.1</span> Community</a></li>
+  <li><a href="#phylogeny" id="toc-phylogeny" class="nav-link" data-scroll-target="#phylogeny"><span class="header-section-number">3.2</span> Phylogeny</a></li>
+  <li><a href="#traits" id="toc-traits" class="nav-link" data-scroll-target="#traits"><span class="header-section-number">3.3</span> Traits</a></li>
+  <li><a href="#check-how-traits-look-like-first" id="toc-check-how-traits-look-like-first" class="nav-link" data-scroll-target="#check-how-traits-look-like-first"><span class="header-section-number">3.4</span> Check how traits look like first</a></li>
   </ul></li>
-  <li><a href="#first-order-metrics-without-phylogeny-or-traits" id="toc-first-order-metrics-without-phylogeny-or-traits" class="nav-link" data-scroll-target="#first-order-metrics-without-phylogeny-or-traits"><span class="toc-section-number">4</span>  First-order metrics (without phylogeny or traits)</a>
+  <li><a href="#first-order-metrics-without-phylogeny-or-traits" id="toc-first-order-metrics-without-phylogeny-or-traits" class="nav-link" data-scroll-target="#first-order-metrics-without-phylogeny-or-traits"><span class="header-section-number">4</span> First-order metrics (without phylogeny or traits)</a>
   <ul class="collapse">
-  <li><a href="#species-richness" id="toc-species-richness" class="nav-link" data-scroll-target="#species-richness"><span class="toc-section-number">4.1</span>  Species richness</a></li>
-  <li><a href="#shannon" id="toc-shannon" class="nav-link" data-scroll-target="#shannon"><span class="toc-section-number">4.2</span>  Shannon</a></li>
-  <li><a href="#nonmetric-multidimensional-scaling-nmds" id="toc-nonmetric-multidimensional-scaling-nmds" class="nav-link" data-scroll-target="#nonmetric-multidimensional-scaling-nmds"><span class="toc-section-number">4.3</span>  Nonmetric Multidimensional Scaling (NMDS)</a></li>
+  <li><a href="#species-richness" id="toc-species-richness" class="nav-link" data-scroll-target="#species-richness"><span class="header-section-number">4.1</span> Species richness</a></li>
+  <li><a href="#shannon" id="toc-shannon" class="nav-link" data-scroll-target="#shannon"><span class="header-section-number">4.2</span> Shannon</a></li>
+  <li><a href="#nonmetric-multidimensional-scaling-nmds" id="toc-nonmetric-multidimensional-scaling-nmds" class="nav-link" data-scroll-target="#nonmetric-multidimensional-scaling-nmds"><span class="header-section-number">4.3</span> Nonmetric Multidimensional Scaling (NMDS)</a></li>
   </ul></li>
-  <li><a href="#phylogenetic-metrics" id="toc-phylogenetic-metrics" class="nav-link" data-scroll-target="#phylogenetic-metrics"><span class="toc-section-number">5</span>  Phylogenetic metrics</a>
+  <li><a href="#phylogenetic-metrics" id="toc-phylogenetic-metrics" class="nav-link" data-scroll-target="#phylogenetic-metrics"><span class="header-section-number">5</span> Phylogenetic metrics</a>
   <ul class="collapse">
-  <li><a href="#branch-length-based-metric" id="toc-branch-length-based-metric" class="nav-link" data-scroll-target="#branch-length-based-metric"><span class="toc-section-number">5.1</span>  Branch length based metric</a></li>
-  <li><a href="#distance-based-metric" id="toc-distance-based-metric" class="nav-link" data-scroll-target="#distance-based-metric"><span class="toc-section-number">5.2</span>  Distance based metric</a></li>
+  <li><a href="#branch-length-based-metric" id="toc-branch-length-based-metric" class="nav-link" data-scroll-target="#branch-length-based-metric"><span class="header-section-number">5.1</span> Branch length based metric</a></li>
+  <li><a href="#distance-based-metric" id="toc-distance-based-metric" class="nav-link" data-scroll-target="#distance-based-metric"><span class="header-section-number">5.2</span> Distance based metric</a></li>
   </ul></li>
-  <li><a href="#functional-metrics" id="toc-functional-metrics" class="nav-link" data-scroll-target="#functional-metrics"><span class="toc-section-number">6</span>  Functional metrics</a>
+  <li><a href="#functional-metrics" id="toc-functional-metrics" class="nav-link" data-scroll-target="#functional-metrics"><span class="header-section-number">6</span> Functional metrics</a>
   <ul class="collapse">
-  <li><a href="#community-weighted-means-cwm" id="toc-community-weighted-means-cwm" class="nav-link" data-scroll-target="#community-weighted-means-cwm"><span class="toc-section-number">6.1</span>  Community weighted means (CWM)</a></li>
-  <li><a href="#distance-based-metrics" id="toc-distance-based-metrics" class="nav-link" data-scroll-target="#distance-based-metrics"><span class="toc-section-number">6.2</span>  Distance based metrics</a></li>
-  <li><a href="#branch-length-based-metric-1" id="toc-branch-length-based-metric-1" class="nav-link" data-scroll-target="#branch-length-based-metric-1"><span class="toc-section-number">6.3</span>  Branch length based metric</a></li>
+  <li><a href="#community-weighted-means-cwm" id="toc-community-weighted-means-cwm" class="nav-link" data-scroll-target="#community-weighted-means-cwm"><span class="header-section-number">6.1</span> Community weighted means (CWM)</a></li>
+  <li><a href="#distance-based-metrics" id="toc-distance-based-metrics" class="nav-link" data-scroll-target="#distance-based-metrics"><span class="header-section-number">6.2</span> Distance based metrics</a></li>
+  <li><a href="#branch-length-based-metric-1" id="toc-branch-length-based-metric-1" class="nav-link" data-scroll-target="#branch-length-based-metric-1"><span class="header-section-number">6.3</span> Branch length based metric</a></li>
   </ul></li>
-  <li><a href="#related" id="toc-related" class="nav-link" data-scroll-target="#related"><span class="toc-section-number">7</span>  Related</a></li>
-  <li><a href="#computing-environment" id="toc-computing-environment" class="nav-link" data-scroll-target="#computing-environment"><span class="toc-section-number">8</span>  Computing Environment</a></li>
+  <li><a href="#related" id="toc-related" class="nav-link" data-scroll-target="#related"><span class="header-section-number">7</span> Related</a></li>
+  <li><a href="#computing-environment" id="toc-computing-environment" class="nav-link" data-scroll-target="#computing-environment"><span class="header-section-number">8</span> Computing Environment</a></li>
   </ul>
 </nav>
 </div>
@@ -176,9 +148,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 8, 2022</p>
+      <p class="date">November 16, 2023</p>
     </div>
   </div>
+  
     
   </div>
   
@@ -186,7 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <p><a href="https://twitter.com/mattocci"><i class="fa fa-twitter fa-1x"></i> Twitter</a> <a href="https://github.com/mattocci27/"><i class="fa fa-github fa-1x"></i> Github</a> <a href="mailto:mattocci27@gmail.com"><i class="fa fa-envelope fa-1x"></i> Email</a></p>
-<p>Course materials for 2022-11-08 AFEC at XTBG.</p>
+<p>Course materials for 2023-11-16 AFEC at XTBG.</p>
 <section id="objectives" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Objectives</h1>
 <ul>
@@ -240,16 +213,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  8 Site1 Machilus_yunnanensis       0
  9 Site2 Illicium_macranthum        1
 10 Site2 Manglietia_insignis        2
-# … with 30 more rows</code></pre>
+# ℹ 30 more rows</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="htmlwidget-05287c96f95b608c06ae" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-05287c96f95b608c06ae">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40"],["Site1","Site1","Site1","Site1","Site1","Site1","Site1","Site1","Site2","Site2","Site2","Site2","Site2","Site2","Site2","Site2","Site3","Site3","Site3","Site3","Site3","Site3","Site3","Site3","Site4","Site4","Site4","Site4","Site4","Site4","Site4","Site4","Site5","Site5","Site5","Site5","Site5","Site5","Site5","Site5"],["Illicium_macranthum","Manglietia_insignis","Michelia_floribunda","Beilschmiedia_robusta","Neolitsea_chuii","Lindera_thomsonii","Actinodaphne_forrestii","Machilus_yunnanensis","Illicium_macranthum","Manglietia_insignis","Michelia_floribunda","Beilschmiedia_robusta","Neolitsea_chuii","Lindera_thomsonii","Actinodaphne_forrestii","Machilus_yunnanensis","Illicium_macranthum","Manglietia_insignis","Michelia_floribunda","Beilschmiedia_robusta","Neolitsea_chuii","Lindera_thomsonii","Actinodaphne_forrestii","Machilus_yunnanensis","Illicium_macranthum","Manglietia_insignis","Michelia_floribunda","Beilschmiedia_robusta","Neolitsea_chuii","Lindera_thomsonii","Actinodaphne_forrestii","Machilus_yunnanensis","Illicium_macranthum","Manglietia_insignis","Michelia_floribunda","Beilschmiedia_robusta","Neolitsea_chuii","Lindera_thomsonii","Actinodaphne_forrestii","Machilus_yunnanensis"],[1,0,0,0,0,0,0,0,1,2,2,2,0,0,0,0,1,0,0,0,0,2,2,2,1,1,0,0,0,2,2,0,1,0,0,0,1,1,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Site<\/th>\n      <th>Species<\/th>\n      <th>abund<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-97b3a17dd6dba76d7e93" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-97b3a17dd6dba76d7e93">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40"],["Site1","Site1","Site1","Site1","Site1","Site1","Site1","Site1","Site2","Site2","Site2","Site2","Site2","Site2","Site2","Site2","Site3","Site3","Site3","Site3","Site3","Site3","Site3","Site3","Site4","Site4","Site4","Site4","Site4","Site4","Site4","Site4","Site5","Site5","Site5","Site5","Site5","Site5","Site5","Site5"],["Illicium_macranthum","Manglietia_insignis","Michelia_floribunda","Beilschmiedia_robusta","Neolitsea_chuii","Lindera_thomsonii","Actinodaphne_forrestii","Machilus_yunnanensis","Illicium_macranthum","Manglietia_insignis","Michelia_floribunda","Beilschmiedia_robusta","Neolitsea_chuii","Lindera_thomsonii","Actinodaphne_forrestii","Machilus_yunnanensis","Illicium_macranthum","Manglietia_insignis","Michelia_floribunda","Beilschmiedia_robusta","Neolitsea_chuii","Lindera_thomsonii","Actinodaphne_forrestii","Machilus_yunnanensis","Illicium_macranthum","Manglietia_insignis","Michelia_floribunda","Beilschmiedia_robusta","Neolitsea_chuii","Lindera_thomsonii","Actinodaphne_forrestii","Machilus_yunnanensis","Illicium_macranthum","Manglietia_insignis","Michelia_floribunda","Beilschmiedia_robusta","Neolitsea_chuii","Lindera_thomsonii","Actinodaphne_forrestii","Machilus_yunnanensis"],[1,0,0,0,0,0,0,0,1,2,2,2,0,0,0,0,1,0,0,0,0,2,2,2,1,1,0,0,0,2,2,0,1,0,0,0,1,1,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Site<\/th>\n      <th>Species<\/th>\n      <th>abund<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<p>Then, we want to make a species <span class="math inline">\(\times\)</span> site matrix. <code>tapply</code> is an useful function here.</p>
+<p>Then, we want to make a species <span class="math inline">\(\times\)</span> site matrix. <code>tapply</code> is a useful function here.</p>
 <div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-5_895b573f52ff57679d40aac70b4eae9d">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(d<span class="sc">$</span>abund, d<span class="sc">$</span>Species, sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -364,8 +337,8 @@ Site5                   0               1</code></pre>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(trait)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="htmlwidget-e3ad7b90f20ef7520ce3" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e3ad7b90f20ef7520ce3">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77"],["Acer_campbellii","Actinodaphne_forrestii","Alnus_nepalensis","Anneslea_fragrans","Beilschmiedia_robusta","Betula_alnoides","Camellia_assamica","Camellia_forrestii","Camellia_Pitardii","Camellia_yunnanensis","Castanopsis_echidnocarpa","Castanopsis_wattii","Claoxylon_khasianum","Craibiodendron_yunnanense","Cyclobalanopsis_stewardiana","Eriobotrya_bengalensis","Eriobotrya_tengyuehensis","Eurya_paratetragonoclada","Eurya_quinquelocularis","Eurya_trichocarpa","Exbucklandia_populnea","Ficus_henryi","Ficus_heteromorpha","Ficus_racemosa","Glochidion_a","Ilex_corallina","Ilex_manneiensis","Illicium_macranthum","Itoa_orientalis","Laurocerasus_undulata","Leucosceptrum_canum","Lindera_caudata","Lindera_thomsonii","Lithocarpus_confinis","Lithocarpus_crassifolius","Lithocarpus_dealbatus","Lithocarpus_hancei","Lithocarpus_henryi","Lithocarpus_truncatus","Lithocarpus_xylocarpus","Litsea_a","Litsea_chunii","Litsea_elongata","Machilus_gamblei","Machilus_salicina","Machilus_yunnanensis","Mahonia_duclouxiana","Manglietia_insignis","Melia_toosendan","Meliosma_arnottiana","Meliosma_kirkii","Michelia_floribunda","Myrsine_semiserrata","Neolitsea_chuii","Neolitsea_polycarpa","Olea_rosea","Osbeckia_mepalensis","Padus_napaulensis","Rhododendron_decorum","Rhododendron_irroratum","Rhododendron_leptothrium","Rhus_sylvestris","Saurauia_napaulensis","Schefflera_fengii","Schefflera_shweliensis","Schima_argentea","Schima_noronhae","Skimmia_arborescens","Sterculia_nobilis","Stewartia_pteropetiolata","Stewartia_yunnanensis","Symplocos_anomala","Symplocos_grandis","Symplocos_ramosissima","Symplocos_sumuntia","Ternstroemia_gymnanthera","Vaccinium_duclouxii"],[39.81,69.18,114.82,66.07,37.15,114.82,100,51.29,109.65,141.25,66.07,89.13,69.18,316.23,158.49,158.49,128.82,93.33,74.13,56.23,58.88,177.83,602.56,107.15,50.12,33.88,46.77,288.4,38.9,177.83,48.98,83.18,87.1,102.33,165.96,162.18,281.84,194.98,208.93,102.33,52.48,45.71,61.66,91.2,53.7,70.79,114.82,501.19,102.33,109.65,117.49,138.04,134.9,104.71,70.79,85.11,186.21,354.81,446.68,416.87,281.84,47.86,309.03,17.38,22.91,131.83,93.33,40.74,43.65,97.72,213.8,58.88,74.13,48.98,77.62,87.1,251.19],[7.08,12.52,55.17,26.93,21.88,33.07,24.51,11.34,50.34,131.73,13.49,47.13,21.39,72.98,71.45,32.31,73.88,81.85,24.52,20.35,27.2,148.11,250.94,22.07,12.4,11.39,16.15,115.18,14.4,96.8,11.56,40.3,40.32,22.98,108.44,73.87,104.3,68.96,103.23,69.58,13.09,24.45,70.05,41.89,21.35,28.92,48.12,187.96,35.39,17.59,61.07,54.17,48.89,65.31,28.34,33.53,86.53,124.41,184.22,267.95,109.86,22.01,146.83,5.38,13.66,83.97,89.84,11.28,12.54,21.33,100.82,37.55,34.07,26.3,47.86,39.94,106.89],[985.05,149.36,76.81,174.55,305.65,85.97,97.93,301.56,130.34,89.32,89.25,156.76,88.87,27.86,40.24,33.32,96.06,91.38,103.75,183.25,293.43,83.33,11.35,101.55,470.59,180.52,313.61,26.44,183.31,45.55,315.8,91.6,241.4,68.8,51.58,36.67,18.74,20.31,23.23,77.47,77.3,135.64,136.92,99.27,153.06,104.55,257.52,22.27,156.16,101,54.83,38.44,166.41,181.2,130.14,82.8,99.93,24.94,24.06,23.21,56.42,137.68,18.89,475.01,258.88,86.72,66.24,455.29,264.45,123.21,27.89,238.62,56.15,265.32,57.25,139.45,31.84],[54.71,8.79,7.56,40.59,34.01,16.4,14.38,17.71,6.03,8.24,18.94,23.44,23.18,2.03,6.19,3.84,8.15,23.8,4.58,42.1,18.3,13.94,3.79,4.87,49.34,66.95,24.62,2.21,11.77,8.25,29.82,20.12,20.45,21.3,11.41,12.12,4.69,12.9,4.65,21.3,5.47,57.32,13.78,14.91,25.22,14.7,16.19,1.29,3.48,9.4,11.48,7.36,4.96,9.93,19.04,16.65,17.46,9.25,2.18,4.68,3.73,25.01,9.57,67.58,55.8,7.18,15.65,29.7,35.62,9.14,7.23,26.62,29.94,27.88,27.87,9.2,7.22],[6.56,1.51,1.65,4.32,5.78,2.33,2.27,1.4,2.22,0.74,1.1,2.35,4.56,0.61,0.47,3.43,1.27,0.84,1.19,5.96,2.94,2.38,0.33,1.4,1.86,5.19,5.78,0.75,5.77,1.77,5.71,1.04,1.87,0.98,1.11,3.89,0.44,1.28,0.79,0.85,4.26,4.28,1.53,3.98,5.94,1.27,1.1,0.65,0.95,1.36,2.37,1.58,0.63,1.63,4.23,2.85,0.34,0.32,0.38,0.3,0.37,4.88,0.32,22.69,14.16,0.62,1.28,5.14,3,1.08,0.96,4.22,1.5,5.69,0.97,6.43,1.31],[0.42,0.16,0.1,0.13,0.26,0.09,0.4,0.14,0.07,0.05,0.15,0.26,0.22,0.03,0.01,0.08,0.04,0.06,0.11,0.14,0.13,0.06,0.02,0.09,0.13,0.74,0.18,0.03,0.15,0.13,0.31,0.05,0.05,0.11,0.07,0.1,0.03,0.02,0.06,0.05,0.13,0.42,0.21,0.16,0.16,0.44,0.11,0.02,0.18,0.13,0.05,0.02,0.03,0.12,0.24,0.05,0.08,0.06,0.01,0.14,0.08,0.16,0.03,0.48,0.52,0.06,0.09,0.23,0.46,0.16,0.08,0.42,0.09,0.19,0.05,0.08,0.03],[0.46,0.48,0.35,0.54,0.47,0.45,0.42,0.49,0.43,0.53,0.76,0.41,0.53,0.44,0.33,0.48,0.39,0.63,0.31,0.58,0.53,0.34,0.44,0.58,0.64,0.65,0.49,0.4,0.35,0.58,0.51,0.51,0.53,0.46,0.53,0.69,0.42,0.53,0.35,0.49,0.66,0.68,0.41,0.48,0.86,0.59,0.51,0.45,0.43,0.48,0.6,0.54,0.6,0.43,0.45,0.45,0.55,0.54,0.61,0.62,0.64,0.52,0.38,0.5,0.46,0.53,0.44,0.45,0.47,0.37,0.45,0.42,0.46,0.48,0.59,0.51,0.53],[0.39,1.35,1.21,1.25,2.16,0.17,0.55,2.43,5.3,6.95,4.84,1.3,0.29,2.35,0.45,1.16,3.02,2.04,0.5,0.85,4.52,2.87,2.56,0.98,5.19,1.55,5.19,0.97,4.39,2.01,0.55,3.82,0.48,0.38,1.59,0.49,0.42,4.51,2.79,2.73,0.82,2.18,0.58,4.09,0.13,1.08,0.33,0.95,0.46,1.07,1.55,1.86,0.2,0.18,1.92,2.86,4.74,0.37,1.61,1.07,3.22,7.98,3.07,0.92,0.06,3,1.56,2.05,1.87,0.96,0.74,0.83,5.54,1.55,0.14,0.36,0.42]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>sp<\/th>\n      <th>LMA<\/th>\n      <th>LL<\/th>\n      <th>Amass<\/th>\n      <th>Rmass<\/th>\n      <th>Nmass<\/th>\n      <th>Pmass<\/th>\n      <th>WD<\/th>\n      <th>SM<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-d9005bf86bef0d7355e8" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d9005bf86bef0d7355e8">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77"],["Acer_campbellii","Actinodaphne_forrestii","Alnus_nepalensis","Anneslea_fragrans","Beilschmiedia_robusta","Betula_alnoides","Camellia_assamica","Camellia_forrestii","Camellia_Pitardii","Camellia_yunnanensis","Castanopsis_echidnocarpa","Castanopsis_wattii","Claoxylon_khasianum","Craibiodendron_yunnanense","Cyclobalanopsis_stewardiana","Eriobotrya_bengalensis","Eriobotrya_tengyuehensis","Eurya_paratetragonoclada","Eurya_quinquelocularis","Eurya_trichocarpa","Exbucklandia_populnea","Ficus_henryi","Ficus_heteromorpha","Ficus_racemosa","Glochidion_a","Ilex_corallina","Ilex_manneiensis","Illicium_macranthum","Itoa_orientalis","Laurocerasus_undulata","Leucosceptrum_canum","Lindera_caudata","Lindera_thomsonii","Lithocarpus_confinis","Lithocarpus_crassifolius","Lithocarpus_dealbatus","Lithocarpus_hancei","Lithocarpus_henryi","Lithocarpus_truncatus","Lithocarpus_xylocarpus","Litsea_a","Litsea_chunii","Litsea_elongata","Machilus_gamblei","Machilus_salicina","Machilus_yunnanensis","Mahonia_duclouxiana","Manglietia_insignis","Melia_toosendan","Meliosma_arnottiana","Meliosma_kirkii","Michelia_floribunda","Myrsine_semiserrata","Neolitsea_chuii","Neolitsea_polycarpa","Olea_rosea","Osbeckia_mepalensis","Padus_napaulensis","Rhododendron_decorum","Rhododendron_irroratum","Rhododendron_leptothrium","Rhus_sylvestris","Saurauia_napaulensis","Schefflera_fengii","Schefflera_shweliensis","Schima_argentea","Schima_noronhae","Skimmia_arborescens","Sterculia_nobilis","Stewartia_pteropetiolata","Stewartia_yunnanensis","Symplocos_anomala","Symplocos_grandis","Symplocos_ramosissima","Symplocos_sumuntia","Ternstroemia_gymnanthera","Vaccinium_duclouxii"],[39.81,69.18000000000001,114.82,66.06999999999999,37.15,114.82,100,51.29,109.65,141.25,66.06999999999999,89.13,69.18000000000001,316.23,158.49,158.49,128.82,93.33,74.13,56.23,58.88,177.83,602.5599999999999,107.15,50.12,33.88,46.77,288.4,38.9,177.83,48.98,83.18000000000001,87.09999999999999,102.33,165.96,162.18,281.84,194.98,208.93,102.33,52.48,45.71,61.66,91.2,53.7,70.79000000000001,114.82,501.19,102.33,109.65,117.49,138.04,134.9,104.71,70.79000000000001,85.11,186.21,354.81,446.68,416.87,281.84,47.86,309.03,17.38,22.91,131.83,93.33,40.74,43.65,97.72,213.8,58.88,74.13,48.98,77.62,87.09999999999999,251.19],[7.08,12.52,55.17,26.93,21.88,33.07,24.51,11.34,50.34,131.73,13.49,47.13,21.39,72.98,71.45,32.31,73.88,81.84999999999999,24.52,20.35,27.2,148.11,250.94,22.07,12.4,11.39,16.15,115.18,14.4,96.8,11.56,40.3,40.32,22.98,108.44,73.87,104.3,68.95999999999999,103.23,69.58,13.09,24.45,70.05,41.89,21.35,28.92,48.12,187.96,35.39,17.59,61.07,54.17,48.89,65.31,28.34,33.53,86.53,124.41,184.22,267.95,109.86,22.01,146.83,5.38,13.66,83.97,89.84,11.28,12.54,21.33,100.82,37.55,34.07,26.3,47.86,39.94,106.89],[985.05,149.36,76.81,174.55,305.65,85.97,97.93000000000001,301.56,130.34,89.31999999999999,89.25,156.76,88.87,27.86,40.24,33.32,96.06,91.38,103.75,183.25,293.43,83.33,11.35,101.55,470.59,180.52,313.61,26.44,183.31,45.55,315.8,91.59999999999999,241.4,68.8,51.58,36.67,18.74,20.31,23.23,77.47,77.3,135.64,136.92,99.27,153.06,104.55,257.52,22.27,156.16,101,54.83,38.44,166.41,181.2,130.14,82.8,99.93000000000001,24.94,24.06,23.21,56.42,137.68,18.89,475.01,258.88,86.72,66.23999999999999,455.29,264.45,123.21,27.89,238.62,56.15,265.32,57.25,139.45,31.84],[54.71,8.789999999999999,7.56,40.59,34.01,16.4,14.38,17.71,6.03,8.24,18.94,23.44,23.18,2.03,6.19,3.84,8.15,23.8,4.58,42.1,18.3,13.94,3.79,4.87,49.34,66.95,24.62,2.21,11.77,8.25,29.82,20.12,20.45,21.3,11.41,12.12,4.69,12.9,4.65,21.3,5.47,57.32,13.78,14.91,25.22,14.7,16.19,1.29,3.48,9.4,11.48,7.36,4.96,9.93,19.04,16.65,17.46,9.25,2.18,4.68,3.73,25.01,9.57,67.58,55.8,7.18,15.65,29.7,35.62,9.140000000000001,7.23,26.62,29.94,27.88,27.87,9.199999999999999,7.22],[6.56,1.51,1.65,4.32,5.78,2.33,2.27,1.4,2.22,0.74,1.1,2.35,4.56,0.61,0.47,3.43,1.27,0.84,1.19,5.96,2.94,2.38,0.33,1.4,1.86,5.19,5.78,0.75,5.77,1.77,5.71,1.04,1.87,0.98,1.11,3.89,0.44,1.28,0.79,0.85,4.26,4.28,1.53,3.98,5.94,1.27,1.1,0.65,0.95,1.36,2.37,1.58,0.63,1.63,4.23,2.85,0.34,0.32,0.38,0.3,0.37,4.88,0.32,22.69,14.16,0.62,1.28,5.14,3,1.08,0.96,4.22,1.5,5.69,0.97,6.43,1.31],[0.42,0.16,0.1,0.13,0.26,0.09,0.4,0.14,0.07000000000000001,0.05,0.15,0.26,0.22,0.03,0.01,0.08,0.04,0.06,0.11,0.14,0.13,0.06,0.02,0.09,0.13,0.74,0.18,0.03,0.15,0.13,0.31,0.05,0.05,0.11,0.07000000000000001,0.1,0.03,0.02,0.06,0.05,0.13,0.42,0.21,0.16,0.16,0.44,0.11,0.02,0.18,0.13,0.05,0.02,0.03,0.12,0.24,0.05,0.08,0.06,0.01,0.14,0.08,0.16,0.03,0.48,0.52,0.06,0.09,0.23,0.46,0.16,0.08,0.42,0.09,0.19,0.05,0.08,0.03],[0.46,0.48,0.35,0.54,0.47,0.45,0.42,0.49,0.43,0.53,0.76,0.41,0.53,0.44,0.33,0.48,0.39,0.63,0.31,0.58,0.53,0.34,0.44,0.58,0.64,0.65,0.49,0.4,0.35,0.58,0.51,0.51,0.53,0.46,0.53,0.6899999999999999,0.42,0.53,0.35,0.49,0.66,0.68,0.41,0.48,0.86,0.59,0.51,0.45,0.43,0.48,0.6,0.54,0.6,0.43,0.45,0.45,0.55,0.54,0.61,0.62,0.64,0.52,0.38,0.5,0.46,0.53,0.44,0.45,0.47,0.37,0.45,0.42,0.46,0.48,0.59,0.51,0.53],[0.39,1.35,1.21,1.25,2.16,0.17,0.55,2.43,5.3,6.95,4.84,1.3,0.29,2.35,0.45,1.16,3.02,2.04,0.5,0.85,4.52,2.87,2.56,0.98,5.19,1.55,5.19,0.97,4.39,2.01,0.55,3.82,0.48,0.38,1.59,0.49,0.42,4.51,2.79,2.73,0.82,2.18,0.58,4.09,0.13,1.08,0.33,0.95,0.46,1.07,1.55,1.86,0.2,0.18,1.92,2.86,4.74,0.37,1.61,1.07,3.22,7.98,3.07,0.92,0.06,3,1.56,2.05,1.87,0.96,0.74,0.83,5.54,1.55,0.14,0.36,0.42]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>sp<\/th>\n      <th>LMA<\/th>\n      <th>LL<\/th>\n      <th>Amass<\/th>\n      <th>Rmass<\/th>\n      <th>Nmass<\/th>\n      <th>Pmass<\/th>\n      <th>WD<\/th>\n      <th>SM<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -390,7 +363,7 @@ Site5                   0               1</code></pre>
  8 Acer_campbellii        SM      0.39
  9 Actinodaphne_forrestii LMA    69.2 
 10 Actinodaphne_forrestii LL     12.5 
-# … with 606 more rows</code></pre>
+# ℹ 606 more rows</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(trait_long, <span class="fu">aes</span>(<span class="at">x =</span> value)) <span class="sc">+</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">position =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
@@ -400,27 +373,24 @@ Site5                   0               1</code></pre>
 </div>
 </div>
 <p>Probably we can do log-transformation for all the traits except for WD.</p>
-<div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-10_2e3d6a32d70d4124392478d1d182798e">
+<div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-10_08801b6b78be90c57ed0fcce9586305a">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>trait2 <span class="ot">&lt;-</span> trait <span class="sc">|&gt;</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">logLMA =</span> <span class="fu">log</span>(LMA),</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">logLL =</span> <span class="fu">log</span>(LL),</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">logAmass =</span> <span class="fu">log</span>(Amass),</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">logRmass =</span> <span class="fu">log</span>(Rmass),</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">logNmass =</span> <span class="fu">log</span>(Nmass),</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">logPmass =</span> <span class="fu">log</span>(Pmass),</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">logSM =</span> <span class="fu">log</span>(SM)) <span class="sc">|&gt;</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(sp, logLMA, logLL, logAmass, logRmass, logNmass, logPmass, WD, logSM)</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(trait2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">c</span>(LMA, LL, Amass, Rmass, Nmass, Pmass, SM),</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>       <span class="sc">~</span> <span class="fu">log</span>(.),</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">.names =</span> <span class="st">"log_{.col}"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(sp, log_LMA, log_LL, log_Amass, log_Rmass, log_Nmass, log_Pmass, WD, log_SM)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(trait2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="htmlwidget-e3ad7b90f20ef7520ce3" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e3ad7b90f20ef7520ce3">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77"],["Acer_campbellii","Actinodaphne_forrestii","Alnus_nepalensis","Anneslea_fragrans","Beilschmiedia_robusta","Betula_alnoides","Camellia_assamica","Camellia_forrestii","Camellia_Pitardii","Camellia_yunnanensis","Castanopsis_echidnocarpa","Castanopsis_wattii","Claoxylon_khasianum","Craibiodendron_yunnanense","Cyclobalanopsis_stewardiana","Eriobotrya_bengalensis","Eriobotrya_tengyuehensis","Eurya_paratetragonoclada","Eurya_quinquelocularis","Eurya_trichocarpa","Exbucklandia_populnea","Ficus_henryi","Ficus_heteromorpha","Ficus_racemosa","Glochidion_a","Ilex_corallina","Ilex_manneiensis","Illicium_macranthum","Itoa_orientalis","Laurocerasus_undulata","Leucosceptrum_canum","Lindera_caudata","Lindera_thomsonii","Lithocarpus_confinis","Lithocarpus_crassifolius","Lithocarpus_dealbatus","Lithocarpus_hancei","Lithocarpus_henryi","Lithocarpus_truncatus","Lithocarpus_xylocarpus","Litsea_a","Litsea_chunii","Litsea_elongata","Machilus_gamblei","Machilus_salicina","Machilus_yunnanensis","Mahonia_duclouxiana","Manglietia_insignis","Melia_toosendan","Meliosma_arnottiana","Meliosma_kirkii","Michelia_floribunda","Myrsine_semiserrata","Neolitsea_chuii","Neolitsea_polycarpa","Olea_rosea","Osbeckia_mepalensis","Padus_napaulensis","Rhododendron_decorum","Rhododendron_irroratum","Rhododendron_leptothrium","Rhus_sylvestris","Saurauia_napaulensis","Schefflera_fengii","Schefflera_shweliensis","Schima_argentea","Schima_noronhae","Skimmia_arborescens","Sterculia_nobilis","Stewartia_pteropetiolata","Stewartia_yunnanensis","Symplocos_anomala","Symplocos_grandis","Symplocos_ramosissima","Symplocos_sumuntia","Ternstroemia_gymnanthera","Vaccinium_duclouxii"],[3.68411813701223,4.23671180350902,4.74336568473949,4.19071478604179,3.61496377116377,4.74336568473949,4.60517018598809,3.93749580140118,4.6972934748639,4.95053137002655,4.19071478604179,4.49009597814263,4.23671180350902,5.75646979693521,5.06569149984433,5.06569149984433,4.85841608111874,4.53614159957766,4.30582030866863,4.02945042230411,4.07550147442062,5.18082803775557,6.40118724546879,4.67422972191959,3.91442013002787,3.52282486978385,3.84524197173779,5.66434840541079,3.6609942506244,5.18082803775557,3.89141205152402,4.42100693431477,4.46705688385846,4.62820288509866,5.11174679546467,5.08870682951641,5.64133953403298,5.27289698920113,5.34199926763416,4.62820288509866,3.96043214463583,3.82231709234365,4.121635422458,4.51305489708029,3.98341300151482,4.2597177477861,4.74336568473949,6.21698527070794,4.62820288509866,4.6972934748639,4.76635322357948,4.9275434982298,4.90453376321371,4.65119462429937,4.2597177477861,4.44394453748887,5.22687506909367,5.87158243493114,6.10184245457759,6.03277442259496,5.64133953403298,3.86828008248023,5.73343835956371,2.85532011983725,3.1315734964654,4.88151321376988,4.53614159957766,3.70721041079866,3.77620328228561,4.58210624638954,5.36504099859094,4.07550147442062,4.30582030866863,3.89141205152402,4.35182512594076,4.46705688385846,5.52620962488445],[1.95727390770563,2.52732736567195,4.01041932728434,3.29324090682351,3.08557297755378,3.4986265269937,3.19908119754002,2.42833629829961,3.91879998970717,4.88075437324174,2.60194867021966,3.85290974093564,3.06292352309431,4.2901854310083,4.26899790437588,3.47537677983641,4.30244215533104,4.40488830381714,3.19948911106801,3.0130809118886,3.30321697330195,4.99795524093888,5.52521386673155,3.09421922026864,2.51769647261099,2.43273577745909,2.78192004966867,4.74649612207853,2.66722820658195,4.57264699428253,2.44755086324423,3.69635146895264,3.69684762376311,3.13462427242061,4.68619702463046,4.30230679154065,4.64727136200673,4.23352662635544,4.6369595084775,4.2424771697238,2.57184857992181,3.19663021592088,4.24920927278302,3.73504713495894,3.06105173967463,3.36453339729056,3.87369789110648,5.23622917423461,3.56642929435737,2.86733055874947,4.11202074723504,3.99212724966981,3.88957287659055,4.17914516391457,3.34427423426253,3.51244056047814,4.46049117461865,4.8235825629264,5.21613069556009,5.59080039594086,4.69920682791447,3.09149689553837,4.98927545497485,1.68268837417369,2.61447185414264,4.43045959219547,4.49803031043019,2.42303124606991,2.52892353520477,3.06011453248326,4.61333674865448,3.62567337821014,3.52841723167288,3.26956893918372,3.86828008248023,3.68737832798767,4.67180026828585],[6.89269240130509,5.00635949923347,4.34133484001059,5.16221123355105,5.72244065647473,4.45399839818635,4.5842529377327,5.7089690013435,4.87014642090423,4.49222542697196,4.49144142065975,5.05471597333143,4.48717462775038,3.32719196835166,3.69486152579148,3.50615781729864,4.56497299623668,4.51502663613513,4.64198415911081,5.21085134076676,5.68163910997051,4.42280862839412,2.42921774392741,4.62055128802639,6.15398722659873,5.1958415749588,5.74815017572295,3.27487801498349,5.21117870873127,3.81881062370597,5.75510910182154,4.51743127168008,5.48645530866343,4.2312037449393,3.9431340004532,3.60195898208323,2.93066027681028,3.01111337559229,3.14544454678232,4.34989076464381,4.34769395559338,4.91000431725744,4.91939681366198,4.59784341060163,5.03083000138177,4.64966542587464,5.55109738699055,3.10324048126928,5.05088112266478,4.61512051684126,4.00423748941596,3.64909858410209,5.11445462273525,5.19960139360888,4.86861079406684,4.41642806139121,4.6044699408737,3.21647294025189,3.18055071054653,3.14458322028635,4.03282370557385,4.92493215190328,2.93863268151342,6.16333585644462,5.55636463387013,4.46268453769134,4.193284510077,6.12093457855901,5.57765219751199,4.81389021663658,3.3282682016394,5.47487232844765,4.02802668118445,5.58093664465736,4.04742764243435,4.9377061140735,3.46072336097618],[4.00204650807573,2.17361471169709,2.02287119019144,3.70352173085081,3.5266545990191,2.79728133483015,2.6658383522929,2.87412945179474,1.79674701073909,2.10900034392138,2.94127608775793,3.15444396470881,3.14328983791161,0.708035793053696,1.8229350866965,1.34547236659964,2.09801792725277,3.16968558067743,1.52169899812609,3.74004774068834,2.90690105984738,2.63476240533238,1.33236601909433,1.5830939370945,3.89873511110121,4.20394607213718,3.20355912075631,0.792992515529661,2.46555392127219,2.11021320034659,3.39517930933659,3.00171434523154,3.01798288248881,3.05870707271538,2.43449016387398,2.49485698064117,1.54543258245819,2.55722731136763,1.53686721959926,3.05870707271538,1.69927861643389,4.04864960295997,2.62321826558551,2.70203212877665,3.22763733053677,2.68784749378469,2.78439376768954,0.254642218373581,1.24703229378638,2.24070968927596,2.44060639089142,1.99605993274078,1.60140574073684,2.29556047805708,2.94654202936322,2.81241021642645,2.85991255041146,2.22462355152433,0.779324876800998,1.54329810992956,1.31640823365572,3.21927574488953,2.25863320546486,4.21331208128614,4.02177386938726,1.97129938306013,2.75047091698616,3.39114704580865,3.57290727786152,2.21266038546606,1.97823903617067,3.28166281296697,3.39919537899148,3.32790958589232,3.32755084149386,2.21920348405499,1.97685495290473],[1.880990602956,0.412109650826833,0.500775287912489,1.46325540225602,1.75440368268429,0.845868267577609,0.819779831493311,0.336472236621213,0.797507195884188,-0.301105092783922,0.0953101798043249,0.854415328156068,1.51732262352629,-0.49429632181478,-0.755022584278033,1.23256026117785,0.2390169004705,-0.174353387144778,0.173953307123438,1.78507048107726,1.07840958135059,0.867100487683383,-1.10866262452161,0.336472236621213,0.62057648772511,1.6467336971778,1.75440368268429,-0.287682072451781,1.75267208052001,0.570979546585738,1.74221902366792,0.0392207131532813,0.625938430866495,-0.0202027073175195,0.104360015324243,1.35840915763035,-0.82098055206983,0.246860077931526,-0.23572233352107,-0.162518929497775,1.44926916028128,1.45395300959371,0.425267735404344,1.38128181929635,1.78170913337455,0.2390169004705,0.0953101798043249,-0.430782916092454,-0.0512932943875506,0.307484699747961,0.86288995514704,0.457424847038875,-0.462035459596559,0.488580014818671,1.44220199305819,1.04731899428056,-1.07880966137193,-1.13943428318836,-0.967584026261706,-1.20397280432594,-0.994252273343867,1.58514521986506,-1.13943428318836,3.12192429879175,2.65042108826557,-0.478035800943,0.246860077931526,1.63705307946707,1.09861228866811,0.0769610411361284,-0.0408219945202552,1.43983512804792,0.405465108108164,1.73871024813824,-0.0304592074847086,1.86097453824953,0.27002713721306],[-0.867500567704723,-1.83258146374831,-2.30258509299405,-2.04022082852655,-1.34707364796661,-2.40794560865187,-0.916290731874155,-1.96611285637283,-2.65926003693278,-2.99573227355399,-1.89711998488588,-1.34707364796661,-1.51412773262978,-3.50655789731998,-4.60517018598809,-2.52572864430826,-3.2188758248682,-2.81341071676004,-2.20727491318972,-1.96611285637283,-2.04022082852655,-2.81341071676004,-3.91202300542815,-2.40794560865187,-2.04022082852655,-0.301105092783922,-1.71479842809193,-3.50655789731998,-1.89711998488588,-2.04022082852655,-1.17118298150295,-2.99573227355399,-2.99573227355399,-2.20727491318972,-2.65926003693278,-2.30258509299405,-3.50655789731998,-3.91202300542815,-2.81341071676004,-2.99573227355399,-2.04022082852655,-0.867500567704723,-1.56064774826467,-1.83258146374831,-1.83258146374831,-0.82098055206983,-2.20727491318972,-3.91202300542815,-1.71479842809193,-2.04022082852655,-2.99573227355399,-3.91202300542815,-3.50655789731998,-2.12026353620009,-1.42711635564015,-2.99573227355399,-2.52572864430826,-2.81341071676004,-4.60517018598809,-1.96611285637283,-2.52572864430826,-1.83258146374831,-3.50655789731998,-0.7339691750802,-0.653926467406664,-2.81341071676004,-2.40794560865187,-1.46967597005894,-0.776528789498996,-1.83258146374831,-2.52572864430826,-0.867500567704723,-2.40794560865187,-1.66073120682165,-2.99573227355399,-2.52572864430826,-3.50655789731998],[0.46,0.48,0.35,0.54,0.47,0.45,0.42,0.49,0.43,0.53,0.76,0.41,0.53,0.44,0.33,0.48,0.39,0.63,0.31,0.58,0.53,0.34,0.44,0.58,0.64,0.65,0.49,0.4,0.35,0.58,0.51,0.51,0.53,0.46,0.53,0.69,0.42,0.53,0.35,0.49,0.66,0.68,0.41,0.48,0.86,0.59,0.51,0.45,0.43,0.48,0.6,0.54,0.6,0.43,0.45,0.45,0.55,0.54,0.61,0.62,0.64,0.52,0.38,0.5,0.46,0.53,0.44,0.45,0.47,0.37,0.45,0.42,0.46,0.48,0.59,0.51,0.53],[-0.941608539858445,0.300104592450338,0.19062035960865,0.22314355131421,0.770108221696074,-1.77195684193188,-0.59783700075562,0.887891257352457,1.66770682055808,1.9387416595767,1.57691472072854,0.262364264467491,-1.23787435600162,0.854415328156068,-0.798507696217772,0.148420005118273,1.10525683138678,0.712949807856125,-0.693147180559945,-0.162518929497775,1.50851199384414,1.05431202977153,0.940007258491471,-0.0202027073175195,1.6467336971778,0.438254930931155,1.6467336971778,-0.0304592074847086,1.47932922708708,0.698134722070984,-0.59783700075562,1.34025042261848,-0.7339691750802,-0.967584026261706,0.46373401623214,-0.713349887877465,-0.867500567704723,1.50629715351459,1.02604159583327,1.00430160919687,-0.198450938723838,0.779324876800998,-0.544727175441672,1.40854497005471,-2.04022082852655,0.0769610411361284,-1.10866262452161,-0.0512932943875506,-0.776528789498996,0.0676586484738149,0.438254930931155,0.62057648772511,-1.6094379124341,-1.71479842809193,0.65232518603969,1.05082162483176,1.55603713570699,-0.994252273343867,0.476234178996372,0.0676586484738149,1.16938135955632,2.07693841146172,1.12167756159911,-0.083381608939051,-2.81341071676004,1.09861228866811,0.444685821261446,0.717839793150317,0.625938430866495,-0.0408219945202552,-0.301105092783922,-0.186329578191493,1.71199450075919,0.438254930931155,-1.96611285637283,-1.02165124753198,-0.867500567704723]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>sp<\/th>\n      <th>logLMA<\/th>\n      <th>logLL<\/th>\n      <th>logAmass<\/th>\n      <th>logRmass<\/th>\n      <th>logNmass<\/th>\n      <th>logPmass<\/th>\n      <th>WD<\/th>\n      <th>logSM<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-b44e3133287850132198" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-b44e3133287850132198">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77"],["Acer_campbellii","Actinodaphne_forrestii","Alnus_nepalensis","Anneslea_fragrans","Beilschmiedia_robusta","Betula_alnoides","Camellia_assamica","Camellia_forrestii","Camellia_Pitardii","Camellia_yunnanensis","Castanopsis_echidnocarpa","Castanopsis_wattii","Claoxylon_khasianum","Craibiodendron_yunnanense","Cyclobalanopsis_stewardiana","Eriobotrya_bengalensis","Eriobotrya_tengyuehensis","Eurya_paratetragonoclada","Eurya_quinquelocularis","Eurya_trichocarpa","Exbucklandia_populnea","Ficus_henryi","Ficus_heteromorpha","Ficus_racemosa","Glochidion_a","Ilex_corallina","Ilex_manneiensis","Illicium_macranthum","Itoa_orientalis","Laurocerasus_undulata","Leucosceptrum_canum","Lindera_caudata","Lindera_thomsonii","Lithocarpus_confinis","Lithocarpus_crassifolius","Lithocarpus_dealbatus","Lithocarpus_hancei","Lithocarpus_henryi","Lithocarpus_truncatus","Lithocarpus_xylocarpus","Litsea_a","Litsea_chunii","Litsea_elongata","Machilus_gamblei","Machilus_salicina","Machilus_yunnanensis","Mahonia_duclouxiana","Manglietia_insignis","Melia_toosendan","Meliosma_arnottiana","Meliosma_kirkii","Michelia_floribunda","Myrsine_semiserrata","Neolitsea_chuii","Neolitsea_polycarpa","Olea_rosea","Osbeckia_mepalensis","Padus_napaulensis","Rhododendron_decorum","Rhododendron_irroratum","Rhododendron_leptothrium","Rhus_sylvestris","Saurauia_napaulensis","Schefflera_fengii","Schefflera_shweliensis","Schima_argentea","Schima_noronhae","Skimmia_arborescens","Sterculia_nobilis","Stewartia_pteropetiolata","Stewartia_yunnanensis","Symplocos_anomala","Symplocos_grandis","Symplocos_ramosissima","Symplocos_sumuntia","Ternstroemia_gymnanthera","Vaccinium_duclouxii"],[3.684118137012226,4.236711803509023,4.743365684739491,4.190714786041794,3.614963771163768,4.743365684739491,4.605170185988092,3.937495801401177,4.697293474863897,4.950531370026551,4.190714786041794,4.490095978142626,4.236711803509023,5.756469796935208,5.065691499844334,5.065691499844334,4.858416081118745,4.536141599577656,4.305820308668628,4.029450422304111,4.075501474420621,5.180828037755569,6.401187245468788,4.674229721919586,3.914420130027867,3.522824869783854,3.845241971737795,5.664348405410794,3.6609942506244,5.180828037755569,3.891412051524022,4.421006934314765,4.467056883858457,4.628202885098664,5.111746795464668,5.088706829516411,5.641339534032982,5.272896989201126,5.34199926763416,4.628202885098664,3.960432144635833,3.822317092343653,4.121635422458004,4.513054897080286,3.983413001514819,4.259717747786098,4.743365684739491,6.216985270707943,4.628202885098664,4.697293474863897,4.766353223579481,4.927543498229802,4.90453376321371,4.651194624299371,4.259717747786098,4.44394453748887,5.226875069093671,5.871582434931136,6.101842454577591,6.032774422594961,5.641339534032982,3.868280082480227,5.733438359563712,2.855320119837246,3.131573496465404,4.881513213769878,4.536141599577656,3.70721041079866,3.776203282285611,4.582106246389539,5.365040998590945,4.075501474420621,4.305820308668628,3.891412051524022,4.35182512594076,4.467056883858457,5.526209624884451],[1.957273907705628,2.527327365671952,4.01041932728434,3.293240906823507,3.085572977553781,3.498626526993701,3.199081197540021,2.428336298299606,3.91879998970717,4.880754373241736,2.601948670219664,3.852909740935639,3.062923523094314,4.290185431008302,4.268997904375876,3.475376779836407,4.302442155331039,4.404888303817144,3.199489111068011,3.013080911888604,3.303216973301951,4.997955240938881,5.525213866731554,3.094219220268645,2.517696472610991,2.432735777459091,2.781920049668666,4.746496122078526,2.667228206581955,4.572646994282532,2.447550863244231,3.696351468952637,3.696847623763113,3.13462427242061,4.686197024630465,4.302306791540646,4.647271362006727,4.233526626355437,4.636959508477498,4.242477169723796,2.571848579921808,3.196630215920881,4.249209272783016,3.735047134958943,3.061051739674634,3.364533397290564,3.873697891106478,5.236229174234615,3.566429294357372,2.867330558749467,4.112020747235043,3.992127249669807,3.889572876590554,4.179145163914566,3.344274234262534,3.512440560478137,4.460491174618648,4.8235825629264,5.216130695560089,5.590800395940859,4.699206827914474,3.09149689553837,4.989275454974846,1.682688374173693,2.614471854142644,4.430459592195472,4.498030310430188,2.423031246069913,2.528923535204775,3.060114532483259,4.613336748654485,3.625673378210144,3.528417231672875,3.269568939183719,3.868280082480227,3.687378327987669,4.671800268285854],[6.892692401305092,5.006359499233468,4.341334840010591,5.162211233551045,5.722440656474735,4.453998398186353,4.584252937732703,5.708969001343501,4.870146420904234,4.492225426971957,4.491441420659749,5.05471597333143,4.487174627750384,3.32719196835166,3.694861525791484,3.506157817298642,4.564972996236678,4.515026636135126,4.641984159110808,5.21085134076676,5.681639109970511,4.422808628394115,2.429217743927412,4.620551288026394,6.153987226598725,5.1958415749588,5.748150175722952,3.274878014983486,5.211178708731273,3.818810623705967,5.755109101821541,4.517431271680085,5.486455308663431,4.231203744939298,3.943134000453199,3.601958982083235,2.930660276810276,3.011113375592293,3.145444546782318,4.349890764643811,4.347693955593376,4.910004317257438,4.919396813661985,4.59784341060163,5.030830001381775,4.649665425874643,5.551097386990553,3.103240481269276,5.050881122664783,4.61512051684126,4.004237489415957,3.649098584102092,5.114454622735253,5.199601393608879,4.868610794066837,4.416428061391214,4.604469940873698,3.216472940251891,3.180550710546533,3.144583220286346,4.032823705573851,4.924932151903284,2.938632681513418,6.163335856444617,5.556364633870126,4.462684537691336,4.193284510077004,6.120934578559011,5.577652197511989,4.813890216636577,3.328268201639398,5.474872328447654,4.028026681184453,5.580936644657355,4.047427642434349,4.937706114073498,3.460723360976182],[4.002046508075734,2.173614711697085,2.022871190191442,3.703521730850806,3.526654599019104,2.797281334830153,2.665838352292901,2.874129451794742,1.796747010739094,2.10900034392138,2.941276087757932,3.154443964708812,3.143289837911606,0.7080357930536959,1.822935086696505,1.345472366599636,2.098017927252771,3.169685580677429,1.521698998126094,3.740047740688336,2.906901059847375,2.634762405332378,1.332366019094335,1.583093937094499,3.898735111101211,4.203946072137182,3.203559120756307,0.7929925155296614,2.465553921272186,2.110213200346589,3.395179309336593,3.001714345231539,3.017982882488811,3.05870707271538,2.434490163873984,2.494856980641168,1.545432582458188,2.557227311367626,1.536867219599265,3.05870707271538,1.69927861643389,4.048649602959971,2.623218265585512,2.702032128776647,3.227637330536774,2.687847493784691,2.784393767689544,0.2546422183735808,1.247032293786383,2.240709689275958,2.44060639089142,1.996059932740785,1.601405740736836,2.295560478057081,2.946542029363219,2.812410216426453,2.859912550411456,2.224623551524334,0.7793248768009977,1.543298109929555,1.316408233655724,3.219275744889528,2.258633205464863,4.213312081286144,4.021773869387265,1.971299383060133,2.750470916986162,3.391147045808654,3.572907277861515,2.212660385466059,1.978239036170673,3.281662812966966,3.399195378991482,3.327909585892323,3.327550841493857,2.219203484054995,1.976854952904735],[1.880990602955998,0.412109650826833,0.5007752879124892,1.463255402256019,1.754403682684286,0.8458682675776092,0.8197798314933114,0.3364722366212129,0.7975071958841882,-0.3011050927839216,0.09531017980432493,0.8544153281560676,1.517322623526295,-0.4942963218147801,-0.7550225842780328,1.232560261177849,0.2390169004704999,-0.1743533871447778,0.173953307123438,1.785070481077258,1.07840958135059,0.8671004876833833,-1.108662624521611,0.3364722366212129,0.62057648772511,1.646733697177797,1.754403682684286,-0.2876820724517809,1.752672080520008,0.5709795465857378,1.742219023667919,0.03922071315328133,0.6259384308664954,-0.02020270731751947,0.1043600153242429,1.358409157630355,-0.8209805520698302,0.2468600779315258,-0.2357223335210698,-0.1625189294977749,1.449269160281279,1.453953009593705,0.4252677354043441,1.381281819296346,1.781709133374554,0.2390169004704999,0.09531017980432493,-0.4307829160924542,-0.05129329438755058,0.3074846997479607,0.8628899551470398,0.4574248470388755,-0.4620354595965587,0.4885800148186709,1.442201993058187,1.047318994280559,-1.07880966137193,-1.139434283188365,-0.9675840262617056,-1.203972804325936,-0.9942522733438669,1.585145219865056,-1.139434283188365,3.12192429879175,2.650421088265574,-0.4780358009429998,0.2468600779315258,1.637053079467074,1.09861228866811,0.07696104113612839,-0.04082199452025517,1.43983512804792,0.4054651081081644,1.73871024813824,-0.03045920748470857,1.860974538249528,0.2700271372130602],[-0.8675005677047231,-1.83258146374831,-2.302585092994045,-2.040220828526555,-1.347073647966609,-2.407945608651872,-0.916290731874155,-1.966112856372833,-2.659260036932778,-2.995732273553991,-1.897119984885881,-1.347073647966609,-1.514127732629776,-3.506557897319982,-4.605170185988091,-2.525728644308256,-3.218875824868201,-2.813410716760036,-2.207274913189721,-1.966112856372833,-2.040220828526555,-2.813410716760036,-3.912023005428146,-2.407945608651872,-2.040220828526555,-0.3011050927839216,-1.714798428091927,-3.506557897319982,-1.897119984885881,-2.040220828526555,-1.171182981502945,-2.995732273553991,-2.995732273553991,-2.207274913189721,-2.659260036932778,-2.302585092994045,-3.506557897319982,-3.912023005428146,-2.813410716760036,-2.995732273553991,-2.040220828526555,-0.8675005677047231,-1.560647748264668,-1.83258146374831,-1.83258146374831,-0.8209805520698302,-2.207274913189721,-3.912023005428146,-1.714798428091927,-2.040220828526555,-2.995732273553991,-3.912023005428146,-3.506557897319982,-2.120263536200091,-1.427116355640146,-2.995732273553991,-2.525728644308256,-2.813410716760036,-4.605170185988091,-1.966112856372833,-2.525728644308256,-1.83258146374831,-3.506557897319982,-0.7339691750802004,-0.6539264674066639,-2.813410716760036,-2.407945608651872,-1.469675970058942,-0.7765287894989963,-1.83258146374831,-2.525728644308256,-0.8675005677047231,-2.407945608651872,-1.660731206821651,-2.995732273553991,-2.525728644308256,-3.506557897319982],[0.46,0.48,0.35,0.54,0.47,0.45,0.42,0.49,0.43,0.53,0.76,0.41,0.53,0.44,0.33,0.48,0.39,0.63,0.31,0.58,0.53,0.34,0.44,0.58,0.64,0.65,0.49,0.4,0.35,0.58,0.51,0.51,0.53,0.46,0.53,0.6899999999999999,0.42,0.53,0.35,0.49,0.66,0.68,0.41,0.48,0.86,0.59,0.51,0.45,0.43,0.48,0.6,0.54,0.6,0.43,0.45,0.45,0.55,0.54,0.61,0.62,0.64,0.52,0.38,0.5,0.46,0.53,0.44,0.45,0.47,0.37,0.45,0.42,0.46,0.48,0.59,0.51,0.53],[-0.9416085398584449,0.3001045924503382,0.1906203596086497,0.2231435513142098,0.7701082216960737,-1.771956841931875,-0.5978370007556204,0.8878912573524571,1.667706820558076,1.938741659576701,1.57691472072854,0.2623642644674911,-1.237874356001617,0.8544153281560676,-0.7985076962177716,0.1484200051182732,1.105256831386778,0.7129498078561251,-0.6931471805599453,-0.1625189294977749,1.50851199384414,1.05431202977153,0.9400072584914712,-0.02020270731751947,1.646733697177797,0.4382549309311553,1.646733697177797,-0.03045920748470857,1.47932922708708,0.6981347220709843,-0.5978370007556204,1.340250422618484,-0.7339691750802004,-0.9675840262617056,0.4637340162321402,-0.7133498878774648,-0.8675005677047231,1.506297153514587,1.026041595833274,1.004301609196868,-0.1984509387238383,0.7793248768009977,-0.5447271754416722,1.40854497005471,-2.040220828526555,0.07696104113612839,-1.108662624521611,-0.05129329438755058,-0.7765287894989963,0.06765864847381486,0.4382549309311553,0.62057648772511,-1.6094379124341,-1.714798428091927,0.6523251860396901,1.050821624831761,1.556037135706985,-0.9942522733438669,0.4762341789963717,0.06765864847381486,1.169381359556317,2.076938411461717,1.121677561599106,-0.08338160893905101,-2.813410716760036,1.09861228866811,0.4446858212614457,0.7178397931503168,0.6259384308664954,-0.04082199452025517,-0.3011050927839216,-0.1863295781914935,1.711994500759192,0.4382549309311553,-1.966112856372833,-1.021651247531981,-0.8675005677047231]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>sp<\/th>\n      <th>log_LMA<\/th>\n      <th>log_LL<\/th>\n      <th>log_Amass<\/th>\n      <th>log_Rmass<\/th>\n      <th>log_Nmass<\/th>\n      <th>log_Pmass<\/th>\n      <th>WD<\/th>\n      <th>log_SM<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-11_22c6ab2f6760fbaaf8058140fc99080d">
+<div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-11_3cfa8022bdd1803f17fa7673a6698648">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>trait2 <span class="sc">|&gt;</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(logLMA<span class="sc">:</span>logSM, <span class="at">names_to =</span> <span class="st">"trait"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(log_LMA<span class="sc">:</span>log_SM, <span class="at">names_to =</span> <span class="st">"trait"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> value)) <span class="sc">+</span></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">position =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> trait, <span class="at">scale =</span> <span class="st">"free"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -466,11 +436,11 @@ Site5               FALSE            TRUE</code></pre>
 <section id="shannon" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="shannon"><span class="header-section-number">4.2</span> Shannon</h2>
 <p><span class="math inline">\(H' = - \sum_i^n p_i\mathrm{log}p_i\)</span>, where <span class="math inline">\(p_i\)</span> is the relative abundance for species <em>i</em>.</p>
-<div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-13_4952de913e87986f34649272d5d37ba1">
+<div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-13_a7961001e99d552ce4219c942b558aa8">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>shannon <span class="ot">&lt;-</span> <span class="cf">function</span>(abund) {</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a> p0 <span class="ot">&lt;-</span> abund <span class="sc">/</span> <span class="fu">sum</span>(abund)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a> p <span class="ot">&lt;-</span> p0[p0 <span class="sc">&gt;</span> <span class="dv">0</span>]</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a> <span class="sc">-</span><span class="fu">sum</span>(p <span class="sc">*</span> <span class="fu">log</span>(p))</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  p0 <span class="ot">&lt;-</span> abund <span class="sc">/</span> <span class="fu">sum</span>(abund)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> p0[p0 <span class="sc">&gt;</span> <span class="dv">0</span>]</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span><span class="fu">sum</span>(p <span class="sc">*</span> <span class="fu">log</span>(p))</span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-14_bcfa9e8ad19aac8c249218e1472445f9">
@@ -496,44 +466,41 @@ Site5               FALSE            TRUE</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Run 0 stress 0 
 Run 1 stress 0 
-... Procrustes: rmse 0.07136902  max resid 0.1238712 
+... Procrustes: rmse 0.07059586  max resid 0.1203173 
 Run 2 stress 0 
-... Procrustes: rmse 0.07745548  max resid 0.1372749 
+... Procrustes: rmse 0.09853175  max resid 0.1620287 
 Run 3 stress 0 
-... Procrustes: rmse 0.07207206  max resid 0.1046115 
-Run 4 stress 0 
-... Procrustes: rmse 0.04579908  max resid 0.0671061 
-Run 5 stress 0.2297529 
-Run 6 stress 5.062658e-05 
-... Procrustes: rmse 0.1229637  max resid 0.184251 
+... Procrustes: rmse 0.03493698  max resid 0.05375219 
+Run 4 stress 4.713308e-05 
+... Procrustes: rmse 0.1225491  max resid 0.1835553 
+Run 5 stress 0 
+... Procrustes: rmse 0.1026048  max resid 0.1532271 
+Run 6 stress 0 
+... Procrustes: rmse 0.09367737  max resid 0.1286632 
 Run 7 stress 0 
-... Procrustes: rmse 0.09136701  max resid 0.149572 
+... Procrustes: rmse 0.08260906  max resid 0.1367528 
 Run 8 stress 0 
-... Procrustes: rmse 0.06358448  max resid 0.1125462 
-Run 9 stress 0.1302441 
-Run 10 stress 9.846298e-05 
-... Procrustes: rmse 0.1288594  max resid 0.1986333 
+... Procrustes: rmse 0.1229212  max resid 0.2089681 
+Run 9 stress 0 
+... Procrustes: rmse 0.03376329  max resid 0.05685687 
+Run 10 stress 0 
+... Procrustes: rmse 0.1257645  max resid 0.2257312 
 Run 11 stress 0 
-... Procrustes: rmse 0.02831245  max resid 0.04006257 
-Run 12 stress 0.09681012 
-Run 13 stress 0 
-... Procrustes: rmse 0.03628166  max resid 0.05523203 
-Run 14 stress 0 
-... Procrustes: rmse 0.02762022  max resid 0.04699424 
-Run 15 stress 0.0968105 
+... Procrustes: rmse 0.120451  max resid 0.1800933 
+Run 12 stress 0.1302441 
+Run 13 stress 0.09680968 
+Run 14 stress 0.09681012 
+Run 15 stress 0.0968106 
 Run 16 stress 0 
-... Procrustes: rmse 0.04617787  max resid 0.08217256 
-Run 17 stress 9.615976e-05 
-... Procrustes: rmse 0.0531874  max resid 0.07172835 
-Run 18 stress 0.0968098 
-Run 19 stress 0 
-... Procrustes: rmse 0.1135352  max resid 0.1779698 
-Run 20 stress 0 
-... Procrustes: rmse 0.03631852  max resid 0.04760688 
+... Procrustes: rmse 0.1081784  max resid 0.1863511 
+Run 17 stress 0.1302441 
+Run 18 stress 0.09681019 
+Run 19 stress 0.1302441 
+Run 20 stress 0.1302441 
 *** Best solution was not repeated -- monoMDS stopping criteria:
-    15: stress &lt; smin
-     3: stress ratio &gt; sratmax
-     2: scale factor of the gradient &lt; sfgrmin</code></pre>
+    12: stress &lt; smin
+     4: stress ratio &gt; sratmax
+     4: scale factor of the gradient &lt; sfgrmin</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(res_mds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -597,7 +564,7 @@ Sterculia_nobilis         0.5454545         0.0000000</code></pre>
 </div>
 <section id="mpd" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="mpd"><span class="header-section-number">5.2.1</span> MPD</h3>
-<p><span class="math inline">\(MPD = \frac{1}{n} \Sigma^n_i \Sigma^n_j \delta_{i,j} \; i \neq j\)</span>, where <span class="math inline">\(\delta_{i, j}\)</span> is the pairwised distance between species <em>i</em> and <em>j</em></p>
+<p><span class="math inline">\(MPD = \frac{1}{n} \Sigma^n_i \Sigma^n_j \delta_{i,j} \; i \neq j\)</span>, where <span class="math inline">\(\delta_{i, j}\)</span> is the pairwise distance between species <em>i</em> and <em>j</em></p>
 <div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-21_7e3ffe12b999f20bedba6afb1f818c99">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>res_mpd <span class="ot">&lt;-</span> <span class="fu">mpd</span>(samp, <span class="fu">cophenetic</span>(phylo))</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>res_mpd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -639,17 +606,16 @@ CWM_i = \frac{\vec{a_i} \cdot \vec{t}}{\sum_{j=1}^n a_{ij}},
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>tmp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 9
-  sp                  logLMA logLL logAm…¹ logRm…² logNm…³ logPm…⁴    WD   logSM
-  &lt;chr&gt;                &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
-1 Actinodaphne_forre…   4.24  2.53    5.01   2.17    0.412  -1.83   0.48  0.300 
-2 Beilschmiedia_robu…   3.61  3.09    5.72   3.53    1.75   -1.35   0.47  0.770 
-3 Illicium_macranthum   5.66  4.75    3.27   0.793  -0.288  -3.51   0.4  -0.0305
-4 Lindera_thomsonii     4.47  3.70    5.49   3.02    0.626  -3.00   0.53 -0.734 
-5 Machilus_yunnanens…   4.26  3.36    4.65   2.69    0.239  -0.821  0.59  0.0770
-6 Manglietia_insignis   6.22  5.24    3.10   0.255  -0.431  -3.91   0.45 -0.0513
-7 Michelia_floribunda   4.93  3.99    3.65   2.00    0.457  -3.91   0.54  0.621 
-8 Neolitsea_chuii       4.65  4.18    5.20   2.30    0.489  -2.12   0.43 -1.71  
-# … with abbreviated variable names ¹​logAmass, ²​logRmass, ³​logNmass, ⁴​logPmass</code></pre>
+  sp        log_LMA log_LL log_Amass log_Rmass log_Nmass log_Pmass    WD  log_SM
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+1 Actinoda…    4.24   2.53      5.01     2.17      0.412    -1.83   0.48  0.300 
+2 Beilschm…    3.61   3.09      5.72     3.53      1.75     -1.35   0.47  0.770 
+3 Illicium…    5.66   4.75      3.27     0.793    -0.288    -3.51   0.4  -0.0305
+4 Lindera_…    4.47   3.70      5.49     3.02      0.626    -3.00   0.53 -0.734 
+5 Machilus…    4.26   3.36      4.65     2.69      0.239    -0.821  0.59  0.0770
+6 Mangliet…    6.22   5.24      3.10     0.255    -0.431    -3.91   0.45 -0.0513
+7 Michelia…    4.93   3.99      3.65     2.00      0.457    -3.91   0.54  0.621 
+8 Neolitse…    4.65   4.18      5.20     2.30      0.489    -2.12   0.43 -1.71  </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>(ab <span class="ot">&lt;-</span> <span class="fu">apply</span>(samp, <span class="dv">1</span>, sum))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -659,13 +625,13 @@ CWM_i = \frac{\vec{a_i} \cdot \vec{t}}{\sum_{j=1}^n a_{ij}},
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inner product</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>(CWS <span class="ot">&lt;-</span> samp <span class="sc">%*%</span> <span class="fu">as.matrix</span>(tmp[,<span class="sc">-</span><span class="dv">1</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>         logLMA     logLL  logAmass   logRmass   logNmass   logPmass   WD
+<pre><code>        log_LMA    log_LL log_Amass  log_Rmass  log_Nmass  log_Pmass   WD
 Site1  5.664348  4.746496  3.274878  0.7929925 -0.2876821  -3.506558 0.40
 Site2 35.183333 29.374355 28.224437 12.3477060  3.2744092 -21.848797 3.32
 Site3 31.591321 23.923913 33.559838 16.5518827  2.2664479 -14.805146 3.60
 Site4 29.288871 22.431075 27.363748 11.4308299  1.3576312 -17.075208 2.87
 Site5 14.782600 12.622489 13.960935  6.1065359  0.8268364  -8.622554 1.36
-            logSM
+           log_SM
 Site1 -0.03045921
 Site2  2.64832362
 Site3 -0.74426629
@@ -676,13 +642,13 @@ Site5 -2.47922681</code></pre>
 <div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-24_7c6a2cc5b1bfbc6adb48ae940d95ce8f">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>(CWM <span class="ot">&lt;-</span> CWS <span class="sc">/</span> ab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>        logLMA    logLL logAmass  logRmass   logNmass  logPmass        WD
-Site1 5.664348 4.746496 3.274878 0.7929925 -0.2876821 -3.506558 0.4000000
-Site2 5.026190 4.196336 4.032062 1.7639580  0.4677727 -3.121257 0.4742857
-Site3 4.513046 3.417702 4.794263 2.3645547  0.3237783 -2.115021 0.5142857
-Site4 4.881479 3.738513 4.560625 1.9051383  0.2262719 -2.845868 0.4783333
-Site5 4.927533 4.207496 4.653645 2.0355120  0.2756121 -2.874185 0.4533333
-            logSM
+<pre><code>       log_LMA   log_LL log_Amass log_Rmass  log_Nmass log_Pmass        WD
+Site1 5.664348 4.746496  3.274878 0.7929925 -0.2876821 -3.506558 0.4000000
+Site2 5.026190 4.196336  4.032062 1.7639580  0.4677727 -3.121257 0.4742857
+Site3 4.513046 3.417702  4.794263 2.3645547  0.3237783 -2.115021 0.5142857
+Site4 4.881479 3.738513  4.560625 1.9051383  0.2262719 -2.845868 0.4783333
+Site5 4.927533 4.207496  4.653645 2.0355120  0.2756121 -2.874185 0.4533333
+           log_SM
 Site1 -0.03045921
 Site2  0.37833195
 Site3 -0.10632376
@@ -705,23 +671,23 @@ Site5 -0.82640894</code></pre>
 <div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-26_95e7f07971574e65202c19d41118e35b">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>trait_mat0[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                         logLMA    logLL logAmass logRmass  logNmass
-Acer_campbellii        3.684118 1.957274 6.892692 4.002047 1.8809906
-Actinodaphne_forrestii 4.236712 2.527327 5.006359 2.173615 0.4121097
-Alnus_nepalensis       4.743366 4.010419 4.341335 2.022871 0.5007753
-Anneslea_fragrans      4.190715 3.293241 5.162211 3.703522 1.4632554
-Beilschmiedia_robusta  3.614964 3.085573 5.722441 3.526655 1.7544037</code></pre>
+<pre><code>                        log_LMA   log_LL log_Amass log_Rmass log_Nmass
+Acer_campbellii        3.684118 1.957274  6.892692  4.002047 1.8809906
+Actinodaphne_forrestii 4.236712 2.527327  5.006359  2.173615 0.4121097
+Alnus_nepalensis       4.743366 4.010419  4.341335  2.022871 0.5007753
+Anneslea_fragrans      4.190715 3.293241  5.162211  3.703522 1.4632554
+Beilschmiedia_robusta  3.614964 3.085573  5.722441  3.526655 1.7544037</code></pre>
 </div>
 </div>
-<p>Then, we will make trait distance matrix based on the Euclidean distance. There are other distance measures, for example <a href="https://www.rdocumentation.org/packages/gower/versions/0.2.1/topics/gower_dist">Gower’s Distance</a>, but we focus on the Euclidean distance today.</p>
-<p>Before calculating distance, we need to make sure unit change in distances is same for different traits. We will scale trait values so that they have mean = 0 and SD = 1. (e.g., <span class="math inline">\((X_i - \mu) / \sigma\)</span>)</p>
-<div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-27_01fd5032bb9348690e3e2609eb2cefc9">
+<p>Then, we will make a trait distance matrix based on the Euclidean distance. There are other distance measures, for example <a href="https://www.rdocumentation.org/packages/gower/versions/0.2.1/topics/gower_dist">Gower’s Distance</a>, but we focus on the Euclidean distance today.</p>
+<p>Before calculating distance, we need to make sure the unit change in distances is the same for different traits. We will scale trait values so that they have mean = 0 and SD = 1. (e.g., <span class="math inline">\((X_i - \mu) / \sigma\)</span>)</p>
+<div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-27_a958a26abd58a117cd171b5a1e79ca3d">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (trait_mat0 - mean(trait_mat0)) / sd(trait_mat0)</span></span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>trait_mat <span class="ot">&lt;-</span> <span class="fu">scale</span>(trait_mat0)</span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(trait_mat0[, <span class="st">"logLMA"</span>])</span>
-<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(trait_mat[, <span class="st">"logLMA"</span>])</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(trait_mat0[, <span class="st">"log_LMA"</span>])</span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(trait_mat[, <span class="st">"log_LMA"</span>])</span>
 <span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(trait_mat0[, <span class="st">"WD"</span>])</span>
 <span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(trait_mat[, <span class="st">"WD"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -763,16 +729,16 @@ Beilschmiedia_robusta           1.579930              0.000000</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>      ntaxa  mpd.obs mpd.rand.mean mpd.rand.sd mpd.obs.rank  mpd.obs.z
 Site1     1       NA           NaN          NA           NA         NA
-Site2     4 4.288349      3.738491   0.7925777          756  0.6937600
-Site3     4 3.530805      3.697359   0.7932314          442 -0.2099685
-Site4     4 3.961248      3.705246   0.7838004          641  0.3266171
-Site5     3 3.438008      3.676012   0.9957867          440 -0.2390115
+Site2     4 4.288349      3.696518   0.8045401          781  0.7356142
+Site3     4 3.530805      3.713912   0.7997947          436 -0.2289423
+Site4     4 3.961248      3.685702   0.7936311          649  0.3471973
+Site5     3 3.438008      3.746330   0.9763076          404 -0.3158044
       mpd.obs.p runs
 Site1        NA  999
-Site2     0.756  999
-Site3     0.442  999
-Site4     0.641  999
-Site5     0.440  999</code></pre>
+Site2     0.781  999
+Site3     0.436  999
+Site4     0.649  999
+Site5     0.404  999</code></pre>
 </div>
 </div>
 <p><strong>Effect size (ES)</strong></p>
@@ -793,9 +759,6 @@ SES = \frac{obs - \bar{rand}}{\sigma_{rand}}
 </section>
 <section id="mntd-mean-nearest-taxon-distance" class="level3" data-number="6.2.3">
 <h3 data-number="6.2.3" class="anchored" data-anchor-id="mntd-mean-nearest-taxon-distance"><span class="header-section-number">6.2.3</span> MNTD (Mean Nearest Taxon Distance)</h3>
-<div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-32_b1960dd9911594a75bfe7d30716e3d1c">
-
-</div>
 <div class="cell" data-hash="diversity_example_cache/html/unnamed-chunk-33_338797e26cea70cfb4e02c534f9aca54">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mntd</span>(samp, trait_dm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -805,16 +768,16 @@ SES = \frac{obs - \bar{rand}}{\sigma_{rand}}
 <div class="cell-output cell-output-stdout">
 <pre><code>      ntaxa mntd.obs mntd.rand.mean mntd.rand.sd mntd.obs.rank  mntd.obs.z
 Site1     1       NA            NaN           NA            NA          NA
-Site2     4 2.504352       2.727396    0.5513194           371 -0.40456292
-Site3     4 2.697074       2.670428    0.5398859           543  0.04935412
-Site4     4 1.873825       2.696440    0.5380100            55 -1.52899585
-Site5     3 2.613585       2.971227    0.7627703           342 -0.46887256
+Site2     4 2.504352       2.756247    0.5653240           358 -0.44557526
+Site3     4 2.697074       2.725135    0.5422385           498 -0.05175054
+Site4     4 1.873825       2.752982    0.5411962            41 -1.62446961
+Site5     3 2.613585       3.053875    0.7570843           297 -0.58155979
       mntd.obs.p runs
 Site1         NA  999
-Site2      0.371  999
-Site3      0.543  999
-Site4      0.055  999
-Site5      0.342  999</code></pre>
+Site2      0.358  999
+Site3      0.498  999
+Site4      0.041  999
+Site5      0.297  999</code></pre>
 </div>
 </div>
 </section>
@@ -879,13 +842,13 @@ $RaoQ
 0.000000 8.376023 4.005094 5.664467 4.379844 
 
 $CWM
-          logLMA       logLL    logAmass   logRmass    logNmass   logPmass
+         log_LMA      log_LL   log_Amass  log_Rmass   log_Nmass  log_Pmass
 Site1  1.4467783  1.17548950 -1.38976382 -1.9975087 -0.88119735 -1.2775781
 Site2  0.5666449  0.55085046 -0.56218769 -0.8908026 -0.09004842 -0.8660119
 Site3 -0.1410729 -0.33319385  0.27087040 -0.2062427 -0.24084641  0.2088166
 Site4  0.3670613  0.03104745  0.01551229 -0.7298853 -0.34295985 -0.5718506
 Site5  0.4305791  0.56352114  0.11718014 -0.5812855 -0.29128834 -0.6020974
-              WD      logSM
+              WD     log_SM
 Site1 -1.0150179 -0.2191496
 Site2 -0.2744691  0.1665816
 Site3  0.1242879 -0.2907346
@@ -915,121 +878,118 @@ Site5 -0.4833418 -0.9701997</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>─ Session info ───────────────────────────────────────────────────────────────
  setting  value
- version  R version 4.2.2 (2022-10-31)
- os       macOS Monterey 12.6
+ version  R version 4.3.2 (2023-10-31)
+ os       macOS Sonoma 14.0
  system   aarch64, darwin20
  ui       X11
  language (EN)
  collate  en_US.UTF-8
  ctype    en_US.UTF-8
  tz       Asia/Shanghai
- date     2022-11-05
- pandoc   2.19.2 @ /opt/homebrew/bin/ (via rmarkdown)
+ date     2023-11-14
+ pandoc   3.1.9 @ /opt/homebrew/bin/ (via rmarkdown)
 
 ─ Packages ───────────────────────────────────────────────────────────────────
- ! package       * version  date (UTC) lib source
- P abind           1.4-5    2016-07-21 [?] CRAN (R 4.2.0)
- P ade4          * 1.7-20   2022-11-01 [?] CRAN (R 4.2.0)
- P ape           * 5.6-2    2022-03-02 [?] CRAN (R 4.2.0)
- P assertthat      0.2.1    2019-03-21 [?] CRAN (R 4.2.0)
- P backports       1.4.1    2021-12-13 [?] CRAN (R 4.2.0)
- P broom           1.0.1    2022-08-29 [?] CRAN (R 4.2.0)
- P cachem          1.0.6    2021-08-19 [?] CRAN (R 4.2.0)
- P callr           3.7.3    2022-11-02 [?] CRAN (R 4.2.2)
- P cellranger      1.1.0    2016-07-27 [?] CRAN (R 4.2.0)
- P cli             3.4.1    2022-09-23 [?] CRAN (R 4.2.0)
- P cluster         2.1.4    2022-08-22 [?] CRAN (R 4.2.2)
- P codetools       0.2-18   2020-11-04 [?] CRAN (R 4.2.2)
- P colorspace      2.0-3    2022-02-21 [?] CRAN (R 4.2.0)
- P crayon          1.5.2    2022-09-29 [?] CRAN (R 4.2.0)
- P DBI             1.1.3    2022-06-18 [?] CRAN (R 4.2.0)
- P dbplyr          2.2.1    2022-06-27 [?] CRAN (R 4.2.0)
- P devtools        2.4.5    2022-10-11 [?] CRAN (R 4.2.0)
- P digest          0.6.30   2022-10-18 [?] CRAN (R 4.2.0)
- P dplyr         * 1.0.10   2022-09-01 [?] CRAN (R 4.2.0)
- P ellipsis        0.3.2    2021-04-29 [?] CRAN (R 4.2.0)
- P evaluate        0.17     2022-10-07 [?] CRAN (R 4.2.0)
- P fansi           1.0.3    2022-03-24 [?] CRAN (R 4.2.0)
- P fastmap         1.1.0    2021-01-25 [?] CRAN (R 4.2.0)
- P FD            * 1.0-12.1 2022-05-02 [?] CRAN (R 4.2.0)
- P forcats       * 0.5.2    2022-08-19 [?] CRAN (R 4.2.0)
- P fs              1.5.2    2021-12-08 [?] CRAN (R 4.2.0)
- P gargle          1.2.1    2022-09-08 [?] CRAN (R 4.2.0)
- P generics        0.1.3    2022-07-05 [?] CRAN (R 4.2.0)
- P geometry      * 0.4.6.1  2022-07-04 [?] CRAN (R 4.2.0)
- P ggplot2       * 3.3.6    2022-05-03 [?] CRAN (R 4.2.0)
- P glue            1.6.2    2022-02-24 [?] CRAN (R 4.2.0)
- P googledrive     2.0.0    2021-07-08 [?] CRAN (R 4.2.0)
- P googlesheets4   1.0.1    2022-08-13 [?] CRAN (R 4.2.0)
- P gtable          0.3.1    2022-09-01 [?] CRAN (R 4.2.0)
- P haven           2.5.1    2022-08-22 [?] CRAN (R 4.2.0)
- P hms             1.1.2    2022-08-19 [?] CRAN (R 4.2.0)
- P htmltools       0.5.3    2022-07-18 [?] CRAN (R 4.2.0)
- P htmlwidgets     1.5.4    2021-09-08 [?] CRAN (R 4.2.0)
- P httpuv          1.6.6    2022-09-08 [?] CRAN (R 4.2.0)
- P httr            1.4.4    2022-08-17 [?] CRAN (R 4.2.0)
- P jsonlite        1.8.3    2022-10-21 [?] CRAN (R 4.2.0)
- P knitr           1.40     2022-08-24 [?] CRAN (R 4.2.0)
- P later           1.3.0    2021-08-18 [?] CRAN (R 4.2.0)
- P lattice       * 0.20-45  2021-09-22 [?] CRAN (R 4.2.2)
- P lifecycle       1.0.3    2022-10-07 [?] CRAN (R 4.2.0)
- P lubridate       1.8.0    2021-10-07 [?] CRAN (R 4.2.0)
- P magic           1.6-0    2022-02-09 [?] CRAN (R 4.2.0)
- P magrittr        2.0.3    2022-03-30 [?] CRAN (R 4.2.0)
- P MASS            7.3-58.1 2022-08-03 [?] CRAN (R 4.2.2)
- P Matrix          1.5-1    2022-09-13 [?] CRAN (R 4.2.0)
- P memoise         2.0.1    2021-11-26 [?] CRAN (R 4.2.0)
- P mgcv            1.8-41   2022-10-21 [?] CRAN (R 4.2.2)
- P mime            0.12     2021-09-28 [?] CRAN (R 4.2.0)
- P miniUI          0.1.1.1  2018-05-18 [?] CRAN (R 4.2.0)
- P modelr          0.1.9    2022-08-19 [?] CRAN (R 4.2.0)
- P munsell         0.5.0    2018-06-12 [?] CRAN (R 4.2.0)
- P nlme          * 3.1-160  2022-10-10 [?] CRAN (R 4.2.2)
- P permute       * 0.9-7    2022-01-27 [?] CRAN (R 4.2.0)
- P picante       * 1.8.2    2020-06-10 [?] CRAN (R 4.2.0)
- P pillar          1.8.1    2022-08-19 [?] CRAN (R 4.2.0)
- P pkgbuild        1.3.1    2021-12-20 [?] CRAN (R 4.2.0)
- P pkgconfig       2.0.3    2019-09-22 [?] CRAN (R 4.2.0)
- P pkgload         1.3.1    2022-10-28 [?] CRAN (R 4.2.0)
- P prettyunits     1.1.1    2020-01-24 [?] CRAN (R 4.2.0)
- P processx        3.8.0    2022-10-26 [?] CRAN (R 4.2.0)
- P profvis         0.3.7    2020-11-02 [?] CRAN (R 4.2.0)
- P promises        1.2.0.1  2021-02-11 [?] CRAN (R 4.2.0)
- P ps              1.7.2    2022-10-26 [?] CRAN (R 4.2.0)
- P purrr         * 0.3.5    2022-10-06 [?] CRAN (R 4.2.0)
- P R6              2.5.1    2021-08-19 [?] CRAN (R 4.2.0)
- P Rcpp            1.0.9    2022-07-08 [?] CRAN (R 4.2.0)
- P readr         * 2.1.3    2022-10-01 [?] CRAN (R 4.2.0)
- P readxl          1.4.1    2022-08-17 [?] CRAN (R 4.2.0)
- P remotes         2.4.2    2021-11-30 [?] CRAN (R 4.2.0)
-   renv            0.16.0   2022-09-29 [1] CRAN (R 4.2.0)
- P reprex          2.0.2    2022-08-17 [?] CRAN (R 4.2.0)
- P rlang           1.0.6    2022-09-24 [?] CRAN (R 4.2.0)
- P rmarkdown     * 2.17     2022-10-07 [?] CRAN (R 4.2.0)
- P rvest           1.0.3    2022-08-19 [?] CRAN (R 4.2.0)
- P scales          1.2.1    2022-08-20 [?] CRAN (R 4.2.0)
- P sessioninfo     1.2.2    2021-12-06 [?] CRAN (R 4.2.0)
- P shiny           1.7.3    2022-10-25 [?] CRAN (R 4.2.0)
- P stringi         1.7.8    2022-07-11 [?] CRAN (R 4.2.0)
- P stringr       * 1.4.1    2022-08-20 [?] CRAN (R 4.2.0)
- P tibble        * 3.1.8    2022-07-22 [?] CRAN (R 4.2.0)
- P tidyr         * 1.2.1    2022-09-08 [?] CRAN (R 4.2.0)
- P tidyselect      1.2.0    2022-10-10 [?] CRAN (R 4.2.0)
- P tidyverse     * 1.3.2    2022-07-18 [?] CRAN (R 4.2.0)
- P tzdb            0.3.0    2022-03-28 [?] CRAN (R 4.2.0)
- P urlchecker      1.0.1    2021-11-30 [?] CRAN (R 4.2.0)
- P usethis         2.1.6    2022-05-25 [?] CRAN (R 4.2.0)
- P utf8            1.2.2    2021-07-24 [?] CRAN (R 4.2.0)
- P vctrs           0.5.0    2022-10-22 [?] CRAN (R 4.2.0)
- P vegan         * 2.6-4    2022-10-11 [?] CRAN (R 4.2.0)
- P withr           2.5.0    2022-03-03 [?] CRAN (R 4.2.0)
- P xfun            0.34     2022-10-18 [?] CRAN (R 4.2.0)
- P xml2            1.3.3    2021-11-30 [?] CRAN (R 4.2.0)
- P xtable          1.8-4    2019-04-21 [?] CRAN (R 4.2.0)
- P yaml            2.3.6    2022-10-18 [?] CRAN (R 4.2.0)
+ ! package     * version  date (UTC) lib source
+ P abind         1.4-5    2016-07-21 [?] CRAN (R 4.3.0)
+ P ade4        * 1.7-22   2023-02-06 [?] CRAN (R 4.3.0)
+ P ape         * 5.7-1    2023-03-13 [?] CRAN (R 4.3.0)
+ P BiocManager   1.30.22  2023-08-08 [?] CRAN (R 4.3.0)
+ P bit           4.0.5    2022-11-15 [?] CRAN (R 4.3.0)
+ P bit64         4.0.5    2020-08-30 [?] CRAN (R 4.3.0)
+ P bslib         0.5.1    2023-08-11 [?] CRAN (R 4.3.0)
+ P cachem        1.0.8    2023-05-01 [?] CRAN (R 4.3.0)
+ P callr         3.7.3    2022-11-02 [?] CRAN (R 4.3.0)
+ P cli           3.6.1    2023-03-23 [?] CRAN (R 4.3.0)
+ P cluster       2.1.4    2022-08-22 [?] CRAN (R 4.3.2)
+ P codetools     0.2-19   2023-02-01 [?] CRAN (R 4.3.1)
+ P colorspace    2.1-0    2023-01-23 [?] CRAN (R 4.3.0)
+ P crayon        1.5.2    2022-09-29 [?] CRAN (R 4.3.0)
+ P crosstalk     1.2.0    2021-11-04 [?] CRAN (R 4.3.0)
+ P devtools      2.4.5    2022-10-11 [?] RSPM (R 4.3.1)
+ P digest        0.6.33   2023-07-07 [?] CRAN (R 4.3.0)
+ P dplyr       * 1.1.3    2023-09-03 [?] CRAN (R 4.3.0)
+ P DT            0.30     2023-10-05 [?] CRAN (R 4.3.1)
+ P ellipsis      0.3.2    2021-04-29 [?] CRAN (R 4.3.0)
+ P evaluate      0.23     2023-11-01 [?] CRAN (R 4.3.1)
+ P fansi         1.0.5    2023-10-08 [?] CRAN (R 4.3.1)
+ P farver        2.1.1    2022-07-06 [?] CRAN (R 4.3.0)
+ P fastmap       1.1.1    2023-02-24 [?] CRAN (R 4.3.0)
+ P FD          * 1.0-12.1 2022-05-02 [?] CRAN (R 4.3.0)
+ P fontawesome   0.5.2    2023-08-19 [?] CRAN (R 4.3.1)
+ P forcats     * 1.0.0    2023-01-29 [?] CRAN (R 4.3.0)
+ P fs            1.6.3    2023-07-20 [?] CRAN (R 4.3.0)
+ P generics      0.1.3    2022-07-05 [?] CRAN (R 4.3.0)
+ P geometry    * 0.4.7    2023-02-03 [?] CRAN (R 4.3.0)
+ P ggplot2     * 3.4.4    2023-10-12 [?] CRAN (R 4.3.1)
+ P glue          1.6.2    2022-02-24 [?] CRAN (R 4.3.0)
+ P gtable        0.3.4    2023-08-21 [?] CRAN (R 4.3.1)
+ P hms           1.1.3    2023-03-21 [?] CRAN (R 4.3.0)
+ P htmltools     0.5.7    2023-11-03 [?] CRAN (R 4.3.1)
+ P htmlwidgets   1.6.2    2023-03-17 [?] CRAN (R 4.3.0)
+ P httpuv        1.6.12   2023-10-23 [?] CRAN (R 4.3.1)
+ P jquerylib     0.1.4    2021-04-26 [?] CRAN (R 4.3.0)
+ P jsonlite      1.8.7    2023-06-29 [?] CRAN (R 4.3.0)
+ P knitr         1.45     2023-10-30 [?] CRAN (R 4.3.1)
+ P labeling      0.4.3    2023-08-29 [?] CRAN (R 4.3.0)
+ P later         1.3.1    2023-05-02 [?] CRAN (R 4.3.0)
+ P lattice     * 0.22-5   2023-10-24 [?] CRAN (R 4.3.1)
+ P lifecycle     1.0.4    2023-11-07 [?] CRAN (R 4.3.2)
+ P lubridate   * 1.9.3    2023-09-27 [?] CRAN (R 4.3.1)
+ P magic         1.6-1    2022-11-16 [?] CRAN (R 4.3.0)
+ P magrittr      2.0.3    2022-03-30 [?] CRAN (R 4.3.0)
+ P MASS          7.3-60   2023-05-04 [?] CRAN (R 4.3.0)
+ P Matrix        1.6-2    2023-11-08 [?] CRAN (R 4.3.2)
+ P memoise       2.0.1    2021-11-26 [?] CRAN (R 4.3.0)
+ P mgcv          1.9-0    2023-07-11 [?] CRAN (R 4.3.0)
+ P mime          0.12     2021-09-28 [?] CRAN (R 4.3.0)
+ P miniUI        0.1.1.1  2018-05-18 [?] RSPM (R 4.3.1)
+ P munsell       0.5.0    2018-06-12 [?] CRAN (R 4.3.0)
+ P nlme        * 3.1-163  2023-08-09 [?] CRAN (R 4.3.0)
+ P permute     * 0.9-7    2022-01-27 [?] CRAN (R 4.3.0)
+ P picante     * 1.8.2    2020-06-10 [?] CRAN (R 4.3.0)
+ P pillar        1.9.0    2023-03-22 [?] CRAN (R 4.3.0)
+ P pkgbuild      1.4.2    2023-06-26 [?] CRAN (R 4.3.0)
+ P pkgconfig     2.0.3    2019-09-22 [?] CRAN (R 4.3.0)
+ P pkgload       1.3.3    2023-09-22 [?] CRAN (R 4.3.1)
+ P prettyunits   1.2.0    2023-09-24 [?] CRAN (R 4.3.1)
+ P processx      3.8.2    2023-06-30 [?] CRAN (R 4.3.0)
+ P profvis       0.3.8    2023-05-02 [?] RSPM (R 4.3.1)
+ P promises      1.2.1    2023-08-10 [?] CRAN (R 4.3.0)
+ P ps            1.7.5    2023-04-18 [?] CRAN (R 4.3.0)
+ P purrr       * 1.0.2    2023-08-10 [?] CRAN (R 4.3.0)
+ P R6            2.5.1    2021-08-19 [?] CRAN (R 4.3.0)
+ P Rcpp          1.0.11   2023-07-06 [?] CRAN (R 4.3.0)
+ P readr       * 2.1.4    2023-02-10 [?] CRAN (R 4.3.0)
+ P remotes       2.4.2.1  2023-07-18 [?] CRAN (R 4.3.0)
+ P renv          1.0.3    2023-09-19 [?] CRAN (R 4.3.1)
+ P rlang         1.1.2    2023-11-04 [?] CRAN (R 4.3.2)
+ P rmarkdown   * 2.25     2023-09-18 [?] CRAN (R 4.3.1)
+ P sass          0.4.7    2023-07-15 [?] CRAN (R 4.3.0)
+ P scales        1.2.1    2022-08-20 [?] CRAN (R 4.3.0)
+ P sessioninfo   1.2.2    2021-12-06 [?] RSPM (R 4.3.1)
+ P shiny         1.7.5.1  2023-10-14 [?] CRAN (R 4.3.1)
+ P stringi       1.8.1    2023-11-13 [?] CRAN (R 4.3.2)
+ P stringr     * 1.5.0    2022-12-02 [?] CRAN (R 4.3.0)
+ P tibble      * 3.2.1    2023-03-20 [?] CRAN (R 4.3.0)
+ P tidyr       * 1.3.0    2023-01-24 [?] CRAN (R 4.3.0)
+ P tidyselect    1.2.0    2022-10-10 [?] CRAN (R 4.3.0)
+ P tidyverse   * 2.0.0    2023-02-22 [?] CRAN (R 4.3.0)
+ P timechange    0.2.0    2023-01-11 [?] CRAN (R 4.3.0)
+ P tzdb          0.4.0    2023-05-12 [?] CRAN (R 4.3.0)
+ P urlchecker    1.0.1    2021-11-30 [?] RSPM (R 4.3.1)
+ P usethis       2.2.2    2023-07-06 [?] RSPM (R 4.3.1)
+ P utf8          1.2.4    2023-10-22 [?] CRAN (R 4.3.1)
+ P vctrs         0.6.4    2023-10-12 [?] CRAN (R 4.3.1)
+ P vegan       * 2.6-4    2022-10-11 [?] CRAN (R 4.3.0)
+ P vroom         1.6.4    2023-10-02 [?] CRAN (R 4.3.1)
+ P withr         2.5.2    2023-10-30 [?] CRAN (R 4.3.1)
+ P xfun          0.41     2023-11-01 [?] CRAN (R 4.3.1)
+ P xtable        1.8-4    2019-04-21 [?] CRAN (R 4.3.0)
+ P yaml          2.3.7    2023-01-23 [?] CRAN (R 4.3.0)
 
- [1] /Users/mattocci/Dropbox/education/phy-fun-div/renv/library/R-4.2/aarch64-apple-darwin20
- [2] /Users/mattocci/Dropbox/education/phy-fun-div/renv/sandbox/R-4.2/aarch64-apple-darwin20/84ba8b13
+ [1] /Users/mattocci/Dropbox/Education/phy-fun-div/renv/library/R-4.3/aarch64-apple-darwin20
+ [2] /Users/mattocci/Library/Caches/org.R-project.R/R/renv/sandbox/R-4.3/aarch64-apple-darwin20/ac5c2659
 
  P ── Loaded and on-disk path mismatch.
 
@@ -1067,9 +1027,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1081,7 +1055,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -1117,24 +1108,128 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
