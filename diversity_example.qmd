@@ -1,12 +1,12 @@
 ---
 title: Diversity calculation
 author: "Masatoshi Katabuchi"
-date: "2022/11/8"
+date: "2023/11/16"
 fontsize: 12pt
 format:
   html:
-    theme: cosmo #readable #sandstone #spacelab #flatly
-    # highlight: pygments #tango #kate
+    theme: coderpro
+    highlight-style: github
     toc: true
     toc-depth: 2
     number-sections: true
@@ -27,7 +27,7 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 <a href="https://github.com/mattocci27/"><i class="fa fa-github fa-1x"></i> Github</a>
 <a href="mailto:mattocci27@gmail.com"><i class="fa fa-envelope fa-1x"></i> Email</a>
 
-Course materials for 2022-11-08 AFEC at XTBG.
+Course materials for 2023-11-16 AFEC at XTBG.
 
 # Objectives
 
@@ -81,7 +81,7 @@ DT::datatable(d)
 ```
 
 Then, we want to make a species $\times$ site matrix.
-`tapply` is an useful function here.
+`tapply` is a useful function here.
 
 ```{r}
 tapply(d$abund, d$Species, sum)
@@ -138,21 +138,18 @@ Probably we can do log-transformation for all the traits except for WD.
 
 ```{r}
 trait2 <- trait |>
-  mutate(logLMA = log(LMA),
-         logLL = log(LL),
-         logAmass = log(Amass),
-         logRmass = log(Rmass),
-         logNmass = log(Nmass),
-         logPmass = log(Pmass),
-         logSM = log(SM)) |>
-  dplyr::select(sp, logLMA, logLL, logAmass, logRmass, logNmass, logPmass, WD, logSM)
+  mutate(
+    across(c(LMA, LL, Amass, Rmass, Nmass, Pmass, SM),
+       ~ log(.),
+        .names = "log_{.col}")) |>
+  dplyr::select(sp, log_LMA, log_LL, log_Amass, log_Rmass, log_Nmass, log_Pmass, WD, log_SM)
 
 DT::datatable(trait2)
 ```
 
 ```{r}
 trait2 |>
-  pivot_longer(logLMA:logSM, names_to = "trait") |>
+  pivot_longer(log_LMA:log_SM, names_to = "trait") |>
   ggplot(aes(x = value)) +
   geom_histogram(position = "identity") +
   facet_wrap(~ trait, scale = "free")
@@ -174,9 +171,9 @@ species *i*.
 
 ```{r}
 shannon <- function(abund) {
- p0 <- abund / sum(abund)
- p <- p0[p0 > 0]
- -sum(p * log(p))
+  p0 <- abund / sum(abund)
+  p <- p0[p0 > 0]
+  -sum(p * log(p))
 }
 ```
 
@@ -237,7 +234,7 @@ cophenetic(phylo)[1:5, 1:5]
 ### MPD
 
 $MPD = \frac{1}{n} \Sigma^n_i \Sigma^n_j \delta_{i,j} \; i \neq j$, where
-$\delta_{i, j}$ is the pairwised distance between species *i* and *j*
+$\delta_{i, j}$ is the pairwise distance between species *i* and *j*
 
 ```{r}
 res_mpd <- mpd(samp, cophenetic(phylo))
@@ -307,11 +304,11 @@ Let's see a subset of the trait matrix
 trait_mat0[1:5, 1:5]
 ```
 
-Then, we will make trait distance matrix based on the Euclidean distance. There are
+Then, we will make a trait distance matrix based on the Euclidean distance.
+There are
 other distance measures, for example [Gower's Distance](https://www.rdocumentation.org/packages/gower/versions/0.2.1/topics/gower_dist), but we focus on the Euclidean distance today.
 
-Before calculating distance, we need to make sure unit change in distances is
-same for different traits.
+Before calculating distance, we need to make sure the unit change in distances is the same for different traits.
 We will scale trait values so that they have mean = 0 and SD = 1.
 (e.g., $(X_i - \mu) / \sigma$)
 
@@ -320,8 +317,8 @@ We will scale trait values so that they have mean = 0 and SD = 1.
 trait_mat <- scale(trait_mat0)
 
 par(mfrow = c(2, 2))
-hist(trait_mat0[, "logLMA"])
-hist(trait_mat[, "logLMA"])
+hist(trait_mat0[, "log_LMA"])
+hist(trait_mat[, "log_LMA"])
 hist(trait_mat0[, "WD"])
 hist(trait_mat[, "WD"])
 par(mfrow = c(1, 1))
@@ -334,7 +331,6 @@ trait_dm <- as.matrix(dist(trait_mat))
 ```
 
 Let's see the first 5 species.
-
 
 ```{r}
 trait_dm[1:5, 1:5]
@@ -388,8 +384,8 @@ ses.mntd(samp, trait_dm)
 
 ### FD
 
-We will make a functional dendrogram using clustering methods. We use [UPGMA](https://en.wikipedia.org/wiki/UPGMA) in
-this example.
+We will make a functional dendrogram using clustering methods.
+We use [UPGMA](https://en.wikipedia.org/wiki/UPGMA) in this example.
 
 ```{r, fig.width=15, fig.height=15}
 t_clust <- hclust(dist(trait_mat), method = "average")

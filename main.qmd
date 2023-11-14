@@ -1,7 +1,7 @@
 ---
 pagetitle: "Phylogenetic diversity, functional diversity and trait-based approaches"
 author: "Masatoshi Katabuchi"
-date: "November 8, 2022"
+date: "November 16, 2023"
 host: "XTBG AFEC"
 institute: "XTBG, CAS"
 strip-comments: true

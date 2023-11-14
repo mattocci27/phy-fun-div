@@ -1,8 +1,8 @@
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
-# AFEC2022: Phylogenetic diversity, functional diversity and trait-based approaches
+# AFEC2023: Phylogenetic diversity, functional diversity and trait-based approaches
 
-Slides and materials for 2022-11-09 AFEC at XTBG.
+Slides and materials for 2023-11-18 AFEC at XTBG.
 
 View the accompanying slides [here](https://forest-canopy.github.io/assets/phy-fun-div/main.html) and course materials [here](https://forest-canopy.github.io/assets/phy-fun-div/diversity_example.html)
 
