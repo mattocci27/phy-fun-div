@@ -42,10 +42,6 @@ Clone this repo.
 git clone https://github.com/mattocci27/phy-fun-div.git
 ```
 
-```
-tree
-```
-
 The following command (probably) installs all the R packages required for this course.
 
 ```{r, eval=FALSE}
