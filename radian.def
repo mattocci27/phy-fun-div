@@ -1,0 +1,19 @@
+BootStrap: docker
+From: mattocci/radian-verse:4.3.2
+
+%apprun R
+  exec R "${@}"
+
+%apprun Rscript
+  exec Rscript "${@}"
+
+%runscript
+  exec R "${@}"
+
+%environment
+%post
+  DEBIAN_FRONTEND=noninteractive
+  export RENV_VERSION=v1.0.3
+
+  # Install renv
+  R -e "remotes::install_github('rstudio/renv@${RENV_VERSION}')"

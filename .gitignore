@@ -6,3 +6,5 @@
 *_cache
 
 vert.txt
+*.sif
+.Renviron

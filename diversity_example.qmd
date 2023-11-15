@@ -31,24 +31,28 @@ Course materials for 2023-11-16 AFEC at XTBG.
 
 # Objectives
 
-- prepare species $\times$ site matrix and trait data from csv files.
-- calculate diversity indices.
+- Prepare species $\times$ site matrices and trait data from csv files.
+- Calculate diversity indices.
 
 # Prerequisites
 
 Clone this repo.
 
-```
+```{bash}
 git clone https://github.com/mattocci27/phy-fun-div.git
 ```
 
-The following command installs all the R packages required for this course.
+```
+tree
+```
+
+The following command (probably) installs all the R packages required for this course.
 
 ```{r, eval=FALSE}
 renv::restore()
 ```
 
-Otherwise, please install those packages manually (I might miss some other packages).
+Otherwise, please install those packages manually without using `renv` (I might miss some packages).
 
 ```{r, eval=FALSE}
 install.packages("picante")
@@ -56,15 +60,15 @@ install.packages("FD")
 install.packages("tidyverse")
 install.packages("rmarkdown")
 install.packages("DT")
+install.packages("quarto")
 ```
 
-Load packages.
+Load some packages.
 
 ```{r}
+library(tidyverse)
 library(picante)
 library(FD)
-library(tidyverse)
-library(rmarkdown)
 ```
 
 # Data
@@ -72,10 +76,31 @@ library(rmarkdown)
 ## Community
 
 First, we import the community data.
-I prefer `read_csv` but `read.csv` is fine too.
 
 ```{r}
 d <- read_csv("data/samp.csv")
+```
+
+- I prefer `read_csv` but `read.csv` is fine too.
+- Our working directory is `phy-fun-div`, and the relative path to `samp.csv` is `data/samp.csv`.
+
+We can also use `here` package to specify the absolute path to the file.
+```{r}
+here::here("data/samp.csv")
+d <- read_csv(here::here("data/samp.csv"))
+```
+
+but don't do this:
+
+```{r, eval=FALSE}
+d <- read_csv("/home/mattocci/phy-fun-div/data/samp.csv")
+```
+
+because absolute paths will be different on different computers (lack of reproducibility).
+It is also uncomfortable to make file system structure public (security risk).
+
+Now let's look at the community data.
+```{r}
 d
 DT::datatable(d)
 ```
@@ -130,7 +155,8 @@ trait_long
 
 ggplot(trait_long, aes(x = value)) +
   geom_histogram(position = "identity") +
-  facet_wrap(~ trait, scale = "free")
+  facet_wrap(~ trait, scale = "free") +
+  theme_bw()
 ```
 
 
@@ -144,7 +170,9 @@ trait2 <- trait |>
         .names = "log_{.col}")) |>
   dplyr::select(sp, log_LMA, log_LL, log_Amass, log_Rmass, log_Nmass, log_Pmass, WD, log_SM)
 
-DT::datatable(trait2)
+trait2 |>
+  mutate(across(where(is.numeric), ~ round(., 2))) |>
+  DT::datatable()
 ```
 
 ```{r}
@@ -152,7 +180,8 @@ trait2 |>
   pivot_longer(log_LMA:log_SM, names_to = "trait") |>
   ggplot(aes(x = value)) +
   geom_histogram(position = "identity") +
-  facet_wrap(~ trait, scale = "free")
+  facet_wrap(~ trait, scale = "free") +
+  theme_bw()
 ```
 
 # First-order metrics (without phylogeny or traits)
@@ -195,7 +224,7 @@ res_mds <- metaMDS(samp)
 plot(res_mds)
 ```
 
-We can use the function ordiplot and orditorp to add text to the plot in place of points to make some more sense.
+We can use the function `ordiplot` and `orditorp` to add text to the plot in place of points to make some more sense.
 
 ```{r}
 ordiplot(res_mds, type = "n")
@@ -259,13 +288,13 @@ res_mntd
 ## Community weighted means (CWM)
 
 $$
-CWM_i = \frac{\sum_{j=1}^n a_{ij} \times t_{j}}{\sum_{j=1}^n a_{ij}}
+\mathrm{CWM}_i = \frac{\sum_{j=1}^n a_{ij} \times t_{j}}{\sum_{j=1}^n a_{ij}}
 $$
 
 or
 
 $$
-CWM_i = \frac{\vec{a_i} \cdot \vec{t}}{\sum_{j=1}^n a_{ij}},
+\mathrm{CWM}_i = \frac{\vec{a_i} \cdot \vec{t}}{\sum_{j=1}^n a_{ij}},
 $$
 
 where $a_{ij}$ is the abundance of species *j* in community *i*, and $t_{j}$ is a trait value of species *j*.
@@ -277,14 +306,14 @@ tmp <- trait2 |>
 tmp
 
 (ab <- apply(samp, 1, sum))
-# inner product
-(CWS <- samp %*% as.matrix(tmp[,-1]))
+# %*% denotes inner product
+(cws <- samp %*% as.matrix(tmp[, -1]))
 ```
 ```{r}
-(CWM <- CWS / ab)
+(cwm <- cws / ab)
 ```
 
-**The species $\times$ site matrix and the species $\times$ trait matrix became the trait $\times$ site matrix.**
+The species $\times$ site matrix and the species $\times$ trait matrix became the trait $\times$ site matrix.
 
 ## Distance based metrics
 
@@ -305,8 +334,7 @@ trait_mat0[1:5, 1:5]
 ```
 
 Then, we will make a trait distance matrix based on the Euclidean distance.
-There are
-other distance measures, for example [Gower's Distance](https://www.rdocumentation.org/packages/gower/versions/0.2.1/topics/gower_dist), but we focus on the Euclidean distance today.
+There are other distance measures, for example [Gower's Distance](https://www.rdocumentation.org/packages/gower/versions/0.2.1/topics/gower_dist), but we focus on the Euclidean distance today.
 
 Before calculating distance, we need to make sure the unit change in distances is the same for different traits.
 We will scale trait values so that they have mean = 0 and SD = 1.
@@ -372,8 +400,6 @@ null communities, and $\sigma_{rand}$ is the standard deviation of the metric in
 the null communities.
 
 ### MNTD (Mean Nearest Taxon Distance)
-
-```{r}
 
 ```{r}
 mntd(samp, trait_dm)
