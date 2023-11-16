@@ -8,10 +8,10 @@
 <link href="main_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="main_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="main_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-99.9.9">
+  <meta name="generator" content="quarto-1.3.433">
 
   <meta name="author" content="Masatoshi Katabuchi">
-  <meta name="dcterms.date" content="2023-11-16">
+  <meta name="dcterms.date" content="2023-11-17">
   <title>Phylogenetic diversity, functional diversity, and trait-based approaches</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -159,8 +159,7 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -323,6 +322,7 @@
       margin-right: 0; 
     }
   </style>
+  
   <script src="main_files/libs/kePrint/kePrint.js"></script>
   <link href="main_files/libs/lightable/lightable.css" rel="stylesheet">
 </head>
@@ -359,7 +359,7 @@
 </div>
 <p><br><br></p>
 <div class="absolute top-0 w-100" style="">
-<p><span class="fl">November 16, 2023</span> <span class="fr">XTBG AFEC</span></p>
+<p><span class="fl">November 17, 2023</span> <span class="fr">XTBG AFEC</span></p>
 </div>
 <aside class="notes">
 <p>hoge</p>
@@ -2152,6 +2152,7 @@
       Reveal.initialize({
 'controlsAuto': false,
 'previewLinksAuto': false,
+'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -2451,9 +2452,10 @@
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      function tippyHover(el, contentFn) {
         const config = {
           allowHTML: true,
+          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -2463,17 +2465,8 @@
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start',
+          placement: 'bottom-start'
         };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 

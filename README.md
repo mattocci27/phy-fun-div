@@ -2,7 +2,7 @@
 
 # AFEC2023: Phylogenetic diversity, functional diversity and trait-based approaches
 
-Slides and materials for 2023-11-18 AFEC at XTBG.
+Slides and materials for 2023-11-17 AFEC at XTBG.
 
 View the accompanying slides [here](https://forest-canopy.github.io/assets/phy-fun-div/main.html) and course materials [here](https://forest-canopy.github.io/assets/phy-fun-div/diversity_example.html)
 
