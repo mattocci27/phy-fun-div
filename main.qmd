@@ -326,7 +326,7 @@ Another simple way to describe diversity?
 
 ::: notes
 
-- If we use log, multiplication becomes addition.
+- If we use log, multiplication becomes an addition.
 
 - Expectations to get a particular species (abundance weighted)
 
@@ -701,9 +701,9 @@ plot(t,
 
 ::: incremental
 - Phylogenetic diversity was first formalized by Dan Faith in 1992
-- He proposed a metic called PD that is also commonly referred to as Faith's
+- He proposed a metric called PD that is also commonly referred to as Faith's
   Index
-- Many additional metics have now been generated but this metic is still
+- Many additional metrics have now been generated but this metric is still
   widely used, especially in the context of conservation
   Index
 :::
@@ -1132,7 +1132,7 @@ break?
 :::
 
 ::: notes
-- study was done in 1998, but pepole usullay ignore something inconvinient
+- the study was done in 1998, but people usually ignore something inconvenient
 :::
 
 ---
@@ -1182,7 +1182,7 @@ break?
 
 - Phylogenetic signal (K) quantifies if the focal traits were inherited from their recent or old common ancestor
 
-- Large K indicates phylogenetic coservatism and small K indicates phylogenetic divergence
+- Large K indicates phylogenetic conservatism and small K indicates phylogenetic divergence
 
 - Phylogenetic signal (K): the ratio of the mean squared error (MSE) of observed trait values to the MSE of under Brownian motion evolution (short explanation).
 
@@ -1287,8 +1287,8 @@ Measurable properties of plants that are indicative of ecological strategies
 - LES describes pairwise correlations among a bunch of leaf traits from the global leaf database called GLOPNET
 - Peter Reich first formulated the idea of LES
 - Peter Reich, Ian Wright, Mark Westoby and other people confirmed the generality of the LES
-- Global leaf function constrained to a single axis (75 % of variation in the 6 traits)
-- Multidimensional (leaf) functional diversity can be mapped into a one dimensional index
+- Global leaf function constrained to a single axis (75 % of the variation in the 6 traits)
+- Multidimensional (leaf) functional diversity can be mapped into a one-dimensional index
 - Controversial (!!)
 :::
 :::
@@ -1346,9 +1346,9 @@ Measurable properties of plants that are indicative of ecological strategies
 ::: {.column width=82%}
 ::: incremental
 
-- California woody-plant communities (43 plot, 54 species, 3 traits)
+- California woody-plant communities (43 plots, 54 species, 3 traits)
 
-- Is trait volume of California woody-plant communities significantly less than expected by chance?
+- Is the trait volume of California woody-plant communities significantly less than expected by chance?
     - **Environmental filtering**
 
 :::
@@ -1408,12 +1408,12 @@ Measurable properties of plants that are indicative of ecological strategies
 ::: {.column width=60%}
 ::: incremental
 
-- Yasuni topical tree communities, 25ha, 625 20m x 20m quadrats, 1089 species!
+- Yasuni tropical tree communities, 25ha, 625 20m x 20m quadrats, 1089 species!
 
 - Consistent with environmental filtering
 
 - A: Ridgetops have lower than expected SLA and valleys have higher
-    - Traits match with environment conditions
+    - Traits match with environmental conditions
 
 - B: Seed mass shows broader distribution than expected - Limiting similarity
 
@@ -1454,7 +1454,7 @@ knitr::kable(tbl) |>
 
 
 ::: footer
-[1] $t_A$ and $t_B$ are the functional traits values of species A and B
+[1] $t_A$ and $t_B$ are the functional trait values of species A and B
 
 [2] Kunstler, G. et al. Competitive interactions between forest trees are driven by species’ trait hierarchy, not phylogenetic or functional similarity: Implications for forest community assembly. Ecology Letters 15, 831–840 (2012).
 :::
@@ -1473,7 +1473,7 @@ Competitive interaction strengths between species will increase with decreasing 
 
 ### Competitive hierarchy
 
-Competitive effect of species A on species B will increase with increasing $t_A - t_B$.
+Competitive effects of species A on species B will increase with increasing $t_A - t_B$.
 :::
 
 :::
@@ -1497,9 +1497,9 @@ Competitive effect of species A on species B will increase with increasing $t_A 
 
 - 6000+ secondary metabolites from nearly 100 species in a diverse Neotropical plant clade across the whole Amazonia
 
-- More different in their defensive chemistry than expected by chance
+- More differences in their defensive chemistry than expected by chance
 
-- Plant–herbivore interactions promotes species diveristy
+- Plant–herbivore interactions promote species diversity
 :::
 :::
 :::
@@ -1521,9 +1521,9 @@ Competitive effect of species A on species B will increase with increasing $t_A 
 ::: {.column width=60%}
 ::: incremental
 
-- Apline plants in the Andes
+- Alpine plants in the Andes
 
-- Funcional dispersion in harsh environments (hihger potential solar radiation)
+- Functional dispersion in harsh environments (higher potential solar radiation)
 
 - Facilitation tends to dominate interactions when environmental harshness increases
 
@@ -1539,16 +1539,16 @@ Competitive effect of species A on species B will increase with increasing $t_A 
 ::: incremental
 - Why do we use trait and phylogenetic diversity?
 
-  - We want to quantify ecological similarities of species and multiple dimension of
+  - We want to quantify ecological similarities of species and multiple dimensions of
     biodiversity.
 
-  - We need to be very caful when we use or develope ways to map multiple dimension of biodiversity to a few dimension of diversity.
+  - We need to be very careful when we use or develop ways to map multiple dimensions of biodiversity to a few dimensions of diversity.
 
 - Trait-based approaches
 
   - They will make "ecology" more quantitative and predictive.
 
-  - We only fouced on a "snapshot" of biodiversity (predicting future biodiversity is another story)
+  - We only focused on a "snapshot" of biodiversity (predicting future biodiversity is another story)
 
 - How to calculate trait and phylogenetic diversity anyway?
 
