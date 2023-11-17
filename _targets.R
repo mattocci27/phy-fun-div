@@ -3,8 +3,8 @@ library(tarchetypes)
 library(tidyverse)
 library(furrr)
 
-plan(multicore)
-options(clustermq.scheduler = "multicore")
+# plan(multicore)
+# options(clustermq.scheduler = "multicore")
 
 source("R/functions.R")
 

@@ -32,13 +32,6 @@
     "Version": "3.18"
   },
   "Packages": {
-    "BH": {
-      "Package": "BH",
-      "Version": "1.81.0-1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "68122010f01c4dcfbe58ce7112f2433d"
-    },
     "BiocManager": {
       "Package": "BiocManager",
       "Version": "1.30.22",
@@ -328,18 +321,6 @@
         "utils"
       ],
       "Hash": "9768be866e8e02810e94ceb95b32b367"
-    },
-    "anytime": {
-      "Package": "anytime",
-      "Version": "0.3.9",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "BH",
-        "R",
-        "Rcpp"
-      ],
-      "Hash": "74a64813f17b492da9c6afda6b128e3d"
     },
     "ape": {
       "Package": "ape",
@@ -669,27 +650,6 @@
         "utils"
       ],
       "Hash": "5edbbabab6ce0bf7900a74fd4358628e"
-    },
-    "clustermq": {
-      "Package": "clustermq",
-      "Version": "0.9.1",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "clustermq",
-      "RemoteUsername": "mschubert",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "9f17e28e45ea89eaf1d4d38bf7287dcf58e687cf",
-      "Requirements": [
-        "R",
-        "R6",
-        "Rcpp",
-        "methods",
-        "narray",
-        "progress",
-        "utils"
-      ],
-      "Hash": "70c2934a6937ccc2d7298ed2bcc45319"
     },
     "codetools": {
       "Package": "codetools",
@@ -2153,21 +2113,6 @@
       ],
       "Hash": "6dfe8bf774944bd5595785e3229d8771"
     },
-    "narray": {
-      "Package": "narray",
-      "Version": "0.5.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "Rcpp",
-        "progress",
-        "stats",
-        "stringr",
-        "utils"
-      ],
-      "Hash": "7ec5a2396d3c9ad4374495283dfcdc83"
-    },
     "nlme": {
       "Package": "nlme",
       "Version": "3.1-163",
@@ -2971,37 +2916,6 @@
         "xtable"
       ],
       "Hash": "5ec01cc255f2138fc2f0dc74d2b1a1a1"
-    },
-    "shinyWidgets": {
-      "Package": "shinyWidgets",
-      "Version": "0.8.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "anytime",
-        "bslib",
-        "grDevices",
-        "htmltools",
-        "jsonlite",
-        "rlang",
-        "sass",
-        "shiny"
-      ],
-      "Hash": "c6acc72327e63668bbc7bd258ee54132"
-    },
-    "shinybusy": {
-      "Package": "shinybusy",
-      "Version": "0.3.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "htmltools",
-        "htmlwidgets",
-        "jsonlite",
-        "shiny"
-      ],
-      "Hash": "cf0b9330f677599316a4b36682081e8b"
     },
     "sourcetools": {
       "Package": "sourcetools",
