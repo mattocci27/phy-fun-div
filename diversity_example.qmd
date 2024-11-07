@@ -1,7 +1,7 @@
 ---
 title: Diversity calculation
 author: "Masatoshi Katabuchi"
-date: "2023/11/17"
+date: "2024/11/10"
 fontsize: 12pt
 format:
   html:
@@ -27,7 +27,7 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 <a href="https://github.com/mattocci27/"><i class="fa fa-github fa-1x"></i> Github</a>
 <a href="mailto:mattocci27@gmail.com"><i class="fa fa-envelope fa-1x"></i> Email</a>
 
-Course materials for 2023-11-17 AFEC at XTBG.
+Course materials for 2024-11-10 AFEC at XTBG.
 
 # Objectives
 
@@ -38,7 +38,7 @@ Course materials for 2023-11-17 AFEC at XTBG.
 
 Clone this repo.
 
-```{bash}
+```{bash, eval=FALSE}
 git clone https://github.com/mattocci27/phy-fun-div.git
 ```
 
@@ -89,7 +89,7 @@ d <- read_csv(here::here("data/samp.csv"))
 but don't do this:
 
 ```{r, eval=FALSE}
-d <- read_csv("/home/mattocci/phy-fun-div/data/samp.csv")
+d <- read_csv("/Users/mattocci/Dropbox/5-Tools/ghq/github.com/mattocci27/phy-fun-div/data/samp.csv")
 ```
 
 because absolute paths will be different on different computers (lack of reproducibility).
@@ -145,7 +145,7 @@ DT::datatable(trait)
 
 ```{r}
 trait_long <- trait |>
-  pivot_longer(LMA:SM, names_to = "trait")
+  pivot_longer(lma:sm, names_to = "trait")
 
 trait_long
 
@@ -161,10 +161,10 @@ Probably we can do log-transformation for all the traits except for WD.
 ```{r}
 trait2 <- trait |>
   mutate(
-    across(c(LMA, LL, Amass, Rmass, Nmass, Pmass, SM),
+    across(c(lma, ll, a_mass, r_mass, n_mass, p_mass, sm),
        ~ log(.),
         .names = "log_{.col}")) |>
-  dplyr::select(sp, log_LMA, log_LL, log_Amass, log_Rmass, log_Nmass, log_Pmass, WD, log_SM)
+  dplyr::select(sp, log_lma, log_ll, log_a_mass, log_r_mass, log_n_mass, log_p_mass, wd, log_sm)
 
 trait2 |>
   mutate(across(where(is.numeric), ~ round(., 2))) |>
@@ -173,7 +173,7 @@ trait2 |>
 
 ```{r}
 trait2 |>
-  pivot_longer(log_LMA:log_SM, names_to = "trait") |>
+  pivot_longer(log_lma:log_sm, names_to = "trait") |>
   ggplot(aes(x = value)) +
   geom_histogram(position = "identity") +
   facet_wrap(~ trait, scale = "free") +
@@ -341,10 +341,10 @@ We will scale trait values so that they have mean = 0 and SD = 1.
 trait_mat <- scale(trait_mat0)
 
 par(mfrow = c(2, 2))
-hist(trait_mat0[, "log_LMA"])
-hist(trait_mat[, "log_LMA"])
-hist(trait_mat0[, "WD"])
-hist(trait_mat[, "WD"])
+hist(trait_mat0[, "log_lma"])
+hist(trait_mat[, "log_lma"])
+hist(trait_mat0[, "wd"])
+hist(trait_mat[, "wd"])
 par(mfrow = c(1, 1))
 ```
 
@@ -438,8 +438,8 @@ res_fd
 - [Measuring functional diversity in R](http://traits-dgs.nceas.ucsb.edu/workspace/r/r-tutorial-for-measuring-functional-diversity/Measuring%20Functional%20Diversity%20in%20R.pdf/attachment_download/file)
 
 
-# Computing Environment
+<!-- # Computing Environment
 
 ```{r}
 devtools::session_info()
-```
+``` -->
