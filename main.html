@@ -8,10 +8,10 @@
 <link href="main_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="main_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="main_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.433">
+  <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Masatoshi Katabuchi">
-  <meta name="dcterms.date" content="2023-11-17">
+  <meta name="dcterms.date" content="2024-11-10">
   <title>Phylogenetic diversity, functional diversity, and trait-based approaches</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -159,7 +159,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -322,7 +323,6 @@
       margin-right: 0; 
     }
   </style>
-  
   <script src="main_files/libs/kePrint/kePrint.js"></script>
   <link href="main_files/libs/lightable/lightable.css" rel="stylesheet">
 </head>
@@ -359,7 +359,7 @@
 </div>
 <p><br><br></p>
 <div class="absolute top-0 w-100" style="">
-<p><span class="fl">November 17, 2023</span> <span class="fr">XTBG AFEC</span></p>
+<p><span class="fl">November 10, 2024</span> <span class="fr">XTBG AFEC</span></p>
 </div>
 <aside class="notes">
 <p>hoge</p>
@@ -388,7 +388,7 @@
 </section>
 <section id="community-assembly-and-species-coexistence" class="slide level2">
 <h2>Community Assembly and Species Coexistence</h2>
-<p>For over a century, filed ecologist have been characterizing patterns in ecological communities and trying to draw theoretical inferences form the resulting data.</p>
+<p>For over a century, field ecologist have been characterizing patterns in ecological communities and trying to draw theoretical inferences form the resulting data.</p>
 
 <img src="images/sp_coex.jpg" width="65%" style="display: block; margin: auto;" class="r-stretch"></section>
 <section id="central-questions" class="slide level2">
@@ -419,8 +419,7 @@
 </div>
 </div><div class="column" style="width:50%;">
 <p><img data-src="images/tree_dist.png"></p>
-</div>
-</div>
+</div></div>
 <div class="footer">
 <p>Russo, Sabrina E., Stuart J. Davies, David A. King, and Sylvester Tan. “Soil-Related Performance Variation and Distributions of Tree Species in a Bornean Rain Forest.” Journal of Ecology 93, no. 5 (2005): 879–89.</p>
 </div>
@@ -429,7 +428,7 @@
 <h2>How can we quantify ecological similarity of coexisting species?</h2>
 </section>
 <section id="how-to-quantify-ecological-communities" class="slide level2">
-<h2>How to quantify ecological communities 🔰</h2>
+<h2>How to quantify ecological communities 🍀</h2>
 <div class="large">
 <div>
 <ul>
@@ -453,7 +452,7 @@
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<table class="lightable-material lightable-striped lightable-hover" data-quarto-postprocess="true" style="font-size: 28px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="lightable-material lightable-striped lightable-hover caption-top" data-quarto-postprocess="true" style="font-size: 28px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
@@ -487,7 +486,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figure/unnamed-chunk-2-1.png" width="576"></p>
+<p><img data-src="figure/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -503,8 +502,7 @@
 <li>Simpson’s evenness = 1/ Σfreq<sub>i</sub><sup>2</sup> = (4/383)<sup>2</sup> + (300/383)<sup>2</sup> + (56/383)<sup>2</sup> + (23/383)<sup>2</sup></li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="a-first-order-properties-of-single-communities-1" class="slide level2">
 <h2>1a) First-order properties of single communities</h2>
@@ -525,11 +523,10 @@
 <div class="fragment">
 <ul>
 <li><p>A: <span class="math inline">\(\frac{9}{10} \times \frac{8}{9} + \frac{1}{10} \times \frac{0}{9} = 0.8\)</span></p></li>
-<li><p>B: <span class="math inline">\(\frac{5}{10} \times \frac{4}{9} + \frac{5}{10} \times \frac{4}{9} \simeq 0.44\)</span></p></li>
+<li><p>B: <span class="math inline">\(\frac{5}{10} \times \frac{4}{9} + \frac{5}{10} \times \frac{4}{9}  \simeq 0.44\)</span></p></li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="a-first-order-properties-of-single-communities-2" class="slide level2">
 <h2>1a) First-order properties of single communities</h2>
@@ -539,7 +536,7 @@
 <p><img data-src="images/com_simple.png"></p>
 <ul>
 <li><p>A: <span class="math inline">\(\frac{9}{10} \times \frac{8}{9} + \frac{1}{10} \times \frac{0}{9} = 0.8\)</span></p></li>
-<li><p>B: <span class="math inline">\(\frac{5}{10} \times \frac{4}{9} + \frac{5}{10} \times \frac{4}{9} \simeq 0.44\)</span></p></li>
+<li><p>B: <span class="math inline">\(\frac{5}{10} \times \frac{4}{9} + \frac{5}{10} \times \frac{4}{9}  \simeq 0.44\)</span></p></li>
 <li><p>We prefer that large values indicate more diverse communities.</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
@@ -555,8 +552,7 @@
 <li><p>Simpson’s Index of Diversity (ver. 2): <span class="math inline">\(D = 1 - \Sigma p_i^2\)</span></p></li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 <div class="footer">
 <p><em>n</em>: number of individuals of each species, <em>N</em>: total number of individuals of all species, <em>p</em>: relative species abundance</p>
 <p>[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press</p>
@@ -610,8 +606,7 @@
 </ul>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 <div class="footer">
 <p><em>p</em>: relative species abundance</p>
 <p>[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press</p>
@@ -647,7 +642,7 @@
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<table class="lightable-material lightable-striped lightable-hover" data-quarto-postprocess="true" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<table class="lightable-material lightable-striped lightable-hover caption-top" data-quarto-postprocess="true" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
@@ -699,7 +694,7 @@
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<table class="lightable-material lightable-striped lightable-hover" data-quarto-postprocess="true" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<table class="lightable-material lightable-striped lightable-hover caption-top" data-quarto-postprocess="true" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
@@ -748,8 +743,7 @@
 <p><span class="math inline">\(BC_{ij}=1-2\frac{\sum min\left(S_{A,i}\mbox{, } S_{B,i}\right)}{\sum S_{A,i}+\sum S_{B,i}}\)</span></p>
 <p>Site 1 vs Site 2: 1 - (2 * (0 + 250 + 56 + 18) / (4 +300 + 56 + 23 + 0 + 250 + 120 + 18)) = 0.16</p>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="a-second-order-properties-with-site-characteristics-1950s" class="slide level2 small">
 <h2>2a) Second-Order properties with site characteristics (1950s ~)</h2>
@@ -760,7 +754,7 @@
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<table class="lightable-material lightable-striped lightable-hover" data-quarto-postprocess="true" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<table class="lightable-material lightable-striped lightable-hover caption-top" data-quarto-postprocess="true" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
@@ -836,8 +830,7 @@
 <ul>
 <li>“Species <span class="math inline">\(\times\)</span> site” and “site <span class="math inline">\(\times\)</span> environment”</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="a-second-order-properties-with-site-characteristics-1950s-1" class="slide level2 small">
 <h2>2a) Second-Order properties with site characteristics (1950s ~)</h2>
@@ -848,7 +841,7 @@
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<table class="lightable-material lightable-striped lightable-hover" data-quarto-postprocess="true" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<table class="lightable-material lightable-striped lightable-hover caption-top" data-quarto-postprocess="true" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
@@ -937,8 +930,7 @@
 </ul></li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 <aside class="notes">
 <p>E.g., Sp. 1 may prefer higher temperature with lower rainfall.</p>
 <style type="text/css">
@@ -962,7 +954,7 @@
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<table class="lightable-material lightable-striped lightable-hover" data-quarto-postprocess="true" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<table class="lightable-material lightable-striped lightable-hover caption-top" data-quarto-postprocess="true" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
@@ -1037,7 +1029,7 @@
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<table class="lightable-material lightable-striped lightable-hover" data-quarto-postprocess="true" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<table class="lightable-material lightable-striped lightable-hover caption-top" data-quarto-postprocess="true" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
@@ -1085,8 +1077,7 @@
 <ul>
 <li>“Trait <span class="math inline">\(\times\)</span> species”, “species <span class="math inline">\(\times\)</span> site”, “site <span class="math inline">\(\times\)</span> environment”</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="b-second-order-properties-with-species-characteristics-2000s-1" class="slide level2 small">
 <h2>2b) Second-Order properties with species characteristics (2000s ~)</h2>
@@ -1097,7 +1088,7 @@
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<table class="lightable-material lightable-striped lightable-hover" data-quarto-postprocess="true" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<table class="lightable-material lightable-striped lightable-hover caption-top" data-quarto-postprocess="true" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
@@ -1172,7 +1163,7 @@
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<table class="lightable-material lightable-striped lightable-hover" data-quarto-postprocess="true" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<table class="lightable-material lightable-striped lightable-hover caption-top" data-quarto-postprocess="true" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
@@ -1222,12 +1213,11 @@
 </ul>
 <div class="fragment">
 <ul>
-<li><p>Trait diversity and composition</p></li>
+<li><p>Trait diversity and its role in species composition</p></li>
 <li><p>Trait composition-environment relationships</p></li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="how-to-measure-species-characteristics" class="slide level2">
 <h2>How to measure species characteristics?</h2>
@@ -1239,8 +1229,7 @@
 <div class="fragment">
 <p><img data-src="images/1200px-BorneoRainforest_DSC_9267.jpg"></p>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="assuming-closely-related-species-are-more-ecologically-similar" class="slide level2 small">
 <h2>Assuming closely related species are more ecologically similar</h2>
@@ -1255,16 +1244,15 @@
 </div><div class="column" style="width:50%;">
 <p>Community with 3 genus and 3 species (3:3)</p>
 <p><img data-src="images/ratio2.png"></p>
-</div>
-</div>
+</div></div>
 </div>
 <div>
 <ul>
-<li class="fragment"><p>A <span class="blue"><strong>low</strong></span> genus:species ratio indicates closely related and ecologically similar species coexist.</p>
+<li class="fragment"><p>A <span class="blue"><strong>low</strong></span> genus:species ratio indicates closely related species coexist.</p>
 <ul>
 <li class="fragment"><span class="blue"><strong>Environmental filtering</strong></span></li>
 </ul></li>
-<li class="fragment"><p>A <span class="orange"><strong>high</strong></span> genus:species ratio indicates distantly related and ecologically dissimilar species coexist.</p>
+<li class="fragment"><p>A <span class="orange"><strong>high</strong></span> genus:species ratio indicates distantly related species coexist.</p>
 <ul>
 <li class="fragment"><span class="orange"><strong>Limiting similarity</strong></span></li>
 </ul></li>
@@ -1296,14 +1284,13 @@
 </div><div class="column" style="width:50%;">
 <p>Community with 3 genus and 3 species (3:3)</p>
 <p><img data-src="images/ratio2.png"></p>
-</div>
-</div>
+</div></div>
 <ul>
-<li><p>A <span class="blue"><strong>low</strong></span> genus:species ratio indicates closely related and ecologically similar species coexist.</p>
+<li><p>A <span class="blue"><strong>low</strong></span> genus:species ratio indicates closely related species coexist.</p>
 <ul>
 <li><span class="blue"><strong>Environmental filtering?</strong></span></li>
 </ul></li>
-<li><p>A <span class="orange"><strong>high</strong></span> genus:species ratio indicates distantly related and ecologically dissimilar species coexist.</p>
+<li><p>A <span class="orange"><strong>high</strong></span> genus:species ratio indicates distantly related species coexist.</p>
 <ul>
 <li><span class="orange"><strong>Limiting similarity?</strong></span></li>
 </ul></li>
@@ -1346,7 +1333,7 @@
 <section id="solution-for-the-genusspecies-ratio-problem-use-phylogenetic-trees" class="slide level2 small">
 <h2>Solution for the genus:species ratio problem = Use phylogenetic trees</h2>
 
-<img data-src="figure/unnamed-chunk-11-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<img data-src="figure/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="phylodiversity" class="slide level2">
 <h2>Phylodiversity</h2>
 <div class="footer">
@@ -1362,8 +1349,7 @@
 <li>Biodiversity has several axes or dimensions including genetic, taxonomic, phylogenetic and functional diversity</li>
 </ul></li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="phylodiversity-1" class="slide level2">
 <h2>Phylodiversity</h2>
@@ -1389,7 +1375,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figure/unnamed-chunk-12-1.png" width="960"></p>
+<p><img data-src="figure/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1413,8 +1399,7 @@
 <li>PD will correlate with species richness</li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="faiths-index-pd-1" class="slide level2">
 <h2>Faith’s Index (PD)</h2>
@@ -1427,7 +1412,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figure/unnamed-chunk-13-1.png" width="960"></p>
+<p><img data-src="figure/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1436,8 +1421,7 @@
 <ul>
 <li>Total branch length = 9</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="faiths-index-pd-2" class="slide level2">
 <h2>Faith’s Index (PD)</h2>
@@ -1450,7 +1434,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figure/unnamed-chunk-14-1.png" width="960"></p>
+<p><img data-src="figure/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1459,8 +1443,7 @@
 <ul>
 <li>Total branch length = 14</li>
 </ul>
-</div>
-</div>
+</div></div>
 </section>
 <section id="pethceys-functional-diversity-fd" class="slide level2">
 <h2>Pethcey’s functional diversity (FD)</h2>
@@ -1484,8 +1467,7 @@
 <li>Analogous to PD</li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="beyond-faiths-index-pd" class="slide level2">
 <h2>Beyond Faith’s Index (PD)</h2>
@@ -1504,7 +1486,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figure/com-phylo-1.png" width="384"></p>
+<p><img data-src="figure/com-phylo-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
 </figure>
 </div>
 </div>
@@ -1523,22 +1505,21 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="mean-pairwise-distance-mpd-and-net-related-index-nri" class="slide level2 small">
 <h2>Mean Pairwise Distance (MPD) and Net Related Index (NRI)</h2>
 <div class="footer">
 <p>[1] <span class="math inline">\(MPD = \frac{1}{n} \sum^{n}_{i} \sum^n_j \delta_{i,j} \; i \neq j\)</span>, where <span class="math inline">\(\delta_{i, j}\)</span> is the pairwise distance between species <em>i</em> and <em>j</em></p>
 </div>
-<p>Greatest possible mean pairwise node distance for a community of 4 taxa: 22 / 6 pairs = 3.66 (A, B, E, F)</p>
+<p>Let’s consider greatest possible mean pairwise node distance (MPD) for a community of 4 taxa</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figure/com-phylo-1.png" width="384"></p>
+<p><img data-src="figure/com-phylo-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
 </figure>
 </div>
 </div>
@@ -1554,7 +1535,17 @@
   F 5 5 4 2 1</code></pre>
 </div>
 </div>
+</div></div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code>    A B E
+  B 1    
+  E 5 5  
+  F 5 5 1</code></pre>
 </div>
+</div>
+<p>Greatest MPD for a community of 4 taxa: 22 / 6 pairs = 3.66 (A, B, E, F)</p>
 </div>
 </section>
 <section id="mean-pairwise-distance-mpd-and-net-related-index-nri-1" class="slide level2 small">
@@ -1588,8 +1579,7 @@
 </div>
 <p><strong>MPD</strong> = (1 + 5 + 5 + 5+ 5 + 1) / 6 = 3.66</p>
 <p><strong>NRI</strong> = 1 - (3.66 / 3.66) = 0</p>
-</div>
-</div>
+</div></div>
 <div class="fragment">
 <div class="large">
 <p>Community 1 is more phylogenetically similar.</p>
@@ -1608,7 +1598,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figure/com-phylo-1.png" width="384"></p>
+<p><img data-src="figure/com-phylo-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
 </figure>
 </div>
 </div>
@@ -1624,8 +1614,7 @@
   F 5 5 4 2 1</code></pre>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="mean-nearest-nodal-distance-mntd-and-nearest-taxa-index-nti-1" class="slide level2 small">
 <h2>Mean Nearest Nodal Distance (MNTD) and Nearest Taxa Index (NTI)</h2>
@@ -1673,8 +1662,7 @@
 </div>
 <p><strong>MNTD</strong> = (1 + 1 + 1 + 1) / 4 = 1</p>
 <p><strong>NTI</strong> = 1 - (1 / 2.0) = 0.5</p>
-</div>
-</div>
+</div></div>
 <div class="fragment">
 <div class="large">
 <p>Community 2 is more phylogenetically similar (in tips).</p>
@@ -1726,8 +1714,7 @@
 <li class="fragment"><p>Related species sometimes have very different traits and ecological niches (e.g., grass-bush, trunk, trunk-crown, trunk-ground and twig ecomorphs)</p></li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 <aside class="notes">
 <ul>
 <li>the study was done in 1998, but people usually ignore something inconvenient</li>
@@ -1761,8 +1748,7 @@
 <li class="fragment"><p>Phylogenetically similar = Functional (ecologically) similar??</p></li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="putting-traits-on-the-tips-of-phylogeny-phylogenetic-signal" class="slide level2 small">
 <h2>Putting traits on the tips of phylogeny: phylogenetic signal</h2>
@@ -1775,13 +1761,23 @@
 </div><div class="column" style="width:70%;">
 <div>
 <ul>
-<li class="fragment"><p>Phylogenetic signal (K) quantifies if the focal traits were inherited from their recent or old common ancestor</p></li>
-<li class="fragment"><p>Large K indicates phylogenetic conservatism and small K indicates phylogenetic divergence</p></li>
-<li class="fragment"><p>Phylogenetic signal (K): the ratio of the mean squared error (MSE) of observed trait values to the MSE of under Brownian motion evolution (short explanation).</p></li>
+<li class="fragment">What is Phylogenetic Signal (K)?
+<ul>
+<li class="fragment">Phylogenetic signal measures the degree to which related species share similar traits, quantifying the inheritance of traits from either recent or more ancient common ancestors.</li>
+</ul></li>
+<li class="fragment">Interpretation of K Values:
+<ul>
+<li class="fragment"><strong>Large K</strong> (phylogenetic conservatism): Trait similarity is high among closely related species, suggesting that traits are conserved across lineages.</li>
+<li class="fragment"><strong>K = 1</strong>: Traits are evolving under Brownian motion.</li>
+<li class="fragment"><strong>Small K</strong> (phylogenetic divergence): Trait similarity is low among closely related species, indicating that traits have diverged.</li>
+</ul></li>
+<li class="fragment">Calculating K:
+<ul>
+<li class="fragment">K is the ratio of the Mean Squared Error (MSE) of observed trait values to the MSE expected under Brownian motion (random evolutionary change).</li>
+</ul></li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 <aside class="notes">
 <p>Short explanation</p>
 <style type="text/css">
@@ -1803,8 +1799,8 @@
 <p>[1] Cavender‐Bares, J., Ackerly, D. D., Baum, D. A. &amp; Bazzaz, F. A. Phylogenetic Overdispersion in Floridian Oak Communities. The American Naturalist 163, 823–843 (2004).</p>
 </div>
 </section>
-<section id="phylogenetic-conservatism-matters-cont." class="slide level2">
-<h2>Phylogenetic conservatism matters (cont.)</h2>
+<section id="phylogenetic-conservatism-matters-1" class="slide level2">
+<h2>Phylogenetic conservatism matters</h2>
 
 <img data-src="./images/Cavender_tab.jpg" class="r-stretch"><div class="footer">
 <p>[1] Cavender‐Bares, J., Ackerly, D. D., Baum, D. A. &amp; Bazzaz, F. A. Phylogenetic Overdispersion in Floridian Oak Communities. The American Naturalist 163, 823–843 (2004).</p>
@@ -1827,8 +1823,7 @@
 <li class="fragment"><p>This approach should be avoided! (phylogeny and traits are useful to make meaningful evolutionary inferences)</p></li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="plant-functional-traits" class="slide level2">
 <h2>Plant functional traits</h2>
@@ -1840,8 +1835,7 @@
 </div><div class="column" style="width:50%;">
 <p>“Soft” traits: e.g., LMA (leaf mass per area)</p>
 <p><img data-src="images/LMA.png"></p>
-</div>
-</div>
+</div></div>
 </section>
 <section id="leaf-economic-spectrum-les" class="slide level2">
 <h2>Leaf Economic Spectrum (LES)</h2>
@@ -1849,7 +1843,7 @@
 <p>[1] Reich, P. B. et al.&nbsp;From tropics to tundra: Global convergence in plant functioning. PNAS 94, 13730–13734 (1997).</p>
 <p>[2] Wright, I. J., P. B. Reich, M. Westoby et al.&nbsp;The worldwide leaf economics spectrum. Nature 428, 821–827 (2004).</p>
 <p>[3] Osnas, J. L. D. et al.&nbsp;Global leaf trait relationships: Mass, area, and the leaf economics spectrum. Science 340, 741–744 (2013).</p>
-<p>[4] Katabuchi, M. et al.&nbsp;Decomposing leaf mass into photosynthetic and structural components explains divergent patterns of trait variation within and among plant species. bioRxiv https://doi.org/10.1101/116855 (2017)</p>
+<p>[4] Katabuchi, M. et al.&nbsp;Decomposing leaf mass into photosynthetic and structural components explains divergent patterns of trait variation within and among plant species. bioRxiv https://doi.org/10.1101/116855 (2023)</p>
 </div>
 <div class="columns">
 <div class="column" style="width:20%;">
@@ -1859,16 +1853,13 @@
 <div class="small">
 <ul>
 <li class="fragment">LES describes pairwise correlations among a bunch of leaf traits from the global leaf database called GLOPNET</li>
-<li class="fragment">Peter Reich first formulated the idea of LES</li>
-<li class="fragment">Peter Reich, Ian Wright, Mark Westoby and other people confirmed the generality of the LES</li>
 <li class="fragment">Global leaf function constrained to a single axis (75 % of the variation in the 6 traits)</li>
 <li class="fragment">Multidimensional (leaf) functional diversity can be mapped into a one-dimensional index</li>
 <li class="fragment">Controversial (!!)</li>
 </ul>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="rebuilding-community-ecology-from-functional-traits" class="slide level2">
 <h2>Rebuilding community ecology from functional traits</h2>
@@ -1895,11 +1886,11 @@
 </div>
 <div>
 <ul>
-<li class="fragment">Go beyond ‘How many species and why?’ to ask ‘How much variation in traits and why?’</li>
-<li class="fragment">Go beyond ‘In what environments does a species occur?’ to ask ‘What traits and environmental variables are most important in determining fundamental niche?’</li>
-<li class="fragment">Go beyond ‘What are the most important niche dimensions?’ to ask ‘What traits are most decisive in translating from fundamental niche to realized niche?’</li>
-<li class="fragment">Go beyond ‘How does population dynamics determine abundance?’ to ask ‘How does the performance of species in the interaction milieu determine their ranking of abundance or biomass?’</li>
-<li class="fragment">Go beyond ‘How does space affect population dynamics?’ to ask ‘How do environmental gradients affect community structuring?’</li>
+<li class="fragment">Go beyond ‘How many species and why?’ to ask ‘<strong>How much variation in traits and why?</strong>’</li>
+<li class="fragment">Go beyond ‘In what environments does a species occur?’ to ask ‘<strong>What traits and environmental variables are most important in determining fundamental niche?</strong>’</li>
+<li class="fragment">Go beyond ‘What are the most important niche dimensions?’ to ask ‘<strong>What traits are most decisive in translating from fundamental niche to realized niche?</strong>’</li>
+<li class="fragment">Go beyond ‘How does population dynamics determine abundance?’ to ask ‘<strong>How does the performance of species in the interaction milieu determine their ranking of abundance or biomass?</strong>’</li>
+<li class="fragment">Go beyond ‘How does space affect population dynamics?’ to ask ‘<strong>How do environmental gradients affect community structuring?</strong>’</li>
 </ul>
 </div>
 </section>
@@ -1921,8 +1912,7 @@
 </ul></li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="convex-hull-volume-functional-richness-1" class="slide level2">
 <h2>Convex hull volume (functional richness)</h2>
@@ -1939,8 +1929,7 @@
 <li class="fragment"><p>Consistent with environmental filtering</p></li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="community-assembly-and-trait-distribution" class="slide level2">
 <h2>Community assembly and trait distribution</h2>
@@ -1970,14 +1959,13 @@
 <li class="fragment"><p>C: Range of SLA is smaller than expected - Environmental filtering</p></li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="how-ecological-processes-might-influence-community-assembly" class="slide level2 small">
 <h2>How ecological processes might influence community assembly</h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<table class="lightable-material lightable-striped lightable-hover" data-quarto-postprocess="true" style="font-size: 30px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<table class="lightable-material lightable-striped lightable-hover caption-top" data-quarto-postprocess="true" style="font-size: 30px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Process / Facotr</th>
@@ -1989,14 +1977,14 @@
 <td colspan="2" style="border-bottom: 1px solid"><strong>Biotic factor</strong></td>
 </tr>
 <tr class="even">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Enviromental filtering</td>
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Environmental filtering</td>
 <td style="text-align: left;">Clustring</td>
 </tr>
 <tr class="odd" data-grouplength="4">
 <td colspan="2" style="border-bottom: 1px solid"><strong>Abiotic factor (competition)</strong></td>
 </tr>
 <tr class="even">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Limiting similarity / Compitative eclusion</td>
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Limiting similarity / Compitative exclusion</td>
 <td style="text-align: left;">Overdispersion</td>
 </tr>
 <tr class="odd">
@@ -2051,8 +2039,7 @@
 <p><img data-src="./images/comp-hier2.jpg" width="200"></p>
 <h3 id="competitive-hierarchy-1">Competitive hierarchy</h3>
 <p>Competitive effects of species A on species B will increase with increasing <span class="math inline">\(t_A - t_B\)</span>.</p>
-</div>
-</div>
+</div></div>
 </section>
 <section id="plantherbivore-interactions" class="slide level2">
 <h2>Plant–herbivore interactions</h2>
@@ -2070,8 +2057,7 @@
 <li class="fragment"><p>Plant–herbivore interactions promote species diversity</p></li>
 </ul>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="facilitation" class="slide level2">
 <h2>Facilitation</h2>
@@ -2089,8 +2075,35 @@
 <li class="fragment"><p>Facilitation tends to dominate interactions when environmental harshness increases</p></li>
 </ul>
 </div>
+</div></div>
+</section>
+<section id="trait-based-ecology-where-are-we-now" class="slide level2">
+<h2>Trait-based ecology: where are we now?</h2>
+
+<img src="images/traits2024.png" width="100%" style="display: block; margin: auto;" class="r-stretch"></section>
+<section id="why-ecologists-struggle-to-predict-coexistence-from-functional-traits" class="slide level2">
+<h2>Why ecologists struggle to predict coexistence from functional traits</h2>
+
+<img src="images/pim.png" width="100%" style="display: block; margin: auto;" class="r-stretch"><p>We may need metrics somewhere between <strong>functional traits</strong> and <strong>invasion growth rate</strong> (model parameter) to predict coexistence.</p>
+<div class="footer">
+<p>[1] Levine, J. I., An, R., Kraft, N. J. B., Pacala, S. W. &amp; Levine, J. M. Why ecologists struggle to predict coexistence from functional traits. Trends in Ecology &amp; Evolution (2024) doi:10.1016/j.tree.2024.10.002.</p>
 </div>
-</div>
+<aside class="notes">
+<ul>
+<li><p>hard traits and vital rates are better but not enough</p></li>
+<li><p>Combining traits with demographic characteristics and model-based metrics can improve our ability to predict coexistence.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="summary" class="slide level2">
 <h2>Summary 🍺</h2>
@@ -2104,6 +2117,7 @@
 <li class="fragment"><p>Trait-based approaches</p>
 <ul>
 <li class="fragment"><p>They will make “ecology” more quantitative and predictive.</p></li>
+<li class="fragment"><p>Developing more effective metrics may be necessary, beyond simply measuring traits.</p></li>
 <li class="fragment"><p>We only focused on a “snapshot” of biodiversity (predicting future biodiversity is another story)</p></li>
 </ul></li>
 <li class="fragment"><p>How to calculate trait and phylogenetic diversity anyway?</p>
@@ -2119,9 +2133,11 @@
 <li><p>The slides are made using <a href="https://quarto.org/">Quarto</a> with <a href="https://github.com/emitanaka/talks">Emi Tanaka’s</a> CSS design and <a href="https://github.com/DanyangDai/brownbag_2022_10_11">Danyang Dai’s</a> template.</p></li>
 <li><p>Source code for the slides can be found at <a href="https://github.com/mattocci27/phy-fun-div">mattocci27/phy-fun-div</a></p></li>
 </ul>
+<div class="quarto-auto-generated-content">
+<p><img src="images/xtbg_logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
 
-<img src="images/xtbg_logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
-
+</div>
 </div>
 </section>
     </div>
@@ -2152,7 +2168,6 @@
       Reveal.initialize({
 'controlsAuto': false,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -2408,18 +2423,7 @@
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -2451,11 +2455,50 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
-      function tippyHover(el, contentFn) {
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -2465,8 +2508,17 @@
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -2480,7 +2532,11 @@
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

@@ -1,7 +1,7 @@
 ---
 pagetitle: "Phylogenetic diversity, functional diversity, and trait-based approaches"
 author: "Masatoshi Katabuchi"
-date: "November 17, 2023"
+date: "November 10, 2024"
 host: "XTBG AFEC"
 institute: "XTBG, CAS"
 strip-comments: true
@@ -79,7 +79,7 @@ We Learn:
 
 ## Community Assembly and Species Coexistence
 
-For over a century, filed ecologist have been characterizing patterns in ecological communities and trying to draw theoretical inferences form the resulting data.
+For over a century, field ecologist have been characterizing patterns in ecological communities and trying to draw theoretical inferences form the resulting data.
 
 <img src="images/sp_coex.jpg" width="65%" style="display: block; margin: auto;"/>
 
@@ -529,7 +529,7 @@ trait %>%
 - "Trait $\times$ species", "species $\times$ site", "site $\times$ environment"
 
 ::: fragment
-- Trait diversity and composition
+- Trait diversity and its role in species composition
 
 - Trait composition-environment relationships
 :::
@@ -578,13 +578,11 @@ Community with 3 genus and 3 species (3:3)
 :::
 
 ::: incremental
-- A [**low**]{.blue} genus:species ratio indicates closely related and ecologically
-  similar species coexist.
+- A [**low**]{.blue} genus:species ratio indicates closely related species coexist.
 
    - [**Environmental filtering**]{.blue}
 
-- A [**high**]{.orange} genus:species ratio indicates distantly related and ecologically
-  dissimilar species coexist.
+- A [**high**]{.orange} genus:species ratio indicates distantly related species coexist.
 
   - [**Limiting similarity**]{.orange}
 
@@ -614,13 +612,11 @@ Community with 3 genus and 3 species (3:3)
 :::
 :::
 
-- A [**low**]{.blue} genus:species ratio indicates closely related and ecologically
-  similar species coexist.
+- A [**low**]{.blue} genus:species ratio indicates closely related species coexist.
 
    - [**Environmental filtering?**]{.blue}
 
-- A [**high**]{.orange} genus:species ratio indicates distantly related and ecologically
-  dissimilar species coexist.
+- A [**high**]{.orange} genus:species ratio indicates distantly related species coexist.
 
   - [**Limiting similarity?**]{.orange}
 
@@ -945,7 +941,7 @@ dist_all
 $\delta_{i, j}$ is the pairwise distance between species *i* and *j*
 :::
 
-Greatest possible mean pairwise node distance for a community of 4 taxa: 22 / 6 pairs = 3.66 (A, B, E, F)
+Let's consider greatest possible mean pairwise node distance (MPD) for a community of 4 taxa
 
 ::: columns
 ::: {.column width="50%"}
@@ -958,6 +954,16 @@ Greatest possible mean pairwise node distance for a community of 4 taxa: 22 / 6 
 ```
 :::
 
+:::
+
+
+::: fragment
+```{r}
+dist2 <- mat_all[c("A", "B", "E", "F"), c("A", "B", "E", "F")]  %>% as.dist
+dist2
+```
+
+Greatest MPD for a community of 4 taxa: 22 / 6 pairs = 3.66 (A, B, E, F)
 :::
 
 ---
@@ -1180,12 +1186,14 @@ break?
 ::: {.column width="70%"}
 ::: incremental
 
-- Phylogenetic signal (K) quantifies if the focal traits were inherited from their recent or old common ancestor
-
-- Large K indicates phylogenetic conservatism and small K indicates phylogenetic divergence
-
-- Phylogenetic signal (K): the ratio of the mean squared error (MSE) of observed trait values to the MSE of under Brownian motion evolution (short explanation).
-
+-	What is Phylogenetic Signal (K)?
+    -	Phylogenetic signal measures the degree to which related species share similar traits, quantifying the inheritance of traits from either recent or more ancient common ancestors.
+-	Interpretation of K Values:
+    -	**Large K** (phylogenetic conservatism): Trait similarity is high among closely related species, suggesting that traits are conserved across lineages.
+    - **K = 1**: Traits are evolving under Brownian motion.
+    -	**Small K** (phylogenetic divergence): Trait similarity is low among closely related species, indicating that traits have diverged.
+-	Calculating K:
+    -	K is the ratio of the Mean Squared Error (MSE) of observed trait values to the MSE expected under Brownian motion (random evolutionary change).
 
 :::
 
@@ -1206,7 +1214,7 @@ Short explanation
 
 ---
 
-## Phylogenetic conservatism matters (cont.)
+## Phylogenetic conservatism matters
 
 ![](./images/Cavender_tab.jpg)
 
@@ -1273,7 +1281,7 @@ Measurable properties of plants that are indicative of ecological strategies
 
 [3] Osnas, J. L. D. et al. Global leaf trait relationships: Mass, area, and the leaf economics spectrum. Science 340, 741–744 (2013).
 
-[4] Katabuchi, M. et al. Decomposing leaf mass into photosynthetic and structural components explains divergent patterns of trait variation within and among plant species. bioRxiv https://doi.org/10.1101/116855 (2017)
+[4] Katabuchi, M. et al. Decomposing leaf mass into photosynthetic and structural components explains divergent patterns of trait variation within and among plant species. bioRxiv https://doi.org/10.1101/116855 (2023)
 :::
 
 ::: columns
@@ -1285,8 +1293,6 @@ Measurable properties of plants that are indicative of ecological strategies
 ::: incremental
 ::: small
 - LES describes pairwise correlations among a bunch of leaf traits from the global leaf database called GLOPNET
-- Peter Reich first formulated the idea of LES
-- Peter Reich, Ian Wright, Mark Westoby and other people confirmed the generality of the LES
 - Global leaf function constrained to a single axis (75 % of the variation in the 6 traits)
 - Multidimensional (leaf) functional diversity can be mapped into a one-dimensional index
 - Controversial (!!)
@@ -1323,11 +1329,11 @@ Measurable properties of plants that are indicative of ecological strategies
 :::
 
 ::: incremental
-- Go beyond 'How many species and why?' to ask 'How much variation in traits and why?'
-- Go beyond 'In what environments does a species occur?’ to ask 'What traits and environmental variables are most important in determining fundamental niche?'
-- Go beyond 'What are the most important niche dimensions?' to ask 'What traits are most decisive in translating from fundamental niche to realized niche?'
-- Go beyond 'How does population dynamics determine abundance?' to ask 'How does the performance of species in the interaction milieu determine their ranking of abundance or biomass?'
-- Go beyond 'How does space affect population dynamics?' to ask 'How do environmental gradients affect community structuring?'
+- Go beyond 'How many species and why?' to ask '**How much variation in traits and why?**'
+- Go beyond 'In what environments does a species occur?’ to ask '**What traits and environmental variables are most important in determining fundamental niche?**'
+- Go beyond 'What are the most important niche dimensions?' to ask '**What traits are most decisive in translating from fundamental niche to realized niche?**'
+- Go beyond 'How does population dynamics determine abundance?' to ask '**How does the performance of species in the interaction milieu determine their ranking of abundance or biomass?**'
+- Go beyond 'How does space affect population dynamics?' to ask '**How do environmental gradients affect community structuring?**'
 :::
 
 ---
@@ -1429,8 +1435,8 @@ Measurable properties of plants that are indicative of ecological strategies
 
 ```{r, echo=FALSE}
 tbl <- tribble(~`Process / Facotr`, ~Pattern,
-  "Enviromental filtering", "Clustring",
-  "Limiting similarity / Compitative eclusion", "Overdispersion",
+  "Environmental filtering", "Clustring",
+  "Limiting similarity / Compitative exclusion", "Overdispersion",
   "Competitive hierarchy / directional compation", "Clustring",
   "Herbivors / Prasites / Pathogens", "Overdispersion",
   "Pollinator-mediated competition", "Overdispersion",
@@ -1533,6 +1539,30 @@ Competitive effects of species A on species B will increase with increasing $t_A
 
 ---
 
+## Trait-based ecology: where are we now?
+
+
+<img src="images/traits2024.png" width =100% style="display: block; margin: auto;"/>
+
+---
+
+## Why ecologists struggle to predict coexistence from functional traits
+
+<img src="images/pim.png" width =100% style="display: block; margin: auto;"/>
+
+We may need metrics somewhere between **functional traits** and **invasion growth rate** (model parameter) to predict coexistence.
+
+::: footer
+[1] Levine, J. I., An, R., Kraft, N. J. B., Pacala, S. W. & Levine, J. M. Why ecologists struggle to predict coexistence from functional traits. Trends in Ecology & Evolution (2024) doi:10.1016/j.tree.2024.10.002.
+:::
+
+::: notes
+- hard traits and vital rates are better but not enough
+
+- Combining traits with demographic characteristics and model-based metrics can improve our ability to predict coexistence.
+:::
+
+---
 
 ## Summary `r emo::ji("beer")`
 
@@ -1547,6 +1577,8 @@ Competitive effects of species A on species B will increase with increasing $t_A
 - Trait-based approaches
 
   - They will make "ecology" more quantitative and predictive.
+
+  - Developing more effective metrics may be necessary, beyond simply measuring traits.
 
   - We only focused on a "snapshot" of biodiversity (predicting future biodiversity is another story)
 
