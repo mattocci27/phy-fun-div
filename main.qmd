@@ -1,7 +1,7 @@
 ---
-pagetitle: "Phylogenetic diversity, functional diversity, and trait-based approaches"
+pagetitle: "Diversity and Trait-Based Approaches"
 author: "Masatoshi Katabuchi"
-date: "November 10, 2024"
+date: "November 11, 2024"
 host: "XTBG AFEC"
 institute: "XTBG, CAS"
 strip-comments: true
@@ -77,6 +77,22 @@ We Learn:
 <!--  -->
 ---
 
+## Outline
+
+::: large
+- Community Ecology
+
+- Simple diversity indices
+
+- Phylogenetic diversity
+
+- Functional traits and diversity
+
+- R examples
+:::
+
+---
+
 ## Community Assembly and Species Coexistence
 
 For over a century, field ecologist have been characterizing patterns in ecological communities and trying to draw theoretical inferences form the resulting data.
@@ -91,9 +107,9 @@ For over a century, field ecologist have been characterizing patterns in ecologi
 ::: columns
 ::: {.column width="50%"}
 ::: small
-- Why do species occurs at the particular places?
+- Why do species occurs in specific locations?
 
-- Why do some pairs of species coexist while others not?
+- Why do some species coexist while others do not?
 
 ::: incremental
 
@@ -1244,7 +1260,7 @@ Short explanation
 
 - Compared to simply measuring the trait dispersion, this approach is very indirect.
 
-- This approach should be avoided! (phylogeny and traits are useful to make meaningful evolutionary inferences)
+- **This approach should be avoided!** (phylogeny and traits are useful to make meaningful evolutionary inferences)
 :::
 :::
 
@@ -1564,7 +1580,35 @@ Competitive effects of species A on species B will increase with increasing $t_A
 
 ---
 
-## Why ecologists struggle to predict coexistence from functional traits
+## Predicting future biodiversity may require community, species, and indidivual-level analyses{.small}
+
+::: footer
+[1] Katabuchi, M. et al. Contrasting outcomes of species- and community-level analyses of the temporal consistency of functional composition. Ecology 98, 2273–2280 (2017).
+
+[2] Swenson, N. G., Hulshof, C. M., Katabuchi, M. & Enquist, B. J. Long-term shifts in the functional composition and diversity of a tropical dry forest: a 30-yr study. Ecological Monographs e01408 (2020) doi:10.1002/ecm.1408.
+:::
+
+::: columns
+::: {.column width=60%}
+![](images/cwm.png)
+:::
+
+::: {.column width=40%}
+::: incremental
+
+- 50ha Forest Dynamics Plot on Barro Colorado Island, Panama
+
+- The changes in community-weighted mean (CWM) of wood density over time seem to suggest a community-level response in climate change (i.e, drier conditions).
+
+- No clear species-level pattern: just two of 300 species account for 60% of the temporal shifts in CWM, likely due to species-specific pathogens rather than climate change response.
+
+:::
+:::
+:::
+
+---
+
+## Using harder-to-measure physiological traits may be not enough
 
 <img src="images/pim.png" width =100% style="display: block; margin: auto;"/>
 
@@ -1587,18 +1631,17 @@ We may need metrics somewhere between **functional traits** and **invasion growt
 ::: incremental
 - Why do we use trait and phylogenetic diversity?
 
-  - We want to quantify ecological similarities of species and multiple dimensions of
-    biodiversity.
+  - We want to quantify ecological similarities and biodiversity dimensions.
 
   - We need to be very careful when we use or develop ways to map multiple dimensions of biodiversity to a few dimensions of diversity.
 
 - Trait-based approaches
 
-  - They will make "ecology" more quantitative and predictive.
-
-  - Developing more effective metrics may be necessary, beyond simply measuring traits.
+  - Moving ecology towards more quantitative and predictive methods.
 
   - We only focused on a "snapshot" of biodiversity (predicting future biodiversity is another story)
+
+  - Developing more effective metrics may be necessary, beyond simply measuring traits.
 
 - How to calculate trait and phylogenetic diversity anyway?
 

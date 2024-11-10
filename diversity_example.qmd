@@ -1,7 +1,7 @@
 ---
 title: Diversity calculation
 author: "Masatoshi Katabuchi"
-date: "2024/11/10"
+date: "2024/11/11"
 fontsize: 12pt
 format:
   html:
@@ -438,8 +438,6 @@ res_fd
 - [Measuring functional diversity in R](http://traits-dgs.nceas.ucsb.edu/workspace/r/r-tutorial-for-measuring-functional-diversity/Measuring%20Functional%20Diversity%20in%20R.pdf/attachment_download/file)
 
 
-<!-- # Computing Environment
-
 ```{r}
-devtools::session_info()
-``` -->
+# devtools::session_info()
+```

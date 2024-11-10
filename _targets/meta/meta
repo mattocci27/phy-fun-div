@@ -1,7 +1,8 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-.Random.seed|object|3b1c16abc6878283|||||||||||||||
-div_ex|stem|82ea89b7efcf9453|f46d18ce9ede0e8f|ef46db3751d8e999|-586105860|diversity_example_files*diversity_example.html*diversity_example.qmd|t19677.6814156907s|177aae106a8aee4d|115406|file|local|vector|||22.484||
-ex_tree|stem|6fa301fff2b15b9c|62941d73814c282e|a7122a8e66c1b8ff|-1805294981|images/tree_bg.png*images/tree_bg.pdf|t19676.1726815338s|71325645dd2c81f2|1424425|file|local|vector|||11.716||
-main|stem|ad17c8d7aa8a5c62|bf51f4d51070d05a|ef46db3751d8e999|669725655|main_files*main.html*main.qmd|t19678.2251753008s|8786f05c700db5f1|5992668|file|local|vector|||50.783||
-my_ggsave|function|f95c949784d28668|||||||||||||||
-plot_ex_tree|function|9a6f35f846baf1e5|||||||||||||||
+.Random.seed|object|cfe5bf40e0af63ee|||||||||||||||
+div_ex|stem|b9b984d684520cc9|539fcbbe32aca0ee|2c530c1562a7fbd1|1096909232|diversity_example_files*diversity_example.html*diversity_example.qmd|t20037.1147988479s|59108ea679c3da86|4848526|file|local|vector|||5.942||
+ex_tree|stem|637157b9349519d9|accd8c609fb58914|33d2bff3e31c952c|-1143487155|images/tree_bg.png*images/tree_bg.pdf|t20037.1135454837s|6fa52618381b6ffb|1449169|file|local|vector|||1.516||
+main|stem|c9f0abbb37d1a288|35b5da2d0f345f93|2c530c1562a7fbd1|-1244813022|main_files*main.html*main.qmd|t20037.1136262796s|eac2219e74a575c6|147239|file|local|vector|||6.988||
+my_ggsave|function|c7462cae8a7a7cde|||||||||||||||
+object|object|93cdbd7aa064831d|||||||||||||||
+plot_ex_tree|function|d61ce2a6c83ccb36|||||||||||||||

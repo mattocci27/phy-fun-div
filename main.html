@@ -11,8 +11,8 @@
   <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Masatoshi Katabuchi">
-  <meta name="dcterms.date" content="2024-11-10">
-  <title>Phylogenetic diversity, functional diversity, and trait-based approaches</title>
+  <meta name="dcterms.date" content="2024-11-11">
+  <title>Diversity and Trait-Based Approaches</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -335,7 +335,7 @@
 <h2></h2>
 <div class="title-box">
 <h2>
-<p>Phylogenetic diversity, functional diversity, and trait-based approaches</p>
+<p>Diversity and Trait-Based Approaches</p>
 </h2>
 <h3>
 <p>🧑🏻‍💻 <span class="author">Masatoshi Katabuchi @ XTBG, CAS</span></p>
@@ -359,7 +359,7 @@
 </div>
 <p><br><br></p>
 <div class="absolute top-0 w-100" style="">
-<p><span class="fl">November 10, 2024</span> <span class="fr">XTBG AFEC</span></p>
+<p><span class="fl">November 11, 2024</span> <span class="fr">XTBG AFEC</span></p>
 </div>
 <aside class="notes">
 <p>hoge</p>
@@ -386,6 +386,18 @@
 </ul>
 </div>
 </section>
+<section id="outline" class="slide level2">
+<h2>Outline</h2>
+<div class="large">
+<ul>
+<li><p>Community Ecology</p></li>
+<li><p>Simple diversity indices</p></li>
+<li><p>Phylogenetic diversity</p></li>
+<li><p>Functional traits and diversity</p></li>
+<li><p>R examples</p></li>
+</ul>
+</div>
+</section>
 <section id="community-assembly-and-species-coexistence" class="slide level2">
 <h2>Community Assembly and Species Coexistence</h2>
 <p>For over a century, field ecologist have been characterizing patterns in ecological communities and trying to draw theoretical inferences form the resulting data.</p>
@@ -397,8 +409,8 @@
 <div class="column" style="width:50%;">
 <div class="small">
 <ul>
-<li><p>Why do species occurs at the particular places?</p></li>
-<li><p>Why do some pairs of species coexist while others not?</p></li>
+<li><p>Why do species occurs in specific locations?</p></li>
+<li><p>Why do some species coexist while others do not?</p></li>
 </ul>
 <div>
 <ul>
@@ -428,7 +440,7 @@
 <h2>How can we quantify ecological similarity of coexisting species?</h2>
 </section>
 <section id="how-to-quantify-ecological-communities" class="slide level2">
-<h2>How to quantify ecological communities 🔰</h2>
+<h2>How to quantify ecological communities 🍁</h2>
 <div class="large">
 <div>
 <ul>
@@ -1820,7 +1832,7 @@
 <li class="fragment"><p>Phylogeny as a proxy for the functional or ecological similarity of species.</p></li>
 <li class="fragment"><p>Measuring trait data and arraying it on the phylogenetic tree to demonstrate phylogenetic signal in function so that their phylogenetically-based inferences could be supported.</p></li>
 <li class="fragment"><p>Compared to simply measuring the trait dispersion, this approach is very indirect.</p></li>
-<li class="fragment"><p>This approach should be avoided! (phylogeny and traits are useful to make meaningful evolutionary inferences)</p></li>
+<li class="fragment"><p><strong>This approach should be avoided!</strong> (phylogeny and traits are useful to make meaningful evolutionary inferences)</p></li>
 </ul>
 </div>
 </div></div>
@@ -2088,8 +2100,27 @@
 <h2>Trait-based ecology: where are we now?</h2>
 
 <img src="images/traits2024.png" width="100%" style="display: block; margin: auto;" class="r-stretch"></section>
-<section id="why-ecologists-struggle-to-predict-coexistence-from-functional-traits" class="slide level2">
-<h2>Why ecologists struggle to predict coexistence from functional traits</h2>
+<section id="predicting-future-biodiversity-may-require-community-species-and-indidivual-level-analyses" class="slide level2 small">
+<h2>Predicting future biodiversity may require community, species, and indidivual-level analyses</h2>
+<div class="footer">
+<p>[1] Katabuchi, M. et al.&nbsp;Contrasting outcomes of species- and community-level analyses of the temporal consistency of functional composition. Ecology 98, 2273–2280 (2017).</p>
+<p>[2] Swenson, N. G., Hulshof, C. M., Katabuchi, M. &amp; Enquist, B. J. Long-term shifts in the functional composition and diversity of a tropical dry forest: a 30-yr study. Ecological Monographs e01408 (2020) doi:10.1002/ecm.1408.</p>
+</div>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="images/cwm.png"></p>
+</div><div class="column" style="width:40%;">
+<div>
+<ul>
+<li class="fragment"><p>50ha Forest Dynamics Plot on Barro Colorado Island, Panama</p></li>
+<li class="fragment"><p>The changes in community-weighted mean (CWM) of wood density over time seem to suggest a community-level response in climate change (i.e, drier conditions).</p></li>
+<li class="fragment"><p>No clear species-level pattern: just two of 300 species account for 60% of the temporal shifts in CWM, likely due to species-specific pathogens rather than climate change response.</p></li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="using-harder-to-measure-physiological-traits-may-be-not-enough" class="slide level2">
+<h2>Using harder-to-measure physiological traits may be not enough</h2>
 
 <img src="images/pim.png" width="100%" style="display: block; margin: auto;" class="r-stretch"><p>We may need metrics somewhere between <strong>functional traits</strong> and <strong>invasion growth rate</strong> (model parameter) to predict coexistence.</p>
 <div class="footer">
@@ -2118,14 +2149,14 @@
 <ul>
 <li class="fragment"><p>Why do we use trait and phylogenetic diversity?</p>
 <ul>
-<li class="fragment"><p>We want to quantify ecological similarities of species and multiple dimensions of biodiversity.</p></li>
+<li class="fragment"><p>We want to quantify ecological similarities and biodiversity dimensions.</p></li>
 <li class="fragment"><p>We need to be very careful when we use or develop ways to map multiple dimensions of biodiversity to a few dimensions of diversity.</p></li>
 </ul></li>
 <li class="fragment"><p>Trait-based approaches</p>
 <ul>
-<li class="fragment"><p>They will make “ecology” more quantitative and predictive.</p></li>
-<li class="fragment"><p>Developing more effective metrics may be necessary, beyond simply measuring traits.</p></li>
+<li class="fragment"><p>Moving ecology towards more quantitative and predictive methods.</p></li>
 <li class="fragment"><p>We only focused on a “snapshot” of biodiversity (predicting future biodiversity is another story)</p></li>
+<li class="fragment"><p>Developing more effective metrics may be necessary, beyond simply measuring traits.</p></li>
 </ul></li>
 <li class="fragment"><p>How to calculate trait and phylogenetic diversity anyway?</p>
 <ul>
