@@ -489,5 +489,5 @@ res_fd
 
 
 ```{r}
-# devtools::session_info()
+# sessionInfo()
 ```
