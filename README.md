@@ -22,10 +22,10 @@ Quarto slide deck and supporting material for the AFEC 2025 workshop on phylogen
 4. Install the R packages used in `diversity_example.qmd` (you can copy/paste the following into the R console):
 
     ```r
-   install.packages(c(
-     "tidyverse", "fontawesome", "picante",
-     "FD", "DT", "here", "vegan", "ape"
-   ))
+    install.packages(c(
+      "tidyverse", "picante", "FD",
+      "DT", "here", "vegan", "ape"
+    ))
     ```
 
 5. Open `diversity_example.qmd` and work through the exercises (students only need this document plus the datasets in `data/`).

@@ -1,7 +1,7 @@
 ---
 title: Diversity calculation
 author: "Masatoshi Katabuchi"
-date: "November 18-20, 2025"
+date: "November 18, 2025"
 fontsize: 12pt
 format:
   html:
@@ -12,6 +12,9 @@ format:
     number-sections: true
     smooth-scroll: true
     embed-resources: false
+    include-after: |
+      <link rel="stylesheet" href="assets/fontawesome-free-7.1.0-web/css/all.min.css">
+      <script src="assets/fontawesome-free-7.1.0-web/js/all.min.js"></script>
 ---
 
 ```{r global_options, include=FALSE}
@@ -19,8 +22,6 @@ knitr::opts_chunk$set(echo=TRUE,
                       warning=FALSE,
                       cache=TRUE,
                       message=FALSE)
-
-htmltools::tagList(fontawesome::fa_html_dependency())
 ```
 
 <a href="https://bsky.app/profile/mattocci.bsky.social"><i class="fa-brands fa-bluesky fa-1x"></i> Bluesky</a>
@@ -36,28 +37,45 @@ Course materials for AFEC 2025 at XTBG.
 
 # Prerequisites
 
-Clone this repo.
+You can work through these exercises with a standard R installation; just grab the files and install a few packages.
 
-```{bash, eval=FALSE}
-git clone https://github.com/mattocci27/phy-fun-div.git
+1. Clone the repository (or download and unzip it):
+
+   ```{bash, eval=FALSE}
+   git clone https://github.com/mattocci27/phy-fun-div.git
+   ```
+
+2. (**Optional**) Restore the instructor environment with renv. This ensures identical package versions but takes longer the first time.
+
+   ```{r, eval=FALSE}
+   renv::restore()
+   ```
+
+3. Prefer a quicker start? Install the required packages manually:
+
+   ```{r, eval=FALSE}
+   install.packages(c(
+     "tidyverse", "picante", "FD",
+     "DT", "here", "vegan", "ape"
+   ))
+   ```
+
+If you want to skip `renv`, comment out the autoload lines in `.Rprofile`.
+
+```{r}
+# Sys.setenv(RENV_DOWNLOAD_METHOD = "curl")
+# Sys.setenv(RENV_CONFIG_PAK_ENABLED = "TRUE")
+# options(renv.install.staged = FALSE)
+
+# if (file.exists("renv/activate.R")) {
+#   source("renv/activate.R")
+#   if ("renv" %in% loadedNamespaces()) {
+#     renv::settings$use.cache(TRUE)
+#   }
+# }
 ```
 
-The following command (probably) installs all the R packages required for this course.
-
-```{r, eval=FALSE}
-renv::restore()
-```
-
-Otherwise, install the required packages manually (students only need the following set).
-
-```{r, eval=FALSE}
-install.packages(c(
-  "tidyverse", "fontawesome", "picante",
-  "FD", "DT", "here", "vegan", "ape"
-))
-```
-
-Load some packages.
+# Load packages
 
 ```{r}
 library(tidyverse)
@@ -75,25 +93,59 @@ First, we import the community data.
 d <- read_csv("data/samp.csv")
 ```
 
+### Using a relative path
+
 - I prefer `read_csv` but `read.csv` is fine too.
 - Our working directory is `phy-fun-div`, and the relative path to `samp.csv` is `data/samp.csv`.
 
-We can also use `here` package to specify the absolute path to the file.
-```{r}
-here::here("data/samp.csv")
-d <- read_csv(here::here("data/samp.csv"))
+The directory structure looks like this:
+
+```
+.
+├── data/
+│   ├── dummy_trait.csv
+│   ├── dummy_tree.newick
+│   ├── samp.csv
+│   └── soil.csv
 ```
 
-but don't do this:
+### Using `here` package
+
+We can also use `here` package to specify the absolute path to the file.
+This is useful when you are working in a sub-directory.
+For example, you might be in `docs/` directory, because your qmd file is there, but `here` will help you to find the correct absolute path to the data file.
+
+```{r, error=TRUE}
+# (For demonstration only — normally you shouldn't change working directories)
+setwd("docs")
+getwd()
+read_csv("data/samp.csv")
+```
+
+```{r}
+here::here("data/samp.csv")
+```
+
+```{r}
+d <- read_csv(here::here("data/samp.csv"))
+setwd("..")
+```
+
+### Avoiding absolute paths
+
+Avoid using absolute paths like this:
 
 ```{r, eval=FALSE}
 d <- read_csv("/Users/mattocci/Dropbox/5-Tools/ghq/github.com/mattocci27/phy-fun-div/data/samp.csv")
 ```
 
-because absolute paths will be different on different computers (lack of reproducibility).
+Absolute paths are different on different computers (lack of reproducibility).
 It is also uncomfortable to make file system structure public (security risk).
 
+### Community data
+
 Now let's look at the community data.
+
 ```{r}
 d
 DT::datatable(d)
@@ -288,7 +340,7 @@ $$
 or
 
 $$
-\mathrm{CWM}_i = \frac{\vec{a_i} \cdot \vec{t}}{\sum_{j=1}^n a_{ij}},
+\mathrm{CWM}_i = \frac{\boldsymbol{a_i} \cdot \boldsymbol{t}}{\sum_{j=1}^n a_{ij}},
 $$
 
 where $a_{ij}$ is the abundance of species *j* in community *i*, and $t_{j}$ is a trait value of species *j*.
