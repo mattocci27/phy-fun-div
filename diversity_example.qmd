@@ -1,7 +1,7 @@
 ---
 title: Diversity calculation
 author: "Masatoshi Katabuchi"
-date: "2025/11/18-20"
+date: "November 18-20, 2025"
 fontsize: 12pt
 format:
   html:
@@ -23,11 +23,11 @@ knitr::opts_chunk$set(echo=TRUE,
 htmltools::tagList(fontawesome::fa_html_dependency())
 ```
 
-<a href="https://twitter.com/mattocci"><i class="fa fa-twitter fa-1x"></i> Twitter</a>
-<a href="https://github.com/mattocci27/"><i class="fa fa-github fa-1x"></i> Github</a>
-<a href="mailto:mattocci27@gmail.com"><i class="fa fa-envelope fa-1x"></i> Email</a>
+<a href="https://bsky.app/profile/mattocci.bsky.social"><i class="fa-brands fa-bluesky fa-1x"></i> Bluesky</a>
+<a href="https://github.com/mattocci27/"><i class="fa-brands fa-github fa-1x"></i> Github</a>
+<a href="mailto:mattocci27@gmail.com"><i class="fa-solid fa-envelope fa-1x"></i> Email</a>
 
-Course materials for 2024-11-10 AFEC at XTBG.
+Course materials for AFEC 2025 at XTBG.
 
 # Objectives
 

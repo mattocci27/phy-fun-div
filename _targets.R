@@ -2,6 +2,7 @@ library(targets)
 library(tarchetypes)
 library(tidyverse)
 library(furrr)
+library(quarto)
 
 # plan(multicore)
 # options(clustermq.scheduler = "multicore")

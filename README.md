@@ -66,6 +66,7 @@ Quarto slide deck and supporting material for the AFEC 2025 workshop on phylogen
 - Maintainers manage dependencies with `renv` (using `pak` for faster installs), but students can rely on the base `install.packages()` call above.
 - Rendering scripts (`run.R`, `run.sh`) wrap common build tasks; feel free to adapt them for batch workflows.
 - The project follows the CC BY-SA 4.0 license—re-use is welcome with attribution.
+- Font Awesome icons load via the CDN version 7.1.0; if you need offline assets, download the latest “Font Awesome Free” archive from <https://fontawesome.com/download> and adjust the paths accordingly.
 
 ## Participant Files
 

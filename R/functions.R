@@ -26,9 +26,9 @@ plot_ex_tree <- function(size = 0.8) {
   data(chiroptera, package="ape")
   groupInfo <- split(chiroptera$tip.label, gsub("_\\w+", "", chiroptera$tip.label))
   chiroptera <- ggtree::groupOTU(chiroptera, groupInfo)
+  attr(chiroptera, "subgroup") <- attr(chiroptera, "group")
 
-  ggtree(chiroptera, aes(color = group), layout = 'circular') +
-    geom_tiplab(size = size, aes(angle = angle)) +
-    theme(legend.position = "none")
+  ggtree::ggtree(chiroptera, mapping = ggplot2::aes(color = group), layout = "circular") +
+    ggtree::geom_tiplab(mapping = ggplot2::aes(angle = angle), size = size) +
+    ggplot2::theme(legend.position = "none")
 }
-

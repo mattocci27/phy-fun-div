@@ -1,8 +1,7 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-.Random.seed|object|cfe5bf40e0af63ee|||||||||||||||
-div_ex|stem|b9b984d684520cc9|539fcbbe32aca0ee|2c530c1562a7fbd1|1096909232|diversity_example_files*diversity_example.html*diversity_example.qmd|t20037.1147988479s|59108ea679c3da86|4848526|file|local|vector|||5.942||
-ex_tree|stem|637157b9349519d9|accd8c609fb58914|33d2bff3e31c952c|-1143487155|images/tree_bg.png*images/tree_bg.pdf|t20037.1135454837s|6fa52618381b6ffb|1449169|file|local|vector|||1.516||
-main|stem|c9f0abbb37d1a288|35b5da2d0f345f93|2c530c1562a7fbd1|-1244813022|main_files*main.html*main.qmd|t20037.1136262796s|eac2219e74a575c6|147239|file|local|vector|||6.988||
-my_ggsave|function|c7462cae8a7a7cde|||||||||||||||
-object|object|93cdbd7aa064831d|||||||||||||||
-plot_ex_tree|function|d61ce2a6c83ccb36|||||||||||||||
+ex_tree|stem|496280262476e660|accd8c609fb58914|cbb880ebd4064e19|-1143487155|images/tree_bg.png*images/tree_bg.pdf|t20397.2990696719s|s1462991b|1462991|file|local|vector|||1.93|Unknown or uninitialised column: `subgroup`.. Unknown or uninitialised column: `subgroup`.. Unknown or uninitialised column: `subgroup`.. Unknown or uninitialised column: `subgroup`.. Unknown or uninitialised column: `subgroup`.. Unknown or uninitialised column: `subgroup`.. Unknown or uninitialised column: `subgroup`.. Unknown or uninitialised column: `subgroup`.|
+main|stem|08c8e85ea4451da7|d2b984f6b2f89b37|2c530c1562a7fbd1|-1244813022|main_files*main.html*main.qmd*assets/custom.css*assets/tachyons-addon.css|t20397.3152315342s|s5830100b|5830100|file|local|vector|||6.219||
+plot_ex_tree|function|e1d08e7639de2e1a
+.Random.seed|object|98e198369dff79ec
+my_ggsave|function|c7462cae8a7a7cde
+div_ex|stem|ddad53101c52cfb4|b9edec2e35c51784|2c530c1562a7fbd1|1096909232|diversity_example_files*diversity_example.html*diversity_example.qmd|t20397.3174599958s|s6620188b|6620188|file|local|vector|||4.122||

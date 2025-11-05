@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Masatoshi Katabuchi">
+<meta name="dcterms.date" content="2020-11-18">
 
 <title>Diversity calculation</title>
 <style>
@@ -176,7 +177,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Invalid Date</p>
+      <p class="date">November 18, 2020</p>
     </div>
   </div>
   
@@ -188,8 +189,8 @@ window.Quarto = {
 </header>
 
 
-<p><a href="https://twitter.com/mattocci"><i class="fa fa-twitter fa-1x"></i> Twitter</a> <a href="https://github.com/mattocci27/"><i class="fa fa-github fa-1x"></i> Github</a> <a href="mailto:mattocci27@gmail.com"><i class="fa fa-envelope fa-1x"></i> Email</a></p>
-<p>Course materials for 2024-11-10 AFEC at XTBG.</p>
+<p><a href="https://bsky.app/profile/mattocci.bsky.social"><i class="fa-brands fa-bluesky fa-1x"></i> Bluesky</a> <a href="https://github.com/mattocci27/"><i class="fa-brands fa-github fa-1x"></i> Github</a> <a href="mailto:mattocci27@gmail.com"><i class="fa-solid fa-envelope fa-1x"></i> Email</a></p>
+<p>Course materials for AFEC 2025 at XTBG.</p>
 <section id="objectives" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Objectives</h1>
 <ul>
@@ -207,14 +208,12 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Otherwise, please install those packages manually without using <code>renv</code> (I might miss some packages).</p>
+<p>Otherwise, install the required packages manually (students only need the following set).</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"picante"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"FD"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rmarkdown"</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"DT"</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"quarto"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"tidyverse"</span>, <span class="st">"fontawesome"</span>, <span class="st">"picante"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"FD"</span>, <span class="st">"DT"</span>, <span class="st">"here"</span>, <span class="st">"vegan"</span>, <span class="st">"ape"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Load some packages.</p>
 <div class="cell">
