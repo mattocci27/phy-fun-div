@@ -1,7 +1,7 @@
 ---
 title: Diversity calculation
 author: "Masatoshi Katabuchi"
-date: "2024/11/11"
+date: "2025/11/18-20"
 fontsize: 12pt
 format:
   html:
@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo=TRUE,
                       cache=TRUE,
                       message=FALSE)
 
-htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+htmltools::tagList(fontawesome::fa_html_dependency())
 ```
 
 <a href="https://twitter.com/mattocci"><i class="fa fa-twitter fa-1x"></i> Twitter</a>
@@ -48,15 +48,13 @@ The following command (probably) installs all the R packages required for this c
 renv::restore()
 ```
 
-Otherwise, please install those packages manually without using `renv` (I might miss some packages).
+Otherwise, install the required packages manually (students only need the following set).
 
 ```{r, eval=FALSE}
-install.packages("picante")
-install.packages("FD")
-install.packages("tidyverse")
-install.packages("rmarkdown")
-install.packages("DT")
-install.packages("quarto")
+install.packages(c(
+  "tidyverse", "fontawesome", "picante",
+  "FD", "DT", "here", "vegan", "ape"
+))
 ```
 
 Load some packages.

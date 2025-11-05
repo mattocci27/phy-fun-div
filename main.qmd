@@ -1,7 +1,7 @@
 ---
 pagetitle: "Diversity and Trait-Based Approaches"
 author: "Masatoshi Katabuchi"
-date: "November 11, 2024"
+date: "November 18-20, 2025"
 host: "XTBG AFEC"
 institute: "XTBG, CAS"
 strip-comments: true
@@ -16,8 +16,6 @@ format:
     controls: true
     width: 1440
     height: 810
-    # width: 1920
-    # height: 1080
     css: [assets/custom.css, assets/tachyons-addon.css]
     include-after: |
       <link rel="stylesheet" href="assets/syntax-highlight.css">
@@ -95,7 +93,7 @@ We Learn:
 
 ## Community Assembly and Species Coexistence
 
-For over a century, field ecologist have been characterizing patterns in ecological communities and trying to draw theoretical inferences form the resulting data.
+For over a century, field ecologists have been characterizing patterns in ecological communities and trying to draw theoretical inferences from the resulting data.
 
 <img src="images/sp_coex.jpg" width="65%" style="display: block; margin: auto;"/>
 
@@ -107,7 +105,7 @@ For over a century, field ecologist have been characterizing patterns in ecologi
 ::: columns
 ::: {.column width="50%"}
 ::: small
-- Why do species occurs in specific locations?
+- Why do species occur in specific locations?
 
 - Why do some species coexist while others do not?
 
@@ -717,7 +715,6 @@ plot(t,
   Index
 - Many additional metrics have now been generated but this metric is still
   widely used, especially in the context of conservation
-  Index
 :::
 
 
@@ -858,7 +855,7 @@ tiplabels(
 
 ---
 
-## Pethcey's functional diversity (FD)
+## Petchey's functional diversity (FD)
 
 ::: footer
 [1] Petchey, O. L. & Gaston, K. J. Functional diversity (FD), species richness and community composition. Ecology Letters 5, 402–411 (2002).
@@ -1468,11 +1465,11 @@ Measurable properties of plants that are indicative of ecological strategies
 ## How ecological processes might influence community assembly{.small}
 
 ```{r, echo=FALSE}
-tbl <- tribble(~`Process / Facotr`, ~Pattern,
-  "Environmental filtering", "Clustring",
-  "Limiting similarity / Compitative exclusion", "Overdispersion",
-  "Competitive hierarchy / directional compation", "Clustring",
-  "Herbivors / Prasites / Pathogens", "Overdispersion",
+tbl <- tribble(~`Process / Factor`, ~Pattern,
+  "Environmental filtering", "Clustering",
+  "Limiting similarity / Competitive exclusion", "Overdispersion",
+  "Competitive hierarchy / directional competition", "Clustering",
+  "Herbivores / Parasites / Pathogens", "Overdispersion",
   "Pollinator-mediated competition", "Overdispersion",
   "Nurse plants", "Overdispersion",
   "Pollinator facilitation", "Clustering",
@@ -1580,7 +1577,7 @@ Competitive effects of species A on species B will increase with increasing $t_A
 
 ---
 
-## Predicting future biodiversity may require community, species, and indidivual-level analyses{.small}
+## Predicting future biodiversity may require community, species, and individual-level analyses{.small}
 
 ::: footer
 [1] Katabuchi, M. et al. Contrasting outcomes of species- and community-level analyses of the temporal consistency of functional composition. Ecology 98, 2273–2280 (2017).
