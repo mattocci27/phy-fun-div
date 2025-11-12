@@ -129,7 +129,7 @@ For over a century, field ecologists have been characterizing patterns in ecolog
 
 
 ::: footer
-Russo, Sabrina E., Stuart J. Davies, David A. King, and Sylvester Tan. “Soil-Related Performance Variation and Distributions of Tree Species in a Bornean Rain Forest.” Journal of Ecology 93, no. 5 (2005): 879–89.
+Russo et al. 2005, Journal of Ecology.
 :::
 
 ---
@@ -645,7 +645,7 @@ Community with 3 genus and 3 species (3:3)
 ## Genus:species ratio
 
 ::: footer
-[1] Swenson, N. G. The assembly of tropical tree communities - the advances and shortcomings of phylogenetic and functional trait analyses. Ecography 36, 264–276 (2013).
+[1] Swenson 2013, Ecography
 :::
 
 - The genus:species ratio type of study in plant community ecology started ~1910
@@ -686,7 +686,7 @@ plot(t,
 ## Phylodiversity
 
 ::: footer
-[1] Dimensions of Biodiversity: National Science Foundation
+[1] Dimensions of Biodiversity, NSF
 :::
 
 ::: columns
@@ -706,7 +706,7 @@ plot(t,
 ## Phylodiversity
 
 ::: footer
-[1] Faith D.P. (1992) Conservation evaluation and phylogenetic diversity. Biological Conservation, 61, 1-10.
+[1] Faith 1992, Biological Conservation
 :::
 
 ::: incremental
@@ -723,7 +723,7 @@ plot(t,
 ## Faith's Index (PD)
 
 ::: footer
-[1] Faith D.P. (1992) Conservation evaluation and phylogenetic diversity. Biological Conservation, 61, 1-10.
+[1] Faith 1992, Biological Conservation
 :::
 
 ::: columns
@@ -774,7 +774,7 @@ edgelabels(t$edge.length,
 ## Faith's Index (PD)
 
 ::: footer
-[1] Faith D.P. (1992) Conservation evaluation and phylogenetic diversity. Biological Conservation, 61, 1-10.
+[1] Faith 1992, Biological Conservation
 :::
 
 ::: columns
@@ -816,7 +816,7 @@ tiplabels(
 ## Faith's Index (PD)
 
 ::: footer
-[1] Faith D.P. (1992) Conservation evaluation and phylogenetic diversity. Biological Conservation, 61, 1-10.
+[1] Faith 1992, Biological Conservation
 :::
 
 ::: columns
@@ -858,7 +858,7 @@ tiplabels(
 ## Petchey's functional diversity (FD)
 
 ::: footer
-[1] Petchey, O. L. & Gaston, K. J. Functional diversity (FD), species richness and community composition. Ecology Letters 5, 402–411 (2002).
+[1] Petchey & Gaston 2002, Ecology Letters
 :::
 
 
@@ -887,7 +887,7 @@ tiplabels(
 ## Beyond Faith's Index (PD)
 
 ::: footer
-[1] Webb, C.O., 2000. Exploring the Phylogenetic Structure of Ecological Communities: An Example for Rain Forest Trees. The American Naturalist 156, 145–155. https://doi.org/10.1086/303378
+[1] Webb 2000, The American Naturalist
 :::
 
 - Solution for genus:species = Use phylogenetic trees to estimate the
@@ -1131,7 +1131,7 @@ break?
 ## Do phylogenetically related species have similar ecological niches?{.small}
 
 ::: footer
-[1] https://en.wikipedia.org/wiki/Anolis_ecomorphs
+[1] Anolis ecomorphs (Wikipedia)
 :::
 
 
@@ -1159,7 +1159,7 @@ break?
 ## Functional dendrogram vs. phylogeny (Anole example){.small}
 
 ::: footer
-[1] Losos, J. B., Jackman, T. R., Larson, A., De Queiroz, K. & Rodríguez-Schettino, L. Contingency and determinism in replicated adaptive radiations of island lizards. Science 279, 2115–2118 (1998).
+[1] Losos et al. 1998, Science
 :::
 
 ::: columns
@@ -1188,7 +1188,7 @@ break?
 ## Putting traits on the tips of phylogeny: phylogenetic signal{.small}
 
 ::: footer
-[1] Blomberg, S. P., T. Garland Jr., A. R. Ives (2003) Testing for phylogenetic signal in comparative data: Behavioral traits are more labile. Evolution, 57, 717-745.
+[1] Blomberg et al. 2003, Evolution
 :::
 
 ::: columns
@@ -1222,7 +1222,7 @@ Short explanation
 <img src="images/Cavender3.jpg" width="80%" style="display: block; margin: auto;"/>
 
 ::: footer
-[1] Cavender‐Bares, J., Ackerly, D. D., Baum, D. A. & Bazzaz, F. A. Phylogenetic Overdispersion in Floridian Oak Communities. The American Naturalist 163, 823–843 (2004).
+[1] Cavender-Bares et al. 2004, The American Naturalist
 :::
 
 ---
@@ -1232,7 +1232,7 @@ Short explanation
 ![](./images/Cavender_tab.jpg)
 
 ::: footer
-[1] Cavender‐Bares, J., Ackerly, D. D., Baum, D. A. & Bazzaz, F. A. Phylogenetic Overdispersion in Floridian Oak Communities. The American Naturalist 163, 823–843 (2004).
+[1] Cavender-Bares et al. 2004, The American Naturalist
 :::
 
 ---
@@ -1240,7 +1240,7 @@ Short explanation
 ## The phylogenetic middleman problem
 
 ::: footer
-[1] Swenson, N. G. The assembly of tropical tree communities - the advances and shortcomings of phylogenetic and functional trait analyses. Ecography 36, 264–276 (2013).
+[1] Swenson 2013, Ecography
 :::
 
 
@@ -1288,13 +1288,13 @@ Measurable properties of plants that are indicative of ecological strategies
 ## Leaf Economic Spectrum (LES)
 
 ::: footer
-[1] Reich, P. B. et al. From tropics to tundra: Global convergence in plant functioning. PNAS 94, 13730–13734 (1997).
+[1] Reich et al. 1997, PNAS
 
-[2] Wright, I. J., P. B. Reich, M. Westoby et al. The worldwide leaf economics spectrum. Nature 428, 821–827 (2004).
+[2] Wright et al. 2004, Nature
 
-[3] Osnas, J. L. D. et al. Global leaf trait relationships: Mass, area, and the leaf economics spectrum. Science 340, 741–744 (2013).
+[3] Osnas et al. 2013, Science
 
-[4] Katabuchi, M. et al. Decomposing leaf mass into photosynthetic and structural components explains divergent patterns of trait variation within and among plant species. bioRxiv https://doi.org/10.1101/116855 (2023)
+[4] Katabuchi et al. 2025, Oecologia
 :::
 
 ::: columns
@@ -1319,7 +1319,7 @@ Measurable properties of plants that are indicative of ecological strategies
 ## Rebuilding community ecology from functional traits
 
 ::: footer
-[1] McGill, B. J., Enquist, B. J., Weiher, E. & Westoby, M. Rebuilding community ecology from functional traits. Trends in Ecology and Evolution 21, 178–185 (2006).
+[1] McGill et al. 2006, Trends in Ecology and Evolution
 :::
 
 ::: incremental
@@ -1338,7 +1338,7 @@ Measurable properties of plants that are indicative of ecological strategies
 ## Rebuilding community ecology from functional traits
 
 ::: footer
-[1] McGill, B. J., Enquist, B. J., Weiher, E. & Westoby, M. Rebuilding community ecology from functional traits. Trends in Ecology and Evolution 21, 178–185 (2006).
+[1] McGill et al. 2006, Trends in Ecology and Evolution
 :::
 
 ::: incremental
@@ -1355,7 +1355,7 @@ Measurable properties of plants that are indicative of ecological strategies
 
 
 ::: footer
-[1] Cornwell, W. K., Schwilk, L. D. W. & Ackerly, D. D. A trait-based test for habitat filtering: convex hull volume. Ecology 87, 1465–71 (2006).
+[1] Cornwell et al. 2006, Ecology
 :::
 
 ::: columns
@@ -1379,7 +1379,7 @@ Measurable properties of plants that are indicative of ecological strategies
 ## Convex hull volume (functional richness)
 
 ::: footer
-[1] Cornwell, W. K., Schwilk, L. D. W. & Ackerly, D. D. A trait-based test for habitat filtering: convex hull volume. Ecology 87, 1465–71 (2006).
+[1] Cornwell et al. 2006, Ecology
 :::
 
 ::: columns
@@ -1404,7 +1404,7 @@ Measurable properties of plants that are indicative of ecological strategies
 
 
 ::: footer
-[1] Cornwell, W. K. & Ackerly, D. D. Community assembly and shifts in plant trait distributions across an environmental gradient in coastal California. Ecological Monographs 79, 109–126 (2009).
+[1] Cornwell & Ackerly 2009, Ecological Monographs
 :::
 
 <img src="images/trait_dist.png" width="80%" style="display: block; margin: auto;"/>
@@ -1416,7 +1416,7 @@ Measurable properties of plants that are indicative of ecological strategies
 
 
 ::: footer
-[1] Kraft, N. J. B., Valencia, R. & Ackerly, D. D. Functional Traits and Niche-Based Tree Community Assembly in an Amazonian Forest. Science 322, 580–582 (2008).
+[1] Kraft et al. 2008, Science
 :::
 
 ::: columns
@@ -1447,7 +1447,7 @@ Measurable properties of plants that are indicative of ecological strategies
 ## Environmental filtering can occur within dipterocarp trees{.small}
 
 ::: footer
-[1] Katabuchi, M., Kurokawa, H., Davies, S. J., Tan, S. & Nakashizuka, T. Soil resource availability shapes community trait structure in a species-rich dipterocarp forest. Journal of Ecology 100, 643–651 (2012).
+[1] Katabuchi et al. 2012, Journal of Ecology
 :::
 
 <img src="images/dip_traits.png" width="80%" style="display: block; margin: auto;"/>
@@ -1493,7 +1493,7 @@ knitr::kable(tbl) |>
 ::: footer
 [1] $t_A$ and $t_B$ are the functional trait values of species A and B
 
-[2] Kunstler, G. et al. Competitive interactions between forest trees are driven by species’ trait hierarchy, not phylogenetic or functional similarity: Implications for forest community assembly. Ecology Letters 15, 831–840 (2012).
+[2] Kunstler et al. 2012, Ecology Letters
 :::
 
 ::: columns
@@ -1521,7 +1521,7 @@ Competitive effects of species A on species B will increase with increasing $t_A
 
 
 ::: footer
-[1] Endara, M.-J. et al. The role of plant secondary metabolites in shaping regional and local plant community assembly. Journal of Ecology 110, 34–45 (2022).
+[1] Endara et al. 2022, Journal of Ecology
 :::
 
 ::: columns
@@ -1547,7 +1547,7 @@ Competitive effects of species A on species B will increase with increasing $t_A
 
 
 ::: footer
-[1] López-Angulo, J., Swenson, N. G., Cavieres, L. A. & Escudero, A. Interactions between abiotic gradients determine functional and phylogenetic diversity patterns in Mediterranean-type climate mountains in the Andes. Journal of Vegetation Science 29, 245–254 (2018).
+[1] López-Angulo et al. 2018, Journal of Vegetation Science
 :::
 
 ::: columns
@@ -1580,9 +1580,9 @@ Competitive effects of species A on species B will increase with increasing $t_A
 ## Community averages can mislead without species‑level context{.small}
 
 ::: footer
-[1] Katabuchi, M. et al. Contrasting outcomes of species- and community-level analyses of the temporal consistency of functional composition. Ecology 98, 2273–2280 (2017).
+[1] Katabuchi et al. 2017, Ecology
 
-[2] Swenson, N. G., Hulshof, C. M., Katabuchi, M. & Enquist, B. J. Long-term shifts in the functional composition and diversity of a tropical dry forest: a 30-yr study. Ecological Monographs e01408 (2020) doi:10.1002/ecm.1408.
+[2] Swenson et al. 2020, Ecological Monographs
 :::
 
 ::: columns
@@ -1610,8 +1610,7 @@ Competitive effects of species A on species B will increase with increasing $t_A
 <img src="images/trait_plot.png" width =100% style="display: block; margin: auto;"/>
 
 ::: footer
-[1]
-Osnas, Katabuchi et al. Divergent drivers of leaf trait variation within species, among species, and among functional groups. PNAS 115:5480–5485 (2018).
+[1] Osnas et al. 2018, PNAS
 :::
 
 
@@ -1627,7 +1626,7 @@ There are opssite pettern between within-species and among-species relationships
 We may need metrics somewhere between **functional traits** and **invasion growth rate** (model parameter) to predict coexistence.
 
 ::: footer
-[1] Levine, J. I., An, R., Kraft, N. J. B., Pacala, S. W. & Levine, J. M. Why ecologists struggle to predict coexistence from functional traits. Trends in Ecology & Evolution (2024) doi:10.1016/j.tree.2024.10.002.
+[1] Levine et al. 2024, Trends in Ecology & Evolution
 :::
 
 ::: notes
@@ -1645,7 +1644,7 @@ We may need metrics somewhere between **functional traits** and **invasion growt
 PIMs (LMAm/LMAs) outperform bulk LMA for predicting physiology
 
 ::: footer
-Katabuchi, M. et al. Decomposing leaf mass into metabolic and structural components explains divergent patterns of trait variation within and among plant species. Oecologia 207:71 (2025).
+Katabuchi et al. 2025, Oecologia
 :::
 
 ::: notes
