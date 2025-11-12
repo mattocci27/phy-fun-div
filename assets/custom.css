@@ -350,3 +350,41 @@ ol li:before {
 
 .blue { color: #6C9AC3; }
 .orange { color: #E28F41; }
+
+/* ---------- FOOTERS / CITATIONS ---------- */
+.reveal section .footer,
+.reveal section .slide-footer {
+  font-size: 0.9rem;          /* screen */
+  color: #222 !important;
+  opacity: 1 !important;
+}
+
+.footer,
+.slide-footer {
+  font-size: 0.9rem;
+  color: #222;
+  line-height: 1.2;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2pt 4pt;
+  border-top: 1px solid #ddd;
+  margin: 0.5em 0;
+}
+
+@media print {
+  .reveal section .footer,
+  .reveal section .slide-footer,
+  .footer,
+  .slide-footer {
+    font-size: 10pt;          /* PDF */
+    line-height: 1.2;
+    color: #000 !important;
+    background: rgba(255,255,255,0.92);
+    padding: 2pt 4pt;
+    border-radius: 3pt;
+    position: absolute;       /* keep inside page box */
+    left: 20pt;
+    right: 20pt;
+    bottom: 14pt;
+  }
+  .reveal .slide-number { color: #000 !important; }
+}

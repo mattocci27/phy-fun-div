@@ -10,12 +10,12 @@ format:
     logo: images/xtbg_logo.png
     slide-number: true
     multiplex: true
-    # theme: simple
     theme: assets/rladies.scss
     show-slide-number: all
     controls: true
     width: 1440
     height: 810
+    # margin: 0.07
     css: [assets/custom.css, assets/tachyons-addon.css]
     include-after: |
       <link rel="stylesheet" href="assets/syntax-highlight.css">
@@ -1201,6 +1201,7 @@ break?
 
 -	What is Phylogenetic Signal (K)?
     -	Phylogenetic signal measures the degree to which related species share similar traits, quantifying the inheritance of traits from either recent or more ancient common ancestors.
+    - Pagel's $\lambda$ is another common measure.
 -	Interpretation of K Values:
     -	**Large K** (phylogenetic conservatism): Trait similarity is high among closely related species, suggesting that traits are conserved across lineages.
     - **K = 1**: Traits are evolving under Brownian motion.
@@ -1308,7 +1309,7 @@ Measurable properties of plants that are indicative of ecological strategies
 - LES describes pairwise correlations among a bunch of leaf traits from the global leaf database called GLOPNET
 - Global leaf function constrained to a single axis (75 % of the variation in the 6 traits)
 - Multidimensional (leaf) functional diversity can be mapped into a one-dimensional index
-- Controversial (!!)
+- Controversial because global among‑species patterns don’t always match within‑species or local patterns
 :::
 :::
 :::
@@ -1615,7 +1616,7 @@ Competitive effects of species A on species B will increase with increasing $t_A
 
 
 ::: notes
-There are opssite pettern between within-species and among-species relationships
+There are opposite patterns between within-species and among-species relationships
 :::
 ---
 
