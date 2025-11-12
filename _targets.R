@@ -19,6 +19,18 @@ tar_option_set(packages = c(
 
 list(
   tar_target(
+    gl_data_csv,
+    "data/gl_data.csv",
+    format = "file"
+  ),
+
+  tar_target(
+    pa_data_csv,
+    "data/pa_data.csv",
+    format = "file"
+  ),
+
+  tar_target(
     ex_tree, {
       p <- plot_ex_tree(size = 0.8)
       my_ggsave(
@@ -28,6 +40,22 @@ list(
        height = 12,
        width = 12,
        units = "cm"
+      )
+    },
+    deployment = "main",
+    format = "file"
+  ),
+
+  tar_target(
+    trait_plot_fig, {
+      p <- trait_plot(gl_data_csv, pa_data_csv)
+      my_ggsave(
+        "images/trait_plot",
+        p,
+        dpi = 300,
+        height = 12,
+        width = 12,
+        units = "cm"
       )
     },
     deployment = "main",
@@ -44,4 +72,3 @@ list(
     ),
   NULL
 )
-

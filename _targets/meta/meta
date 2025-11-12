@@ -1,7 +1,11 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
 ex_tree|stem|496280262476e660|accd8c609fb58914|cbb880ebd4064e19|-1143487155|images/tree_bg.png*images/tree_bg.pdf|t20397.2990696719s|s1462991b|1462991|file|local|vector|||1.93|Unknown or uninitialised column: `subgroup`.. Unknown or uninitialised column: `subgroup`.. Unknown or uninitialised column: `subgroup`.. Unknown or uninitialised column: `subgroup`.. Unknown or uninitialised column: `subgroup`.. Unknown or uninitialised column: `subgroup`.. Unknown or uninitialised column: `subgroup`.. Unknown or uninitialised column: `subgroup`.|
-main|stem|08c8e85ea4451da7|d2b984f6b2f89b37|2c530c1562a7fbd1|-1244813022|main_files*main.html*main.qmd*assets/custom.css*assets/tachyons-addon.css|t20397.3152315342s|s5830100b|5830100|file|local|vector|||6.219||
+gl_data_csv|stem|4d7b9082412da1cf|70c2b238f4ed71c9|2c530c1562a7fbd1|-182847188|data/gl_data.csv|t20404.144876032s|s24647b|24647|file|local|vector|||0.312||
+pa_data_csv|stem|470f948a8400ed33|ed0470087f635319|2c530c1562a7fbd1|2017090758|data/pa_data.csv|t20404.1449920357s|s25490b|25490|file|local|vector|||0||
+div_ex|stem|7d4a95ca5e06e939|b9edec2e35c51784|2c530c1562a7fbd1|1096909232|diversity_example_files*diversity_example.html*diversity_example.qmd|t20404.1625788662s|s10938543b|10938543|file|local|vector|||4.525||
+main|stem|3b7a3f6084593fb2|d2b984f6b2f89b37|2c530c1562a7fbd1|-1244813022|main_files*main.html*main.qmd*assets/custom.css*assets/tachyons-addon.css|t20404.1637728031s|s5831143b|5831143|file|local|vector|||7.307||
+trait_plot|function|db68282618d284a0
 plot_ex_tree|function|e1d08e7639de2e1a
-.Random.seed|object|4cf1c23589d93ee5
+.Random.seed|object|8d0eaaf7c4790e34
 my_ggsave|function|c7462cae8a7a7cde
-div_ex|stem|be5b4571269c0034|b9edec2e35c51784|2c530c1562a7fbd1|1096909232|diversity_example_files*diversity_example.html*diversity_example.qmd|t20397.3874434896s|s10938550b|10938550|file|local|vector|||5.881||
+trait_plot_fig|stem|db18a0f23c42c82b|58fa31a6beb7bc75|a4b348d5517a5693|-1980314228|images/trait_plot.png*images/trait_plot.pdf|t20404.1685549532s|s392173b|392173|file|local|vector|||0.754||

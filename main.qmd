@@ -1605,6 +1605,12 @@ Competitive effects of species A on species B will increase with increasing $t_A
 
 ---
 
+## Inter- vs. intra-specific trait variation
+
+<img src="images/trait_plot.png" width =100% style="display: block; margin: auto;"/>
+
+---
+
 ## Using harder-to-measure physiological traits may be not enough
 
 <img src="images/pim.png" width =100% style="display: block; margin: auto;"/>
@@ -1622,6 +1628,8 @@ We may need metrics somewhere between **functional traits** and **invasion growt
 :::
 
 ---
+
+## Decomposing LMA into metabolic and structural components improves prediction of photosynthesis, respiration, and lifespan—an instance of ‘process‑informed metrics’ bridging traits to performance.
 
 ## Summary `r emo::ji("beer")`
 

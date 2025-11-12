@@ -8,3 +8,6 @@
 vert.txt
 *.sif
 .Renviron
+
+data/gl_data.csv
+data/pa_data.csv

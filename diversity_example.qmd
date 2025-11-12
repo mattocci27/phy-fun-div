@@ -45,7 +45,7 @@ You can work through these exercises with a standard R installation; just grab t
    git clone https://github.com/mattocci27/phy-fun-div.git
    ```
 
-2. (**Optional**) Restore the instructor environment with renv. This ensures identical package versions but takes longer the first time.
+2. (**Optional**) Restore the environment with `renv`. This ensures identical package versions but takes longer the first time.
 
    ```{r, eval=FALSE}
    renv::restore()
