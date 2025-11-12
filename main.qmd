@@ -1577,7 +1577,7 @@ Competitive effects of species A on species B will increase with increasing $t_A
 
 ---
 
-## Predicting future biodiversity may require community, species, and individual-level analyses{.small}
+## Community averages can mislead without species‑level context{.small}
 
 ::: footer
 [1] Katabuchi, M. et al. Contrasting outcomes of species- and community-level analyses of the temporal consistency of functional composition. Ecology 98, 2273–2280 (2017).
@@ -1595,9 +1595,9 @@ Competitive effects of species A on species B will increase with increasing $t_A
 
 - 50ha Forest Dynamics Plot on Barro Colorado Island, Panama
 
-- The changes in community-weighted mean (CWM) of wood density over time seem to suggest a community-level response in climate change (i.e, drier conditions).
+- CWM wood density trends suggest a community-level response in climate change (i.e, drier conditions).
 
-- No clear species-level pattern: just two of 300 species account for 60% of the temporal shifts in CWM, likely due to species-specific pathogens rather than climate change response.
+- But 2 of ~300 species (~0.7%) account for ~60% of the temporal shifts in CWM, likely due to species-specific pathogens rather than a community-wide climate response.
 
 :::
 :::
@@ -1605,13 +1605,22 @@ Competitive effects of species A on species B will increase with increasing $t_A
 
 ---
 
-## Inter- vs. intra-specific trait variation
+## Inter‑ and intra‑specific trait patterns often diverge
 
 <img src="images/trait_plot.png" width =100% style="display: block; margin: auto;"/>
 
+::: footer
+[1]
+Osnas, Katabuchi et al. Divergent drivers of leaf trait variation within species, among species, and among functional groups. PNAS 115:5480–5485 (2018).
+:::
+
+
+::: notes
+There are opssite pettern between within-species and among-species relationships
+:::
 ---
 
-## Using harder-to-measure physiological traits may be not enough
+## Using harder-to-measure physiological traits may not be enough
 
 <img src="images/pim.png" width =100% style="display: block; margin: auto;"/>
 
@@ -1629,7 +1638,19 @@ We may need metrics somewhere between **functional traits** and **invasion growt
 
 ---
 
-## Decomposing LMA into metabolic and structural components improves prediction of photosynthesis, respiration, and lifespan—an instance of ‘process‑informed metrics’ bridging traits to performance.
+## Decomposing LMA into metabolic (LMAm) and structural (LMAs) components improves physiological prediction{.small}
+
+<img src="images/gl_point.png" width =120% style="display: block; margin: auto;"/>
+
+PIMs (LMAm/LMAs) outperform bulk LMA for predicting physiology
+
+::: footer
+Katabuchi, M. et al. Decomposing leaf mass into metabolic and structural components explains divergent patterns of trait variation within and among plant species. Oecologia 207:71 (2025).
+:::
+
+::: notes
+Decomposing LMA into metabolic and structural components improves prediction of photosynthesis, respiration, and lifespan—an instance of ‘process‑informed metrics’ bridging traits to performance.
+:::
 
 ## Summary `r emo::ji("beer")`
 

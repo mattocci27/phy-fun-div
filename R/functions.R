@@ -59,7 +59,10 @@ trait_plot <- function(csv_gl, csv_pa) {
       trait ~ site,
       labeller = labeller(
         site = c(gl = "Global\n(interspecific)", pa = "Panama\n(intraspecific)"),
-        trait = c(ll = "Leaf Lifespan", aarea = "Aarea" )
+        trait = c(
+          ll = "Leaf lifespan (months)",
+          aarea = "Aₐᵣₑₐ (µmol m⁻² s⁻¹)"
+        )
       ),
       switch = "y",
       scales = "free"
@@ -68,7 +71,7 @@ trait_plot <- function(csv_gl, csv_pa) {
     scale_x_log10() +
     scale_y_log10() +
     theme_minimal() +
-    xlab("LMA") +
+    xlab("LMA (g m⁻²)") +
     ylab("") +
     theme(
       panel.border = element_rect(color = "black", fill = NA, linewidth = 0.5),
