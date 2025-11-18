@@ -1611,7 +1611,7 @@ Competitive effects of species A on species B will increase with increasing $t_A
 <img src="images/trait_plot.png" width =100% style="display: block; margin: auto;"/>
 
 ::: footer
-[1] Osnas et al. 2018, PNAS
+[1] Osnas, Katabuchi et al. 2018, PNAS
 :::
 
 
