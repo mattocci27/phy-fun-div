@@ -6,8 +6,8 @@
 <script src="main_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="main_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="main_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="main_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.26">
+<link href="main_files/libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="Masatoshi Katabuchi">
   <meta name="dcterms.date" content="2020-11-18">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="main_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="main_files/libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -30,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="main_files/libs/revealjs/dist/theme/quarto-3dfd49bf82a4eb004b74a6643bb1e1e4.css">
+  <link rel="stylesheet" href="main_files/libs/revealjs/dist/theme/quarto-45cdabefd8036f64c0ab762fac1e3b04.css">
   <link rel="stylesheet" href="assets/custom.css">
   <link rel="stylesheet" href="assets/tachyons-addon.css">
   <link href="main_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -187,9 +193,6 @@
 </ul>
 </div>
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
-</section>
 <section id="outline" class="slide level2">
 <h2>Outline</h2>
 <div class="large">
@@ -242,7 +245,7 @@
 <h2>How can we quantify ecological similarity of coexisting species?</h2>
 </section>
 <section id="how-to-quantify-ecological-communities" class="slide level2">
-<h2>How to quantify ecological communities 🌿</h2>
+<h2>How to quantify ecological communities 🍃</h2>
 <div class="large">
 <ul>
 <li class="fragment"><p>Species</p></li>
@@ -604,91 +607,6 @@
 <td colspan="5" style="border-bottom: 1px solid"><strong>Env</strong></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Env. 1</td>
-<td style="text-align: right;">780</td>
-<td style="text-align: right;">2500</td>
-<td style="text-align: right;">480</td>
-<td style="text-align: right;">1200</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Env. 2</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">24</td>
-<td style="text-align: right;">19</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Env. 3</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">1900</td>
-<td style="text-align: right;">700</td>
-<td style="text-align: right;">4500</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<ul>
-<li>“Species <span class="math inline">\(\times\)</span> site” and “site <span class="math inline">\(\times\)</span> environment”</li>
-</ul>
-</div></div>
-</section>
-<section id="a-second-order-properties-with-site-characteristics-1950s-1" class="slide level2 small">
-<h2>2a) Second-Order properties with site characteristics (1950s ~)</h2>
-<div class="footer">
-<p>[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press</p>
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table class="lightable-material lightable-striped lightable-hover caption-top" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Site 1</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Site 2</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Site 3</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Site 4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd" data-grouplength="4">
-<td colspan="5" style="border-bottom: 1px solid"><strong>Abundance</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Sp. 1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">315</td>
-<td style="text-align: right;">23</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Sp. 2</td>
-<td style="text-align: right;">300</td>
-<td style="text-align: right;">250</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">18</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Sp. 3</td>
-<td style="text-align: right;">56</td>
-<td style="text-align: right;">120</td>
-<td style="text-align: right;">74</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Sp. 4</td>
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: right;">101</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even" data-grouplength="3">
-<td colspan="5" style="border-bottom: 1px solid"><strong>Env</strong></td>
-</tr>
-<tr class="odd">
 <td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Elevation (m)</td>
 <td style="text-align: right;">780</td>
 <td style="text-align: right;">2500</td>
@@ -746,136 +664,6 @@
       }</style></aside>
 </section>
 <section id="b-second-order-properties-with-species-characteristics-2000s" class="slide level2 small">
-<h2>2b) Second-Order properties with species characteristics (2000s ~)</h2>
-<div class="footer">
-<p>[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press</p>
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table class="lightable-material lightable-striped lightable-hover caption-top" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Site 1</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Site 2</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Site 3</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Site 4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd" data-grouplength="4">
-<td colspan="5" style="border-bottom: 1px solid"><strong>Abundance</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Sp. 1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">315</td>
-<td style="text-align: right;">23</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Sp. 2</td>
-<td style="text-align: right;">300</td>
-<td style="text-align: right;">250</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">18</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Sp. 3</td>
-<td style="text-align: right;">56</td>
-<td style="text-align: right;">120</td>
-<td style="text-align: right;">74</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Sp. 4</td>
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: right;">101</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even" data-grouplength="3">
-<td colspan="5" style="border-bottom: 1px solid"><strong>Env</strong></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Elevation (m)</td>
-<td style="text-align: right;">780</td>
-<td style="text-align: right;">2500</td>
-<td style="text-align: right;">480</td>
-<td style="text-align: right;">1200</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">MAT (℃)</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">24</td>
-<td style="text-align: right;">19</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">MAP (mm)</td>
-<td style="text-align: right;">1500</td>
-<td style="text-align: right;">1900</td>
-<td style="text-align: right;">700</td>
-<td style="text-align: right;">4500</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table class="lightable-material lightable-striped lightable-hover caption-top" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Trait 1</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Trait 2</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Trait 3</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Trait 4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Sp 1</td>
-<td style="text-align: right;">1.3</td>
-<td style="text-align: right;">4.8</td>
-<td style="text-align: right;">1.8</td>
-<td style="text-align: right;">30.0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Sp 2</td>
-<td style="text-align: right;">1.7</td>
-<td style="text-align: right;">12.5</td>
-<td style="text-align: right;">2.1</td>
-<td style="text-align: right;">22.4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Sp 3</td>
-<td style="text-align: right;">7.0</td>
-<td style="text-align: right;">5.9</td>
-<td style="text-align: right;">5.7</td>
-<td style="text-align: right;">11.5</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Sp 4</td>
-<td style="text-align: right;">2.1</td>
-<td style="text-align: right;">2.1</td>
-<td style="text-align: right;">3.4</td>
-<td style="text-align: right;">119.9</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<ul>
-<li>“Trait <span class="math inline">\(\times\)</span> species”, “species <span class="math inline">\(\times\)</span> site”, “site <span class="math inline">\(\times\)</span> environment”</li>
-</ul>
-</div></div>
-</section>
-<section id="b-second-order-properties-with-species-characteristics-2000s-1" class="slide level2 small">
 <h2>2b) Second-Order properties with species characteristics (2000s ~)</h2>
 <div class="footer">
 <p>[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press</p>
@@ -1102,28 +890,24 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section id="genusspecies-ratio" class="slide level2">
-<h2>Genus:species ratio</h2>
-<div class="footer">
-<p>[1] Swenson 2013, Ecography</p>
-</div>
-<ul>
-<li>The genus:species ratio type of study in plant community ecology started ~1910 and was popular until 1990’s</li>
-</ul>
-<div class="fragment">
-<ul>
-<li>A large criticism of genus:species ratio analyses is that they do not take account for the different ages of genera and species
-<ul>
-<li>Two species in a relatively young genus may be expected to be more similar than two species in a relatively old genus.</li>
-</ul></li>
-</ul>
-</div>
+<aside class="notes">
+<p>属によって分岐年代が異なるため、同じ属／種比でも進化的距離は同じとは限らない。歴史的な説明は補足へ。</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="solution-for-the-genusspecies-ratio-problem-use-phylogenetic-trees" class="slide level2 small">
 <h2>Solution for the genus:species ratio problem = Use phylogenetic trees</h2>
 
-<img data-src="figure/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="figure/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="phylodiversity" class="slide level2">
 <h2>Phylodiversity</h2>
 <div class="footer">
@@ -1163,7 +947,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figure/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="figure/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1189,6 +973,918 @@
 </div>
 </div></div>
 </section>
+<section id="same-species-richness-different-phylogenetic-diversity" class="slide level2">
+<h2>Same species richness, different phylogenetic diversity</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Three closely related species</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figure/pd-comparison-clustered-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>PD = 9</p>
+</div><div class="column" style="width:50%;">
+<p>Three species spread across the tree</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figure/pd-comparison-spread-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>PD = 14</p>
+</div></div>
+<div class="footer">
+<p>Faith 1992, Biological Conservation</p>
+</div>
+<aside class="notes">
+<p>種数は同じでも、選ばれた種を結ぶ枝の合計は異なる。個別の枝長を足す手順は補足に残した。</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="pd-mpd-and-mntd-what-do-we-measure" class="slide level2">
+<h2>PD, MPD and MNTD: what do we measure?</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figure/phylogenetic-distances-overview-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="small">
+<ul>
+<li><strong>PD:</strong> sum the connecting branches, counting each branch once.</li>
+<li><strong>MPD (Mean Pairwise Distance):</strong> average the path lengths over all species pairs.</li>
+<li><strong>MNTD (Mean Nearest Taxon Distance):</strong> average the distance to each species’ nearest neighbor.</li>
+</ul>
+<div class="fragment">
+<p><strong>Example:</strong> A–B = 1 + 1 = 2; A–C = 1 + 1 + 2 = 4.</p>
+<p>MPD includes both pairs. For A’s contribution to MNTD, only its nearest neighbor B counts.</p>
+</div>
+</div>
+</div></div>
+<div class="footer">
+<p>Faith 1992; Webb 2000</p>
+</div>
+<aside class="notes">
+<p>PDは共有する枝を一度だけ数える総量。MPDとMNTDは種間の経路長の平均で、PDを種数で割った値ではない。左の枝長をたどり、A–BとA–Cを確認する。MNTDの説明はAについての寄与であり、群集全体では各種について最近隣距離を求めて平均する。</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="same-richness-different-aspects-of-community-structure" class="slide level2">
+<h2>Same richness, different aspects of community structure</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Community</th>
+<th style="text-align: right;">PD</th>
+<th style="text-align: right;">MPD</th>
+<th style="text-align: right;">MNTD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A, B, C, D</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">7.67</td>
+<td style="text-align: right;">5.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A, B, D, E</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">8.67</td>
+<td style="text-align: right;">2.00</td>
+</tr>
+</tbody>
+</table>
+<div class="small">
+<ul>
+<li class="fragment"><strong>Higher PD in A, B, C, D:</strong> more evolutionary history in total, including the isolated lineage D.</li>
+<li class="fragment"><strong>Higher MPD in A, B, D, E:</strong> more pairs span the deep split between the A–B and D–E lineages.</li>
+<li class="fragment"><strong>Lower MNTD in A, B, D, E:</strong> every species has a close relative, forming two pairs within the community.</li>
+</ul>
+<div class="fragment">
+<p><strong>A community can contain distant lineages and close relatives at the same time.</strong></p>
+</div>
+</div>
+<div class="footer">
+<p>Faith 1992; Webb 2000; Tucker et al.&nbsp;2017, Biological Reviews</p>
+</div>
+<aside class="notes">
+<p>種数は両群集とも4だが、どの種が共存するかによって進化的歴史の総量、全体の隔たり、近縁種のまとまり方が異なる。 ABCDではDに近い相手がいないためMNTDが高い。ABDEでは全種に距離2の近縁種があるためMNTDが低い一方、深い分岐をまたぐペアは3組から4組へ増え、MPDが高くなる。PDは15から14へ下がる。 生態学的には、群集が系統全体に広がっていることと、各種に近縁の共存種がいることは両立する。したがって「どちらがより多様か」は、保全で進化的歴史の総量を重視するのか、共存種の系統的な隔たりや最近隣の関係を重視するのかで変わる。 これは系統構造の記述であり、この値だけで環境フィルタリングや競争を特定できない。集積・過分散を評価するには種プールと種数などを考慮した帰無モデルとの比較が必要。系統距離をニッチ差として解釈するには形質との対応も必要で、次のAnoleの例につなぐ。</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="do-phylogenetically-related-species-have-similar-ecological-niches" class="slide level2 small">
+<h2>Do phylogenetically related species have similar ecological niches?</h2>
+<div class="footer">
+<p>[1] Anolis ecomorphs (Wikipedia)</p>
+</div>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img data-src="images/anole.jpg"></p>
+</div><div class="column" style="width:55%;">
+<ul>
+<li class="fragment"><p>We are assuming that related species are ecologically similar</p></li>
+<li class="fragment"><p>Related species sometimes have very different traits and ecological niches (e.g., grass-bush, trunk, trunk-crown, trunk-ground and twig ecomorphs)</p></li>
+</ul>
+</div></div>
+<aside class="notes">
+<ul>
+<li>the study was done in 1998, but people usually ignore something inconvenient</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="functional-dendrogram-vs.-phylogeny-anole-example" class="slide level2 small">
+<h2>Functional dendrogram vs.&nbsp;phylogeny (Anole example)</h2>
+<div class="footer">
+<p>[1] Losos et al.&nbsp;1998, Science</p>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="images/Losos1998.png"></p>
+</div><div class="column" style="width:50%;">
+<ul>
+<li class="fragment"><p>A: Functional dendrogram based on ecomorph</p></li>
+<li class="fragment"><p>B: Phylogeny indicates frequent evolution of traits</p></li>
+<li class="fragment"><p>They do not match at all (!!)</p></li>
+<li class="fragment"><p>Phylogenetically similar = Functional (ecologically) similar??</p></li>
+</ul>
+</div></div>
+</section>
+<section id="phylogenetic-signal-does-relatedness-predict-trait-similarity" class="slide level2 small">
+<h2>Phylogenetic signal: does relatedness predict trait similarity?</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="images/phylo-sig.png"></p>
+</div><div class="column" style="width:70%;">
+<ul>
+<li class="fragment">Phylogenetic signal describes how trait similarity is associated with relatedness.</li>
+<li class="fragment">Check the traits relevant to the ecological question before using phylogeny as their proxy.</li>
+<li class="fragment">Signal can differ among traits; relatedness alone does not establish ecological similarity.</li>
+</ul>
+</div></div>
+<div class="footer">
+<p>Blomberg et al.&nbsp;2003, Evolution</p>
+</div>
+<aside class="notes">
+<p>KやPagelのlambdaの定量的な説明は補足。ここでは系統を形質の代理にする前に、その対応を確かめる必要があることを伝える。</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-phylogenetic-middleman-problem" class="slide level2">
+<h2>The phylogenetic middleman problem</h2>
+<div class="footer">
+<p>[1] Swenson 2013, Ecography</p>
+</div>
+<div class="columns">
+<div class="column" style="width:35%;">
+<p><img data-src="./images/phylo-trait.png"></p>
+</div><div class="column" style="width:65%;">
+<ul>
+<li class="fragment"><p>Phylogeny as a proxy for the functional or ecological similarity of species.</p></li>
+<li class="fragment"><p>Measuring trait data and arraying it on the phylogenetic tree to demonstrate phylogenetic signal in function so that their phylogenetically-based inferences could be supported.</p></li>
+<li class="fragment"><p>Compared to simply measuring the trait dispersion, this approach is very indirect.</p></li>
+<li class="fragment"><p><strong>This approach should be avoided!</strong> (phylogeny and traits are useful to make meaningful evolutionary inferences)</p></li>
+</ul>
+</div></div>
+</section>
+<section id="plant-functional-traits" class="slide level2">
+<h2>Plant functional traits</h2>
+<p>Measurable properties of plants that are indicative of ecological strategies</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>“Hard” traits: e.g., Photosynthetic rates</p>
+<p><img data-src="https://www.licor.com/env/products/photosynthesis/LI-6800/images/li6800-hero3.png"></p>
+</div><div class="column" style="width:50%;">
+<p>“Soft” traits: e.g., LMA (leaf mass per area)</p>
+<p><img data-src="images/LMA.png"></p>
+</div></div>
+</section>
+<section id="leaf-economic-spectrum-les" class="slide level2">
+<h2>Leaf Economic Spectrum (LES)</h2>
+<div class="footer">
+<p>[1] Reich et al.&nbsp;1997, PNAS</p>
+<p>[2] Wright et al.&nbsp;2004, Nature</p>
+</div>
+<div class="columns">
+<div class="column" style="width:20%;">
+<p><img data-src="images/LES2004.png"></p>
+</div><div class="column" style="width:80%;">
+<div class="small">
+<ul>
+<li class="fragment">LES describes pairwise correlations among a bunch of leaf traits from the global leaf database called GLOPNET</li>
+<li class="fragment">Global leaf function constrained to a single axis (75 % of the variation in the 6 traits)</li>
+<li class="fragment">Multidimensional (leaf) functional diversity can be mapped into a one-dimensional index</li>
+<li class="fragment">Controversial because global among‑species patterns don’t always match within‑species or local patterns</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="leaf-trait-correlations-depend-on-normalization" class="slide level2">
+<h2>Leaf trait correlations depend on normalization</h2>
+<p><span class="math display">\[
+A_{\mathrm{mass}} = \frac{A_{\mathrm{area}}}{\mathrm{LMA}},
+\qquad
+N_{\mathrm{mass}} = \frac{N_{\mathrm{area}}}{\mathrm{LMA}}
+\]</span></p>
+<ul>
+<li class="fragment">Expressing traits per unit mass or per unit area can change their correlations.</li>
+<li class="fragment"><strong>Example:</strong> if photosynthesis per unit area stays constant while LMA doubles, photosynthesis per unit mass halves.</li>
+<li class="fragment">A shared denominator, LMA, can strengthen correlations between mass-based traits, even when their area-based values vary independently.</li>
+</ul>
+<div class="fragment">
+<p><strong>Ask what generates the correlation before interpreting it as a physiological trade-off.</strong></p>
+</div>
+<div class="footer">
+<p>Osnas et al.&nbsp;2013, Science · doi:10.1126/science.1231574</p>
+</div>
+<aside class="notes">
+<p>Source: https://doi.org/10.1126/science.1231574 Aは光合成速度、Nは窒素量。massは単位乾燥質量あたり、areaは単位葉面積あたりを表す。式は単位の変換から成り立つ。 LMAが2倍になる例は、規格化の効果だけを示す仮想例で、実測の処理効果ではない。面積あたりの光合成速度と窒素量に相関がなくても、共通のLMAで割ることで質量あたりの値に相関が生じうる。 LESが無意味という結論ではない。LMAと葉寿命の関係を含め、生物学的な変異と規格化がそれぞれ相関にどう寄与するかを考える。面積基準が常に正しいという話でもない。</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="rebuilding-community-ecology-from-functional-traits" class="slide level2">
+<h2>Rebuilding community ecology from functional traits</h2>
+<div class="footer">
+<p>[1] McGill et al.&nbsp;2006, Trends in Ecology and Evolution</p>
+</div>
+<ul>
+<li class="fragment"><p>Non-trait based statement</p>
+<ul>
+<li class="fragment"><em>Campanula aparinoides</em> is found only in infertile habitats.</li>
+</ul></li>
+<li class="fragment"><p>Trait-based statement</p>
+<ul>
+<li class="fragment">Compact plants with canopy area &lt; 30 cm <sup>2</sup> and small or absent leaves are restricted to marshes with &lt; 18 <span class="math inline">\(\mu\)</span> g g <sup>-1</sup> soil P.</li>
+</ul></li>
+</ul>
+</section>
+<section id="petchey-gastons-functional-diversity-fd" class="slide level2">
+<h2>Petchey &amp; Gaston’s functional diversity (FD)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="images/functional_dendrogram.png"></p>
+</div><div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Functional diversity describes differences in species’ functional traits.</li>
+<li class="fragment">Build a <strong>functional dendrogram</strong> from measured trait differences. A phylogeny instead represents shared ancestry.</li>
+<li class="fragment"><strong>Petchey &amp; Gaston’s FD:</strong> total branch length connecting the community’s species on the functional dendrogram.</li>
+<li class="fragment">The branch-summing approach parallels Faith’s PD, using trait differences rather than evolutionary history.</li>
+</ul>
+</div></div>
+<div class="footer">
+<p>Petchey &amp; Gaston 2002, Ecology Letters</p>
+</div>
+<aside class="notes">
+<p>functional diversityは概念の総称で、ここで紹介するFDはその指標の一つ。形質データから種間距離を求め、クラスタリングで樹状図を作る。枝長は進化時間を表さない。続くconvex hullは、樹状図ではなく形質空間の占有範囲でfunctional richnessを測る方法として紹介する。</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="convex-hull-volume-functional-richness" class="slide level2">
+<h2>Convex hull volume (functional richness)</h2>
+<div class="footer">
+<p>[1] Cornwell et al.&nbsp;2006, Ecology</p>
+</div>
+<div class="columns">
+<div class="column" style="width:18%;">
+<p><img data-src="images/convexhull.png"></p>
+</div><div class="column" style="width:82%;">
+<ul>
+<li class="fragment"><p>California woody-plant communities (43 plots, 54 species, 3 traits)</p></li>
+<li class="fragment"><p>Is the trait volume of California woody-plant communities significantly less than expected by chance?</p>
+<ul>
+<li class="fragment"><strong>Environmental filtering</strong></li>
+</ul></li>
+</ul>
+</div></div>
+</section>
+<section id="convex-hull-volume-functional-richness-1" class="slide level2">
+<h2>Convex hull volume (functional richness)</h2>
+<div class="footer">
+<p>[1] Cornwell et al.&nbsp;2006, Ecology</p>
+</div>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="images/convexhull2.png"></p>
+</div><div class="column" style="width:60%;">
+<ul>
+<li class="fragment"><p>Species in 40 out of 43 plots occupied less trait space than would be expected by chance</p></li>
+<li class="fragment"><p>Consistent with environmental filtering</p></li>
+</ul>
+</div></div>
+</section>
+<section id="community-assembly-and-trait-distribution" class="slide level2">
+<h2>Community assembly and trait distribution</h2>
+<div class="footer">
+<p>[1] Cornwell &amp; Ackerly 2009, Ecological Monographs</p>
+</div>
+
+<img src="images/trait_dist.png" width="80%" style="display: block; margin: auto;" class="r-stretch"></section>
+<section id="environmental-filtering-and-limiting-similarity-can-occur-at-the-same-time" class="slide level2 small">
+<h2>Environmental filtering and limiting similarity can occur at the same time</h2>
+<div class="footer">
+<p>[1] Kraft et al.&nbsp;2008, Science</p>
+</div>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="./images/Kraft2008.png"></p>
+</div><div class="column" style="width:60%;">
+<ul>
+<li class="fragment"><p>Yasuni tropical tree communities, 25ha, 625 20m x 20m quadrats, 1089 species!</p></li>
+<li class="fragment"><p>Consistent with environmental filtering</p></li>
+<li class="fragment"><p>A: Ridgetops have lower than expected SLA and valleys have higher</p>
+<ul>
+<li class="fragment">Traits match with environmental conditions</li>
+</ul></li>
+<li class="fragment"><p>B: Seed mass shows broader distribution than expected - Limiting similarity</p></li>
+<li class="fragment"><p>C: Range of SLA is smaller than expected - Environmental filtering</p></li>
+</ul>
+</div></div>
+</section>
+<section id="how-ecological-processes-might-influence-community-assembly" class="slide level2 small">
+<h2>How ecological processes might influence community assembly</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="lightable-material lightable-striped lightable-hover caption-top" style="font-size: 30px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Process / Factor</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd" data-grouplength="1">
+<td colspan="2" style="border-bottom: 1px solid"><strong>Biotic factor</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Environmental filtering</td>
+<td style="text-align: left;">Clustering</td>
+</tr>
+<tr class="odd" data-grouplength="4">
+<td colspan="2" style="border-bottom: 1px solid"><strong>Abiotic factor (competition)</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Limiting similarity / Competitive exclusion</td>
+<td style="text-align: left;">Overdispersion</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Competitive hierarchy / directional competition</td>
+<td style="text-align: left;">Clustering</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Herbivores / Parasites / Pathogens</td>
+<td style="text-align: left;">Overdispersion</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Pollinator-mediated competition</td>
+<td style="text-align: left;">Overdispersion</td>
+</tr>
+<tr class="even" data-grouplength="2">
+<td colspan="2" style="border-bottom: 1px solid"><strong>Abiotic factor (facilitation)</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Nurse plants</td>
+<td style="text-align: left;">Overdispersion</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Pollinator facilitation</td>
+<td style="text-align: left;">Clustering</td>
+</tr>
+<tr class="odd" data-grouplength="1">
+<td colspan="2" style="border-bottom: 1px solid"><strong>Stochastic process</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Neutral theory</td>
+<td style="text-align: left;">Random</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="competitive-hierarchy" class="slide level2">
+<h2>Competitive hierarchy</h2>
+<div class="footer">
+<p>[1] <span class="math inline">\(t_A\)</span> and <span class="math inline">\(t_B\)</span> are the functional trait values of species A and B</p>
+<p>[2] Kunstler et al.&nbsp;2012, Ecology Letters</p>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="./images/comp-hier1.jpg" width="200"></p>
+<h3 id="limiting-similarity">Limiting similarity</h3>
+<p>Competitive interaction strengths between species will increase with decreasing niche distance, measured as their absolute traits distance <span class="math inline">\(|t_A - t_B|\)</span></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="./images/comp-hier2.jpg" width="200"></p>
+<h3 id="competitive-hierarchy-1">Competitive hierarchy</h3>
+<p>Competitive effects of species A on species B will increase with increasing <span class="math inline">\(t_A - t_B\)</span>.</p>
+</div></div>
+</section>
+<section id="plantherbivore-interactions" class="slide level2">
+<h2>Plant–herbivore interactions</h2>
+<div class="footer">
+<p>[1] Endara et al.&nbsp;2022, Journal of Ecology</p>
+</div>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="images/endra_re.png"></p>
+</div><div class="column" style="width:60%;">
+<ul>
+<li class="fragment"><p>6000+ secondary metabolites from nearly 100 species in a diverse Neotropical plant clade across the whole Amazonia</p></li>
+<li class="fragment"><p>More differences in their defensive chemistry than expected by chance</p></li>
+<li class="fragment"><p>Plant–herbivore interactions promote species diversity</p></li>
+</ul>
+</div></div>
+</section>
+<section id="trait-based-ecology-where-are-we-now" class="slide level2">
+<h2>Trait-based ecology: where are we now?</h2>
+
+<img src="images/traits2024.png" width="100%" style="display: block; margin: auto;" class="r-stretch"></section>
+<section id="community-averages-can-mislead-without-specieslevel-context" class="slide level2 small">
+<h2>Community averages can mislead without species‑level context</h2>
+<div class="footer">
+<p>[1] Katabuchi et al.&nbsp;2017, Ecology</p>
+<p>[2] Swenson et al.&nbsp;2020, Ecological Monographs</p>
+</div>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><img src="images/cwm.png" style="display:block; margin:0 auto; width:100%; height:auto; max-height:570px; object-fit:contain;"></p>
+</div><div class="column" style="width:45%;">
+<div class="small">
+<ul>
+<li><strong>Study site:</strong> 50-ha forest dynamics plot, Barro Colorado Island, Panama.</li>
+<li><strong>Community-level pattern:</strong> Increasing CWM wood density appears consistent with a response to drier conditions.</li>
+<li><strong>Species-level explanation:</strong> Just two species account for ~60% of the temporal CWM shift, suggesting that species-specific processes may drive the apparent community trend.</li>
+</ul>
+</div>
+</div></div>
+<aside class="notes">
+<p>Two of approximately 300 species (~0.7%) account for ~60% of the temporal CWM shift. Species-specific pathogens were suggested as a possible explanation, rather than a community-wide climate response.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="why-leaf-trait-relationships-differ-within-and-among-species" class="slide level2">
+<h2>Why leaf trait relationships differ within and among species</h2>
+<div class="columns">
+<div class="column" style="width:58%;">
+<p><img src="images/trait_plot.png" style="display:block; margin:0 auto; width:100%; height:auto; max-height:570px; object-fit:contain;"></p>
+</div><div class="column" style="width:42%;">
+<div class="small">
+<ul>
+<li><strong>Across species:</strong> Leaf lifespan increases strongly with LMA, whereas area-based photosynthesis shows a weak relationship.</li>
+<li><strong>Within species:</strong> Area-based photosynthesis increases with LMA in the studied Panama assemblages.</li>
+<li><strong>Proposed mechanism:</strong> LMA variation reflects different contributions of photosynthetic and structural tissues.</li>
+</ul>
+</div>
+</div></div>
+<div class="footer">
+<p>Osnas, Katabuchi et al.&nbsp;2018, PNAS · doi:10.1073/pnas.1803989115</p>
+</div>
+<aside class="notes">
+<p>Source: https://doi.org/10.1073/pnas.1803989115 GlobalとPanamaでは地理的スケールも異なるため、比較の違いを種内・種間の違いだけに帰さない。 2013年の規格化の話を回収し、同じLMAの変化でも、その中身によって生理的な意味が異なることを示す。 種内の陽葉・陰葉の比較では光合成に関わる質量の変化、広い種間比較では構造的質量の変化がLMA変異に大きく寄与するという仮説を提示し、データはその予測と整合した。すべての種内・種間比較に同じ関係が成立するという主張ではない。 構造的質量は強度や葉寿命に関係する。種平均の相関をそのまま種内の応答に当てはめず、LMAを生む成分を考える必要がある。次に、この考え方を生理予測へ進めた例を紹介する。</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="separating-lma-components-improves-physiological-prediction" class="slide level2">
+<h2>Separating LMA components improves physiological prediction</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img src="images/gl_point.png" style="display:block; margin:0 auto; width:100%; height:auto; max-height:570px; object-fit:contain;"></p>
+</div><div class="column" style="width:40%;">
+<div class="small">
+<ul>
+<li>Bulk LMA combines metabolic and structural components.</li>
+<li>Metabolic mass (LMAₘ) is more strongly associated with photosynthesis and respiration per leaf area.</li>
+<li>Structural mass (LMAₛ) is strongly associated with leaf lifespan.</li>
+</ul>
+<p>Separating metabolic and structural components reveals distinct functional relationships obscured by bulk LMA.</p>
+</div>
+</div></div>
+<div class="footer">
+<p>Katabuchi et al.&nbsp;2025, Oecologia</p>
+</div>
+<aside class="notes">
+<p>LMAの総量から、その内訳を表す成分へと進める。生理の予測改善を示す事例として紹介する。 ここでの予測対象は生理であり、共存や侵入増殖率の予測を実証したという意味ではない。Levine et al.の共存予測に向けたprocess-informed metricsと同一視せず、次のスライドで生理から個体群・共存への接続を別の課題として示す。</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="from-physiological-prediction-to-species-coexistence" class="slide level2">
+<h2>From physiological prediction to species coexistence</h2>
+<div class="columns">
+<div class="column" style="width:63%;">
+<p><img src="images/pim.png" style="display:block; margin:0 auto; width:100%; height:auto; max-height:570px; object-fit:contain;"></p>
+<p><span style="font-size:0.55em;">Conceptual illustration</span></p>
+</div><div class="column" style="width:37%;">
+<div class="small">
+<ul>
+<li><strong>Traits alone are insufficient</strong> to predict species coexistence.</li>
+<li>Predictive models must link traits and physiology to <strong>demographic rates</strong> and <strong>species interactions</strong>.</li>
+<li><strong>Invasion growth rates</strong> provide a direct link to coexistence theory.</li>
+</ul>
+</div>
+</div></div>
+<div class="footer">
+<p>Levine et al.&nbsp;2024, Trends in Ecology &amp; Evolution</p>
+</div>
+<aside class="notes">
+<p>概念図であり、予測能力が実際に100%に到達することを意味しない。 LMAを分解して生理予測が改善しても、それだけで種の共存が予測できるわけではない。個体の成長・生存・繁殖と、競争下の個体群増殖へのつながりを考える。 機構を反映する指標を選ぶ際には、何を予測したいかを明確にする。生理、個体群動態、共存は異なる予測対象である。</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary 🍺</h2>
+<ul>
+<li class="fragment"><p>Why do we use trait and phylogenetic diversity?</p>
+<ul>
+<li class="fragment"><p>We want to quantify ecological similarities and biodiversity dimensions.</p></li>
+<li class="fragment"><p>We need to be very careful when we use or develop ways to map multiple dimensions of biodiversity to a few dimensions of diversity.</p></li>
+</ul></li>
+<li class="fragment"><p>Trait-based approaches</p>
+<ul>
+<li class="fragment"><p>Moving ecology towards more quantitative and predictive methods.</p></li>
+<li class="fragment"><p>We only focused on a “snapshot” of biodiversity (predicting future biodiversity is another story)</p></li>
+<li class="fragment"><p>Developing more effective metrics may be necessary, beyond simply measuring traits.</p></li>
+</ul></li>
+<li class="fragment"><p>How to calculate trait and phylogenetic diversity anyway?</p>
+<ul>
+<li class="fragment">We have some R practice.</li>
+</ul></li>
+</ul>
+</section>
+<section id="about-the-slides" class="slide level2">
+<h2>About the slides</h2>
+<ul>
+<li><p>The slides are made using <a href="https://quarto.org/">Quarto</a> with <a href="https://github.com/emitanaka/talks">Emi Tanaka’s</a> CSS design and <a href="https://github.com/DanyangDai/brownbag_2022_10_11">Danyang Dai’s</a> template.</p></li>
+<li><p>Source code for the slides can be found at <a href="https://github.com/mattocci27/phy-fun-div">mattocci27/phy-fun-div</a></p></li>
+</ul>
+</section>
+<section id="supplementary-slides" class="slide level2">
+<h2>Supplementary slides</h2>
+<div class="large">
+<ul>
+<li>Historical background and additional examples</li>
+<li>Step-by-step PD, MPD and MNTD calculations</li>
+<li>Phylogenetic signal and additional trait-based questions</li>
+</ul>
+</div>
+<aside class="notes">
+<p>ここから先は通常の授業では解説しない補足資料。質問への対応や実習時の参照に使う。Simpson・Shannonの導出は本編に残している。</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-second-order-properties-with-site-characteristics-1950s-1" class="slide level2 small">
+<h2>2a) Second-Order properties with site characteristics (1950s ~)</h2>
+<div class="footer">
+<p>[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press</p>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="lightable-material lightable-striped lightable-hover caption-top" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Site 1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Site 2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Site 3</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Site 4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd" data-grouplength="4">
+<td colspan="5" style="border-bottom: 1px solid"><strong>Abundance</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Sp. 1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">315</td>
+<td style="text-align: right;">23</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Sp. 2</td>
+<td style="text-align: right;">300</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Sp. 3</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Sp. 4</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">101</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even" data-grouplength="3">
+<td colspan="5" style="border-bottom: 1px solid"><strong>Env</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Env. 1</td>
+<td style="text-align: right;">780</td>
+<td style="text-align: right;">2500</td>
+<td style="text-align: right;">480</td>
+<td style="text-align: right;">1200</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Env. 2</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Env. 3</td>
+<td style="text-align: right;">1500</td>
+<td style="text-align: right;">1900</td>
+<td style="text-align: right;">700</td>
+<td style="text-align: right;">4500</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>“Species <span class="math inline">\(\times\)</span> site” and “site <span class="math inline">\(\times\)</span> environment”</li>
+</ul>
+</div></div>
+</section>
+<section id="b-second-order-properties-with-species-characteristics-2000s-1" class="slide level2 small">
+<h2>2b) Second-Order properties with species characteristics (2000s ~)</h2>
+<div class="footer">
+<p>[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press</p>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="lightable-material lightable-striped lightable-hover caption-top" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Site 1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Site 2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Site 3</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Site 4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd" data-grouplength="4">
+<td colspan="5" style="border-bottom: 1px solid"><strong>Abundance</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Sp. 1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">315</td>
+<td style="text-align: right;">23</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Sp. 2</td>
+<td style="text-align: right;">300</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Sp. 3</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Sp. 4</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">101</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even" data-grouplength="3">
+<td colspan="5" style="border-bottom: 1px solid"><strong>Env</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Env. 1</td>
+<td style="text-align: right;">780</td>
+<td style="text-align: right;">2500</td>
+<td style="text-align: right;">480</td>
+<td style="text-align: right;">1200</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Env. 2</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Env. 3</td>
+<td style="text-align: right;">1500</td>
+<td style="text-align: right;">1900</td>
+<td style="text-align: right;">700</td>
+<td style="text-align: right;">4500</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="lightable-material lightable-striped lightable-hover caption-top" style="font-size: 32px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Trait 1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Trait 2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Trait 3</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Trait 4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Sp 1</td>
+<td style="text-align: right;">1.3</td>
+<td style="text-align: right;">4.8</td>
+<td style="text-align: right;">1.8</td>
+<td style="text-align: right;">30.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sp 2</td>
+<td style="text-align: right;">1.7</td>
+<td style="text-align: right;">12.5</td>
+<td style="text-align: right;">2.1</td>
+<td style="text-align: right;">22.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sp 3</td>
+<td style="text-align: right;">7.0</td>
+<td style="text-align: right;">5.9</td>
+<td style="text-align: right;">5.7</td>
+<td style="text-align: right;">11.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sp 4</td>
+<td style="text-align: right;">2.1</td>
+<td style="text-align: right;">2.1</td>
+<td style="text-align: right;">3.4</td>
+<td style="text-align: right;">119.9</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li>“Trait <span class="math inline">\(\times\)</span> species”, “species <span class="math inline">\(\times\)</span> site”, “site <span class="math inline">\(\times\)</span> environment”</li>
+</ul>
+</div></div>
+</section>
+<section id="genusspecies-ratio" class="slide level2">
+<h2>Genus:species ratio</h2>
+<div class="footer">
+<p>[1] Swenson 2013, Ecography</p>
+</div>
+<ul>
+<li>The genus:species ratio type of study in plant community ecology started ~1910 and was popular until 1990’s</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>A large criticism of genus:species ratio analyses is that they do not take account for the different ages of genera and species
+<ul>
+<li>Two species in a relatively young genus may be expected to be more similar than two species in a relatively old genus.</li>
+</ul></li>
+</ul>
+</div>
+</section>
 <section id="faiths-index-pd-1" class="slide level2">
 <h2>Faith’s Index (PD)</h2>
 <div class="footer">
@@ -1200,7 +1896,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figure/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="figure/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1222,7 +1918,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figure/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="figure/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1231,30 +1927,6 @@
 <ul>
 <li>Total branch length = 14</li>
 </ul>
-</div></div>
-</section>
-<section id="petcheys-functional-diversity-fd" class="slide level2">
-<h2>Petchey’s functional diversity (FD)</h2>
-<div class="footer">
-<p>[1] Petchey &amp; Gaston 2002, Ecology Letters</p>
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="images/functional_dendrogram.png"></p>
-</div><div class="column" style="width:50%;">
-<ul>
-<li>FD is proposed by Owen Petchey in 2002</li>
-</ul>
-<div class="fragment">
-<ul>
-<li>FD is the total branch length of the functional dendrogram.</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Analogous to PD</li>
-</ul>
-</div>
 </div></div>
 </section>
 <section id="beyond-faiths-index-pd" class="slide level2">
@@ -1487,53 +2159,6 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="do-phylogenetically-related-species-have-similar-ecological-niches" class="slide level2 small">
-<h2>Do phylogenetically related species have similar ecological niches?</h2>
-<div class="footer">
-<p>[1] Anolis ecomorphs (Wikipedia)</p>
-</div>
-<div class="columns">
-<div class="column" style="width:45%;">
-<p><img data-src="images/anole.jpg"></p>
-</div><div class="column" style="width:55%;">
-<ul>
-<li class="fragment"><p>We are assuming that related species are ecologically similar</p></li>
-<li class="fragment"><p>Related species sometimes have very different traits and ecological niches (e.g., grass-bush, trunk, trunk-crown, trunk-ground and twig ecomorphs)</p></li>
-</ul>
-</div></div>
-<aside class="notes">
-<ul>
-<li>the study was done in 1998, but people usually ignore something inconvenient</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="functional-dendrogram-vs.-phylogeny-anole-example" class="slide level2 small">
-<h2>Functional dendrogram vs.&nbsp;phylogeny (Anole example)</h2>
-<div class="footer">
-<p>[1] Losos et al.&nbsp;1998, Science</p>
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="images/Losos1998.png"></p>
-</div><div class="column" style="width:50%;">
-<ul>
-<li class="fragment"><p>A: Functional dendrogram based on ecomorph</p></li>
-<li class="fragment"><p>B: Phylogeny indicates frequent evolution of traits</p></li>
-<li class="fragment"><p>They do not match at all (!!)</p></li>
-<li class="fragment"><p>Phylogenetically similar = Functional (ecologically) similar??</p></li>
-</ul>
-</div></div>
-</section>
 <section id="putting-traits-on-the-tips-of-phylogeny-phylogenetic-signal" class="slide level2 small">
 <h2>Putting traits on the tips of phylogeny: phylogenetic signal</h2>
 <div class="footer">
@@ -1589,73 +2214,6 @@
 <p>[1] Cavender-Bares et al.&nbsp;2004, The American Naturalist</p>
 </div>
 </section>
-<section id="the-phylogenetic-middleman-problem" class="slide level2">
-<h2>The phylogenetic middleman problem</h2>
-<div class="footer">
-<p>[1] Swenson 2013, Ecography</p>
-</div>
-<div class="columns">
-<div class="column" style="width:35%;">
-<p><img data-src="./images/phylo-trait.png"></p>
-</div><div class="column" style="width:65%;">
-<ul>
-<li class="fragment"><p>Phylogeny as a proxy for the functional or ecological similarity of species.</p></li>
-<li class="fragment"><p>Measuring trait data and arraying it on the phylogenetic tree to demonstrate phylogenetic signal in function so that their phylogenetically-based inferences could be supported.</p></li>
-<li class="fragment"><p>Compared to simply measuring the trait dispersion, this approach is very indirect.</p></li>
-<li class="fragment"><p><strong>This approach should be avoided!</strong> (phylogeny and traits are useful to make meaningful evolutionary inferences)</p></li>
-</ul>
-</div></div>
-</section>
-<section id="plant-functional-traits" class="slide level2">
-<h2>Plant functional traits</h2>
-<p>Measurable properties of plants that are indicative of ecological strategies</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>“Hard” traits: e.g., Photosynthetic rates</p>
-<p><img data-src="https://www.licor.com/env/products/photosynthesis/LI-6800/images/li6800-hero3.png"></p>
-</div><div class="column" style="width:50%;">
-<p>“Soft” traits: e.g., LMA (leaf mass per area)</p>
-<p><img data-src="images/LMA.png"></p>
-</div></div>
-</section>
-<section id="leaf-economic-spectrum-les" class="slide level2">
-<h2>Leaf Economic Spectrum (LES)</h2>
-<div class="footer">
-<p>[1] Reich et al.&nbsp;1997, PNAS</p>
-<p>[2] Wright et al.&nbsp;2004, Nature</p>
-<p>[3] Osnas et al.&nbsp;2013, Science</p>
-<p>[4] Katabuchi et al.&nbsp;2025, Oecologia</p>
-</div>
-<div class="columns">
-<div class="column" style="width:20%;">
-<p><img data-src="images/LES2004.png"></p>
-</div><div class="column" style="width:80%;">
-<div class="small">
-<ul>
-<li class="fragment">LES describes pairwise correlations among a bunch of leaf traits from the global leaf database called GLOPNET</li>
-<li class="fragment">Global leaf function constrained to a single axis (75 % of the variation in the 6 traits)</li>
-<li class="fragment">Multidimensional (leaf) functional diversity can be mapped into a one-dimensional index</li>
-<li class="fragment">Controversial because global among‑species patterns don’t always match within‑species or local patterns</li>
-</ul>
-</div>
-</div></div>
-</section>
-<section id="rebuilding-community-ecology-from-functional-traits" class="slide level2">
-<h2>Rebuilding community ecology from functional traits</h2>
-<div class="footer">
-<p>[1] McGill et al.&nbsp;2006, Trends in Ecology and Evolution</p>
-</div>
-<ul>
-<li class="fragment"><p>Non-trait based statement</p>
-<ul>
-<li class="fragment"><em>Campanula aparinoides</em> is found only in infertile habitats.</li>
-</ul></li>
-<li class="fragment"><p>Trait-based statement</p>
-<ul>
-<li class="fragment">Compact plants with canopy area &lt; 30 cm <sup>2</sup> and small or absent leaves are restricted to marshes with &lt; 18 <span class="math inline">\(\mu\)</span> g g <sup>-1</sup> soil P.</li>
-</ul></li>
-</ul>
-</section>
 <section id="rebuilding-community-ecology-from-functional-traits-1" class="slide level2">
 <h2>Rebuilding community ecology from functional traits</h2>
 <div class="footer">
@@ -1663,72 +2221,11 @@
 </div>
 <ul>
 <li class="fragment">Go beyond ‘How many species and why?’ to ask ‘<strong>How much variation in traits and why?</strong>’</li>
-<li class="fragment">Go beyond ‘In what environments does a species occur?’ to ask ‘<strong>What traits and environmental variables are most important in determining fundamental niche?</strong>’</li>
+<li class="fragment">Go beyond ‘In what environments does a species occur?’ to ask’<strong>What traits and environmental variables are most important in determining fundamental niche?</strong>’</li>
 <li class="fragment">Go beyond ‘What are the most important niche dimensions?’ to ask ‘<strong>What traits are most decisive in translating from fundamental niche to realized niche?</strong>’</li>
 <li class="fragment">Go beyond ‘How does population dynamics determine abundance?’ to ask ‘<strong>How does the performance of species in the interaction milieu determine their ranking of abundance or biomass?</strong>’</li>
 <li class="fragment">Go beyond ‘How does space affect population dynamics?’ to ask ‘<strong>How do environmental gradients affect community structuring?</strong>’</li>
 </ul>
-</section>
-<section id="convex-hull-volume-functional-richness" class="slide level2">
-<h2>Convex hull volume (functional richness)</h2>
-<div class="footer">
-<p>[1] Cornwell et al.&nbsp;2006, Ecology</p>
-</div>
-<div class="columns">
-<div class="column" style="width:18%;">
-<p><img data-src="images/convexhull.png"></p>
-</div><div class="column" style="width:82%;">
-<ul>
-<li class="fragment"><p>California woody-plant communities (43 plots, 54 species, 3 traits)</p></li>
-<li class="fragment"><p>Is the trait volume of California woody-plant communities significantly less than expected by chance?</p>
-<ul>
-<li class="fragment"><strong>Environmental filtering</strong></li>
-</ul></li>
-</ul>
-</div></div>
-</section>
-<section id="convex-hull-volume-functional-richness-1" class="slide level2">
-<h2>Convex hull volume (functional richness)</h2>
-<div class="footer">
-<p>[1] Cornwell et al.&nbsp;2006, Ecology</p>
-</div>
-<div class="columns">
-<div class="column" style="width:40%;">
-<p><img data-src="images/convexhull2.png"></p>
-</div><div class="column" style="width:60%;">
-<ul>
-<li class="fragment"><p>Species in 40 out of 43 plots occupied less trait space than would be expected by chance</p></li>
-<li class="fragment"><p>Consistent with environmental filtering</p></li>
-</ul>
-</div></div>
-</section>
-<section id="community-assembly-and-trait-distribution" class="slide level2">
-<h2>Community assembly and trait distribution</h2>
-<div class="footer">
-<p>[1] Cornwell &amp; Ackerly 2009, Ecological Monographs</p>
-</div>
-
-<img src="images/trait_dist.png" width="80%" style="display: block; margin: auto;" class="r-stretch"></section>
-<section id="environmental-filtering-and-limiting-similarity-can-occur-at-the-same-time" class="slide level2 small">
-<h2>Environmental filtering and limiting similarity can occur at the same time</h2>
-<div class="footer">
-<p>[1] Kraft et al.&nbsp;2008, Science</p>
-</div>
-<div class="columns">
-<div class="column" style="width:40%;">
-<p><img data-src="./images/Kraft2008.png"></p>
-</div><div class="column" style="width:60%;">
-<ul>
-<li class="fragment"><p>Yasuni tropical tree communities, 25ha, 625 20m x 20m quadrats, 1089 species!</p></li>
-<li class="fragment"><p>Consistent with environmental filtering</p></li>
-<li class="fragment"><p>A: Ridgetops have lower than expected SLA and valleys have higher</p>
-<ul>
-<li class="fragment">Traits match with environmental conditions</li>
-</ul></li>
-<li class="fragment"><p>B: Seed mass shows broader distribution than expected - Limiting similarity</p></li>
-<li class="fragment"><p>C: Range of SLA is smaller than expected - Environmental filtering</p></li>
-</ul>
-</div></div>
 </section>
 <section id="environmental-filtering-can-occur-within-dipterocarp-trees" class="slide level2 small">
 <h2>Environmental filtering can occur within dipterocarp trees</h2>
@@ -1737,100 +2234,6 @@
 </div>
 
 <img src="images/dip_traits.png" width="80%" style="display: block; margin: auto;" class="r-stretch"></section>
-<section id="how-ecological-processes-might-influence-community-assembly" class="slide level2 small">
-<h2>How ecological processes might influence community assembly</h2>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table class="lightable-material lightable-striped lightable-hover caption-top" style="font-size: 30px; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Process / Factor</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pattern</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd" data-grouplength="1">
-<td colspan="2" style="border-bottom: 1px solid"><strong>Biotic factor</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Environmental filtering</td>
-<td style="text-align: left;">Clustering</td>
-</tr>
-<tr class="odd" data-grouplength="4">
-<td colspan="2" style="border-bottom: 1px solid"><strong>Abiotic factor (competition)</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Limiting similarity / Competitive exclusion</td>
-<td style="text-align: left;">Overdispersion</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Competitive hierarchy / directional competition</td>
-<td style="text-align: left;">Clustering</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Herbivores / Parasites / Pathogens</td>
-<td style="text-align: left;">Overdispersion</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Pollinator-mediated competition</td>
-<td style="text-align: left;">Overdispersion</td>
-</tr>
-<tr class="even" data-grouplength="2">
-<td colspan="2" style="border-bottom: 1px solid"><strong>Abiotic factor (facilitation)</strong></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Nurse plants</td>
-<td style="text-align: left;">Overdispersion</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Pollinator facilitation</td>
-<td style="text-align: left;">Clustering</td>
-</tr>
-<tr class="odd" data-grouplength="1">
-<td colspan="2" style="border-bottom: 1px solid"><strong>Stochastic process</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Neutral theory</td>
-<td style="text-align: left;">Random</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="competitive-hierarchy" class="slide level2">
-<h2>Competitive hierarchy</h2>
-<div class="footer">
-<p>[1] <span class="math inline">\(t_A\)</span> and <span class="math inline">\(t_B\)</span> are the functional trait values of species A and B</p>
-<p>[2] Kunstler et al.&nbsp;2012, Ecology Letters</p>
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="./images/comp-hier1.jpg" width="200"></p>
-<h3 id="limiting-similarity">Limiting similarity</h3>
-<p>Competitive interaction strengths between species will increase with decreasing niche distance, measured as their absolute traits distance <span class="math inline">\(|t_A - t_B|\)</span></p>
-</div><div class="column" style="width:50%;">
-<p><img data-src="./images/comp-hier2.jpg" width="200"></p>
-<h3 id="competitive-hierarchy-1">Competitive hierarchy</h3>
-<p>Competitive effects of species A on species B will increase with increasing <span class="math inline">\(t_A - t_B\)</span>.</p>
-</div></div>
-</section>
-<section id="plantherbivore-interactions" class="slide level2">
-<h2>Plant–herbivore interactions</h2>
-<div class="footer">
-<p>[1] Endara et al.&nbsp;2022, Journal of Ecology</p>
-</div>
-<div class="columns">
-<div class="column" style="width:40%;">
-<p><img data-src="images/endra_re.png"></p>
-</div><div class="column" style="width:60%;">
-<ul>
-<li class="fragment"><p>6000+ secondary metabolites from nearly 100 species in a diverse Neotropical plant clade across the whole Amazonia</p></li>
-<li class="fragment"><p>More differences in their defensive chemistry than expected by chance</p></li>
-<li class="fragment"><p>Plant–herbivore interactions promote species diversity</p></li>
-</ul>
-</div></div>
-</section>
 <section id="facilitation" class="slide level2">
 <h2>Facilitation</h2>
 <div class="footer">
@@ -1847,118 +2250,56 @@
 </ul>
 </div></div>
 </section>
-<section id="trait-based-ecology-where-are-we-now" class="slide level2">
-<h2>Trait-based ecology: where are we now?</h2>
-
-<img src="images/traits2024.png" width="100%" style="display: block; margin: auto;" class="r-stretch"></section>
-<section id="community-averages-can-mislead-without-specieslevel-context" class="slide level2 small">
-<h2>Community averages can mislead without species‑level context</h2>
-<div class="footer">
-<p>[1] Katabuchi et al.&nbsp;2017, Ecology</p>
-<p>[2] Swenson et al.&nbsp;2020, Ecological Monographs</p>
-</div>
+<section id="can-trait-normalization-create-correlations" class="slide level2">
+<h2>Can trait normalization create correlations?</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p><img data-src="images/cwm.png"></p>
+<div style="font-size:0.75em;">
+<p><strong>1. Mass normalization</strong></p>
+<p><span class="math display">\[
+X_{\mathrm{mass}}=\frac{X_{\mathrm{area}}}{LMA}
+\qquad\Longrightarrow\qquad
+\log X_{\mathrm{mass}}=\log X_{\mathrm{area}}-\log LMA
+\]</span></p>
+<p><strong>2. Shared denominators induce covariance</strong></p>
+</div>
+<div style="font-size:0.95em;">
+<p><span class="math display">\[
+\boxed{
+\begin{aligned}
+&amp;\mathrm{Cov}(\log X_{i,m},\log X_{j,m})\\
+&amp;=\mathrm{Cov}(\log X_{i,a},\log X_{j,a})\\
+&amp;\quad+\mathrm{Var}(\log LMA)
+\end{aligned}
+}
+\]</span></p>
+</div>
+<div style="font-size:0.75em;">
+<p><strong>3. Mass-based traits vs.&nbsp;LMA</strong></p>
+<p><span class="math display">\[
+\boxed{
+\mathrm{Cov}(\log X_{\mathrm{mass}},\log LMA)
+=-\mathrm{Var}(\log LMA)
+}
+\]</span></p>
+</div>
 </div><div class="column" style="width:40%;">
+<div class="small">
 <ul>
-<li class="fragment"><p>50ha Forest Dynamics Plot on Barro Colorado Island, Panama</p></li>
-<li class="fragment"><p>CWM wood density trends suggest a community-level response in climate change (i.e, drier conditions).</p></li>
-<li class="fragment"><p>But 2 of ~300 species (~0.7%) account for ~60% of the temporal shifts in CWM, likely due to species-specific pathogens rather than a community-wide climate response.</p></li>
+<li>For an area-based trait, dividing by LMA gives the mass-based value.</li>
+<li>For two area-based traits that are each uncorrelated with log LMA, the shared denominator adds covariance.</li>
+<li>Even if the two area-based traits are uncorrelated, mass normalization induces positive covariance.</li>
+<li>Under the same assumption, mass normalization can induce negative correlations with LMA.</li>
 </ul>
+<p><strong>Key takeaway:</strong> Some correlations in the mass-based Leaf Economics Spectrum arise from mathematical normalization, not necessarily biological trade-offs.</p>
+</div>
+<div style="font-size:0.55em;">
+<p><em>These results assume that the area-based traits are uncorrelated with log LMA. Induced covariance does not imply that all LES relationships are artifacts.</em></p>
+</div>
 </div></div>
-</section>
-<section id="inter-and-intraspecific-trait-patterns-often-diverge" class="slide level2">
-<h2>Inter‑ and intra‑specific trait patterns often diverge</h2>
-
-<img src="images/trait_plot.png" width="100%" style="display: block; margin: auto;" class="r-stretch"><div class="footer">
-<p>[1] Osnas, Katabuchi et al.&nbsp;2018, PNAS</p>
-</div>
-<aside class="notes">
-<p>There are opposite patterns between within-species and among-species relationships</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="using-harder-to-measure-physiological-traits-may-not-be-enough" class="slide level2">
-<h2>Using harder-to-measure physiological traits may not be enough</h2>
-
-<img src="images/pim.png" width="100%" style="display: block; margin: auto;" class="r-stretch"><p>We may need metrics somewhere between <strong>functional traits</strong> and <strong>invasion growth rate</strong> (model parameter) to predict coexistence.</p>
 <div class="footer">
-<p>[1] Levine et al.&nbsp;2024, Trends in Ecology &amp; Evolution</p>
+<p>Osnas et al.&nbsp;(2013), Science. doi:10.1126/science.1231574</p>
 </div>
-<aside class="notes">
-<ul>
-<li><p>hard traits and vital rates are better but not enough</p></li>
-<li><p>Combining traits with demographic characteristics and model-based metrics can improve our ability to predict coexistence.</p></li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="decomposing-lma-into-metabolic-lmam-and-structural-lmas-components-improves-physiological-prediction" class="slide level2 small">
-<h2>Decomposing LMA into metabolic (LMAm) and structural (LMAs) components improves physiological prediction</h2>
-
-<img src="images/gl_point.png" width="120%" style="display: block; margin: auto;" class="r-stretch"><p>PIMs (LMAm/LMAs) outperform bulk LMA for predicting physiology</p>
-<div class="footer">
-<p>Katabuchi et al.&nbsp;2025, Oecologia</p>
-</div>
-<aside class="notes">
-<p>Decomposing LMA into metabolic and structural components improves prediction of photosynthesis, respiration, and lifespan—an instance of ‘process‑informed metrics’ bridging traits to performance.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="summary" class="slide level2">
-<h2>Summary 🍺</h2>
-<ul>
-<li class="fragment"><p>Why do we use trait and phylogenetic diversity?</p>
-<ul>
-<li class="fragment"><p>We want to quantify ecological similarities and biodiversity dimensions.</p></li>
-<li class="fragment"><p>We need to be very careful when we use or develop ways to map multiple dimensions of biodiversity to a few dimensions of diversity.</p></li>
-</ul></li>
-<li class="fragment"><p>Trait-based approaches</p>
-<ul>
-<li class="fragment"><p>Moving ecology towards more quantitative and predictive methods.</p></li>
-<li class="fragment"><p>We only focused on a “snapshot” of biodiversity (predicting future biodiversity is another story)</p></li>
-<li class="fragment"><p>Developing more effective metrics may be necessary, beyond simply measuring traits.</p></li>
-</ul></li>
-<li class="fragment"><p>How to calculate trait and phylogenetic diversity anyway?</p>
-<ul>
-<li class="fragment">We have some R practice.</li>
-</ul></li>
-</ul>
-</section>
-<section id="about-the-slides" class="slide level2">
-<h2>About the slides</h2>
-<ul>
-<li><p>The slides are made using <a href="https://quarto.org/">Quarto</a> with <a href="https://github.com/emitanaka/talks">Emi Tanaka’s</a> CSS design and <a href="https://github.com/DanyangDai/brownbag_2022_10_11">Danyang Dai’s</a> template.</p></li>
-<li><p>Source code for the slides can be found at <a href="https://github.com/mattocci27/phy-fun-div">mattocci27/phy-fun-div</a></p></li>
-</ul>
 
 </section>
     </div>
