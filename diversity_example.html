@@ -2,19 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Masatoshi Katabuchi">
-<meta name="dcterms.date" content="2025-11-20">
+<meta name="dcterms.date" content="2009-11-08">
 
 <title>Diversity calculation</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -63,17 +69,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="diversity_example_files/libs/clipboard/clipboard.min.js"></script>
 <script src="diversity_example_files/libs/quarto-html/quarto.js" type="module"></script>
 <script src="diversity_example_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="diversity_example_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="diversity_example_files/libs/quarto-html/popper.min.js"></script>
 <script src="diversity_example_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="diversity_example_files/libs/quarto-html/anchor.min.js"></script>
 <link href="diversity_example_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="diversity_example_files/libs/quarto-html/quarto-syntax-highlighting-597958c53c93a607afca12fd375c57ed.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="diversity_example_files/libs/quarto-html/quarto-syntax-highlighting-5c1318cf63eba56dbef7ba16bc7d56f5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="diversity_example_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="diversity_example_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="diversity_example_files/libs/bootstrap/bootstrap-fb27cfe3e56e3275e59520a31e0f097a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="diversity_example_files/libs/bootstrap/bootstrap-7541011211fd8d946d492258e47ef6ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <style>html{ scroll-behavior: smooth; }</style>
-<link href="diversity_example_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<link href="diversity_example_files/libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
 <script src="diversity_example_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="diversity_example_files/libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
 <script src="diversity_example_files/libs/datatables-binding-0.34.0/datatables.js"></script>
@@ -85,7 +90,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="diversity_example_files/libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -176,7 +181,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 20, 2025</p>
+      <p class="date">November 8, 2009</p>
     </div>
   </div>
   
@@ -269,17 +274,19 @@ window.Quarto = {
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"docs"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "/Users/mattocci/Dropbox/5-Tools/ghq/github.com/mattocci27/phy-fun-div/docs"</code></pre>
+<pre><code>[1] "/Users/mattocci/Workspace/1-Projects/phy-fun-div/docs"</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"data/samp.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error: 'data/samp.csv' does not exist in current working directory ('/Users/mattocci/Dropbox/5-Tools/ghq/github.com/mattocci27/phy-fun-div/docs').</code></pre>
+<pre><code>Error:
+! 'data/samp.csv' does not exist in current working directory:
+  '/Users/mattocci/Workspace/1-Projects/phy-fun-div/docs'.</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data/samp.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "/Users/mattocci/Dropbox/5-Tools/ghq/github.com/mattocci27/phy-fun-div/data/samp.csv"</code></pre>
+<pre><code>[1] "/Users/mattocci/Workspace/1-Projects/phy-fun-div/data/samp.csv"</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -318,8 +325,8 @@ window.Quarto = {
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-064afc813af9ef4ee5b3" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-064afc813af9ef4ee5b3">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40"],["Site1","Site1","Site1","Site1","Site1","Site1","Site1","Site1","Site2","Site2","Site2","Site2","Site2","Site2","Site2","Site2","Site3","Site3","Site3","Site3","Site3","Site3","Site3","Site3","Site4","Site4","Site4","Site4","Site4","Site4","Site4","Site4","Site5","Site5","Site5","Site5","Site5","Site5","Site5","Site5"],["Illicium_macranthum","Manglietia_insignis","Michelia_floribunda","Beilschmiedia_robusta","Neolitsea_chuii","Lindera_thomsonii","Actinodaphne_forrestii","Machilus_yunnanensis","Illicium_macranthum","Manglietia_insignis","Michelia_floribunda","Beilschmiedia_robusta","Neolitsea_chuii","Lindera_thomsonii","Actinodaphne_forrestii","Machilus_yunnanensis","Illicium_macranthum","Manglietia_insignis","Michelia_floribunda","Beilschmiedia_robusta","Neolitsea_chuii","Lindera_thomsonii","Actinodaphne_forrestii","Machilus_yunnanensis","Illicium_macranthum","Manglietia_insignis","Michelia_floribunda","Beilschmiedia_robusta","Neolitsea_chuii","Lindera_thomsonii","Actinodaphne_forrestii","Machilus_yunnanensis","Illicium_macranthum","Manglietia_insignis","Michelia_floribunda","Beilschmiedia_robusta","Neolitsea_chuii","Lindera_thomsonii","Actinodaphne_forrestii","Machilus_yunnanensis"],[1,0,0,0,0,0,0,0,1,2,2,2,0,0,0,0,1,0,0,0,0,2,2,2,1,1,0,0,0,2,2,0,1,0,0,0,1,1,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Site<\/th>\n      <th>Species<\/th>\n      <th>abund<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Site","targets":1},{"name":"Species","targets":2},{"name":"abund","targets":3}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-b27e77af4b1cc23642f0" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-b27e77af4b1cc23642f0">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40"],["Site1","Site1","Site1","Site1","Site1","Site1","Site1","Site1","Site2","Site2","Site2","Site2","Site2","Site2","Site2","Site2","Site3","Site3","Site3","Site3","Site3","Site3","Site3","Site3","Site4","Site4","Site4","Site4","Site4","Site4","Site4","Site4","Site5","Site5","Site5","Site5","Site5","Site5","Site5","Site5"],["Illicium_macranthum","Manglietia_insignis","Michelia_floribunda","Beilschmiedia_robusta","Neolitsea_chuii","Lindera_thomsonii","Actinodaphne_forrestii","Machilus_yunnanensis","Illicium_macranthum","Manglietia_insignis","Michelia_floribunda","Beilschmiedia_robusta","Neolitsea_chuii","Lindera_thomsonii","Actinodaphne_forrestii","Machilus_yunnanensis","Illicium_macranthum","Manglietia_insignis","Michelia_floribunda","Beilschmiedia_robusta","Neolitsea_chuii","Lindera_thomsonii","Actinodaphne_forrestii","Machilus_yunnanensis","Illicium_macranthum","Manglietia_insignis","Michelia_floribunda","Beilschmiedia_robusta","Neolitsea_chuii","Lindera_thomsonii","Actinodaphne_forrestii","Machilus_yunnanensis","Illicium_macranthum","Manglietia_insignis","Michelia_floribunda","Beilschmiedia_robusta","Neolitsea_chuii","Lindera_thomsonii","Actinodaphne_forrestii","Machilus_yunnanensis"],[1,0,0,0,0,0,0,0,1,2,2,2,0,0,0,0,1,0,0,0,0,2,2,2,1,1,0,0,0,2,2,0,1,0,0,0,1,1,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Site<\/th>\n      <th>Species<\/th>\n      <th>abund<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Site","targets":1},{"name":"Species","targets":2},{"name":"abund","targets":3}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Then, we want to make a species <span class="math inline">\(\times\)</span> site matrix. <code>tapply</code> is a useful function here.</p>
@@ -441,8 +448,8 @@ Site5                   0               1</code></pre>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(trait)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-f2645fe63bcf3b807227" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-f2645fe63bcf3b807227">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77"],["Acer_campbellii","Actinodaphne_forrestii","Alnus_nepalensis","Anneslea_fragrans","Beilschmiedia_robusta","Betula_alnoides","Camellia_Pitardii","Camellia_assamica","Camellia_forrestii","Camellia_yunnanensis","Castanopsis_echidnocarpa","Castanopsis_wattii","Claoxylon_khasianum","Craibiodendron_yunnanense","Cyclobalanopsis_stewardiana","Eriobotrya_bengalensis","Eriobotrya_tengyuehensis","Eurya_paratetragonoclada","Eurya_quinquelocularis","Eurya_trichocarpa","Exbucklandia_populnea","Ficus_henryi","Ficus_heteromorpha","Ficus_racemosa","Glochidion_a","Ilex_corallina","Ilex_manneiensis","Illicium_macranthum","Itoa_orientalis","Laurocerasus_undulata","Leucosceptrum_canum","Lindera_caudata","Lindera_thomsonii","Lithocarpus_confinis","Lithocarpus_crassifolius","Lithocarpus_dealbatus","Lithocarpus_hancei","Lithocarpus_henryi","Lithocarpus_truncatus","Lithocarpus_xylocarpus","Litsea_a","Litsea_chunii","Litsea_elongata","Machilus_gamblei","Machilus_salicina","Machilus_yunnanensis","Mahonia_duclouxiana","Manglietia_insignis","Melia_toosendan","Meliosma_arnottiana","Meliosma_kirkii","Michelia_floribunda","Myrsine_semiserrata","Neolitsea_chuii","Neolitsea_polycarpa","Olea_rosea","Osbeckia_mepalensis","Padus_napaulensis","Rhododendron_decorum","Rhododendron_irroratum","Rhododendron_leptothrium","Rhus_sylvestris","Saurauia_napaulensis","Schefflera_fengii","Schefflera_shweliensis","Schima_argentea","Schima_noronhae","Skimmia_arborescens","Sterculia_nobilis","Stewartia_pteropetiolata","Stewartia_yunnanensis","Symplocos_anomala","Symplocos_grandis","Symplocos_ramosissima","Symplocos_sumuntia","Ternstroemia_gymnanthera","Vaccinium_duclouxii"],[144.54,48.98,162.18,63.1,21.38,141.25,281.84,61.66,70.79000000000001,64.56999999999999,162.18,194.98,275.42,46.77,141.25,218.78,204.17,83.18000000000001,91.2,70.79000000000001,141.25,295.12,676.08,234.42,165.96,63.1,85.11,120.23,95.5,95.5,52.48,26.92,47.86,162.18,169.82,218.78,257.04,100,190.55,66.06999999999999,52.48,60.26,58.88,53.7,38.02,46.77,169.82,134.9,147.91,117.49,58.88,87.09999999999999,64.56999999999999,44.67,43.65,43.65,138.04,128.82,38.02,57.54,45.71,380.19,123.03,87.09999999999999,186.21,89.13,102.33,275.42,169.82,128.82,72.44,91.2,131.83,117.49,95.5,67.61,54.95],[2.17,2.59,24,2.47,2.78,10.87,32.73,4.54,5.14,1.22,24.39,20.45,49.16,1.23,1.44,6.34,9.550000000000001,2.7,6.57,34.06,27.32,58.5,166.53,6.05,3.92,1.05,9.44,0.72,2.53,23.01,2.96,1.17,0.5,4.39,17,8.66,8.359999999999999,3.58,47.02,2.36,2.07,18.83,2.03,0.6899999999999999,5.95,3.66,3.22,4,2.24,5.76,0.87,3.09,2.76,0.98,14.9,8.34,6.63,8.99,2.79,1.27,1.34,7.5,9.27,6.42,1.3,3.41,5.65,35.39,4.25,22.72,0.92,1.18,5.88,3.97,47.82,3.7,12.1],[70.29000000000001,299.43,20.47,178.39,231,31.16,42.46,266.38,131.53,178.25,69.59999999999999,88.56,26.18,606.91,41.75,41.65,49.9,48.94,212.45,260.3,23.61,14.96,8.279999999999999,69.59999999999999,96.09,245.49,121.63,90.15000000000001,60.82,48.6,176.17,905.9,473.73,106.39,46.62,72.38,120.5,60.03,28.85,145.39,427.26,566.87,147.09,98.37,292.57,351.05,32.72,100.21,85.08,94.98999999999999,126.98,107.48,76.7,115.85,87.29000000000001,162.38,82.08,55.96,245.84,61.06,241.12,8.41,65.06,90.23999999999999,103.92,120.44,87.78,23.07,64.01000000000001,145.37,576.79,136.94,66.13,107.36,55.5,184.67,94.69],[5.35,70.54000000000001,8.81,35.03,35.38,7.72,2.2,32.44,15.37,17.13,13.24,7.17,1.8,35.37,8.859999999999999,9.23,8.92,10.27,6.69,27.63,9.119999999999999,7.12,2.91,4.39,9.609999999999999,26.26,18.76,7.44,53.19,8.25,14.25,21.19,44.03,9.359999999999999,7.79,4.29,7.17,13.05,5.96,17.93,33.33,24.98,24.82,18.19,41.17,18.61,13.28,24.91,6.6,17.47,32.76,13.98,3.89,34.22,16.9,50.26,5.31,30.46,22.16,72,20.17,1.18,11.88,18.01,5.9,12.66,9.699999999999999,14.75,6.09,12.98,18.77,8.73,2.91,7.19,17,16.76,18.91],[1.48,3.76,1.32,3.34,7.77,0.55,0.43,3.32,2.73,4.23,2.31,1.51,0.49,6.18,0.51,1.8,0.8100000000000001,1.37,2.03,1.99,0.74,2.2,0.3,1.37,0.6899999999999999,5.16,1.72,0.91,3.42,1.1,2.6,4.16,4.8,2.47,1.1,1.02,0.61,1.6,3.09,3.31,3.37,1.65,3.57,2.12,5.32,2.11,0.45,0.66,1.86,0.83,4.45,2.57,3.31,2.43,3.19,5.3,0.72,1.33,10.49,6.89,2.48,0.19,2.18,2.46,0.77,3.8,0.63,0.66,0.64,1.36,3.66,6.41,2.35,1.83,0.91,4.32,2.18],[0.09,0.16,0.1,0.06,0.62,0.12,0.04,0.11,0.33,0.21,0.04,0.08,0.02,0.21,0.07000000000000001,0.05,0.02,0.39,0.15,0.08,0.22,0.03,0.01,0.06,0.04,0.22,0.42,0.04,0.07000000000000001,0.17,0.16,0.36,0.24,0.03,0.06,0.06,0.02,0.07000000000000001,0.22,0.12,0.11,0.14,0.08,0.14,0.46,0.66,0.15,0.06,0.05,0.15,0.45,0.13,0.6,0.43,0.36,0.2,0.06,0.02,0.15,0.24,0.53,0.03,0.15,0.16,0.05,0.1,0.1,0.11,0.07000000000000001,0.1,0.1,0.11,0.12,0.12,0.18,0.36,0.22],[0.68,0.6899999999999999,0.65,0.57,0.46,0.44,0.52,0.62,0.88,0.66,0.57,0.54,0.68,0.59,0.92,0.6899999999999999,0.82,0.55,0.51,0.48,0.76,0.68,0.52,0.5,0.73,0.57,0.47,0.78,0.6899999999999999,0.67,0.57,0.66,0.59,0.64,0.55,0.54,0.48,0.49,0.47,0.64,0.44,0.6,0.78,0.46,0.57,0.48,0.59,0.83,0.5600000000000001,0.58,0.46,0.43,0.68,0.5600000000000001,0.55,0.5,0.67,0.51,0.85,0.82,0.8100000000000001,0.62,0.32,0.63,0.59,0.62,0.52,0.55,0.79,0.62,0.72,0.61,0.63,0.6,0.78,0.64,0.72],[0.87,0.75,6.36,3.62,0.4,4.11,4.05,0.91,0.32,2.02,3.18,14.19,1.59,1.14,4.84,1.74,1.72,1.92,2.71,0.36,1.4,2.91,0.36,1.12,0.59,2.92,2,2.03,8.380000000000001,1.6,1.23,8.01,6.6,5.93,0.25,1.15,0.62,18.29,0.82,15.07,1.52,0.66,2.75,2.35,1.06,1.36,0.47,0.92,1.45,0.59,7.65,0.58,1.47,0.96,1.89,0.9,0.57,2.92,1.39,1.79,2.67,1.57,0.61,1.65,0.8,1.65,0.19,4.92,1.52,6.5,1.65,0.3,1.18,0.66,1.12,0.6,0.82]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>sp<\/th>\n      <th>lma<\/th>\n      <th>ll<\/th>\n      <th>a_mass<\/th>\n      <th>r_mass<\/th>\n      <th>n_mass<\/th>\n      <th>p_mass<\/th>\n      <th>wd<\/th>\n      <th>sm<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"sp","targets":1},{"name":"lma","targets":2},{"name":"ll","targets":3},{"name":"a_mass","targets":4},{"name":"r_mass","targets":5},{"name":"n_mass","targets":6},{"name":"p_mass","targets":7},{"name":"wd","targets":8},{"name":"sm","targets":9}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-b4d6abc05612b70060e1" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-b4d6abc05612b70060e1">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77"],["Acer_campbellii","Actinodaphne_forrestii","Alnus_nepalensis","Anneslea_fragrans","Beilschmiedia_robusta","Betula_alnoides","Camellia_Pitardii","Camellia_assamica","Camellia_forrestii","Camellia_yunnanensis","Castanopsis_echidnocarpa","Castanopsis_wattii","Claoxylon_khasianum","Craibiodendron_yunnanense","Cyclobalanopsis_stewardiana","Eriobotrya_bengalensis","Eriobotrya_tengyuehensis","Eurya_paratetragonoclada","Eurya_quinquelocularis","Eurya_trichocarpa","Exbucklandia_populnea","Ficus_henryi","Ficus_heteromorpha","Ficus_racemosa","Glochidion_a","Ilex_corallina","Ilex_manneiensis","Illicium_macranthum","Itoa_orientalis","Laurocerasus_undulata","Leucosceptrum_canum","Lindera_caudata","Lindera_thomsonii","Lithocarpus_confinis","Lithocarpus_crassifolius","Lithocarpus_dealbatus","Lithocarpus_hancei","Lithocarpus_henryi","Lithocarpus_truncatus","Lithocarpus_xylocarpus","Litsea_a","Litsea_chunii","Litsea_elongata","Machilus_gamblei","Machilus_salicina","Machilus_yunnanensis","Mahonia_duclouxiana","Manglietia_insignis","Melia_toosendan","Meliosma_arnottiana","Meliosma_kirkii","Michelia_floribunda","Myrsine_semiserrata","Neolitsea_chuii","Neolitsea_polycarpa","Olea_rosea","Osbeckia_mepalensis","Padus_napaulensis","Rhododendron_decorum","Rhododendron_irroratum","Rhododendron_leptothrium","Rhus_sylvestris","Saurauia_napaulensis","Schefflera_fengii","Schefflera_shweliensis","Schima_argentea","Schima_noronhae","Skimmia_arborescens","Sterculia_nobilis","Stewartia_pteropetiolata","Stewartia_yunnanensis","Symplocos_anomala","Symplocos_grandis","Symplocos_ramosissima","Symplocos_sumuntia","Ternstroemia_gymnanthera","Vaccinium_duclouxii"],[144.54,48.98,162.18,63.1,21.38,141.25,281.84,61.66,70.79000000000001,64.56999999999999,162.18,194.98,275.42,46.77,141.25,218.78,204.17,83.18000000000001,91.2,70.79000000000001,141.25,295.12,676.08,234.42,165.96,63.1,85.11,120.23,95.5,95.5,52.48,26.92,47.86,162.18,169.82,218.78,257.04,100,190.55,66.06999999999999,52.48,60.26,58.88,53.7,38.02,46.77,169.82,134.9,147.91,117.49,58.88,87.09999999999999,64.56999999999999,44.67,43.65,43.65,138.04,128.82,38.02,57.54,45.71,380.19,123.03,87.09999999999999,186.21,89.13,102.33,275.42,169.82,128.82,72.44,91.2,131.83,117.49,95.5,67.61,54.95],[2.17,2.59,24,2.47,2.78,10.87,32.73,4.54,5.14,1.22,24.39,20.45,49.16,1.23,1.44,6.34,9.550000000000001,2.7,6.57,34.06,27.32,58.5,166.53,6.05,3.92,1.05,9.44,0.72,2.53,23.01,2.96,1.17,0.5,4.39,17,8.66,8.359999999999999,3.58,47.02,2.36,2.07,18.83,2.03,0.6899999999999999,5.95,3.66,3.22,4,2.24,5.76,0.87,3.09,2.76,0.98,14.9,8.34,6.63,8.99,2.79,1.27,1.34,7.5,9.27,6.42,1.3,3.41,5.65,35.39,4.25,22.72,0.92,1.18,5.88,3.97,47.82,3.7,12.1],[70.29000000000001,299.43,20.47,178.39,231,31.16,42.46,266.38,131.53,178.25,69.59999999999999,88.56,26.18,606.91,41.75,41.65,49.9,48.94,212.45,260.3,23.61,14.96,8.279999999999999,69.59999999999999,96.09,245.49,121.63,90.15000000000001,60.82,48.6,176.17,905.9,473.73,106.39,46.62,72.38,120.5,60.03,28.85,145.39,427.26,566.87,147.09,98.37,292.57,351.05,32.72,100.21,85.08,94.98999999999999,126.98,107.48,76.7,115.85,87.29000000000001,162.38,82.08,55.96,245.84,61.06,241.12,8.41,65.06,90.23999999999999,103.92,120.44,87.78,23.07,64.01000000000001,145.37,576.79,136.94,66.13,107.36,55.5,184.67,94.69],[5.35,70.54000000000001,8.81,35.03,35.38,7.72,2.2,32.44,15.37,17.13,13.24,7.17,1.8,35.37,8.859999999999999,9.23,8.92,10.27,6.69,27.63,9.119999999999999,7.12,2.91,4.39,9.609999999999999,26.26,18.76,7.44,53.19,8.25,14.25,21.19,44.03,9.359999999999999,7.79,4.29,7.17,13.05,5.96,17.93,33.33,24.98,24.82,18.19,41.17,18.61,13.28,24.91,6.6,17.47,32.76,13.98,3.89,34.22,16.9,50.26,5.31,30.46,22.16,72,20.17,1.18,11.88,18.01,5.9,12.66,9.699999999999999,14.75,6.09,12.98,18.77,8.73,2.91,7.19,17,16.76,18.91],[1.48,3.76,1.32,3.34,7.77,0.55,0.43,3.32,2.73,4.23,2.31,1.51,0.49,6.18,0.51,1.8,0.8100000000000001,1.37,2.03,1.99,0.74,2.2,0.3,1.37,0.6899999999999999,5.16,1.72,0.91,3.42,1.1,2.6,4.16,4.8,2.47,1.1,1.02,0.61,1.6,3.09,3.31,3.37,1.65,3.57,2.12,5.32,2.11,0.45,0.66,1.86,0.83,4.45,2.57,3.31,2.43,3.19,5.3,0.72,1.33,10.49,6.89,2.48,0.19,2.18,2.46,0.77,3.8,0.63,0.66,0.64,1.36,3.66,6.41,2.35,1.83,0.91,4.32,2.18],[0.09,0.16,0.1,0.06,0.62,0.12,0.04,0.11,0.33,0.21,0.04,0.08,0.02,0.21,0.07000000000000001,0.05,0.02,0.39,0.15,0.08,0.22,0.03,0.01,0.06,0.04,0.22,0.42,0.04,0.07000000000000001,0.17,0.16,0.36,0.24,0.03,0.06,0.06,0.02,0.07000000000000001,0.22,0.12,0.11,0.14,0.08,0.14,0.46,0.66,0.15,0.06,0.05,0.15,0.45,0.13,0.6,0.43,0.36,0.2,0.06,0.02,0.15,0.24,0.53,0.03,0.15,0.16,0.05,0.1,0.1,0.11,0.07000000000000001,0.1,0.1,0.11,0.12,0.12,0.18,0.36,0.22],[0.68,0.6899999999999999,0.65,0.57,0.46,0.44,0.52,0.62,0.88,0.66,0.57,0.54,0.68,0.59,0.92,0.6899999999999999,0.82,0.55,0.51,0.48,0.76,0.68,0.52,0.5,0.73,0.57,0.47,0.78,0.6899999999999999,0.67,0.57,0.66,0.59,0.64,0.55,0.54,0.48,0.49,0.47,0.64,0.44,0.6,0.78,0.46,0.57,0.48,0.59,0.83,0.5600000000000001,0.58,0.46,0.43,0.68,0.5600000000000001,0.55,0.5,0.67,0.51,0.85,0.82,0.8100000000000001,0.62,0.32,0.63,0.59,0.62,0.52,0.55,0.79,0.62,0.72,0.61,0.63,0.6,0.78,0.64,0.72],[0.87,0.75,6.36,3.62,0.4,4.11,4.05,0.91,0.32,2.02,3.18,14.19,1.59,1.14,4.84,1.74,1.72,1.92,2.71,0.36,1.4,2.91,0.36,1.12,0.59,2.92,2,2.03,8.380000000000001,1.6,1.23,8.01,6.6,5.93,0.25,1.15,0.62,18.29,0.82,15.07,1.52,0.66,2.75,2.35,1.06,1.36,0.47,0.92,1.45,0.59,7.65,0.58,1.47,0.96,1.89,0.9,0.57,2.92,1.39,1.79,2.67,1.57,0.61,1.65,0.8,1.65,0.19,4.92,1.52,6.5,1.65,0.3,1.18,0.66,1.12,0.6,0.82]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>sp<\/th>\n      <th>lma<\/th>\n      <th>ll<\/th>\n      <th>a_mass<\/th>\n      <th>r_mass<\/th>\n      <th>n_mass<\/th>\n      <th>p_mass<\/th>\n      <th>wd<\/th>\n      <th>sm<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"sp","targets":1},{"name":"lma","targets":2},{"name":"ll","targets":3},{"name":"a_mass","targets":4},{"name":"r_mass","targets":5},{"name":"n_mass","targets":6},{"name":"p_mass","targets":7},{"name":"wd","targets":8},{"name":"sm","targets":9}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -494,8 +501,8 @@ Site5                   0               1</code></pre>
 <span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span> <span class="fu">round</span>(., <span class="dv">2</span>))) <span class="sc">|&gt;</span></span>
 <span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">datatable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-d948d848ded2b9585bf5" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-d948d848ded2b9585bf5">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77"],["Acer_campbellii","Actinodaphne_forrestii","Alnus_nepalensis","Anneslea_fragrans","Beilschmiedia_robusta","Betula_alnoides","Camellia_Pitardii","Camellia_assamica","Camellia_forrestii","Camellia_yunnanensis","Castanopsis_echidnocarpa","Castanopsis_wattii","Claoxylon_khasianum","Craibiodendron_yunnanense","Cyclobalanopsis_stewardiana","Eriobotrya_bengalensis","Eriobotrya_tengyuehensis","Eurya_paratetragonoclada","Eurya_quinquelocularis","Eurya_trichocarpa","Exbucklandia_populnea","Ficus_henryi","Ficus_heteromorpha","Ficus_racemosa","Glochidion_a","Ilex_corallina","Ilex_manneiensis","Illicium_macranthum","Itoa_orientalis","Laurocerasus_undulata","Leucosceptrum_canum","Lindera_caudata","Lindera_thomsonii","Lithocarpus_confinis","Lithocarpus_crassifolius","Lithocarpus_dealbatus","Lithocarpus_hancei","Lithocarpus_henryi","Lithocarpus_truncatus","Lithocarpus_xylocarpus","Litsea_a","Litsea_chunii","Litsea_elongata","Machilus_gamblei","Machilus_salicina","Machilus_yunnanensis","Mahonia_duclouxiana","Manglietia_insignis","Melia_toosendan","Meliosma_arnottiana","Meliosma_kirkii","Michelia_floribunda","Myrsine_semiserrata","Neolitsea_chuii","Neolitsea_polycarpa","Olea_rosea","Osbeckia_mepalensis","Padus_napaulensis","Rhododendron_decorum","Rhododendron_irroratum","Rhododendron_leptothrium","Rhus_sylvestris","Saurauia_napaulensis","Schefflera_fengii","Schefflera_shweliensis","Schima_argentea","Schima_noronhae","Skimmia_arborescens","Sterculia_nobilis","Stewartia_pteropetiolata","Stewartia_yunnanensis","Symplocos_anomala","Symplocos_grandis","Symplocos_ramosissima","Symplocos_sumuntia","Ternstroemia_gymnanthera","Vaccinium_duclouxii"],[4.97,3.89,5.09,4.14,3.06,4.95,5.64,4.12,4.26,4.17,5.09,5.27,5.62,3.85,4.95,5.39,5.32,4.42,4.51,4.26,4.95,5.69,6.52,5.46,5.11,4.14,4.44,4.79,4.56,4.56,3.96,3.29,3.87,5.09,5.13,5.39,5.55,4.61,5.25,4.19,3.96,4.1,4.08,3.98,3.64,3.85,5.13,4.9,5,4.77,4.08,4.47,4.17,3.8,3.78,3.78,4.93,4.86,3.64,4.05,3.82,5.94,4.81,4.47,5.23,4.49,4.63,5.62,5.13,4.86,4.28,4.51,4.88,4.77,4.56,4.21,4.01],[0.77,0.95,3.18,0.9,1.02,2.39,3.49,1.51,1.64,0.2,3.19,3.02,3.9,0.21,0.36,1.85,2.26,0.99,1.88,3.53,3.31,4.07,5.12,1.8,1.37,0.05,2.24,-0.33,0.93,3.14,1.09,0.16,-0.6899999999999999,1.48,2.83,2.16,2.12,1.28,3.85,0.86,0.73,2.94,0.71,-0.37,1.78,1.3,1.17,1.39,0.8100000000000001,1.75,-0.14,1.13,1.02,-0.02,2.7,2.12,1.89,2.2,1.03,0.24,0.29,2.01,2.23,1.86,0.26,1.23,1.73,3.57,1.45,3.12,-0.08,0.17,1.77,1.38,3.87,1.31,2.49],[4.25,5.7,3.02,5.18,5.44,3.44,3.75,5.58,4.88,5.18,4.24,4.48,3.26,6.41,3.73,3.73,3.91,3.89,5.36,5.56,3.16,2.71,2.11,4.24,4.57,5.5,4.8,4.5,4.11,3.88,5.17,6.81,6.16,4.67,3.84,4.28,4.79,4.09,3.36,4.98,6.06,6.34,4.99,4.59,5.68,5.86,3.49,4.61,4.44,4.55,4.84,4.68,4.34,4.75,4.47,5.09,4.41,4.02,5.5,4.11,5.49,2.13,4.18,4.5,4.64,4.79,4.47,3.14,4.16,4.98,6.36,4.92,4.19,4.68,4.02,5.22,4.55],[1.68,4.26,2.18,3.56,3.57,2.04,0.79,3.48,2.73,2.84,2.58,1.97,0.59,3.57,2.18,2.22,2.19,2.33,1.9,3.32,2.21,1.96,1.07,1.48,2.26,3.27,2.93,2.01,3.97,2.11,2.66,3.05,3.78,2.24,2.05,1.46,1.97,2.57,1.79,2.89,3.51,3.22,3.21,2.9,3.72,2.92,2.59,3.22,1.89,2.86,3.49,2.64,1.36,3.53,2.83,3.92,1.67,3.42,3.1,4.28,3,0.17,2.47,2.89,1.77,2.54,2.27,2.69,1.81,2.56,2.93,2.17,1.07,1.97,2.83,2.82,2.94],[0.39,1.32,0.28,1.21,2.05,-0.6,-0.84,1.2,1,1.44,0.84,0.41,-0.71,1.82,-0.67,0.59,-0.21,0.31,0.71,0.6899999999999999,-0.3,0.79,-1.2,0.31,-0.37,1.64,0.54,-0.09,1.23,0.1,0.96,1.43,1.57,0.9,0.1,0.02,-0.49,0.47,1.13,1.2,1.21,0.5,1.27,0.75,1.67,0.75,-0.8,-0.42,0.62,-0.19,1.49,0.9399999999999999,1.2,0.89,1.16,1.67,-0.33,0.29,2.35,1.93,0.91,-1.66,0.78,0.9,-0.26,1.34,-0.46,-0.42,-0.45,0.31,1.3,1.86,0.85,0.6,-0.09,1.46,0.78],[-2.41,-1.83,-2.3,-2.81,-0.48,-2.12,-3.22,-2.21,-1.11,-1.56,-3.22,-2.53,-3.91,-1.56,-2.66,-3,-3.91,-0.9399999999999999,-1.9,-2.53,-1.51,-3.51,-4.61,-2.81,-3.22,-1.51,-0.87,-3.22,-2.66,-1.77,-1.83,-1.02,-1.43,-3.51,-2.81,-2.81,-3.91,-2.66,-1.51,-2.12,-2.21,-1.97,-2.53,-1.97,-0.78,-0.42,-1.9,-2.81,-3,-1.9,-0.8,-2.04,-0.51,-0.84,-1.02,-1.61,-2.81,-3.91,-1.9,-1.43,-0.63,-3.51,-1.9,-1.83,-3,-2.3,-2.3,-2.21,-2.66,-2.3,-2.3,-2.21,-2.12,-2.12,-1.71,-1.02,-1.51],[0.68,0.6899999999999999,0.65,0.57,0.46,0.44,0.52,0.62,0.88,0.66,0.57,0.54,0.68,0.59,0.92,0.6899999999999999,0.82,0.55,0.51,0.48,0.76,0.68,0.52,0.5,0.73,0.57,0.47,0.78,0.6899999999999999,0.67,0.57,0.66,0.59,0.64,0.55,0.54,0.48,0.49,0.47,0.64,0.44,0.6,0.78,0.46,0.57,0.48,0.59,0.83,0.5600000000000001,0.58,0.46,0.43,0.68,0.5600000000000001,0.55,0.5,0.67,0.51,0.85,0.82,0.8100000000000001,0.62,0.32,0.63,0.59,0.62,0.52,0.55,0.79,0.62,0.72,0.61,0.63,0.6,0.78,0.64,0.72],[-0.14,-0.29,1.85,1.29,-0.92,1.41,1.4,-0.09,-1.14,0.7,1.16,2.65,0.46,0.13,1.58,0.55,0.54,0.65,1,-1.02,0.34,1.07,-1.02,0.11,-0.53,1.07,0.6899999999999999,0.71,2.13,0.47,0.21,2.08,1.89,1.78,-1.39,0.14,-0.48,2.91,-0.2,2.71,0.42,-0.42,1.01,0.85,0.06,0.31,-0.76,-0.08,0.37,-0.53,2.03,-0.54,0.39,-0.04,0.64,-0.11,-0.5600000000000001,1.07,0.33,0.58,0.98,0.45,-0.49,0.5,-0.22,0.5,-1.66,1.59,0.42,1.87,0.5,-1.2,0.17,-0.42,0.11,-0.51,-0.2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>sp<\/th>\n      <th>log_lma<\/th>\n      <th>log_ll<\/th>\n      <th>log_a_mass<\/th>\n      <th>log_r_mass<\/th>\n      <th>log_n_mass<\/th>\n      <th>log_p_mass<\/th>\n      <th>wd<\/th>\n      <th>log_sm<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"sp","targets":1},{"name":"log_lma","targets":2},{"name":"log_ll","targets":3},{"name":"log_a_mass","targets":4},{"name":"log_r_mass","targets":5},{"name":"log_n_mass","targets":6},{"name":"log_p_mass","targets":7},{"name":"wd","targets":8},{"name":"log_sm","targets":9}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-8f029af47fd62f3a78cf" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-8f029af47fd62f3a78cf">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77"],["Acer_campbellii","Actinodaphne_forrestii","Alnus_nepalensis","Anneslea_fragrans","Beilschmiedia_robusta","Betula_alnoides","Camellia_Pitardii","Camellia_assamica","Camellia_forrestii","Camellia_yunnanensis","Castanopsis_echidnocarpa","Castanopsis_wattii","Claoxylon_khasianum","Craibiodendron_yunnanense","Cyclobalanopsis_stewardiana","Eriobotrya_bengalensis","Eriobotrya_tengyuehensis","Eurya_paratetragonoclada","Eurya_quinquelocularis","Eurya_trichocarpa","Exbucklandia_populnea","Ficus_henryi","Ficus_heteromorpha","Ficus_racemosa","Glochidion_a","Ilex_corallina","Ilex_manneiensis","Illicium_macranthum","Itoa_orientalis","Laurocerasus_undulata","Leucosceptrum_canum","Lindera_caudata","Lindera_thomsonii","Lithocarpus_confinis","Lithocarpus_crassifolius","Lithocarpus_dealbatus","Lithocarpus_hancei","Lithocarpus_henryi","Lithocarpus_truncatus","Lithocarpus_xylocarpus","Litsea_a","Litsea_chunii","Litsea_elongata","Machilus_gamblei","Machilus_salicina","Machilus_yunnanensis","Mahonia_duclouxiana","Manglietia_insignis","Melia_toosendan","Meliosma_arnottiana","Meliosma_kirkii","Michelia_floribunda","Myrsine_semiserrata","Neolitsea_chuii","Neolitsea_polycarpa","Olea_rosea","Osbeckia_mepalensis","Padus_napaulensis","Rhododendron_decorum","Rhododendron_irroratum","Rhododendron_leptothrium","Rhus_sylvestris","Saurauia_napaulensis","Schefflera_fengii","Schefflera_shweliensis","Schima_argentea","Schima_noronhae","Skimmia_arborescens","Sterculia_nobilis","Stewartia_pteropetiolata","Stewartia_yunnanensis","Symplocos_anomala","Symplocos_grandis","Symplocos_ramosissima","Symplocos_sumuntia","Ternstroemia_gymnanthera","Vaccinium_duclouxii"],[4.97,3.89,5.09,4.14,3.06,4.95,5.64,4.12,4.26,4.17,5.09,5.27,5.62,3.85,4.95,5.39,5.32,4.42,4.51,4.26,4.95,5.69,6.52,5.46,5.11,4.14,4.44,4.79,4.56,4.56,3.96,3.29,3.87,5.09,5.13,5.39,5.55,4.61,5.25,4.19,3.96,4.1,4.08,3.98,3.64,3.85,5.13,4.9,5,4.77,4.08,4.47,4.17,3.8,3.78,3.78,4.93,4.86,3.64,4.05,3.82,5.94,4.81,4.47,5.23,4.49,4.63,5.62,5.13,4.86,4.28,4.51,4.88,4.77,4.56,4.21,4.01],[0.77,0.95,3.18,0.9,1.02,2.39,3.49,1.51,1.64,0.2,3.19,3.02,3.9,0.21,0.36,1.85,2.26,0.99,1.88,3.53,3.31,4.07,5.12,1.8,1.37,0.05,2.24,-0.33,0.93,3.14,1.09,0.16,-0.6899999999999999,1.48,2.83,2.16,2.12,1.28,3.85,0.86,0.73,2.94,0.71,-0.37,1.78,1.3,1.17,1.39,0.8100000000000001,1.75,-0.14,1.13,1.02,-0.02,2.7,2.12,1.89,2.2,1.03,0.24,0.29,2.01,2.23,1.86,0.26,1.23,1.73,3.57,1.45,3.12,-0.08,0.17,1.77,1.38,3.87,1.31,2.49],[4.25,5.7,3.02,5.18,5.44,3.44,3.75,5.58,4.88,5.18,4.24,4.48,3.26,6.41,3.73,3.73,3.91,3.89,5.36,5.56,3.16,2.71,2.11,4.24,4.57,5.5,4.8,4.5,4.11,3.88,5.17,6.81,6.16,4.67,3.84,4.28,4.79,4.09,3.36,4.98,6.06,6.34,4.99,4.59,5.68,5.86,3.49,4.61,4.44,4.55,4.84,4.68,4.34,4.75,4.47,5.09,4.41,4.02,5.5,4.11,5.49,2.13,4.18,4.5,4.64,4.79,4.47,3.14,4.16,4.98,6.36,4.92,4.19,4.68,4.02,5.22,4.55],[1.68,4.26,2.18,3.56,3.57,2.04,0.79,3.48,2.73,2.84,2.58,1.97,0.59,3.57,2.18,2.22,2.19,2.33,1.9,3.32,2.21,1.96,1.07,1.48,2.26,3.27,2.93,2.01,3.97,2.11,2.66,3.05,3.78,2.24,2.05,1.46,1.97,2.57,1.79,2.89,3.51,3.22,3.21,2.9,3.72,2.92,2.59,3.22,1.89,2.86,3.49,2.64,1.36,3.53,2.83,3.92,1.67,3.42,3.1,4.28,3,0.17,2.47,2.89,1.77,2.54,2.27,2.69,1.81,2.56,2.93,2.17,1.07,1.97,2.83,2.82,2.94],[0.39,1.32,0.28,1.21,2.05,-0.6,-0.84,1.2,1,1.44,0.84,0.41,-0.71,1.82,-0.67,0.59,-0.21,0.31,0.71,0.6899999999999999,-0.3,0.79,-1.2,0.31,-0.37,1.64,0.54,-0.09,1.23,0.1,0.96,1.43,1.57,0.9,0.1,0.02,-0.49,0.47,1.13,1.2,1.21,0.5,1.27,0.75,1.67,0.75,-0.8,-0.42,0.62,-0.19,1.49,0.9399999999999999,1.2,0.89,1.16,1.67,-0.33,0.29,2.35,1.93,0.91,-1.66,0.78,0.9,-0.26,1.34,-0.46,-0.42,-0.45,0.31,1.3,1.86,0.85,0.6,-0.09,1.46,0.78],[-2.41,-1.83,-2.3,-2.81,-0.48,-2.12,-3.22,-2.21,-1.11,-1.56,-3.22,-2.53,-3.91,-1.56,-2.66,-3,-3.91,-0.9399999999999999,-1.9,-2.53,-1.51,-3.51,-4.61,-2.81,-3.22,-1.51,-0.87,-3.22,-2.66,-1.77,-1.83,-1.02,-1.43,-3.51,-2.81,-2.81,-3.91,-2.66,-1.51,-2.12,-2.21,-1.97,-2.53,-1.97,-0.78,-0.42,-1.9,-2.81,-3,-1.9,-0.8,-2.04,-0.51,-0.84,-1.02,-1.61,-2.81,-3.91,-1.9,-1.43,-0.63,-3.51,-1.9,-1.83,-3,-2.3,-2.3,-2.21,-2.66,-2.3,-2.3,-2.21,-2.12,-2.12,-1.71,-1.02,-1.51],[0.68,0.6899999999999999,0.65,0.57,0.46,0.44,0.52,0.62,0.88,0.66,0.57,0.54,0.68,0.59,0.92,0.6899999999999999,0.82,0.55,0.51,0.48,0.76,0.68,0.52,0.5,0.73,0.57,0.47,0.78,0.6899999999999999,0.67,0.57,0.66,0.59,0.64,0.55,0.54,0.48,0.49,0.47,0.64,0.44,0.6,0.78,0.46,0.57,0.48,0.59,0.83,0.5600000000000001,0.58,0.46,0.43,0.68,0.5600000000000001,0.55,0.5,0.67,0.51,0.85,0.82,0.8100000000000001,0.62,0.32,0.63,0.59,0.62,0.52,0.55,0.79,0.62,0.72,0.61,0.63,0.6,0.78,0.64,0.72],[-0.14,-0.29,1.85,1.29,-0.92,1.41,1.4,-0.09,-1.14,0.7,1.16,2.65,0.46,0.13,1.58,0.55,0.54,0.65,1,-1.02,0.34,1.07,-1.02,0.11,-0.53,1.07,0.6899999999999999,0.71,2.13,0.47,0.21,2.08,1.89,1.78,-1.39,0.14,-0.48,2.91,-0.2,2.71,0.42,-0.42,1.01,0.85,0.06,0.31,-0.76,-0.08,0.37,-0.53,2.03,-0.54,0.39,-0.04,0.64,-0.11,-0.5600000000000001,1.07,0.33,0.58,0.98,0.45,-0.49,0.5,-0.22,0.5,-1.66,1.59,0.42,1.87,0.5,-1.2,0.17,-0.42,0.11,-0.51,-0.2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>sp<\/th>\n      <th>log_lma<\/th>\n      <th>log_ll<\/th>\n      <th>log_a_mass<\/th>\n      <th>log_r_mass<\/th>\n      <th>log_n_mass<\/th>\n      <th>log_p_mass<\/th>\n      <th>wd<\/th>\n      <th>log_sm<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"sp","targets":1},{"name":"log_lma","targets":2},{"name":"log_ll","targets":3},{"name":"log_a_mass","targets":4},{"name":"log_r_mass","targets":5},{"name":"log_n_mass","targets":6},{"name":"log_p_mass","targets":7},{"name":"wd","targets":8},{"name":"log_sm","targets":9}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
@@ -581,43 +588,39 @@ Site5               FALSE            TRUE</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Run 0 stress 0 
 Run 1 stress 0 
-... Procrustes: rmse 0.08046426  max resid 0.1329054 
-Run 2 stress 0.09681027 
-Run 3 stress 6.556363e-05 
-... Procrustes: rmse 0.1205256  max resid 0.181473 
-Run 4 stress 0.1302441 
-Run 5 stress 0.09680973 
-Run 6 stress 0.09681012 
-Run 7 stress 0.09680986 
-Run 8 stress 9.894429e-05 
-... Procrustes: rmse 0.1288538  max resid 0.1986308 
-Run 9 stress 9.266777e-05 
-... Procrustes: rmse 0.09588025  max resid 0.1449833 
-Run 10 stress 0 
-... Procrustes: rmse 0.0717818  max resid 0.1281161 
-Run 11 stress 8.773435e-05 
-... Procrustes: rmse 0.1288616  max resid 0.1986278 
-Run 12 stress 0 
-... Procrustes: rmse 0.09675618  max resid 0.1233741 
-Run 13 stress 0 
-... Procrustes: rmse 0.07781605  max resid 0.1058692 
+... Procrustes: rmse 0.0583148  max resid 0.09312382 
+Run 2 stress 0.0968097 
+Run 3 stress 0.09680968 
+Run 4 stress 0.2297529 
+Run 5 stress 0.09680968 
+Run 6 stress 8.707866e-05 
+... Procrustes: rmse 0.1288654  max resid 0.1986292 
+Run 7 stress 3.173131e-05 
+... Procrustes: rmse 0.127864  max resid 0.197363 
+Run 8 stress 7.97939e-05 
+... Procrustes: rmse 0.1288665  max resid 0.1986265 
+Run 9 stress 0 
+... Procrustes: rmse 0.05781957  max resid 0.09155657 
+Run 10 stress 0.09681013 
+Run 11 stress 9.727809e-05 
+... Procrustes: rmse 0.1288603  max resid 0.1986333 
+Run 12 stress 0.1302441 
+Run 13 stress 0.2297529 
 Run 14 stress 0 
-... Procrustes: rmse 0.08368709  max resid 0.1195821 
-Run 15 stress 8.759366e-05 
-... Procrustes: rmse 0.128861  max resid 0.1986283 
-Run 16 stress 0 
-... Procrustes: rmse 0.125979  max resid 0.1949045 
+... Procrustes: rmse 0.06631074  max resid 0.1057784 
+Run 15 stress 0 
+... Procrustes: rmse 0.1425415  max resid 0.2475465 
+Run 16 stress 0.09680968 
 Run 17 stress 0 
-... Procrustes: rmse 0.1341081  max resid 0.2210924 
-Run 18 stress 8.381084e-05 
-... Procrustes: rmse 0.1288703  max resid 0.1986321 
-Run 19 stress 0.1302441 
-Run 20 stress 0 
-... Procrustes: rmse 0.0728233  max resid 0.1362826 
+... Procrustes: rmse 0.0540975  max resid 0.07416276 
+Run 18 stress 0.09681032 
+Run 19 stress 0 
+... Procrustes: rmse 0.08977676  max resid 0.1285756 
+Run 20 stress 0.09680991 
 *** Best solution was not repeated -- monoMDS stopping criteria:
-    14: stress &lt; smin
+    10: stress &lt; smin
      4: stress ratio &gt; sratmax
-     2: scale factor of the gradient &lt; sfgrmin</code></pre>
+     6: scale factor of the gradient &lt; sfgrmin</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(res_mds)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
@@ -689,7 +692,7 @@ Sterculia_nobilis         0.5454545         0.0000000</code></pre>
 </div>
 <section id="mpd" class="level3" data-number="6.2.1">
 <h3 data-number="6.2.1" class="anchored" data-anchor-id="mpd"><span class="header-section-number">6.2.1</span> MPD</h3>
-<p><span class="math inline">\(MPD = \frac{1}{n} \Sigma^n_i \Sigma^n_j \delta_{i,j} \; i \neq j\)</span>, where <span class="math inline">\(\delta_{i, j}\)</span> is the pairwise distance between species <em>i</em> and <em>j</em></p>
+<p><span class="math inline">\(MPD = \frac{2}{n(n-1)} \sum_{i&lt;j} \delta_{i,j}\)</span>, where <span class="math inline">\(n\)</span> is the number of species in the community and <span class="math inline">\(\delta_{i,j}\)</span> is the distance between species <em>i</em> and <em>j</em>. Each distinct species pair is counted once.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>res_mpd <span class="ot">&lt;-</span> <span class="fu">mpd</span>(samp, <span class="fu">cophenetic</span>(phylo))</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>res_mpd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -855,63 +858,94 @@ Beilschmiedia_robusta           4.029059              0.000000</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]       NA 4.269375 3.797902 3.766172 3.876694</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ses.mpd</span>(samp, trait_dm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>res_ses_mpd <span class="ot">&lt;-</span> <span class="fu">ses.mpd</span>(samp, trait_dm, <span class="at">null.model =</span> <span class="st">"taxa.labels"</span>, <span class="at">runs =</span> <span class="dv">999</span>)</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>res_ses_mpd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      ntaxa  mpd.obs mpd.rand.mean mpd.rand.sd mpd.obs.rank   mpd.obs.z
-Site1     1       NA           NaN          NA           NA          NA
-Site2     4 4.269375      3.758240   0.7330690          793  0.69725378
-Site3     4 3.797902      3.766945   0.7349037          539  0.04212498
-Site4     4 3.766172      3.785384   0.7363668          522 -0.02609127
-Site5     3 3.876694      3.811180   0.9080265          584  0.07214995
+<pre><code>      ntaxa  mpd.obs mpd.rand.mean mpd.rand.sd mpd.obs.rank  mpd.obs.z
+Site1     1       NA           NaN          NA           NA         NA
+Site2     4 4.269375      3.774403   0.7421645          776 0.66693036
+Site3     4 3.797902      3.750837   0.7260484          555 0.06482400
+Site4     4 3.766172      3.763774   0.7236675          542 0.00331341
+Site5     3 3.876694      3.784763   0.8914832          592 0.10312154
       mpd.obs.p runs
 Site1        NA  999
-Site2     0.793  999
-Site3     0.539  999
-Site4     0.522  999
-Site5     0.584  999</code></pre>
+Site2     0.776  999
+Site3     0.555  999
+Site4     0.542  999
+Site5     0.592  999</code></pre>
 </div>
 </div>
-<p><strong>Effect size (ES)</strong></p>
-<p><span class="math display">\[
-ES = \frac{\bar{x_1} - \bar{x_2}}{\sigma} \sim Normal(\bar{x_1} - \bar{x_2}, 1)
-\]</span></p>
-<p>where <span class="math inline">\(\bar{x_1}\)</span> is the mean value of <span class="math inline">\(x_1\)</span>, <span class="math inline">\(\bar{x_2}\)</span> is the mean value of <span class="math inline">\(x_2\)</span>, and <span class="math inline">\(\sigma\)</span> is the standard deviation of the pooled data.</p>
+<p><strong>Standardized effect size (SES)</strong></p>
+<p>How different is the observed MPD from a random expectation? Here, the null model shuffles species labels in the trait distance matrix, using all 77 species with trait data as the species pool. The community matrix stays unchanged, so each site’s species richness is preserved.</p>
+<p>Let’s compare the observed MPD of Site2 with 999 randomized values. We use the same seed and label shuffles as above to reproduce its null distribution.</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>site <span class="ot">&lt;-</span> <span class="st">"Site2"</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>observed_mpd <span class="ot">&lt;-</span> res_ses_mpd[site, <span class="st">"mpd.obs"</span>]</span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a>null_mpd <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">999</span>, {</span>
+<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a>  shuffled_dm <span class="ot">&lt;-</span> <span class="fu">taxaShuffle</span>(trait_dm)</span>
+<span id="cb74-7"><a href="#cb74-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mpd</span>(samp[site, , <span class="at">drop =</span> <span class="cn">FALSE</span>], shuffled_dm)</span>
+<span id="cb74-8"><a href="#cb74-8" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">tibble</span>(<span class="at">MPD =</span> null_mpd), <span class="fu">aes</span>(<span class="at">x =</span> MPD)) <span class="sc">+</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>, <span class="at">fill =</span> <span class="st">"grey80"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(null_mpd), <span class="at">color =</span> <span class="st">"Null mean"</span>),</span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">linewidth =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> observed_mpd, <span class="at">color =</span> <span class="st">"Observed MPD"</span>),</span>
+<span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb75-7"><a href="#cb75-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Null mean"</span> <span class="ot">=</span> <span class="st">"grey30"</span>, <span class="st">"Observed MPD"</span> <span class="ot">=</span> <span class="st">"#D55E00"</span>)) <span class="sc">+</span></span>
+<span id="cb75-8"><a href="#cb75-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(site, <span class="st">"MPD: observed vs. null expectation"</span>),</span>
+<span id="cb75-9"><a href="#cb75-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"MPD (trait distance)"</span>, <span class="at">y =</span> <span class="st">"Number of randomizations"</span>, <span class="at">color =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb75-10"><a href="#cb75-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb75-11"><a href="#cb75-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="diversity_example_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="diversity_example_files/figure-html/mpd-null-distribution-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>In null model analyses, we can translate this into a standardized effect size (SES):</p>
+<p>SES expresses the difference between the observation and the null mean in units of the null standard deviation:</p>
 <p><span class="math display">\[
-SES = \frac{obs - \bar{rand}}{\sigma_{rand}}
+SES = \frac{MPD_{obs} - \overline{MPD}_{null}}{SD(MPD_{null})}
 \]</span></p>
-<p>where obs is the observed metric, <span class="math inline">\(\bar{rand}\)</span> is the mean value of the metric in null communities, and <span class="math inline">\(\sigma_{rand}\)</span> is the standard deviation of the metric in the null communities.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>(observed_mpd <span class="sc">-</span> <span class="fu">mean</span>(null_mpd)) <span class="sc">/</span> <span class="fu">sd</span>(null_mpd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6669304</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>res_ses_mpd[site, <span class="st">"mpd.obs.z"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6669304</code></pre>
+</div>
+</div>
+<p>These two values are the same. A negative SES means smaller trait distances than expected (clustering); a positive SES means larger distances (overdispersion). SES does not require a normal null distribution, and its sign alone does not establish statistical significance or identify an ecological process.</p>
 </section>
 <section id="mntd-mean-nearest-taxon-distance" class="level3" data-number="7.2.3">
 <h3 data-number="7.2.3" class="anchored" data-anchor-id="mntd-mean-nearest-taxon-distance"><span class="header-section-number">7.2.3</span> MNTD (Mean Nearest Taxon Distance)</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mntd</span>(samp, trait_dm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mntd</span>(samp, trait_dm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]       NA 2.832669 3.265097 2.583548 3.255192</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ses.mntd</span>(samp, trait_dm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ses.mntd</span>(samp, trait_dm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      ntaxa mntd.obs mntd.rand.mean mntd.rand.sd mntd.obs.rank  mntd.obs.z
 Site1     1       NA            NaN           NA            NA          NA
-Site2     4 2.832669       2.851684    0.5782027           514 -0.03288556
-Site3     4 3.265097       2.854401    0.5500990           771  0.74658676
-Site4     4 2.583548       2.850098    0.5286005           314 -0.50425475
-Site5     3 3.255192       3.124229    0.7192794           597  0.18207536
+Site2     4 2.832669       2.848906    0.5444453           513 -0.02982204
+Site3     4 3.265097       2.869007    0.5484915           783  0.72214417
+Site4     4 2.583548       2.845074    0.5503687           325 -0.47518312
+Site5     3 3.255192       3.137852    0.7113057           569  0.16496521
       mntd.obs.p runs
 Site1         NA  999
-Site2      0.514  999
-Site3      0.771  999
-Site4      0.314  999
-Site5      0.597  999</code></pre>
+Site2      0.513  999
+Site3      0.783  999
+Site4      0.325  999
+Site5      0.569  999</code></pre>
 </div>
 </div>
 </section>
@@ -922,13 +956,13 @@ Site5      0.597  999</code></pre>
 <h3 data-number="7.3.1" class="anchored" data-anchor-id="fd"><span class="header-section-number">7.3.1</span> FD</h3>
 <p>We will make a functional dendrogram using clustering methods. We use <a href="https://en.wikipedia.org/wiki/UPGMA">UPGMA</a> in this example.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>t_clust <span class="ot">&lt;-</span> <span class="fu">hclust</span>(<span class="fu">dist</span>(trait_mat), <span class="at">method =</span> <span class="st">"average"</span>)</span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t_clust)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>t_clust <span class="ot">&lt;-</span> <span class="fu">hclust</span>(<span class="fu">dist</span>(trait_mat), <span class="at">method =</span> <span class="st">"average"</span>)</span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t_clust)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="diversity_example_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="1440"></p>
+<p><img src="diversity_example_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="1440"></p>
 </figure>
 </div>
 </div>
@@ -937,7 +971,7 @@ Site5      0.597  999</code></pre>
 <section id="more-functional-diversity-metrics" class="level3" data-number="7.3.2">
 <h3 data-number="7.3.2" class="anchored" data-anchor-id="more-functional-diversity-metrics"><span class="header-section-number">7.3.2</span> More functional diversity metrics</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>res_fd <span class="ot">&lt;-</span> <span class="fu">dbFD</span>(trait_mat[<span class="fu">colnames</span>(samp), ], samp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>res_fd <span class="ot">&lt;-</span> <span class="fu">dbFD</span>(trait_mat[<span class="fu">colnames</span>(samp), ], samp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>FEVe: Could not be calculated for communities with &lt;3 functionally singular species. 
 FDis: Equals 0 in communities with only one functionally singular species. 
@@ -946,7 +980,7 @@ FRic: Dimensionality reduction was required. The last 5 PCoA axes (out of 7 in t
 FRic: Quality of the reduced-space representation = 0.7629008 
 FDiv: Could not be calculated for communities with &lt;3 functionally singular species. </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>res_fd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>res_fd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$nbsp
 Site1 Site2 Site3 Site4 Site5 
@@ -1009,7 +1043,7 @@ Site5  0.25188985  0.4201296</code></pre>
 <li><p><a href="http://traits-dgs.nceas.ucsb.edu/workspace/r/r-tutorial-for-measuring-functional-diversity/Measuring%20Functional%20Diversity%20in%20R.pdf/attachment_download/file">Measuring functional diversity in R</a></p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sessionInfo()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sessionInfo()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 

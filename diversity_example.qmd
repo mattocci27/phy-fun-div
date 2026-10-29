@@ -1,7 +1,7 @@
 ---
 title: Diversity calculation
 author: "Masatoshi Katabuchi"
-date: "November 20, 2025"
+date: "November 8-9, 2026"
 fontsize: 12pt
 format:
   html:
@@ -308,8 +308,8 @@ cophenetic(phylo)[1:5, 1:5]
 
 ### MPD
 
-$MPD = \frac{1}{n} \Sigma^n_i \Sigma^n_j \delta_{i,j} \; i \neq j$, where
-$\delta_{i, j}$ is the pairwise distance between species *i* and *j*
+$MPD = \frac{2}{n(n-1)} \sum_{i<j} \delta_{i,j}$, where
+$n$ is the number of species in the community and $\delta_{i,j}$ is the distance between species *i* and *j*. Each distinct species pair is counted once.
 
 ```{r}
 res_mpd <- mpd(samp, cophenetic(phylo))
@@ -414,36 +414,56 @@ trait_dm[1:5, 1:5]
 
 ```{r}
 mpd(samp, trait_dm)
-ses.mpd(samp, trait_dm)
+set.seed(123)
+res_ses_mpd <- ses.mpd(samp, trait_dm, null.model = "taxa.labels", runs = 999)
+res_ses_mpd
 ```
 
-**Effect size (ES)**
+**Standardized effect size (SES)**
 
-$$
-ES = \frac{\bar{x_1} - \bar{x_2}}{\sigma} \sim Normal(\bar{x_1} - \bar{x_2}, 1)
-$$
+How different is the observed MPD from a random expectation?
+Here, the null model shuffles species labels in the trait distance matrix, using all 77 species with trait data as the species pool. The community matrix stays unchanged, so each site's species richness is preserved.
 
-where $\bar{x_1}$ is the mean value of $x_1$, $\bar{x_2}$ is the mean value of $x_2$, and $\sigma$
-is the standard deviation of the pooled data.
+Let's compare the observed MPD of Site2 with 999 randomized values.
+We use the same seed and label shuffles as above to reproduce its null distribution.
 
-```{r, echo=FALSE}
-xx2 <- seq(-3, 3, length = 80)
-yy2 <- dnorm(xx2, 0, 1)
-plot(xx2, yy2, type = "l",
-     main = "Normal(0, 1)",
-     xlab = "X", ylab = "Density")
+```{r}
+site <- "Site2"
+observed_mpd <- res_ses_mpd[site, "mpd.obs"]
+
+set.seed(123)
+null_mpd <- replicate(999, {
+  shuffled_dm <- taxaShuffle(trait_dm)
+  mpd(samp[site, , drop = FALSE], shuffled_dm)
+})
 ```
 
-In null model analyses, we can translate this into a standardized effect size
-(SES):
+```{r mpd-null-distribution, fig.width=7, fig.height=4.5}
+ggplot(tibble(MPD = null_mpd), aes(x = MPD)) +
+  geom_histogram(bins = 30, fill = "grey80", color = "white") +
+  geom_vline(aes(xintercept = mean(null_mpd), color = "Null mean"),
+             linetype = "dashed", linewidth = 0.9) +
+  geom_vline(aes(xintercept = observed_mpd, color = "Observed MPD"),
+             linewidth = 1) +
+  scale_color_manual(values = c("Null mean" = "grey30", "Observed MPD" = "#D55E00")) +
+  labs(title = paste(site, "MPD: observed vs. null expectation"),
+       x = "MPD (trait distance)", y = "Number of randomizations", color = NULL) +
+  theme_bw() +
+  theme(legend.position = "top")
+```
+
+SES expresses the difference between the observation and the null mean in units of the null standard deviation:
 
 $$
-SES = \frac{obs - \bar{rand}}{\sigma_{rand}}
+SES = \frac{MPD_{obs} - \overline{MPD}_{null}}{SD(MPD_{null})}
 $$
 
-where obs is the observed metric, $\bar{rand}$ is the mean value of the metric in
-null communities, and $\sigma_{rand}$ is the standard deviation of the metric in
-the null communities.
+```{r}
+(observed_mpd - mean(null_mpd)) / sd(null_mpd)
+res_ses_mpd[site, "mpd.obs.z"]
+```
+
+These two values are the same. A negative SES means smaller trait distances than expected (clustering); a positive SES means larger distances (overdispersion). SES does not require a normal null distribution, and its sign alone does not establish statistical significance or identify an ecological process.
 
 ### MNTD (Mean Nearest Taxon Distance)
 
