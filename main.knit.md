@@ -67,9 +67,9 @@ Diversity and Trait-Based Approaches
 
 
 ::: notes
-hoge
-:::
 
+
+:::
 ---
 
 ## Objective
@@ -165,9 +165,13 @@ Russo et al. 2005, Journal of Ecology.
 :::
 :::
 
+::: notes
+The dates indicate approximately when these approaches became widely used in community ecology, not when the underlying research first began.
+
+:::
 ---
 
-## 1a) First-order properties of single communities
+## 1a) First-order properties: abundance
 
 ::: footer
 [1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
@@ -232,16 +236,31 @@ Russo et al. 2005, Journal of Ecology.
 :::
 
 ::: fragment
-- Simpson's evenness = 1/ Σfreq<sub>i</sub><sup>2</sup> = (4/383)<sup>2</sup> + (300/383)<sup>2</sup> + (56/383)<sup>2</sup> + (23/383)<sup>2</sup>
+- Inverse Simpson diversity
+
+
+::: {style="font-size: 0.75em; line-height: 1.25; margin-top: 0.3em;"}
+$$
+\begin{aligned}
+\Sigma p_i^2 &= (4/383)^2 + (300/383)^2 \\
+            &\quad + (56/383)^2 + (23/383)^2 \approx 0.639 \\[0.6em]
+1/\Sigma p_i^2 &= 1/0.639 \approx 1.57
+\end{aligned}
+$$
+:::
 :::
 
 :::
 
 :::
 
+::: notes
+$p_i$ is the relative abundance of species i (for example, $p_2$ = 300/383). Taking the reciprocal gives an effective number of species: how many equally abundant species would produce the same value? Four equally abundant species give 4; a single species gives 1. Here, Sp. 2 dominates, so the value is only about 1.57 despite a species richness of 4. The next two slides derive the underlying expression.
+
+:::
 ---
 
-## 1a) First-order properties of single communities
+## 1a) First-order properties: drawing the same species
 
 ::: footer
 [1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
@@ -271,7 +290,7 @@ Which community is more diverse?
 
 ---
 
-## 1a) First-order properties of single communities
+## 1a) First-order properties: Simpson's index
 
 ::: columns
 ::: {.column width="50%"}
@@ -295,10 +314,10 @@ Which community is more diverse?
 :::
 ::: fragment
 - Simpson's Index of Diversity:
-  $D = 1 - \Sigma\frac{n_i(n_i - 1)}{N_i(N_i - 1)}$
+  $D = 1 - \Sigma\frac{n_i(n_i - 1)}{N(N - 1)}$
 
 
-- Simpson's Index of Diversity (ver. 2):
+- Simpson's Index of Diversity (large *N*):
   $D = 1 - \Sigma p_i^2$
 :::
 :::
@@ -312,9 +331,13 @@ Which community is more diverse?
 [1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
 :::
 
+::: notes
+The calculation on the left draws two individuals from a total of ten without replacement. $1-\Sigma p_i^2$ describes sampling with replacement; the two expressions converge as N increases. In this ten-individual example, the latter gives 0.18 for A and 0.50 for B, slightly different from the values of 0.20 and 0.56 above.
+
+:::
 ---
 
-## 1a) First-order properties of single communities
+## 1a) First-order properties: Shannon's index
 
 
 ::: columns
@@ -371,15 +394,15 @@ Another simple way to describe diversity?
 
 
 ::: notes
-
 - If we use log, multiplication becomes an addition.
 
 - Expectations to get a particular species (abundance weighted)
 
+- $-\log p_i$ is the "surprise" associated with drawing species i. Rarer species produce greater surprise. H' is the average surprise, weighted by the occurrence probability $p_i$.
+
 - The mathematical theory of communication (0 or 1 data)
 
 :::
-
 ---
 
 ## 1b) First-order properties of multiple communities (Beta diversity){.small}
@@ -596,7 +619,7 @@ Site 1 vs Site 2:  1 - (2 * (0 + 250 + 56 + 18) / (4 +300 + 56 + 23 + 0 + 250 + 
 
 :::
 ::: {.column width="50%"}
-- "Species $\times$ site" and "site $\times$ environment"
+- "Species $\times$ site" and "environment $\times$ site"
 
 
 ::: fragment
@@ -613,8 +636,8 @@ Site 1 vs Site 2:  1 - (2 * (0 + 250 + 56 + 18) / (4 +300 + 56 + 23 + 0 + 250 + 
 
 ::: notes
 E.g., Sp. 1 may prefer higher temperature with lower rainfall.
-:::
 
+:::
 ---
 
 ## 2b) Second-Order properties with species characteristics (2000s ~){.small}
@@ -756,7 +779,7 @@ E.g., Sp. 1 may prefer higher temperature with lower rainfall.
 :::
 
 
-- "Trait $\times$ species", "species $\times$ site", "site $\times$ environment"
+- "Species $\times$ trait", "species $\times$ site", "environment $\times$ site"
 
 ::: fragment
 - Trait diversity and its role in species composition
@@ -785,6 +808,10 @@ Photosynthetic rates
 
 :::
 
+::: notes
+Directly measuring the physiological traits of every species in a forest containing hundreds of coexisting species takes substantial effort. This motivated the idea of using phylogenetic relatedness as a proxy for ecological similarity.
+
+:::
 ---
 
 ## Assuming closely related species are more ecologically similar{.small}
@@ -820,8 +847,10 @@ Community with 3 genus and 3 species (3:3)
 
 ::: notes
 Species that I collected
-:::
 
+This is a historical hypothesis. It requires the assumption that closely related species are more ecologically similar, meaning that the relevant traits are phylogenetically conserved. The next slide questions this assumption.
+
+:::
 ---
 
 ## Assuming closely related species are more ecologically similar{.small}
@@ -854,12 +883,12 @@ Community with 3 genus and 3 species (3:3)
 - Macaranga: Euphorbiaceae
 - Artocarups: Moraceae
 - Ilex: Aquifoliaceae
-:::
 
+:::
 ::: notes
-属によって分岐年代が異なるため、同じ属／種比でも進化的距離は同じとは限らない。歴史的な説明は補足へ。
-:::
+Genera differ in their divergence ages, so identical genus:species ratios need not represent identical evolutionary distances. Further historical background is in the supplementary slides.
 
+:::
 ---
 
 ## Solution for the genus:species ratio problem = Use phylogenetic trees{.small}
@@ -872,6 +901,10 @@ Community with 3 genus and 3 species (3:3)
 :::
 
 
+::: notes
+Use branching order and branch lengths to express relatedness, rather than taxonomic ranks such as genus and species. This tree is illustrative; its branch lengths do not represent actual evolutionary time.
+
+:::
 ---
 
 ## Phylodiversity
@@ -890,22 +923,6 @@ Community with 3 genus and 3 species (3:3)
 
     - Biodiversity has several axes or dimensions including genetic, taxonomic, phylogenetic and functional diversity
 :::
-:::
-
----
-
-## Phylodiversity
-
-::: footer
-[1] Faith 1992, Biological Conservation
-:::
-
-::: incremental
-- Phylogenetic diversity was first formalized by Dan Faith in 1992
-- He proposed a metric called PD that is also commonly referred to as Faith's
-  Index
-- Many additional metrics have now been generated but this metric is still
-  widely used, especially in the context of conservation
 :::
 
 ---
@@ -987,9 +1004,10 @@ Faith 1992, Biological Conservation
 :::
 
 ::: notes
-種数は同じでも、選ばれた種を結ぶ枝の合計は異なる。個別の枝長を足す手順は補足に残した。
-:::
+Species richness is identical, but the total length of the branches connecting the selected species differs. The supplementary slides retain the steps for adding individual branch lengths.
+On the left (D, E, F), 1+1+2+1+4 = 9, including the branch of length 4 leading to the root, as in the default behavior of picante's pd(). Some definitions exclude the root, so use the same definition when making comparisons.
 
+:::
 ---
 
 ## PD, MPD and MNTD: what do we measure?
@@ -999,7 +1017,7 @@ Faith 1992, Biological Conservation
 
 ::: {.cell layout-align="center"}
 ::: {.cell-output-display}
-![](figure/phylogenetic-distances-overview-1.png){fig-align='center' width=960}
+![](figure/phylogenetic-distances-overview-1.png){fig-align='center' width=576}
 :::
 :::
 
@@ -1024,9 +1042,9 @@ Faith 1992; Webb 2000
 :::
 
 ::: notes
-PDは共有する枝を一度だけ数える総量。MPDとMNTDは種間の経路長の平均で、PDを種数で割った値ではない。左の枝長をたどり、A–BとA–Cを確認する。MNTDの説明はAについての寄与であり、群集全体では各種について最近隣距離を求めて平均する。
-:::
+PD is a total that counts each shared branch only once. MPD and MNTD are averages of path lengths between species; neither is PD divided by species richness. Trace the branch lengths on the left to check A–B and A–C. The MNTD example shows only A's contribution. For the community value, find the nearest-neighbor distance for every species and then take the average.
 
+:::
 ---
 
 ## Same richness, different aspects of community structure
@@ -1053,12 +1071,12 @@ Faith 1992; Webb 2000; Tucker et al. 2017, Biological Reviews
 :::
 
 ::: notes
-種数は両群集とも4だが、どの種が共存するかによって進化的歴史の総量、全体の隔たり、近縁種のまとまり方が異なる。
-ABCDではDに近い相手がいないためMNTDが高い。ABDEでは全種に距離2の近縁種があるためMNTDが低い一方、深い分岐をまたぐペアは3組から4組へ増え、MPDが高くなる。PDは15から14へ下がる。
-生態学的には、群集が系統全体に広がっていることと、各種に近縁の共存種がいることは両立する。したがって「どちらがより多様か」は、保全で進化的歴史の総量を重視するのか、共存種の系統的な隔たりや最近隣の関係を重視するのかで変わる。
-これは系統構造の記述であり、この値だけで環境フィルタリングや競争を特定できない。集積・過分散を評価するには種プールと種数などを考慮した帰無モデルとの比較が必要。系統距離をニッチ差として解釈するには形質との対応も必要で、次のAnoleの例につなぐ。
-:::
+Both communities contain four species, but species identity changes the total evolutionary history, overall separation, and arrangement of close relatives.
+In ABCD, D has no close relative, so MNTD is higher. In ABDE, every species has a relative at distance 2, so MNTD is lower. Meanwhile, the number of pairs spanning the deep split increases from three to four, raising MPD. PD decreases from 15 to 14.
+Ecologically, a community can span the phylogeny while every species also has a close relative within the community. Which community is "more diverse" therefore depends on whether the question emphasizes total evolutionary history for conservation, overall phylogenetic separation, or nearest-neighbor relationships.
+These values describe phylogenetic structure; they do not identify environmental filtering or competition on their own. Assess clustering or overdispersion against a null model that accounts for the species pool, richness, and other relevant constraints. Interpreting phylogenetic distance as niche difference also requires correspondence with traits, leading into the Anole example.
 
+:::
 ---
 
 ## Do phylogenetically related species have similar ecological niches?{.small}
@@ -1085,8 +1103,8 @@ ABCDではDに近い相手がいないためMNTDが高い。ABDEでは全種に�
 
 ::: notes
 - the study was done in 1998, but people usually ignore something inconvenient
-:::
 
+:::
 ---
 
 ## Functional dendrogram vs. phylogeny (Anole example){.small}
@@ -1107,7 +1125,7 @@ ABCDではDに近い相手がいないためMNTDが高い。ABDEでは全種に�
 
 - B: Phylogeny indicates frequent evolution of traits
 
-- They do not match at all (!!)
+- They do not match: the same ecomorphs evolved independently on different islands
 
 - Phylogenetically similar = Functional (ecologically) similar??
 
@@ -1116,6 +1134,51 @@ ABCDではDに近い相手がいないためMNTDが高い。ABDEでは全種に�
 :::
 :::
 
+::: notes
+Colors indicate ecomorphs; letters above the tips indicate islands (C: Cuba, H: Hispaniola, J: Jamaica, P: Puerto Rico). In A, tips of the same color cluster together. In phylogeny B, the same colors appear repeatedly within different island lineages. Related species within islands diversified into different ecomorphs, while similar ecomorphs evolved independently on different islands (convergent evolution).
+
+:::
+---
+
+## Do phylogenetically related species have similar ecological niches? {#anole-combined .small}
+
+::: columns
+::: {.column width="35%"}
+<img src="images/anole.jpg" style="display:block; margin:0 auto; width:100%; height:400px; object-fit:contain;"/>
+
+<p style="font-size:0.7em; line-height:1.2; margin-top:0.3em;">Different ecomorphs occupy different microhabitats.</p>
+:::
+
+::: {.column width="65%"}
+
+
+
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+![](figure/anole-schematic-1.png){fig-align='center' width=100%}
+:::
+:::
+
+
+<p style="font-size:0.7em; line-height:1.2; margin:0;">A–D: hypothetical islands. Same color + letter = same species.
+<br>Schematic illustration based on Losos et al. (1998).</p>
+
+:::
+:::
+
+::: {.small}
+- Similar ecomorphs evolved independently on different islands.
+- Closely related species do not always have similar traits.
+:::
+
+::: footer
+Anolis ecomorphs (Wikipedia); Losos et al. 1998, Science
+:::
+
+::: notes
+The photographs on the left show ecomorph diversity. The schematic uses 12 fictional species (3 ecomorphs × 4 islands). Each combination of color and island letter identifies one species. A–D represent fictional Islands A–D and do not correspond to real islands. The functional dendrogram groups the four species of each ecomorph together; the phylogeny places different ecomorphs close together. The same 12 species therefore form different functional and phylogenetic groups. Branch lengths, branching order, and relationships among islands are illustrative; they do not reproduce the estimates or migration routes in Losos et al. (1998). The biological conclusion is based on that paper.
+
+:::
 ---
 
 ## Phylogenetic signal: does relatedness predict trait similarity?{.small}
@@ -1138,9 +1201,9 @@ Blomberg et al. 2003, Evolution
 :::
 
 ::: notes
-KやPagelのlambdaの定量的な説明は補足。ここでは系統を形質の代理にする前に、その対応を確かめる必要があることを伝える。
-:::
+Quantitative explanations of K and Pagel's lambda are in the supplementary slides. Here, emphasize checking the relationship between traits and phylogeny before using relatedness as a proxy for traits.
 
+:::
 ---
 
 ## The phylogenetic middleman problem
@@ -1159,16 +1222,20 @@ KやPagelのlambdaの定量的な説明は補足。ここでは系統を形質�
 ::: incremental
 - Phylogeny as a proxy for the functional or ecological similarity of species.
 
-- Measuring trait data and arraying it on the phylogenetic tree to demonstrate phylogenetic signal in function so that their phylogenetically-based inferences could be supported.
+- Measure traits → show phylogenetic signal → use phylogeny to infer trait-based processes.
 
 - Compared to simply measuring the trait dispersion, this approach is very indirect.
 
-- **This approach should be avoided!** (phylogeny and traits are useful to make meaningful evolutionary inferences)
+- **If the traits are measured, quantify trait dispersion directly.**
 :::
 :::
 
 :::
 
+::: notes
+This does not reject phylogenetic diversity itself. PD describes the amount of evolutionary history, whereas trait distances describe differences in the measured traits. If trait dispersion is the question and the relevant traits can be measured, quantify it directly rather than using phylogeny as an intermediary.
+
+:::
 ---
 
 ## Plant functional traits
@@ -1179,7 +1246,7 @@ Measurable properties of plants that are indicative of ecological strategies
 ::: {.column width=50%}
 "Hard" traits: e.g., Photosynthetic rates
 
-![](https://www.licor.com/env/products/photosynthesis/LI-6800/images/li6800-hero3.png)
+![](images/li6800-hero3.png)
 :::
 
 ::: {.column width=50%}
@@ -1207,15 +1274,20 @@ Measurable properties of plants that are indicative of ecological strategies
 ::: {.column width=80%}
 ::: incremental
 ::: small
-- LES describes pairwise correlations among a bunch of leaf traits from the global leaf database called GLOPNET
-- Global leaf function constrained to a single axis (75 % of the variation in the 6 traits)
-- Multidimensional (leaf) functional diversity can be mapped into a one-dimensional index
+- Pairwise correlations among leaf traits in a global database (GLOPNET)
+- Six leaf traits covary along a single main axis (75 % of their variation)
+- Multidimensional leaf traits can be summarized by a one-dimensional index
 - Controversial because global among‑species patterns don’t always match within‑species or local patterns
 :::
 :::
 :::
 :::
 
+::: notes
+Quick return (low LMA, short leaf lifespan, high photosynthesis and nitrogen per unit mass): recover resources rapidly using inexpensive leaves. Slow return: retain expensive, durable leaves for longer. This is an axis of covariation among leaf traits, not a direct measure of whole-plant strategy or community diversity. The 75% value comes from the analysis in Wright et al. (2004).
+The next slide examines how some of these correlations depend on normalization per unit mass or per unit area.
+
+:::
 ---
 
 ## Leaf trait correlations depend on normalization
@@ -1242,11 +1314,11 @@ Osnas et al. 2013, Science · doi:10.1126/science.1231574
 
 ::: notes
 Source: https://doi.org/10.1126/science.1231574
-Aは光合成速度、Nは窒素量。massは単位乾燥質量あたり、areaは単位葉面積あたりを表す。式は単位の変換から成り立つ。
-LMAが2倍になる例は、規格化の効果だけを示す仮想例で、実測の処理効果ではない。面積あたりの光合成速度と窒素量に相関がなくても、共通のLMAで割ることで質量あたりの値に相関が生じうる。
-LESが無意味という結論ではない。LMAと葉寿命の関係を含め、生物学的な変異と規格化がそれぞれ相関にどう寄与するかを考える。面積基準が常に正しいという話でもない。
-:::
+A denotes photosynthetic rate and N denotes nitrogen content. The subscripts mass and area mean per unit dry mass and per unit leaf area, respectively. The equations follow from unit conversion.
+The example of doubling LMA is hypothetical and isolates the effect of normalization; it is not an observed treatment effect. Even if area-based photosynthesis and nitrogen are uncorrelated, dividing both by the same LMA can generate a correlation between their mass-based values.
+This does not mean that the LES is meaningless. Consider how biological variation and normalization each contribute to correlations, including the relationship between LMA and leaf lifespan. Nor does it imply that area-based normalization is always correct.
 
+:::
 ---
 
 ## Rebuilding community ecology from functional traits
@@ -1267,6 +1339,48 @@ LESが無意味という結論ではない。LMAと葉寿命の関係を含め�
 
 ---
 
+## Community traits: mean vs. diversity
+
+::: columns
+::: {.column width="55%"}
+
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+![](figure/cwm-vs-fd-1.png){fig-align='center' width=672}
+:::
+:::
+
+:::
+::: {.column width="45%"}
+- **Community-weighted mean (CWM)**
+
+  $\mathrm{CWM} = \Sigma p_i t_i$
+
+  Which strategy dominates?
+
+::: fragment
+- **Functional diversity**
+
+  How different are the coexisting strategies?
+:::
+
+::: fragment
+**The mean and the spread can change independently.**
+:::
+:::
+:::
+
+::: footer
+*p*<sub>*i*</sub>: relative abundance of species *i* · *t*<sub>*i*</sub>: trait value of species *i*
+:::
+
+::: notes
+The weights p_i may represent relative abundance, biomass, or cover. CWM asks where the community's "center" lies; functional diversity asks how different the species are from one another. Community 2 has the same mean but greater spread, whereas community 3 has the same spread but a shifted mean.
+The following FD and convex hull examples address spread; the later BCI example addresses CWM, or the center. Distances and volumes also depend on trait selection, units, and standardization.
+
+:::
+---
+
 ## Petchey & Gaston's functional diversity (FD)
 
 ::: columns
@@ -1275,10 +1389,10 @@ LESが無意味という結論ではない。LMAと葉寿命の関係を含め�
 :::
 ::: {.column width="50%"}
 ::: incremental
-- Functional diversity describes differences in species' functional traits.
-- Build a **functional dendrogram** from measured trait differences. A phylogeny instead represents shared ancestry.
-- **Petchey & Gaston's FD:** total branch length connecting the community's species on the functional dendrogram.
-- The branch-summing approach parallels Faith's PD, using trait differences rather than evolutionary history.
+- Functional diversity: differences in species' functional traits.
+- **Functional dendrogram:** built from measured trait differences (a phylogeny represents shared ancestry).
+- **Petchey & Gaston's FD:** total branch length connecting the community's species.
+- Parallels Faith's PD, but uses trait differences instead of evolutionary history.
 :::
 :::
 :::
@@ -1288,9 +1402,9 @@ Petchey & Gaston 2002, Ecology Letters
 :::
 
 ::: notes
-functional diversityは概念の総称で、ここで紹介するFDはその指標の一つ。形質データから種間距離を求め、クラスタリングで樹状図を作る。枝長は進化時間を表さない。続くconvex hullは、樹状図ではなく形質空間の占有範囲でfunctional richnessを測る方法として紹介する。
-:::
+Functional diversity is an umbrella concept; FD, introduced here, is one particular metric. Calculate distances between species from trait data, then cluster them to produce a dendrogram. Branch lengths do not represent evolutionary time. The following convex hull example measures functional richness using the extent of occupied trait space rather than a dendrogram.
 
+:::
 ---
 
 ## Convex hull volume (functional richness)
@@ -1300,22 +1414,22 @@ functional diversityは概念の総称で、ここで紹介するFDはその指�
 [1] Cornwell et al. 2006, Ecology
 :::
 
-::: columns
-::: {.column width=18%}
-![](images/convexhull.png)
-:::
-::: {.column width=82%}
+<img src="images/convexhull_h.png" style="display:block; margin:0 auto; width:88%; height:auto;"/>
+
 ::: incremental
 
 - California woody-plant communities (43 plots, 54 species, 3 traits)
 
-- Is the trait volume of California woody-plant communities significantly less than expected by chance?
-    - **Environmental filtering**
+- Is the trait volume of each community smaller than expected by chance?
+    - Null model: same number of species, drawn at random from the pool
 
 :::
-:::
-:::
 
+::: notes
+Panel a: points represent species, and axes represent traits standardized as z-scores. Large black points are species in one community; small points are the remaining species. The enclosing polygon represents the trait space occupied by that community. Panels b and c extend the same idea to the volume of a convex hull in three-trait space.
+Volume depends on trait selection, units, and standardization.
+
+:::
 ---
 
 ## Convex hull volume (functional richness)
@@ -1325,11 +1439,11 @@ functional diversityは概念の総称で、ここで紹介するFDはその指�
 :::
 
 ::: columns
-::: {.column width=40%}
+::: {.column width=58%}
 ![](images/convexhull2.png)
 :::
 
-::: {.column width=60%}
+::: {.column width=42%}
 ::: incremental
 
 - Species in 40 out of 43 plots occupied less trait space than would be expected by chance
@@ -1340,6 +1454,10 @@ functional diversityは概念の総称で、ここで紹介するFDはその指�
 :::
 :::
 
+::: notes
+The horizontal axis is species richness. Volume increases with richness, so compare communities with the null expectation for the same richness (black squares). White circles below the black squares indicate narrower occupied trait space than expected (observation). This is consistent with environmental filtering (interpretation), but does not directly demonstrate the process.
+
+:::
 ---
 
 ## Community assembly and trait distribution
@@ -1351,9 +1469,13 @@ functional diversityは概念の総称で、ここで紹介するFDはその指�
 
 <img src="images/trait_dist.png" width="80%" style="display: block; margin: auto;"/>
 
+::: notes
+A narrower range of trait values and more even spacing of species within that range are different properties. The former is a prediction of environmental filtering, whereas the latter is a prediction of limiting similarity. The next empirical example examines both.
+
+:::
 ---
 
-## Environmental filtering and limiting similarity can occur at the same time{.small}
+## Environmental filtering and limiting similarity can co-occur{.small}
 
 
 ::: footer
@@ -1361,28 +1483,32 @@ functional diversityは概念の総称で、ここで紹介するFDはその指�
 :::
 
 ::: columns
-::: {.column width=40%}
+::: {.column width=52%}
 ![](./images/Kraft2008.png)
 :::
 
-::: {.column width=60%}
+::: {.column width=48%}
 ::: incremental
 
 - Yasuni tropical tree communities, 25ha, 625 20m x 20m quadrats, 1089 species!
 
-- Consistent with environmental filtering
-
 - A: Ridgetops have lower than expected SLA and valleys have higher
-    - Traits match with environmental conditions
+    - Traits match environmental conditions → consistent with environmental filtering
 
-- B: Seed mass shows broader distribution than expected - Limiting similarity
+- B: Seed mass shows broader distribution than expected → consistent with limiting similarity
 
-- C: Range of SLA is smaller than expected - Environmental filtering
+- C: Range of SLA is smaller than expected → consistent with environmental filtering
 
 :::
 :::
 :::
 
+::: notes
+SLA (specific leaf area) = leaf area / dry mass = 1/LMA.
+Panel B: the solid line shows observations and the dashed line shows the null expectation. The observed distribution is flatter and broader. Panel C: each point is a quadrat, and the horizontal axis is species richness. Most points lie below the solid line, indicating narrower ranges than expected. Panel D is not covered here; it uses variation in nearest-neighbor distances to assess the regularity of spacing among trait values.
+As the title's wording "can co-occur" suggests, these patterns are consistent with the proposed processes; they do not directly demonstrate those processes.
+
+:::
 ---
 
 ## How ecological processes might influence community assembly{.small}
@@ -1395,16 +1521,16 @@ functional diversityは概念の総称で、ここで紹介するFDはその指�
  <thead>
   <tr>
    <th style="text-align:left;"> Process / Factor </th>
-   <th style="text-align:left;"> Pattern </th>
+   <th style="text-align:left;"> Possible pattern </th>
   </tr>
  </thead>
 <tbody>
-  <tr grouplength="1"><td colspan="2" style="border-bottom: 1px solid;"><strong>Biotic factor</strong></td></tr>
+  <tr grouplength="1"><td colspan="2" style="border-bottom: 1px solid;"><strong>Abiotic environment</strong></td></tr>
 <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> Environmental filtering </td>
    <td style="text-align:left;"> Clustering </td>
   </tr>
-  <tr grouplength="4"><td colspan="2" style="border-bottom: 1px solid;"><strong>Abiotic factor (competition)</strong></td></tr>
+  <tr grouplength="4"><td colspan="2" style="border-bottom: 1px solid;"><strong>Biotic interactions: competition and natural enemies</strong></td></tr>
 <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> Limiting similarity / Competitive exclusion </td>
    <td style="text-align:left;"> Overdispersion </td>
@@ -1421,7 +1547,7 @@ functional diversityは概念の総称で、ここで紹介するFDはその指�
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> Pollinator-mediated competition </td>
    <td style="text-align:left;"> Overdispersion </td>
   </tr>
-  <tr grouplength="2"><td colspan="2" style="border-bottom: 1px solid;"><strong>Abiotic factor (facilitation)</strong></td></tr>
+  <tr grouplength="2"><td colspan="2" style="border-bottom: 1px solid;"><strong>Biotic interactions: facilitation</strong></td></tr>
 <tr>
    <td style="text-align:left;padding-left: 2em;" indentlevel="1"> Nurse plants </td>
    <td style="text-align:left;"> Overdispersion </td>
@@ -1443,6 +1569,10 @@ functional diversityは概念の総称で、ここで紹介するFDはその指�
 :::
 
 
+::: notes
+Different processes can produce the same pattern. For example, clustering can arise from environmental filtering or from competitive hierarchy, where only species with competitively advantageous traits remain. Patterns do not uniquely identify processes. In addition to null-model comparisons, we need hypotheses that connect traits to processes.
+
+:::
 ---
 
 ##  Competitive hierarchy
@@ -1473,6 +1603,10 @@ Competitive effects of species A on species B will increase with increasing $t_A
 
 :::
 
+::: notes
+Tree height illustrates a trait for which a larger value can confer a competitive advantage. On the left, greater similarity means stronger competition, so the absolute difference matters. On the right, which species has the larger value matters, so the signed difference matters. This is not a general rule that larger values are advantageous for every trait.
+
+:::
 ---
 
 ## Plant–herbivore interactions
@@ -1490,15 +1624,20 @@ Competitive effects of species A on species B will increase with increasing $t_A
 ::: {.column width=60%}
 ::: incremental
 
-- 6000+ secondary metabolites from nearly 100 species in a diverse Neotropical plant clade across the whole Amazonia
+- 6000+ secondary metabolites from nearly 100 *Inga* species at four sites across Amazonia
 
-- More differences in their defensive chemistry than expected by chance
+- Coexisting species differ more in defensive chemistry than expected by chance
 
-- Plant–herbivore interactions promote species diversity
+- Authors suggest that plant–herbivore interactions help maintain local tree diversity
 :::
 :::
 :::
 
+::: notes
+The zero line represents the null expectation. The paper concludes that species in local communities are more chemically different than expected by chance, indicating differentiation in defense chemistry. Check the original figure caption before explaining whether the vertical-axis difference is observed minus expected or the reverse. The Brazil result is not significant.
+This is a study of local communities of one genus, Inga, across four regions, not an experiment directly manipulating herbivore effects.
+
+:::
 ---
 
 ## Trait-based ecology: where are we now?
@@ -1506,6 +1645,10 @@ Competitive effects of species A on species B will increase with increasing $t_A
 
 <img src="images/traits2024.png" width =100% style="display: block; margin: auto;"/>
 
+::: notes
+Roadmap for the next three examples: (1) from community means to individual species (CWM at BCI); (2) from species means to differences within and among species (the components of LMA); and (3) from measured traits to predictions of physiology and coexistence.
+
+:::
 ---
 
 ## Community averages can mislead without species‑level context{.small}
@@ -1532,8 +1675,8 @@ Competitive effects of species A on species B will increase with increasing $t_A
 
 ::: notes
 Two of approximately 300 species (~0.7%) account for ~60% of the temporal CWM shift. Species-specific pathogens were suggested as a possible explanation, rather than a community-wide climate response.
-:::
 
+:::
 ---
 
 ## Why leaf trait relationships differ within and among species
@@ -1558,12 +1701,12 @@ Osnas, Katabuchi et al. 2018, PNAS · doi:10.1073/pnas.1803989115
 
 ::: notes
 Source: https://doi.org/10.1073/pnas.1803989115
-GlobalとPanamaでは地理的スケールも異なるため、比較の違いを種内・種間の違いだけに帰さない。
-2013年の規格化の話を回収し、同じLMAの変化でも、その中身によって生理的な意味が異なることを示す。
-種内の陽葉・陰葉の比較では光合成に関わる質量の変化、広い種間比較では構造的質量の変化がLMA変異に大きく寄与するという仮説を提示し、データはその予測と整合した。すべての種内・種間比較に同じ関係が成立するという主張ではない。
-構造的質量は強度や葉寿命に関係する。種平均の相関をそのまま種内の応答に当てはめず、LMAを生む成分を考える必要がある。次に、この考え方を生理予測へ進めた例を紹介する。
-:::
+The global and Panama datasets also differ in geographical scale, so do not attribute every contrast solely to within-species versus among-species variation.
+Return to the 2013 normalization example: the same change in LMA can have different physiological meanings depending on its components.
+The proposed hypothesis is that variation in photosynthetically active mass contributes strongly to LMA variation between sun and shade leaves within species, whereas variation in structural mass contributes strongly across species. The data are consistent with these predictions; the claim is not that identical relationships hold in every within-species and among-species comparison.
+Structural mass relates to strength and leaf lifespan. Rather than applying correlations among species means directly to responses within species, consider the components that generate LMA. The next example extends this reasoning to physiological prediction.
 
+:::
 ---
 
 ## Separating LMA components improves physiological prediction
@@ -1588,10 +1731,11 @@ Katabuchi et al. 2025, Oecologia
 :::
 
 ::: notes
-LMAの総量から、その内訳を表す成分へと進める。生理の予測改善を示す事例として紹介する。
-ここでの予測対象は生理であり、共存や侵入増殖率の予測を実証したという意味ではない。Levine et al.の共存予測に向けたprocess-informed metricsと同一視せず、次のスライドで生理から個体群・共存への接続を別の課題として示す。
-:::
+Reading order: for photosynthesis, compare (a) LMA with (b) LMAm; for leaf lifespan, compare (g) LMA with (i) LMAs. LMAm is photosynthetically active (metabolic) mass; LMAs is structural mass.
+Move from total LMA to its component parts. Present this as an example of improved physiological prediction.
+The prediction target here is physiology; the study does not demonstrate prediction of coexistence or invasion growth rates. Do not equate this result with the process-informed metrics for coexistence prediction discussed by Levine et al. The next slide presents the connection from physiology to population dynamics and coexistence as a separate challenge.
 
+:::
 ---
 
 ## From physiological prediction to species coexistence
@@ -1607,7 +1751,7 @@ LMAの総量から、その内訳を表す成分へと進める。生理の予�
 ::: {.small}
 - **Traits alone are insufficient** to predict species coexistence.
 - Predictive models must link traits and physiology to **demographic rates** and **species interactions**.
-- **Invasion growth rates** provide a direct link to coexistence theory.
+- **Invasion growth rates** (growth when rare) provide a direct link to coexistence theory.
 :::
 :::
 :::
@@ -1617,11 +1761,12 @@ Levine et al. 2024, Trends in Ecology & Evolution
 :::
 
 ::: notes
-概念図であり、予測能力が実際に100%に到達することを意味しない。
-LMAを分解して生理予測が改善しても、それだけで種の共存が予測できるわけではない。個体の成長・生存・繁殖と、競争下の個体群増殖へのつながりを考える。
-機構を反映する指標を選ぶ際には、何を予測したいかを明確にする。生理、個体群動態、共存は異なる予測対象である。
-:::
+Invasion growth rate is the population growth rate of a species introduced at low abundance into an established community. A positive value means it can increase when rare, a condition relevant to coexistence.
+This is a conceptual illustration; it does not imply that predictive performance actually reaches 100%.
+Improving physiological prediction by separating LMA into components does not by itself predict species coexistence. Consider the connections to individual growth, survival, reproduction, and population growth under competition.
+When choosing metrics that reflect mechanisms, specify the prediction target. Physiology, population dynamics, and coexistence are different prediction targets.
 
+:::
 ---
 
 ## Summary 🍺
@@ -1629,21 +1774,21 @@ LMAを分解して生理予測が改善しても、それだけで種の共存�
 ::: incremental
 - Why do we use trait and phylogenetic diversity?
 
-  - We want to quantify ecological similarities and biodiversity dimensions.
+  - To quantify ecological similarities and biodiversity dimensions.
 
-  - We need to be very careful when we use or develop ways to map multiple dimensions of biodiversity to a few dimensions of diversity.
+  - Be careful when mapping many dimensions of biodiversity to a few indices.
+
+  - Patterns alone do not identify processes; compare them with null models.
 
 - Trait-based approaches
 
   - Moving ecology towards more quantitative and predictive methods.
 
-  - We only focused on a "snapshot" of biodiversity (predicting future biodiversity is another story)
+  - Describing diversity is not the same as predicting dynamics or coexistence.
 
-  - Developing more effective metrics may be necessary, beyond simply measuring traits.
+  - Better metrics may be needed, beyond simply measuring traits.
 
-- How to calculate trait and phylogenetic diversity anyway?
-
-  - We have some R practice.
+- How to calculate them? **R practice:** `diversity_example.qmd`
 :::
 
 ---
@@ -1665,9 +1810,9 @@ LMAを分解して生理予測が改善しても、それだけで種の共存�
 :::
 
 ::: notes
-ここから先は通常の授業では解説しない補足資料。質問への対応や実習時の参照に使う。Simpson・Shannonの導出は本編に残している。
-:::
+The remaining slides are supplementary material and are not normally presented during class. Use them to answer questions or as references during practical exercises. The Simpson and Shannon derivations remain in the main presentation.
 
+:::
 ---
 
 ## 2a) Second-Order properties with site characteristics (1950s ~){.small}
@@ -1755,7 +1900,7 @@ LMAを分解して生理予測が改善しても、それだけで種の共存�
 
 :::
 ::: {.column width="50%"}
-- "Species $\times$ site" and "site $\times$ environment"
+- "Species $\times$ site" and "environment $\times$ site"
 :::
 :::
 
@@ -1898,7 +2043,7 @@ LMAを分解して生理予測が改善しても、それだけで種の共存�
 :::
 
 
-- "Trait $\times$ species", "species $\times$ site", "site $\times$ environment"
+- "Species $\times$ trait", "species $\times$ site", "environment $\times$ site"
 
 :::
 :::
@@ -2027,11 +2172,11 @@ LMAを分解して生理予測が改善しても、それだけで種の共存�
 
 ---
 
-## Mean Pairwise Distance (MPD) and Net Related Index (NRI){.small}
+## Mean Pairwise Distance (MPD){.small}
 
 
 ::: footer
-[1] $MPD = \frac{1}{n} \sum^{n}_{i} \sum^n_j \delta_{i,j} \; i \neq j$, where
+[1] $MPD = \frac{2}{n(n-1)} \sum_{i<j} \delta_{i,j}$, where
 $\delta_{i, j}$ is the pairwise distance between species *i* and *j*
 :::
 
@@ -2088,20 +2233,20 @@ Let's consider greatest possible mean pairwise node distance (MPD) for a communi
 :::
 
 
-Greatest MPD for a community of 4 taxa: 22 / 6 pairs = 3.66 (A, B, E, F)
+Greatest MPD for a community of 4 taxa: 22 / 6 pairs = 3.67 (A, B, E, F)
 :::
 
 ---
 
-## Mean Pairwise Distance (MPD) and Net Related Index (NRI){.small}
+## Mean Pairwise Distance (MPD){.small}
 
 
 ::: footer
-[1] $MPD = \frac{1}{n} \sum^{n}_{i} \sum^n_j \delta_{i,j} \; i \neq j$, where
+[1] $MPD = \frac{2}{n(n-1)} \sum_{i<j} \delta_{i,j}$, where
 $\delta_{i, j}$ is the pairwise distance between species *i* and *j*
 :::
 
-Greatest possible mean pairwise node distance for a community of 4 taxa: 22 / 6 pairs = 3.66 (A, B, E, F)
+Greatest possible mean pairwise node distance for a community of 4 taxa: 22 / 6 pairs = 3.67 (A, B, E, F)
 
 ::: columns
 ::: {.column width="50%"}
@@ -2123,9 +2268,9 @@ Community 1; A, B, C, D
 :::
 
 
-**MPD** = (1 + 2 + 2 + 4 + 4 + 3) / 6 = 2.66
+**MPD** = (1 + 2 + 2 + 4 + 4 + 3) / 6 = 2.67
 
-**NRI** = 1 - (2.66 / 3.66) = 0.273
+1 − MPD / MPD<sub>max</sub> = 1 − (2.67 / 3.67) = 0.273
 :::
 
 ::: {.column width="50%"}
@@ -2148,9 +2293,9 @@ Community 2; A, B, E, F
 :::
 
 
-**MPD** = (1 + 5 + 5 + 5+ 5 + 1) / 6 = 3.66
+**MPD** = (1 + 5 + 5 + 5 + 5 + 1) / 6 = 3.67
 
-**NRI** = 1 - (3.66 / 3.66) = 0
+1 − MPD / MPD<sub>max</sub> = 1 − (3.67 / 3.67) = 0
 
 :::
 
@@ -2162,9 +2307,17 @@ Community 1 is more phylogenetically similar.
 :::
 :::
 
+::: {style="font-size:0.55em;"}
+Simplified relative index for illustration. Standard NRI = −(MPD<sub>obs</sub> − mean MPD<sub>null</sub>) / sd MPD<sub>null</sub> (= −ses.mpd in picante)
+:::
+
+::: notes
+The expression "1 − MPD / maximum MPD" is a relative index used for illustration, not the standard NRI. NRI is standardized against null communities with the same number of randomly sampled species. It is the negative of ses.mpd used in the R practical.
+
+:::
 ---
 
-## Mean Nearest Nodal Distance (MNTD) and Nearest Taxa Index (NTI){.small}
+## Mean Nearest Taxon Distance (MNTD){.small}
 
 ::: footer
 [1] $MNTD = \frac{1}{n} \sum^n_i min \delta_{i,j} \; i \neq j$, where $min \delta_{i, j}$ is the minimum distance between species *i* and all other species in the community.
@@ -2207,7 +2360,7 @@ Greatest possible nearest nodal distance for a community of 4 taxa = 2 (A, C, D,
 
 ---
 
-## Mean Nearest Nodal Distance (MNTD) and Nearest Taxa Index (NTI){.small}
+## Mean Nearest Taxon Distance (MNTD){.small}
 
 ::: footer
 [1] $MNTD = \frac{1}{n} \sum^n_i min \delta_{i,j} \; i \neq j$, where $min \delta_{i, j}$ is the minimum distance between species *i* and all other species in the community.
@@ -2250,7 +2403,7 @@ Community 1; A, B, C, D
 
 **MNTD** = (1 + 1 + 2 + 3) / 4 = 1.75
 
-**NTI** = 1 - (1.75 / 2.0) = 0.125
+1 − MNTD / MNTD<sub>max</sub> = 1 − (1.75 / 2.0) = 0.125
 :::
 
 ::: {.column width="50%"}
@@ -2282,7 +2435,7 @@ Community 2; A, B, E, F
 
 **MNTD** = (1 + 1 + 1 + 1) / 4 = 1
 
-**NTI** = 1 - (1 / 2.0) = 0.5
+1 − MNTD / MNTD<sub>max</sub> = 1 − (1 / 2.0) = 0.5
 
 :::
 
@@ -2294,10 +2447,16 @@ Community 2 is more phylogenetically similar (in tips).
 :::
 :::
 
-::: notes
-MPD is more sensitive to the overall tree topology, while MNTD is more sensitive to the tip of the tree.
+::: {style="font-size:0.55em;"}
+Simplified relative index for illustration. Standard NTI = −(MNTD<sub>obs</sub> − mean MNTD<sub>null</sub>) / sd MNTD<sub>null</sub> (= −ses.mntd in picante)
 :::
 
+::: notes
+MPD is more sensitive to the overall tree topology, while MNTD is more sensitive to the tip of the tree.
+
+The expression "1 − MNTD / maximum MNTD" is a relative index used for illustration, not the standard NTI. NTI is the negative of ses.mntd used in the R practical.
+
+:::
 ---
 
 ## Sparks community phylogeny
@@ -2306,8 +2465,8 @@ MPD is more sensitive to the overall tree topology, while MNTD is more sensitive
 
 ::: notes
 break?
-:::
 
+:::
 ---
 
 ## Putting traits on the tips of phylogeny: phylogenetic signal{.small}
@@ -2341,8 +2500,8 @@ break?
 
 ::: notes
 Short explanation
-:::
 
+:::
 ---
 
 ## Phylogenetic conservatism matters
@@ -2453,7 +2612,7 @@ $$
 \end{aligned}
 $$
 
-**If area-based photosynthesis is uncorrelated with log LMA:**
+**If log area-based photosynthesis is uncorrelated with log LMA:**
 :::
 
 ::: {style="font-size:0.95em;"}
@@ -2472,7 +2631,7 @@ $$
 ::: small
 - **Area-based photosynthesis** is converted to mass-based photosynthesis by dividing by LMA.
 - This introduces a shared mathematical dependence on LMA.
-- Even if area-based photosynthesis is uncorrelated with LMA, **mass-based photosynthesis will be negatively correlated with LMA**.
+- Even if area-based photosynthesis is uncorrelated with LMA (on log scale), **mass-based photosynthesis will be negatively correlated with LMA**.
 
 **Key takeaway:**
 
@@ -2480,7 +2639,7 @@ A negative relationship between mass-based photosynthesis and LMA does not neces
 :::
 
 ::: {style="font-size:0.55em;"}
-*The simplified result assumes zero covariance between log area-based photosynthesis and log LMA. The general identity holds without this assumption.*
+*The general identity holds without this assumption.*
 :::
 :::
 :::
