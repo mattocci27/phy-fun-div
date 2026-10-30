@@ -25,7 +25,7 @@ execute:
   echo: true
 ---
 
-```{r external, child="setup.Rmd", include=FALSE}
+```{r external, child="setup.qmd", include=FALSE}
 ```
 
 ##  {#title-slide background="images/tree_bg.png" background-size="40%"}
@@ -1246,15 +1246,18 @@ As the title's wording "can co-occur" suggests, these patterns are consistent wi
 Katabuchi et al. 2012, Journal of Ecology
 :::
 
-<img src="images/dip_traits.png" width="80%" style="display: block; margin: auto;"/>
-
-<!-- ::: columns
-::: {.column width=40%}
+::: columns
+::: {.column width="55%"}
+<img src="images/dip_traits4.png" style="display:block; margin:0 auto; width:100%; height:auto; max-height:600px; object-fit:contain;"/>
 :::
 
-::: {.column width=60%}
+::: {.column width="45%"}
+::: {.incremental}
+- 80 dipterocarp species in a Malaysian tropical forest
+- Less fertile soils: lower SLA, leaf N and growth rate; higher leaf toughness
 :::
-::: -->
+:::
+:::
 
 ---
 
