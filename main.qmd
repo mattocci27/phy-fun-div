@@ -1,13 +1,12 @@
 ---
 pagetitle: "Diversity and Trait-Based Approaches"
 author: "Masatoshi Katabuchi"
-date: "November 18-20, 2025"
+date: "November 3-4, 2026"
 host: "XTBG AFEC"
 institute: "XTBG, CAS"
 strip-comments: true
 format:
   revealjs:
-    logo: images/xtbg_logo.png
     slide-number: true
     multiplex: true
     theme: assets/rladies.scss
@@ -129,7 +128,7 @@ For over a century, field ecologists have been characterizing patterns in ecolog
 
 
 ::: footer
-Russo et al. 2005, Journal of Ecology.
+Russo et al. 2005, Journal of Ecology
 :::
 
 ---
@@ -162,7 +161,7 @@ The dates indicate approximately when these approaches became widely used in com
 ## 1a) First-order properties: abundance
 
 ::: footer
-[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
+Vellend 2016, The Theory of Ecological Communities
 :::
 
 
@@ -229,7 +228,7 @@ $p_i$ is the relative abundance of species i (for example, $p_2$ = 300/383). Tak
 ## 1a) First-order properties: drawing the same species
 
 ::: footer
-[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
+Vellend 2016, The Theory of Ecological Communities
 :::
 
 Which community is more diverse?
@@ -294,7 +293,7 @@ Which community is more diverse?
 *N*: total number of individuals of all species,
 *p*: relative species abundance
 
-[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
+Vellend 2016, The Theory of Ecological Communities
 :::
 
 ::: notes
@@ -355,7 +354,7 @@ Another simple way to describe diversity?
 ::: footer
 *p*: relative species abundance
 
-[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
+Vellend 2016, The Theory of Ecological Communities
 :::
 
 
@@ -374,7 +373,7 @@ Another simple way to describe diversity?
 ## 1b) First-order properties of multiple communities (Beta diversity){.small}
 
 ::: footer
-[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
+Vellend 2016, The Theory of Ecological Communities
 :::
 
 ::: columns
@@ -423,7 +422,7 @@ Site 1 vs Site 2:  1 - (2 * (0 + 250 + 56 + 18) / (4 +300 + 56 + 23 + 0 + 250 + 
 ## 2a) Second-Order properties with site characteristics (1950s ~){.small}
 
 ::: footer
-[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
+Vellend 2016, The Theory of Ecological Communities
 :::
 
 ::: columns
@@ -473,7 +472,7 @@ E.g., Sp. 1 may prefer higher temperature with lower rainfall.
 ## 2b) Second-Order properties with species characteristics (2000s ~){.small}
 
 ::: footer
-[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
+Vellend 2016, The Theory of Ecological Communities
 :::
 
 ::: columns
@@ -674,7 +673,7 @@ Use branching order and branch lengths to express relatedness, rather than taxon
 ## Faith's Index (PD)
 
 ::: footer
-[1] Faith 1992, Biological Conservation
+Faith 1992, Biological Conservation
 :::
 
 ::: columns
@@ -796,9 +795,11 @@ overview_abde <- overview_metrics(c("A", "B", "D", "E"))
 :::
 ::: {.column width="55%"}
 ::: small
+::: incremental
 - **PD:** sum the connecting branches, counting each branch once.
 - **MPD (Mean Pairwise Distance):** average the path lengths over all species pairs.
 - **MNTD (Mean Nearest Taxon Distance):** average the distance to each species' nearest neighbor.
+:::
 
 ::: fragment
 **Example:** A–B = 1 + 1 = 2; A–C = 1 + 1 + 2 = 4.
@@ -810,7 +811,7 @@ MPD includes both pairs. For A's contribution to MNTD, only its nearest neighbor
 :::
 
 ::: footer
-Faith 1992; Webb 2000
+Faith 1992, Biological Conservation · Webb 2000, The American Naturalist
 :::
 
 ::: notes
@@ -839,7 +840,7 @@ PD is a total that counts each shared branch only once. MPD and MNTD are average
 :::
 
 ::: footer
-Faith 1992; Webb 2000; Tucker et al. 2017, Biological Reviews
+Faith 1992, Biological Conservation · Webb 2000, The American Naturalist · Tucker et al. 2017, Biological Reviews
 :::
 
 ::: notes
@@ -952,8 +953,10 @@ draw_anole_tree <- function(tree, title) {
 :::
 
 ::: {.small}
+::: incremental
 - Similar ecomorphs evolved independently on different islands.
 - Closely related species do not always have similar traits.
+:::
 :::
 
 ::: footer
@@ -966,35 +969,50 @@ The photographs on the left show ecomorph diversity. The schematic uses 12 ficti
 :::
 ---
 
-## Phylogenetic signal: does relatedness predict trait similarity?{.small}
+## Phylogenetic signal varies among traits {#phylogenetic-signal-traits}
 
-::: columns
-::: {.column width="30%"}
-![](images/phylo-sig.png)
-:::
-::: {.column width="70%"}
-::: incremental
-- Phylogenetic signal describes how trait similarity is associated with relatedness.
-- Check the traits relevant to the ecological question before using phylogeny as their proxy.
-- Signal can differ among traits; relatedness alone does not establish ecological similarity.
-:::
-:::
-:::
+<div style="display:grid; grid-template-columns: 48% 52%; gap:24px; height:610px; align-items:start;">
+<div style="text-align:center;">
+<img src="images/phylo-sig.png" alt="Original two-panel figure: preferred body temperature and optimal temperature for sprinting in Australian skinks, with phylogenies and randomization-test results." style="display:block; height:610px; width:auto; max-width:100%; margin:0 auto; object-fit:contain;"/>
+</div>
+<div style="display:grid; grid-template-rows: 100px 205px 245px 60px; font-size:30px; line-height:1.3;">
+<div style="font-size:23px; color:#555;">
+<strong>Blomberg’s K</strong><br>
+K = 1: Expected under Brownian motion<br>
+K &lt; 1: Less phylogenetic signal than expected under Brownian motion
+</div>
+<div style="align-self:center;">
+<strong>Preferred body temperature</strong>
+<p style="margin:12px 0; font-size:36px;">K = 0.45, P &lt; 0.001</p>
+Significant phylogenetic signal
+</div>
+<div style="align-self:center;">
+<strong>Optimal temperature for sprinting</strong>
+<p style="margin:12px 0; font-size:36px;">K = 0.10, P = 0.167</p>
+No significant phylogenetic signal detected
+</div>
+<div style="align-self:end; font-size:30px; color:#562457;"><strong>Phylogenetic signal depends on the trait.</strong></div>
+</div>
+</div>
 
 ::: footer
 Blomberg et al. 2003, Evolution
 :::
 
 ::: notes
-Quantitative explanations of K and Pagel's lambda are in the supplementary slides. Here, emphasize checking the relationship between traits and phylogeny before using relatedness as a proxy for traits.
+The original two-panel figure is preserved without changing its content or data. It compares two temperature traits in 12 species of Australian skinks. The figure reports K = 0.453 and K = 0.101; the explanation rounds these to 0.45 and 0.10.
 
+Blomberg's K = 1 is the expectation under Brownian motion. K < 1 indicates less phylogenetic signal than expected under Brownian motion. The P values come from randomization tests of phylogenetic signal, not tests of agreement with Brownian motion. Thus K < 1 and a significant randomization test can occur together, as for preferred body temperature.
+
+For optimal temperature for sprinting, P = 0.167 means that significant phylogenetic signal was not detected; it does not establish that phylogenetic signal is absent. Check the trait relevant to the ecological question before using relatedness as its proxy.
 :::
+
 ---
 
 ## The phylogenetic middleman problem
 
 ::: footer
-[1] Swenson 2013, Ecography
+Swenson 2013, Ecography
 :::
 
 
@@ -1046,18 +1064,20 @@ Measurable properties of plants that are indicative of ecological strategies
 ## Leaf Economic Spectrum (LES)
 
 ::: footer
-[1] Reich et al. 1997, PNAS
-
-[2] Wright et al. 2004, Nature
+Reich et al. 1997, PNAS · Wright et al. 2004, Nature
 :::
 
 ::: columns
-::: {.column width=30%}
-<img src="images/LES2004.png" style="display:block; margin:0 auto; width:100%; height:560px; object-fit:contain;"/>
+::: {.column width=62%}
+<img src="images/LES2004.png"
+     style="display:block; margin:0 auto;
+            width:auto; max-width:100%;
+            height:740px; object-fit:contain;"/>
 :::
 
-::: {.column width=70%}
-::: incremental
+
+::: {.column width=38%}
+::: {.incremental style="font-size: 0.85em;"}
 - Pairwise correlations among leaf traits in a global database (GLOPNET)
 - Six leaf traits covary along a single main axis (75 % of their variation)
 - Multidimensional leaf traits can be summarized by a one-dimensional index
@@ -1075,7 +1095,7 @@ Quick return (low LMA, short leaf lifespan, high photosynthesis and nitrogen per
 ## Rebuilding community ecology from functional traits
 
 ::: footer
-[1] McGill et al. 2006, Trends in Ecology and Evolution
+McGill et al. 2006, Trends in Ecology and Evolution
 :::
 
 ::: incremental
@@ -1120,7 +1140,7 @@ Functional diversity is an umbrella concept; FD, introduced here, is one particu
 
 
 ::: footer
-[1] Cornwell et al. 2006, Ecology
+Cornwell et al. 2006, Ecology
 :::
 
 <img src="images/convexhull_h.png" style="display:block; margin:0 auto; width:88%; height:auto;"/>
@@ -1144,7 +1164,7 @@ Volume depends on trait selection, units, and standardization.
 ## Convex hull volume (functional richness)
 
 ::: footer
-[1] Cornwell et al. 2006, Ecology
+Cornwell et al. 2006, Ecology
 :::
 
 ::: columns
@@ -1173,7 +1193,7 @@ The horizontal axis is species richness. Volume increases with richness, so comp
 
 
 ::: footer
-[1] Cornwell & Ackerly 2009, Ecological Monographs
+Cornwell & Ackerly 2009, Ecological Monographs
 :::
 
 <img src="images/trait_dist.png" width="80%" style="display: block; margin: auto;"/>
@@ -1188,7 +1208,7 @@ A narrower range of trait values and more even spacing of species within that ra
 
 
 ::: footer
-[1] Kraft et al. 2008, Science
+Kraft et al. 2008, Science
 :::
 
 ::: columns
@@ -1254,7 +1274,7 @@ Different processes can produce the same pattern. For example, clustering can ar
 ::: footer
 [1] $t_A$ and $t_B$ are the functional trait values of species A and B
 
-[2] Kunstler et al. 2012, Ecology Letters
+Kunstler et al. 2012, Ecology Letters
 :::
 
 ::: columns
@@ -1286,7 +1306,7 @@ Tree height illustrates a trait for which a larger value can confer a competitiv
 
 
 ::: footer
-[1] Endara et al. 2022, Journal of Ecology
+Endara et al. 2022, Journal of Ecology
 :::
 
 ::: columns
@@ -1319,7 +1339,7 @@ This is a study of local communities of one genus, Inga, across four regions, no
 <img src="images/traits2024.png" width =100% style="display: block; margin: auto;"/>
 
 ::: notes
-Roadmap for the next three examples: (1) from community summaries to individual species (CWM at BCI; diversity trends in Europe); (2) from species means to differences within and among species (the components of LMA); and (3) from measured traits to predictions of physiology and coexistence.
+Roadmap for the next examples: (1) from community summaries to individual species (CWM at BCI; diversity trends in Europe); (2) can traits predict performance? (drought response); (3) why bulk traits may predict weakly, and how separating LMA components improves physiological prediction; and (4) how far such metrics are from predicting coexistence.
 
 :::
 ---
@@ -1400,9 +1420,7 @@ The earlier FD and convex hull examples measured differences among species. We n
 ## Community averages can mislead without species‑level context{.small}
 
 ::: footer
-[1] Katabuchi et al. 2017, Ecology
-
-[2] Swenson et al. 2020, Ecological Monographs
+Katabuchi et al. 2017, Ecology · Swenson et al. 2020, Ecological Monographs
 :::
 
 ::: columns
@@ -1412,9 +1430,11 @@ The earlier FD and convex hull examples measured differences among species. We n
 :::
 ::: {.column width="45%"}
 ::: {.small}
+::: incremental
 - **Study site:** 50-ha forest dynamics plot, Barro Colorado Island, Panama.
 - **Community-level pattern:** Increasing CWM wood density appears consistent with a response to drier conditions.
 - **Species-level explanation:** Just two species account for ~60% of the temporal CWM shift, suggesting that species-specific processes may drive the apparent community trend.
+:::
 :::
 :::
 :::
@@ -1435,11 +1455,16 @@ The next example shows the same problem for diversity indices: an increase can h
 <p style="font-size:0.65em;">Average annual change relative to baseline (% per year). Lines: 95% confidence intervals; dotted boxes: non-significant trends.</p>
 :::
 ::: {.column width="42%"}
+::: incremental
 - 57,390 vegetation-plot time series across Europe; 14 functional traits.
 - Species richness, functional richness, and phylogenetic distances increased on average.
 - But: The number of generalists and cover of non-native species increased, while the number of specialists showed no significant change.
+:::
 
+::: fragment
 **Does greater functional richness mean better habitat quality?**
+:::
+
 :::
 :::
 
@@ -1456,7 +1481,50 @@ The dataset contains 199,282 observations in 57,390 vegetation-plot time series.
 The wetland explanation is an interpretation offered by the authors, not an experimentally demonstrated cause. Drying and disturbance may allow shrubs, trees and generalist grasses to establish while changing the original habitat. Habitat-specific European gamma diversity showed no general trend; local gains should not be equated with regional gains. The study does not directly establish declining beta diversity.
 The records span a century, but individual plots were not all monitored for a century: 55% of time series have only two observations, and 5–10 years is the most common interval. Resurvey selection may underrepresent completely destroyed habitats. Trait values include gap-filled species data and do not capture all within-species variation.
 For discussion: if a drying wetland gains widespread grass and shrub species, its trait space may expand without recovery of wetland specialists. Ask students to distinguish the measured index from the conservation interpretation.
-The next example returns to leaf traits: from species means to differences within and among species.
+Generalists were the "winners" here. Can traits predict which species win under environmental change? The next example tests this with an experimental drought.
+
+:::
+---
+
+## Can traits predict short-term drought response? {#worthy-2026 .small}
+
+::: columns
+::: {.column width="50%"}
+<img src="images/worthy2026-leaf-n.png" style="display:block; margin:0 auto; width:100%; height:460px; object-fit:contain;"/>
+
+<p style="font-size:0.65em;">Fig. 2, all-species panel. Cover change accounts for changes in control plots; higher values indicate greater drought resistance.</p>
+:::
+::: {.column width="50%"}
+::: incremental
+- **Experiment:** ~1 year of extreme drought at 63 sites; 421 herbaceous species, 661 populations.
+- **LES expectation:** Conservative leaves (low leaf N, low SLA) → greater drought resistance?
+:::
+
+::: fragment
+- **Result:** The opposite: *higher* leaf N was associated with greater resistance (drought escape?).
+:::
+
+::: fragment
+- But the all-species model explained only **6%** of variation.
+:::
+
+::: fragment
+**Traits covary strongly with each other, yet predict performance weakly.**
+:::
+:::
+:::
+
+::: footer
+Worthy et al. 2026, Nature Ecology & Evolution
+:::
+
+::: notes
+Source: Worthy_et_al_2026.pdf, Fig. 2 (PDF p. 3), Results and Methods; https://doi.org/10.1038/s41559-026-02989-4. The figure shows only the original all-species panel. The other growth-form and lifespan panels are not shown.
+Connect to LES: before revealing the result, ask students whether low leaf N and low SLA, associated with resource conservation, should predict resistance. Then reveal the direction (opposite to the expectation), and finally the R². This study tests that prediction against experimentally imposed drought in grasslands and shrublands. It does not measure tree responses or long-term drought survival.
+The response is a before–after, control–impact change in percentage cover: (drought after − drought before) − (control after − control before). Higher values indicate less negative or more positive cover change under drought relative to the control. Cover integrates multiple processes and is not a direct measurement of physiological tolerance or survival.
+Nine traits were tested using Bayesian mixed models with species and site effects. In the pooled analysis, leaf N was positively associated with drought resistance. The reported R² = 6% belongs to the full all-species model, not to leaf N alone, and is not an out-of-sample validation score. The scatter illustrates why a supported average relationship need not predict individual population responses accurately.
+Forbs also showed positive associations with height and root tissue density; no trait associations were significant in graminoids. Trait–trait and trait–environment interactions mattered. Do not infer that differences in statistical significance alone demonstrate different effect sizes between groups. The authors discuss drought escape as one possible explanation for acquisitive traits performing well during short droughts.
+Species-level trait data included imputed values and did not represent local plasticity at every site. Trait effects also depended on growth form, lifespan and environmental conditions. These results motivate specifying the response, timescale, plant group and environmental context when selecting traits. Transition: why might traits predict so weakly? One reason: a species-mean, bulk trait can combine components with different physiological meanings, and ignores variation within species. The next slide examines this for LMA.
 
 :::
 ---
@@ -1470,19 +1538,22 @@ The next example returns to leaf traits: from species means to differences withi
 :::
 ::: {.column width="42%"}
 ::: {.small}
+::: incremental
 - **Across species:** Leaf lifespan increases strongly with LMA, whereas area-based photosynthesis shows a weak relationship.
 - **Within species:** Area-based photosynthesis increases with LMA in the studied Panama assemblages.
 - **Proposed mechanism:** LMA variation reflects different contributions of photosynthetic and structural tissues.
 :::
 :::
 :::
+:::
 
 ::: footer
-Osnas, Katabuchi et al. 2018, PNAS · doi:10.1073/pnas.1803989115
+Osnas, Katabuchi et al. 2018, PNAS
 :::
 
 ::: notes
 Source: https://doi.org/10.1073/pnas.1803989115
+Following Worthy et al.: species-mean traits assume that one relationship holds both among and within species. Here, the LMA–photosynthesis relationship differs between the two.
 The global and Panama datasets also differ in geographical scale, so do not attribute every contrast solely to within-species versus among-species variation.
 Return to the 2013 normalization example: the same change in LMA can have different physiological meanings depending on its components.
 The proposed hypothesis is that variation in photosynthetically active mass contributes strongly to LMA variation between sun and shade leaves within species, whereas variation in structural mass contributes strongly across species. The data are consistent with these predictions; the claim is not that identical relationships hold in every within-species and among-species comparison.
@@ -1499,9 +1570,11 @@ Structural mass relates to strength and leaf lifespan. Rather than applying corr
 :::
 ::: {.column width="40%"}
 ::: {.small}
+::: incremental
 - Bulk LMA combines metabolic and structural components.
 - Metabolic mass (LMAₘ) is more strongly associated with photosynthesis and respiration per leaf area.
 - Structural mass (LMAₛ) is strongly associated with leaf lifespan.
+:::
 
 Separating metabolic and structural components reveals distinct functional relationships obscured by bulk LMA.
 :::
@@ -1515,48 +1588,8 @@ Katabuchi et al. 2025, Oecologia
 ::: notes
 Reading order: for photosynthesis, compare (a) LMA with (b) LMAm; for leaf lifespan, compare (g) LMA with (i) LMAs. LMAm is photosynthetically active (metabolic) mass; LMAs is structural mass.
 Move from total LMA to its component parts. Present this as an example of improved physiological prediction.
-The prediction target here is physiology; the study does not demonstrate prediction of coexistence or invasion growth rates. Do not equate this result with the process-informed metrics for coexistence prediction discussed by Levine et al. The next example tests trait-based prediction of short-term drought responses. We then consider the further connection from physiology to population dynamics and coexistence.
-
-:::
----
-
-## Can traits predict short-term drought response? {#worthy-2026 .small}
-
-::: columns
-::: {.column width="50%"}
-<img src="images/worthy2026-leaf-n.png" style="display:block; margin:0 auto; width:100%; height:460px; object-fit:contain;"/>
-
-<p style="font-size:0.65em;">Fig. 2, all-species panel. Cover change accounts for changes in control plots; higher values indicate greater drought resistance.</p>
-:::
-::: {.column width="50%"}
-- **Experiment:** ~1 year of extreme drought at 63 sites; 421 herbaceous species, 661 populations.
-- **LES expectation:** Conservative leaves (low leaf N, low SLA) → greater drought resistance?
-
-::: fragment
-- **Result:** The opposite: *higher* leaf N was associated with greater resistance (drought escape?).
-:::
-
-::: fragment
-- But the all-species model explained only **6%** of variation (cf. LES: one axis captures 75% of leaf-trait covariation).
-:::
-
-::: fragment
-**Traits covary strongly with each other, yet predict performance weakly.**
-:::
-:::
-:::
-
-::: footer
-Worthy et al. 2026, Nature Ecology & Evolution · Fig. 2 (excerpt) · doi:10.1038/s41559-026-02989-4
-:::
-
-::: notes
-Source: Worthy_et_al_2026.pdf, Fig. 2 (PDF p. 3), Results and Methods; https://doi.org/10.1038/s41559-026-02989-4. The figure shows only the original all-species panel. The other growth-form and lifespan panels are not shown.
-Connect to LES: before revealing the result, ask students whether low leaf N and low SLA, associated with resource conservation, should predict resistance. Then reveal the direction (opposite to the expectation), and finally the R². This study tests that prediction against experimentally imposed drought in grasslands and shrublands. It does not measure tree responses or long-term drought survival.
-The response is a before–after, control–impact change in percentage cover: (drought after − drought before) − (control after − control before). Higher values indicate less negative or more positive cover change under drought relative to the control. Cover integrates multiple processes and is not a direct measurement of physiological tolerance or survival.
-Nine traits were tested using Bayesian mixed models with species and site effects. In the pooled analysis, leaf N was positively associated with drought resistance. The reported R² = 6% belongs to the full all-species model, not to leaf N alone, and is not an out-of-sample validation score. The scatter illustrates why a supported average relationship need not predict individual population responses accurately.
-Forbs also showed positive associations with height and root tissue density; no trait associations were significant in graminoids. Trait–trait and trait–environment interactions mattered. Do not infer that differences in statistical significance alone demonstrate different effect sizes between groups. The authors discuss drought escape as one possible explanation for acquisitive traits performing well during short droughts.
-Species-level trait data included imputed values and did not represent local plasticity at every site. Trait effects also depended on growth form, lifespan and environmental conditions. These results motivate specifying the response, timescale, plant group and environmental context when selecting traits. Transition: what is missing from the remaining 94%? Demography, species interactions and environmental context, which the next slide connects to coexistence.
+The logic is process-informed: the trait is defined from the processes that generate it (metabolic vs structural mass) rather than taken as a bulk measurement. The prediction target here is physiology; the study does not demonstrate prediction of vital rates, coexistence or invasion growth rates. It also does not resolve the 6% in Worthy et al., whose target was cover change under drought.
+The next slide places this example on the axis from traits to coexistence.
 
 :::
 ---
@@ -1572,9 +1605,15 @@ Species-level trait data included imputed values and did not represent local pla
 :::
 ::: {.column width="37%"}
 ::: {.small}
+::: incremental
 - **Traits alone are insufficient** to predict species coexistence.
 - Predictive models must link traits and physiology to **demographic rates** and **species interactions**.
 - **Invasion growth rates** (growth when rare) provide a direct link to coexistence theory.
+:::
+
+::: fragment
+- **LMAₘ / LMAₛ:** process-informed in logic, but still a trait → left end of this axis.
+:::
 :::
 :::
 :::
@@ -1586,7 +1625,8 @@ Levine et al. 2024, Trends in Ecology & Evolution
 ::: notes
 Invasion growth rate is the population growth rate of a species introduced at low abundance into an established community. A positive value means it can increase when rare, a condition relevant to coexistence.
 This is a conceptual illustration; it does not imply that predictive performance actually reaches 100%.
-Improving physiological prediction by separating LMA into components does not by itself predict species coexistence. Consider the connections to individual growth, survival, reproduction, and population growth under competition.
+In this figure, process-informed metrics sit between vital rates and niche/fitness differences, closer to coexistence than traits. Ask students where the previous examples sit: LMAm/LMAs separates a trait by process but remains at the "functional traits" position with physiology as its target; Worthy et al. linked traits to drought performance and explained 6%. Improving physiological prediction does not by itself predict species coexistence. Consider the connections to individual growth, survival, reproduction, and population growth under competition.
+Return to Worthy et al.: what is missing from the remaining 94%? Demography, species interactions and environmental context.
 When choosing metrics that reflect mechanisms, specify the prediction target. Physiology, population dynamics, and coexistence are different prediction targets.
 
 :::
@@ -1641,7 +1681,7 @@ The remaining slides are supplementary material and are not normally presented d
 ## 2a) Second-Order properties with site characteristics (1950s ~){.small}
 
 ::: footer
-[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
+Vellend 2016, The Theory of Ecological Communities
 :::
 
 ::: columns
@@ -1672,7 +1712,7 @@ rbind(ab, env) |>
 ## 2b) Second-Order properties with species characteristics (2000s ~){.small}
 
 ::: footer
-[1] Vellend, M. (2016). The Theory of Ecological Communities. Princeton University Press
+Vellend 2016, The Theory of Ecological Communities
 :::
 
 ::: columns
@@ -1714,7 +1754,7 @@ trait %>%
 ## Genus:species ratio
 
 ::: footer
-[1] Swenson 2013, Ecography
+Swenson 2013, Ecography
 :::
 
 - The genus:species ratio type of study in plant community ecology started ~1910
@@ -1731,7 +1771,7 @@ trait %>%
 ## Faith's Index (PD)
 
 ::: footer
-[1] Faith 1992, Biological Conservation
+Faith 1992, Biological Conservation
 :::
 
 ::: columns
@@ -1773,7 +1813,7 @@ tiplabels(
 ## Faith's Index (PD)
 
 ::: footer
-[1] Faith 1992, Biological Conservation
+Faith 1992, Biological Conservation
 :::
 
 ::: columns
@@ -1815,7 +1855,7 @@ tiplabels(
 ## Beyond Faith's Index (PD)
 
 ::: footer
-[1] Webb 2000, The American Naturalist
+Webb 2000, The American Naturalist
 :::
 
 - Solution for genus:species = Use phylogenetic trees to estimate the
@@ -2075,7 +2115,7 @@ break?
 ## Putting traits on the tips of phylogeny: phylogenetic signal{.small}
 
 ::: footer
-[1] Blomberg et al. 2003, Evolution
+Blomberg et al. 2003, Evolution
 :::
 
 ::: columns
@@ -2112,7 +2152,7 @@ Short explanation
 <img src="images/Cavender3.jpg" width="80%" style="display: block; margin: auto;"/>
 
 ::: footer
-[1] Cavender-Bares et al. 2004, The American Naturalist
+Cavender-Bares et al. 2004, The American Naturalist
 :::
 
 ---
@@ -2122,7 +2162,7 @@ Short explanation
 ![](./images/Cavender_tab.jpg)
 
 ::: footer
-[1] Cavender-Bares et al. 2004, The American Naturalist
+Cavender-Bares et al. 2004, The American Naturalist
 :::
 
 ---
@@ -2130,7 +2170,7 @@ Short explanation
 ## Rebuilding community ecology from functional traits
 
 ::: footer
-[1] McGill et al. 2006, Trends in Ecology and Evolution
+McGill et al. 2006, Trends in Ecology and Evolution
 :::
 
 ::: incremental
@@ -2146,7 +2186,7 @@ Short explanation
 ## Environmental filtering can occur within dipterocarp trees{.small}
 
 ::: footer
-[1] Katabuchi et al. 2012, Journal of Ecology
+Katabuchi et al. 2012, Journal of Ecology
 :::
 
 <img src="images/dip_traits.png" width="80%" style="display: block; margin: auto;"/>
@@ -2165,7 +2205,7 @@ Short explanation
 
 
 ::: footer
-[1] López-Angulo et al. 2018, Journal of Vegetation Science
+López-Angulo et al. 2018, Journal of Vegetation Science
 :::
 
 ::: columns
@@ -2232,9 +2272,11 @@ $$
 
 ::: {.column width="40%"}
 ::: small
+::: incremental
 - **Area-based photosynthesis** is converted to mass-based photosynthesis by dividing by LMA.
 - This introduces a shared mathematical dependence on LMA.
 - Even if area-based photosynthesis is uncorrelated with LMA (on log scale), **mass-based photosynthesis will be negatively correlated with LMA**.
+:::
 
 **Key takeaway:**
 
@@ -2248,5 +2290,5 @@ A negative relationship between mass-based photosynthesis and LMA does not neces
 :::
 
 ::: footer
-Osnas et al. (2013), Science. doi:10.1126/science.1231574
+Osnas et al. 2013, Science
 :::
