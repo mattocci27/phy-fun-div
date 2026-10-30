@@ -851,67 +851,6 @@ These values describe phylogenetic structure; they do not identify environmental
 :::
 ---
 
-## Do phylogenetically related species have similar ecological niches?{.small}
-
-::: footer
-[1] Anolis ecomorphs (Wikipedia)
-:::
-
-
-::: columns
-::: {.column width="45%"}
-![](images/anole.jpg)
-:::
-
-::: {.column width="55%"}
-::: incremental
-- We are assuming that related species are ecologically similar
-
-- Related species sometimes have very different traits and ecological niches (e.g., grass-bush, trunk, trunk-crown, trunk-ground and twig ecomorphs)
-:::
-
-:::
-:::
-
-::: notes
-- the study was done in 1998, but people usually ignore something inconvenient
-
-:::
----
-
-## Functional dendrogram vs. phylogeny (Anole example){.small}
-
-::: footer
-[1] Losos et al. 1998, Science
-:::
-
-::: columns
-::: {.column width="50%"}
-![](images/Losos1998.png)
-:::
-
-::: {.column width="50%"}
-::: incremental
-
-- A: Functional dendrogram based on ecomorph
-
-- B: Phylogeny indicates frequent evolution of traits
-
-- They do not match: the same ecomorphs evolved independently on different islands
-
-- Phylogenetically similar = Functional (ecologically) similar??
-
-:::
-
-:::
-:::
-
-::: notes
-Colors indicate ecomorphs; letters above the tips indicate islands (C: Cuba, H: Hispaniola, J: Jamaica, P: Puerto Rico). In A, tips of the same color cluster together. In phylogeny B, the same colors appear repeatedly within different island lineages. Related species within islands diversified into different ecomorphs, while similar ecomorphs evolved independently on different islands (convergent evolution).
-
-:::
----
-
 ## Do phylogenetically related species have similar ecological niches? {#anole-combined .small}
 
 ::: columns
@@ -1113,56 +1052,22 @@ Measurable properties of plants that are indicative of ecological strategies
 :::
 
 ::: columns
-::: {.column width=20%}
-![](images/LES2004.png)
+::: {.column width=30%}
+<img src="images/LES2004.png" style="display:block; margin:0 auto; width:100%; height:560px; object-fit:contain;"/>
 :::
 
-::: {.column width=80%}
+::: {.column width=70%}
 ::: incremental
-::: small
 - Pairwise correlations among leaf traits in a global database (GLOPNET)
 - Six leaf traits covary along a single main axis (75 % of their variation)
 - Multidimensional leaf traits can be summarized by a one-dimensional index
-- Controversial because global among‑species patterns don’t always match within‑species or local patterns
-:::
 :::
 :::
 :::
 
 ::: notes
 Quick return (low LMA, short leaf lifespan, high photosynthesis and nitrogen per unit mass): recover resources rapidly using inexpensive leaves. Slow return: retain expensive, durable leaves for longer. This is an axis of covariation among leaf traits, not a direct measure of whole-plant strategy or community diversity. The 75% value comes from the analysis in Wright et al. (2004).
-The next slide examines how some of these correlations depend on normalization per unit mass or per unit area.
 
-:::
----
-
-## Leaf trait correlations depend on normalization
-
-$$
-A_{\mathrm{mass}} = \frac{A_{\mathrm{area}}}{\mathrm{LMA}},
-\qquad
-N_{\mathrm{mass}} = \frac{N_{\mathrm{area}}}{\mathrm{LMA}}
-$$
-
-::: incremental
-- Expressing traits per unit mass or per unit area can change their correlations.
-- **Example:** if photosynthesis per unit area stays constant while LMA doubles, photosynthesis per unit mass halves.
-- A shared denominator, LMA, can strengthen correlations between mass-based traits, even when their area-based values vary independently.
-:::
-
-::: fragment
-**Ask what generates the correlation before interpreting it as a physiological trade-off.**
-:::
-
-::: footer
-Osnas et al. 2013, Science · doi:10.1126/science.1231574
-:::
-
-::: notes
-Source: https://doi.org/10.1126/science.1231574
-A denotes photosynthetic rate and N denotes nitrogen content. The subscripts mass and area mean per unit dry mass and per unit leaf area, respectively. The equations follow from unit conversion.
-The example of doubling LMA is hypothetical and isolates the effect of normalization; it is not an observed treatment effect. Even if area-based photosynthesis and nitrogen are uncorrelated, dividing both by the same LMA can generate a correlation between their mass-based values.
-This does not mean that the LES is meaningless. Consider how biological variation and normalization each contribute to correlations, including the relationship between LMA and leaf lifespan. Nor does it imply that area-based normalization is always correct.
 
 :::
 ---
@@ -1183,79 +1088,6 @@ This does not mean that the LES is meaningless. Consider how biological variatio
    - Compact plants with canopy area < 30 cm <sup>2</sup>  and small or absent leaves are restricted to marshes with < 18 $\mu$ g g <sup>-1</sup> soil P.
 :::
 
----
-
-## Community traits: mean vs. diversity
-
-::: columns
-::: {.column width="55%"}
-```{r cwm-vs-fd, echo=FALSE, fig.width=7, fig.height=6}
-cwm_demo <- tibble(
-  y = rep(3:1, each = 5),
-  trait = c(80, 90, 100, 110, 120,
-            60, 80, 100, 120, 140,
-            120, 130, 140, 150, 160),
-  abundance = rep(c(1, 2, 4, 2, 1), 3)
-)
-
-cwm_lines <- cwm_demo |>
-  group_by(y) |>
-  summarise(cwm = sum(abundance * trait) / sum(abundance))
-
-cwm_labels <- tibble(
-  y = 3:1,
-  label = c("Community 1", "2: same mean, wider spread", "3: shifted mean, same spread")
-)
-
-ggplot(cwm_demo, aes(x = trait, y = y)) +
-  geom_segment(data = cwm_lines,
-               aes(x = cwm, xend = cwm, y = y - 0.3, yend = y + 0.3),
-               colour = "#E28F41", linewidth = 2) +
-  geom_point(aes(size = abundance), colour = "#6C9AC3", alpha = 0.9) +
-  geom_text(data = cwm_labels, aes(x = 50, y = y + 0.42, label = label),
-            hjust = 0, size = 8.5) +
-  annotate("text", x = 104, y = 3.42, label = "CWM", colour = "#E28F41",
-           hjust = 0, size = 8.5, fontface = "bold") +
-  scale_size_area(max_size = 16, guide = "none") +
-  scale_x_continuous(limits = c(50, 172), breaks = c(50, 100, 150)) +
-  scale_y_continuous(limits = c(0.6, 3.6)) +
-  xlab("Trait value (e.g., LMA)") +
-  ylab(NULL) +
-  theme_classic() +
-  theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(),
-        axis.line.y = element_blank(),
-        axis.title = element_text(size = 26),
-        axis.text.x = element_text(size = 24))
-```
-:::
-::: {.column width="45%"}
-- **Community-weighted mean (CWM)**
-
-  $\mathrm{CWM} = \Sigma p_i t_i$
-
-  Which strategy dominates?
-
-::: fragment
-- **Functional diversity**
-
-  How different are the coexisting strategies?
-:::
-
-::: fragment
-**The mean and the spread can change independently.**
-:::
-:::
-:::
-
-::: footer
-*p*<sub>*i*</sub>: relative abundance of species *i* · *t*<sub>*i*</sub>: trait value of species *i*
-:::
-
-::: notes
-The weights p_i may represent relative abundance, biomass, or cover. CWM asks where the community's "center" lies; functional diversity asks how different the species are from one another. Community 2 has the same mean but greater spread, whereas community 3 has the same spread but a shifted mean.
-The following FD and convex hull examples address spread; the later BCI example addresses CWM, or the center. Distances and volumes also depend on trait selection, units, and standardization.
-
-:::
 ---
 
 ## Petchey & Gaston's functional diversity (FD)
@@ -1487,7 +1319,80 @@ This is a study of local communities of one genus, Inga, across four regions, no
 <img src="images/traits2024.png" width =100% style="display: block; margin: auto;"/>
 
 ::: notes
-Roadmap for the next three examples: (1) from community means to individual species (CWM at BCI); (2) from species means to differences within and among species (the components of LMA); and (3) from measured traits to predictions of physiology and coexistence.
+Roadmap for the next three examples: (1) from community summaries to individual species (CWM at BCI; diversity trends in Europe); (2) from species means to differences within and among species (the components of LMA); and (3) from measured traits to predictions of physiology and coexistence.
+
+:::
+---
+
+## Community traits: mean vs. diversity
+
+::: columns
+::: {.column width="55%"}
+```{r cwm-vs-fd, echo=FALSE, fig.width=7, fig.height=6}
+cwm_demo <- tibble(
+  y = rep(3:1, each = 5),
+  trait = c(80, 90, 100, 110, 120,
+            60, 80, 100, 120, 140,
+            120, 130, 140, 150, 160),
+  abundance = rep(c(1, 2, 4, 2, 1), 3)
+)
+
+cwm_lines <- cwm_demo |>
+  group_by(y) |>
+  summarise(cwm = sum(abundance * trait) / sum(abundance))
+
+cwm_labels <- tibble(
+  y = 3:1,
+  label = c("Community 1", "2: same mean, wider spread", "3: shifted mean, same spread")
+)
+
+ggplot(cwm_demo, aes(x = trait, y = y)) +
+  geom_segment(data = cwm_lines,
+               aes(x = cwm, xend = cwm, y = y - 0.3, yend = y + 0.3),
+               colour = "#E28F41", linewidth = 2) +
+  geom_point(aes(size = abundance), colour = "#6C9AC3", alpha = 0.9) +
+  geom_text(data = cwm_labels, aes(x = 50, y = y + 0.42, label = label),
+            hjust = 0, size = 8.5) +
+  annotate("text", x = 104, y = 3.42, label = "CWM", colour = "#E28F41",
+           hjust = 0, size = 8.5, fontface = "bold") +
+  scale_size_area(max_size = 16, guide = "none") +
+  scale_x_continuous(limits = c(50, 172), breaks = c(50, 100, 150)) +
+  scale_y_continuous(limits = c(0.6, 3.6)) +
+  xlab("Trait value (e.g., LMA)") +
+  ylab(NULL) +
+  theme_classic() +
+  theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(),
+        axis.line.y = element_blank(),
+        axis.title = element_text(size = 26),
+        axis.text.x = element_text(size = 24))
+```
+:::
+::: {.column width="45%"}
+- **Community-weighted mean (CWM)**
+
+  $\mathrm{CWM} = \Sigma p_i t_i$
+
+  Which strategy dominates?
+
+::: fragment
+- **Functional diversity**
+
+  How different are the coexisting strategies?
+:::
+
+::: fragment
+**The mean and the spread can change independently.**
+:::
+:::
+:::
+
+::: footer
+*p*<sub>*i*</sub>: relative abundance of species *i* · *t*<sub>*i*</sub>: trait value of species *i*
+:::
+
+::: notes
+The weights p_i may represent relative abundance, biomass, or cover. CWM asks where the community's "center" lies; functional diversity asks how different the species are from one another. Community 2 has the same mean but greater spread, whereas community 3 has the same spread but a shifted mean.
+The earlier FD and convex hull examples measured differences among species. We now turn to the community mean: a change in species abundances can shift CWM even if species trait values stay fixed. The next BCI example asks what causes such a shift.
 
 :::
 ---
@@ -1516,6 +1421,42 @@ Roadmap for the next three examples: (1) from community means to individual spec
 
 ::: notes
 Two of approximately 300 species (~0.7%) account for ~60% of the temporal CWM shift. Species-specific pathogens were suggested as a possible explanation, rather than a community-wide climate response.
+The next example shows the same problem for diversity indices: an increase can hide which species are gained or lost.
+
+:::
+---
+
+## Biodiversity change in European plant communities {#kambach-2026 .small}
+
+::: columns
+::: {.column width="58%"}
+<img src="images/kambach2026-diversity-trends.png" style="display:block; margin:0 auto; width:100%; height:440px; object-fit:contain;"/>
+
+<p style="font-size:0.65em;">Average annual change relative to baseline (% per year). Lines: 95% confidence intervals; dotted boxes: non-significant trends.</p>
+:::
+::: {.column width="42%"}
+- 57,390 vegetation-plot time series across Europe; 14 functional traits.
+- Species richness, functional richness, and phylogenetic distances increased on average.
+- But: The number of generalists and cover of non-native species increased, while the number of specialists showed no significant change.
+
+**Does greater functional richness mean better habitat quality?**
+:::
+:::
+
+::: footer
+Kambach et al. 2026, Nature Communications
+:::
+
+::: notes
+Source: Kambach_et_al_2026.pdf, Fig. 1 (PDF p. 2), Results and Discussion; https://doi.org/10.1038/s41467-026-72112-5. The figure is cropped from the original PDF; no values were redrawn.
+Before showing the figure, ask students to predict: with land-use intensification, eutrophication and climate change across Europe, did local species richness increase or decrease?
+This pairs with the preceding BCI example: there, a shift in community mean was driven by two species; here, diversity gains are driven by generalist and non-native species. In both cases, an aggregate index hides which species are gained or lost. It also revisits functional richness (convex hull): because FRic increases with species richness, ask whether the FRic gain reflects more than the richness gain. The main-text Methods compute FRic from 14 traits scaled to unit variance and do not describe a richness-matched null model. CWM niche width (+0.004) applies the CWM introduced on the previous slides.
+The cover of Red List species also increased (+0.39), so do not present the figure as uniform degradation; the point is that index increases need species-level context.
+The dataset contains 199,282 observations in 57,390 vegetation-plot time series. Fourteen traits were used to calculate functional richness, evenness and divergence. Mean annual relative changes include species richness +0.22%, functional richness +0.31%, functional divergence +0.14%, MPD +0.59% and MNTD +0.70%; functional evenness had no significant overall trend. These are changes relative to each metric's baseline, not a common measure of ecological importance. Read each estimate with its uncertainty; do not rank metrics by their percentage increase.
+The wetland explanation is an interpretation offered by the authors, not an experimentally demonstrated cause. Drying and disturbance may allow shrubs, trees and generalist grasses to establish while changing the original habitat. Habitat-specific European gamma diversity showed no general trend; local gains should not be equated with regional gains. The study does not directly establish declining beta diversity.
+The records span a century, but individual plots were not all monitored for a century: 55% of time series have only two observations, and 5–10 years is the most common interval. Resurvey selection may underrepresent completely destroyed habitats. Trait values include gap-filled species data and do not capture all within-species variation.
+For discussion: if a drying wetland gains widespread grass and shrub species, its trait space may expand without recovery of wetland specialists. Ask students to distinguish the measured index from the conservation interpretation.
+The next example returns to leaf traits: from species means to differences within and among species.
 
 :::
 ---
@@ -1574,7 +1515,48 @@ Katabuchi et al. 2025, Oecologia
 ::: notes
 Reading order: for photosynthesis, compare (a) LMA with (b) LMAm; for leaf lifespan, compare (g) LMA with (i) LMAs. LMAm is photosynthetically active (metabolic) mass; LMAs is structural mass.
 Move from total LMA to its component parts. Present this as an example of improved physiological prediction.
-The prediction target here is physiology; the study does not demonstrate prediction of coexistence or invasion growth rates. Do not equate this result with the process-informed metrics for coexistence prediction discussed by Levine et al. The next slide presents the connection from physiology to population dynamics and coexistence as a separate challenge.
+The prediction target here is physiology; the study does not demonstrate prediction of coexistence or invasion growth rates. Do not equate this result with the process-informed metrics for coexistence prediction discussed by Levine et al. The next example tests trait-based prediction of short-term drought responses. We then consider the further connection from physiology to population dynamics and coexistence.
+
+:::
+---
+
+## Can traits predict short-term drought response? {#worthy-2026 .small}
+
+::: columns
+::: {.column width="50%"}
+<img src="images/worthy2026-leaf-n.png" style="display:block; margin:0 auto; width:100%; height:460px; object-fit:contain;"/>
+
+<p style="font-size:0.65em;">Fig. 2, all-species panel. Cover change accounts for changes in control plots; higher values indicate greater drought resistance.</p>
+:::
+::: {.column width="50%"}
+- **Experiment:** ~1 year of extreme drought at 63 sites; 421 herbaceous species, 661 populations.
+- **LES expectation:** Conservative leaves (low leaf N, low SLA) → greater drought resistance?
+
+::: fragment
+- **Result:** The opposite: *higher* leaf N was associated with greater resistance (drought escape?).
+:::
+
+::: fragment
+- But the all-species model explained only **6%** of variation (cf. LES: one axis captures 75% of leaf-trait covariation).
+:::
+
+::: fragment
+**Traits covary strongly with each other, yet predict performance weakly.**
+:::
+:::
+:::
+
+::: footer
+Worthy et al. 2026, Nature Ecology & Evolution · Fig. 2 (excerpt) · doi:10.1038/s41559-026-02989-4
+:::
+
+::: notes
+Source: Worthy_et_al_2026.pdf, Fig. 2 (PDF p. 3), Results and Methods; https://doi.org/10.1038/s41559-026-02989-4. The figure shows only the original all-species panel. The other growth-form and lifespan panels are not shown.
+Connect to LES: before revealing the result, ask students whether low leaf N and low SLA, associated with resource conservation, should predict resistance. Then reveal the direction (opposite to the expectation), and finally the R². This study tests that prediction against experimentally imposed drought in grasslands and shrublands. It does not measure tree responses or long-term drought survival.
+The response is a before–after, control–impact change in percentage cover: (drought after − drought before) − (control after − control before). Higher values indicate less negative or more positive cover change under drought relative to the control. Cover integrates multiple processes and is not a direct measurement of physiological tolerance or survival.
+Nine traits were tested using Bayesian mixed models with species and site effects. In the pooled analysis, leaf N was positively associated with drought resistance. The reported R² = 6% belongs to the full all-species model, not to leaf N alone, and is not an out-of-sample validation score. The scatter illustrates why a supported average relationship need not predict individual population responses accurately.
+Forbs also showed positive associations with height and root tissue density; no trait associations were significant in graminoids. Trait–trait and trait–environment interactions mattered. Do not infer that differences in statistical significance alone demonstrate different effect sizes between groups. The authors discuss drought escape as one possible explanation for acquisitive traits performing well during short droughts.
+Species-level trait data included imputed values and did not represent local plasticity at every site. Trait effects also depended on growth form, lifespan and environmental conditions. These results motivate specifying the response, timescale, plant group and environmental context when selecting traits. Transition: what is missing from the remaining 94%? Demography, species interactions and environmental context, which the next slide connects to coexistence.
 
 :::
 ---
