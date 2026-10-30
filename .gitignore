@@ -14,3 +14,4 @@ data/pa_data.csv
 
 /docs/**/*.md
 /docs/*.md
+/logs/*.md
