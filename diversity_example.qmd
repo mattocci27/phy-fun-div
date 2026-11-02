@@ -28,7 +28,7 @@ knitr::opts_chunk$set(echo=TRUE,
 <a href="https://github.com/mattocci27/"><i class="fa-brands fa-github fa-1x"></i> Github</a>
 <a href="mailto:mattocci27@gmail.com"><i class="fa-solid fa-envelope fa-1x"></i> Email</a>
 
-Course materials for AFEC 2025 at XTBG.
+Course materials for AFEC 2026 at XTBG.
 
 # Objectives
 
@@ -37,21 +37,11 @@ Course materials for AFEC 2025 at XTBG.
 
 # Prerequisites
 
-You can work through these exercises with a standard R installation; just grab the files and install a few packages.
-
-1. Clone the repository (or download and unzip it):
-
-   ```{bash, eval=FALSE}
-   git clone https://github.com/mattocci27/phy-fun-div.git
-   ```
-
-2. (**Optional**) Restore the environment with `renv`. This ensures identical package versions but takes longer the first time.
-
-   ```{r, eval=FALSE}
-   renv::restore()
-   ```
-
-3. Prefer a quicker start? Install the required packages manually:
+1. Download the exercise ZIP provided by the instructor and extract the entire folder.
+   Move it somewhere you can save your work. Do not open files inside the ZIP.
+2. Open `phy-fun-div.Rproj` in RStudio, then open `diversity_example.qmd`.
+   Run the R code chunks in order using their green play buttons.
+3. Install the required packages once, before class if possible (internet required):
 
    ```{r, eval=FALSE}
    install.packages(c(
@@ -60,20 +50,9 @@ You can work through these exercises with a standard R installation; just grab t
    ))
    ```
 
-If you want to skip `renv`, comment out the autoload lines in `.Rprofile`.
-
-```{r}
-# Sys.setenv(RENV_DOWNLOAD_METHOD = "curl")
-# Sys.setenv(RENV_CONFIG_PAK_ENABLED = "TRUE")
-# options(renv.install.staged = FALSE)
-
-# if (file.exists("renv/activate.R")) {
-#   source("renv/activate.R")
-#   if ("renv" %in% loadedNamespaces()) {
-#     renv::settings$use.cache(TRUE)
-#   }
-# }
-```
+If `diversity_example.html` is included, you can open it in a browser to read
+the instructions and example results. Git and `renv` are not needed for the exercise ZIP.
+Rendering the whole notebook is optional; during class, run individual R chunks.
 
 # Load packages
 
@@ -105,8 +84,9 @@ The directory structure looks like this:
 ├── data/
 │   ├── dummy_trait.csv
 │   ├── dummy_tree.newick
-│   ├── samp.csv
-│   └── soil.csv
+│   └── samp.csv
+├── docs/
+└── phy-fun-div.Rproj
 ```
 
 ### Using `here` package

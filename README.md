@@ -1,25 +1,18 @@
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
-# AFEC2025: Phylogenetic diversity, functional diversity and trait-based approaches
+# AFEC 2026: Phylogenetic diversity, functional diversity and trait-based approaches
 
-Quarto slide deck and supporting material for the AFEC 2025 workshop on phylogenetic diversity, functional diversity, and trait-based approaches hosted at XTBG.
+Lecture slides and R exercises for the AFEC 2026 workshop at XTBG, CAS, November 3–4, 2026. Instructor: Masatoshi Katabuchi.
 
 - Slides: <https://forest-canopy.github.io/assets/phy-fun-div/main.html>
 - Hands-on notebook: <https://forest-canopy.github.io/assets/phy-fun-div/diversity_example.html>
 
-## Quick Start
+## Student Quick Start
 
-1. Install R (≥ 4.3) and Quarto (≥ 1.4).
-2. Clone this repository and open it in R (e.g., via RStudio or radian).
-3. Optional: Restore the exact development environment with `renv`.
-
-   ```r
-   renv::restore()
-   ```
-
-   > Tip: If you prefer to skip `renv`, start R with `RENV_CONFIG_AUTOLOADER_ENABLED=FALSE` (for example, run `Sys.setenv(RENV_CONFIG_AUTOLOADER_ENABLED = "FALSE")` before loading packages) or temporarily comment out the lines in `.Rprofile` that source `renv/activate.R`.
-
-4. Install the R packages used in `diversity_example.qmd` (you can copy/paste the following into the R console):
+1. Install R and RStudio before class.
+2. Download `phy-fun-div-student.zip` provided by the instructor and extract the entire folder. Do not open files inside the ZIP.
+3. Open `phy-fun-div.Rproj` in RStudio, then open `diversity_example.qmd`.
+4. Install the required packages once by running this code in the R console (internet required; please do this before class):
 
     ```r
     install.packages(c(
@@ -28,19 +21,26 @@ Quarto slide deck and supporting material for the AFEC 2025 workshop on phylogen
     ))
     ```
 
-5. Open `diversity_example.qmd` and work through the exercises (students only need this document plus the datasets in `data/`).
+5. Run the R code chunks in order using their green play buttons. Keep the datasets and accompanying folders in place.
 
-6. Optional: Render the main slide deck:
+Git and `renv` are not needed for the student ZIP. Rendering the notebook is optional; during class, run individual chunks. If `diversity_example.html` is included, open it in a browser to read the worked example.
 
-   ```bash
-   quarto render main.qmd
-   ```
+The exercises cover species richness and Shannon diversity, phylogenetic PD/MPD/MNTD, community-weighted means, functional distances, and comparison with null models.
 
-7. Optional: regenerate the diversity example notebook.
+## Instructor Setup
 
-   ```bash
-   quarto render diversity_example.qmd
-   ```
+For editing and rendering the full teaching materials, clone this repository and open `phy-fun-div.Rproj`. The repository uses `renv` for its development environment:
+
+```r
+renv::restore()
+```
+
+With Quarto and the required R packages installed, render the materials using:
+
+```bash
+quarto render main.qmd
+quarto render diversity_example.qmd
+```
 
 ## Directory Layout
 
@@ -49,14 +49,17 @@ Quarto slide deck and supporting material for the AFEC 2025 workshop on phylogen
 |-- main.qmd               # Primary Quarto presentation
 |-- diversity_example.qmd  # Hands-on tutorial notebook (students run this file)
 |-- assets/                # CSS themes and custom styling
-|-- data/                  # Example trait, tree, and soil datasets (used by students)
+|-- data/                  # Community, trait, tree, and additional soil datasets
+|-- scripts/build_student_zip.py  # Generate the student handout ZIP
+|-- dist/                  # Generated student ZIP (not tracked by Git)
+|-- phy-fun-div.Rproj      # RStudio project
+|-- docs/                  # Teaching notes; also used for the path demonstration
 |-- images/                # Figures used throughout the slides
 |-- figure/                # Auto-generated plot outputs
 |-- R/                     # Helper functions and package setup
-|-- run.R / run.sh         # Convenience scripts for rendering
+|-- run.R / run.sh         # Legacy workflow wrappers
 |-- renv/                  # renv metadata (auto-managed)
 |-- renv.lock              # Locked package versions
-|-- README_files/          # Assets generated for the README
 |-- main_files/            # Assets generated for the slide deck
 `-- _targets*/             # Targets pipeline artefacts
 ```
@@ -64,14 +67,33 @@ Quarto slide deck and supporting material for the AFEC 2025 workshop on phylogen
 ## Development Notes
 
 - Maintainers manage dependencies with `renv` (using `pak` for faster installs), but students can rely on the base `install.packages()` call above.
-- Rendering scripts (`run.R`, `run.sh`) wrap common build tasks; feel free to adapt them for batch workflows.
+- Use the explicit `quarto render` commands above to rebuild the teaching materials.
 - The project follows the CC BY-SA 4.0 license—re-use is welcome with attribution.
-- Font Awesome icons load via the CDN version 7.1.0; if you need offline assets, download the latest “Font Awesome Free” archive from <https://fontawesome.com/download> and adjust the paths accordingly.
+- Font Awesome Free 7.1.0 assets are included locally under `assets/fontawesome-free-7.1.0-web/` with their license.
 
 ## Participant Files
 
-- Students only need to open `diversity_example.qmd` and use the datasets stored in `data/`.
-- All other files support slide rendering, instructor workflows, or cached outputs.
+Build the student handout with Python 3 (no extra Python packages needed):
+
+```bash
+python3 scripts/build_student_zip.py
+```
+
+This writes `dist/phy-fun-div-student.zip`. Distribute this ZIP to students. They extract
+the whole folder, read `START_HERE.txt`, open `phy-fun-div.Rproj` in RStudio,
+install the listed R packages, and run chunks in `diversity_example.qmd`.
+Git and `renv` are not required.
+
+The bundle includes only the exercise, its three input datasets, display
+dependencies, the reference appendix, licenses, and a small RStudio project.
+The `docs/` directory supports the relative-path demonstration. Slides,
+research files, caches, and the instructor's R environment are excluded.
+
+To include a freshly rendered HTML handout and its figures, run
+`python3 scripts/build_student_zip.py --render` with the instructor's working
+R/Quarto environment. This refreshes notebook caches before packaging; if rendering
+fails, the ZIP is not replaced. Use `--output /path/to/handout.zip` to choose
+another destination.
 
 ## References
 

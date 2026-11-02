@@ -7,6 +7,7 @@
 
 vert.txt
 *.sif
+*.[zZ][iI][pP]
 .Renviron
 
 data/gl_data.csv
@@ -15,3 +16,4 @@ data/pa_data.csv
 /docs/**/*.md
 /docs/*.md
 /logs/*.md
+/dist/
