@@ -9,6 +9,19 @@ format:
     highlight-style: github
     toc: true
     toc-depth: 2
+    toc-expand: false
+    include-in-header:
+      text: |
+        <style>
+        /* Keep section links visible; reveal subsections on hover or focus. */
+        #TOC > ul { display: block; }
+        #TOC ul ul { display: none; }
+        #TOC li:hover > ul,
+        #TOC li:focus-within > ul { display: block; }
+        @media (hover: none) {
+          #TOC ul ul { display: block; }
+        }
+        </style>
     number-sections: true
     smooth-scroll: true
     embed-resources: false

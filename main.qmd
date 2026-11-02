@@ -1616,25 +1616,23 @@ The next slide places this example on the axis from traits to coexistence.
 :::
 ---
 
-## From physiological prediction to species coexistence
+## From functional traits to species coexistence
 
 ::: columns
 ::: {.column width="63%"}
 <img src="images/pim.png" style="display:block; margin:0 auto; width:100%; height:auto; max-height:570px; object-fit:contain;"/>
 
-<span style="font-size:0.55em;">Conceptual illustration</span>
-
 :::
 ::: {.column width="37%"}
 ::: {.small}
 ::: incremental
-- **Traits alone are insufficient** to predict species coexistence.
-- Predictive models must link traits and physiology to **demographic rates** and **species interactions**.
-- **Invasion growth rates** (growth when rare) provide a direct link to coexistence theory.
-:::
+- **Functional traits** are easy to measure but often fail to predict species coexistence.
 
-::: fragment
-- **LMAₘ / LMAₛ:** process-informed in logic, but still a trait → left end of this axis.
+- **Physiologically informed traits**, such as LMAₘ / LMAₛ, better represent leaf function but do not directly predict coexistence.
+
+- **Invasion growth rates** provide a direct criterion for coexistence but are difficult to estimate in natural communities.
+
+- **Process-informed metrics (PIMs)**  bridge this gap by combining functional traits and demographic characteristics into mechanistically derived predictors of competitive outcomes.
 :::
 :::
 :::
@@ -1645,13 +1643,13 @@ Levine et al. 2024, Trends in Ecology & Evolution
 :::
 
 ::: notes
-Invasion growth rate is the population growth rate of a species introduced at low abundance into an established community. A positive value means it can increase when rare, a condition relevant to coexistence.
-This is a conceptual illustration; it does not imply that predictive performance actually reaches 100%.
-In this figure, process-informed metrics sit between vital rates and niche/fitness differences, closer to coexistence than traits. Ask students where the previous examples sit: LMAm/LMAs separates a trait by process but remains at the "functional traits" position with physiology as its target; Worthy et al. linked traits to drought performance and explained 6%. Improving physiological prediction does not by itself predict species coexistence. Consider the connections to individual growth, survival, reproduction, and population growth under competition.
-Return to Worthy et al.: what is missing from the remaining 94%? Demography, species interactions and environmental context.
-When choosing metrics that reflect mechanisms, specify the prediction target. Physiology, population dynamics, and coexistence are different prediction targets.
+Functional traits such as LMA, leaf nitrogen and leaf thickness are relatively easy to measure, but their associations with coexistence can be weak. LMAₘ and LMAₛ, estimated using the physiologically informed framework of Katabuchi et al. (2025), distinguish metabolic and structural leaf investment. They remain model-inferred functional traits rather than PIMs; improved physiological prediction does not by itself predict competitive outcomes.
+Invasion growth rates describe population growth when a species is rare in an established community. They connect population dynamics under competition directly to coexistence theory, but are difficult to estimate in natural communities. Interpretation depends on the coexistence model and assumptions; a single species' positive invasion growth rate is not by itself a universal proof of community coexistence.
+Levine et al. (2024) propose PIMs as an intermediate approach: mechanistically derived quantities that predict competitive outcomes without requiring direct estimation of invasion growth rates. The reasoning moves from accessible but limited traits, to a direct but difficult coexistence criterion, and concludes with PIMs as the proposed solution.
+The figure retains its conceptual ordering from functional traits through vital rates, PIMs, niche/fitness differences and invasion growth rates to coexistence. LMAₘ / LMAₛ belong to the functional-traits category without an exact quantitative position along the axis. The curves are illustrative and do not imply predictive performance actually reaches 100%.
 
 :::
+
 ---
 
 ## Summary 🍺
