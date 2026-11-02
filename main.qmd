@@ -8,7 +8,6 @@ strip-comments: true
 format:
   revealjs:
     slide-number: true
-    multiplex: true
     theme: assets/rladies.scss
     show-slide-number: all
     controls: true
@@ -17,7 +16,6 @@ format:
     # margin: 0.07
     css: [assets/custom.css, assets/tachyons-addon.css]
     include-after: |
-      <link rel="stylesheet" href="assets/syntax-highlight.css">
       <link rel="stylesheet" href="assets/fontawesome-free-7.1.0-web/css/all.min.css">
       <script src="assets/fontawesome-free-7.1.0-web/js/all.min.js"></script>
 callout-icon: false

@@ -116,7 +116,7 @@ setwd("..")
 Avoid using absolute paths like this:
 
 ```{r, eval=FALSE}
-d <- read_csv("/Users/mattocci/Dropbox/5-Tools/ghq/github.com/mattocci27/phy-fun-div/data/samp.csv")
+d <- read_csv("/Users/example/projects/phy-fun-div/data/samp.csv")
 ```
 
 Absolute paths are different on different computers (lack of reproducibility).
@@ -245,6 +245,7 @@ vegan::diversity(samp, index = "shannon")
 ## Nonmetric Multidimensional Scaling (NMDS)
 
 ```{r}
+set.seed(123)
 res_mds <- metaMDS(samp)
 
 plot(res_mds)
@@ -326,8 +327,9 @@ $$
 where $a_{ij}$ is the abundance of species *j* in community *i*, and $t_{j}$ is a trait value of species *j*.
 
 ```{r}
-tmp <- trait2 |>
-  filter(sp %in% colnames(samp))
+stopifnot(!anyDuplicated(trait2$sp), all(colnames(samp) %in% trait2$sp))
+tmp <- trait2[match(colnames(samp), trait2$sp), ]
+stopifnot(identical(tmp$sp, colnames(samp)))
 
 tmp
 
@@ -449,6 +451,7 @@ These two values are the same. A negative SES means smaller trait distances than
 
 ```{r}
 mntd(samp, trait_dm)
+set.seed(123)
 ses.mntd(samp, trait_dm)
 ```
 

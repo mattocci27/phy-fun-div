@@ -49,7 +49,7 @@ quarto render diversity_example.qmd
 |-- main.qmd               # Primary Quarto presentation
 |-- diversity_example.qmd  # Hands-on tutorial notebook (students run this file)
 |-- assets/                # CSS themes and custom styling
-|-- data/                  # Community, trait, tree, and additional soil datasets
+|-- data/                  # Community, trait, tree, and leaf-trait datasets
 |-- scripts/build_student_zip.py  # Generate the student handout ZIP
 |-- dist/                  # Generated student ZIP (not tracked by Git)
 |-- phy-fun-div.Rproj      # RStudio project
@@ -57,11 +57,11 @@ quarto render diversity_example.qmd
 |-- images/                # Figures used throughout the slides
 |-- figure/                # Auto-generated plot outputs
 |-- R/                     # Helper functions and package setup
-|-- run.R / run.sh         # Legacy workflow wrappers
+|-- run.R                  # Run the targets pipeline
 |-- renv/                  # renv metadata (auto-managed)
 |-- renv.lock              # Locked package versions
 |-- main_files/            # Assets generated for the slide deck
-`-- _targets*/             # Targets pipeline artefacts
+`-- _targets*/             # Targets pipeline and retained metadata
 ```
 
 ## Development Notes
@@ -69,7 +69,10 @@ quarto render diversity_example.qmd
 - Maintainers manage dependencies with `renv` (using `pak` for faster installs), but students can rely on the base `install.packages()` call above.
 - Use the explicit `quarto render` commands above to rebuild the teaching materials.
 - The project follows the CC BY-SA 4.0 license—re-use is welcome with attribution.
-- Font Awesome Free 7.1.0 assets are included locally under `assets/fontawesome-free-7.1.0-web/` with their license.
+- Font Awesome Free 7.1.0 runtime assets (CSS, JS, and webfonts) are included locally under `assets/fontawesome-free-7.1.0-web/` with their license.
+- `Rscript run.R` runs the targets pipeline, including figure generation from `data/gl_data.csv` and `data/pa_data.csv`. The `_targets/meta` metadata is retained intentionally.
+- `scripts/prepare_les_figure.R` prepares the LES panel figure; run it from the project root with the `magick` package installed.
+- Multiplex synchronization is disabled for public slides. Do not distribute a speaker HTML containing synchronization credentials.
 
 ## Participant Files
 

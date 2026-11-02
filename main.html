@@ -2023,8 +2023,6 @@ A_{\mathrm{mass}}=\frac{A_{\mathrm{area}}}{LMA}
   <script src="main_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="main_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="main_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="main_files/libs/revealjs/plugin/multiplex/socket.io.js"></script>
-  <script src="main_files/libs/revealjs/plugin/multiplex/multiplex.js"></script>
   <script src="main_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -2047,7 +2045,6 @@ A_{\mathrm{mass}}=\frac{A_{\mathrm{area}}}{LMA}
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'multiplex': {"secret":null,"id":"9dbcf1d1693d39bd","url":"https://reveal-multiplex.glitch.me/"},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -2221,7 +2218,7 @@ A_{\mathrm{mass}}=\frac{A_{\mathrm{area}}}{LMA}
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
           RevealMath,
-          
+          RevealNotes,
           RevealSearch,
           RevealZoom
         ]
@@ -2433,7 +2430,6 @@ A_{\mathrm{mass}}=\frac{A_{\mathrm{area}}}{LMA}
         }
       });
       </script>
-    <link rel="stylesheet" href="assets/syntax-highlight.css">
     <link rel="stylesheet" href="assets/fontawesome-free-7.1.0-web/css/all.min.css">
     <script src="assets/fontawesome-free-7.1.0-web/js/all.min.js"></script>
     
