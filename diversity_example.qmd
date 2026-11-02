@@ -1,8 +1,7 @@
 ---
 title: Diversity calculation
 author: "Masatoshi Katabuchi"
-date: "2026-11-03"
-date-format: "MMMM D[–4], YYYY"
+subtitle: "November 3–4, 2026"
 fontsize: 12pt
 format:
   html:
