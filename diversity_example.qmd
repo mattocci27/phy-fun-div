@@ -170,8 +170,8 @@ plot(phylo)
 | ------------ | ------------------------------------------ | ----------------- |
 | LMA          | Leaf mass per area                         | g m^-2^           |
 | LL           | Leaf lifespans (longevity)                 | months            |
-| Amass        | Maximum photosynthetic rates per unit mass | nnoml g^-1^ s^-^1 |
-| Rmass        | Dark respiration rates per unit mass       | nnoml g^-1^ s^-^1 |
+| Amass        | Maximum photosynthetic rates per unit mass | noml g^-1^ s^-^1 |
+| Rmass        | Dark respiration rates per unit mass       | noml g^-1^ s^-^1 |
 | Nmass        | Leaf nitrogen per unit mass                | %                 |
 | Pmass        | Leaf phosphorus per unit mass              | %                 |
 | WD           | Wood density                               | g cm^-3^          |
@@ -340,8 +340,8 @@ $$
 where $a_{ij}$ is the abundance of species *j* in community *i*, and $t_{j}$ is a trait value of species *j*.
 
 ```{r}
-stopifnot(!anyDuplicated(trait2$sp), all(colnames(samp) %in% trait2$sp))
-tmp <- trait2[match(colnames(samp), trait2$sp), ]
+stopifnot(!anyDuplicated(trait$sp), all(colnames(samp) %in% trait$sp))
+tmp <- trait[match(colnames(samp), trait$sp), ]
 stopifnot(identical(tmp$sp, colnames(samp)))
 
 tmp
@@ -354,7 +354,10 @@ tmp
 (cwm <- cws / ab)
 ```
 
-The species $\times$ site matrix and the species $\times$ trait matrix became the trait $\times$ site matrix.
+The site $\times$ species matrix and species $\times$ trait matrix produce a site $\times$ trait
+matrix. CWM uses raw trait values, so the results retain their original units.
+For trait distances below, all traits except WD are log-transformed, and
+all traits are standardized.
 
 ## Distance based metrics
 

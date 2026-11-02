@@ -123,8 +123,8 @@ quarto render diversity_example.qmd
 python3 scripts/build_pages.py
 ```
 
-`dist/pages/` is the complete public site. The root URL opens the slides;
-the exercise and student ZIP have the direct links above. The staging script
+`dist/pages/` is the complete public site. The root URL opens a simple entry
+page linking to the slides, exercise HTML, and student ZIP. The staging script
 copies an explicit set of presentation files, generates the student ZIP, and
 excludes `logs/`, raw research datasets, caches, and `renv/` from the website.
 This does not remove files from the repository's Git history.
