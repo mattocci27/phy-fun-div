@@ -4,8 +4,9 @@
 
 Lecture slides and R exercises for the AFEC 2026 workshop at XTBG, CAS, November 3–4, 2026. Instructor: Masatoshi Katabuchi.
 
-- Slides: <https://forest-canopy.github.io/assets/phy-fun-div/main.html>
-- Hands-on notebook: <https://forest-canopy.github.io/assets/phy-fun-div/diversity_example.html>
+- Slides: <https://mattocci27.github.io/phy-fun-div/main.html>
+- Hands-on notebook: <https://mattocci27.github.io/phy-fun-div/diversity_example.html>
+- Student ZIP: <https://mattocci27.github.io/phy-fun-div/phy-fun-div-student.zip>
 
 ## Student Quick Start
 
@@ -105,3 +106,25 @@ another destination.
 - Vellend, M. (2016). *The Theory of Ecological Communities*. Princeton University Press.
 - [DanyangDai/brownbag_2022_10_11](https://github.com/DanyangDai/brownbag_2022_10_11)
 - [emitanaka/talks](https://github.com/emitanaka/talks)
+
+## GitHub Pages
+
+The `Publish teaching materials` workflow publishes on pushes to `main`, or can
+be run manually from Actions. In repository **Settings → Pages → Build and
+deployment**, select **GitHub Actions** as the source.
+
+Before pushing a changed `.qmd`, render it locally and include its generated
+HTML and assets in the commit. The workflow publishes these reviewed outputs;
+it does not install R packages or rerun the analyses on GitHub.
+
+```bash
+quarto render main.qmd
+quarto render diversity_example.qmd
+python3 scripts/build_pages.py
+```
+
+`dist/pages/` is the complete public site. The root URL opens the slides;
+the exercise and student ZIP have the direct links above. The staging script
+copies an explicit set of presentation files, generates the student ZIP, and
+excludes `logs/`, raw research datasets, caches, and `renv/` from the website.
+This does not remove files from the repository's Git history.

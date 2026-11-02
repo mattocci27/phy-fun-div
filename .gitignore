@@ -17,3 +17,5 @@ vert.txt
 
 /.quarto/
 /main-speaker.html
+
+__pycache__/
