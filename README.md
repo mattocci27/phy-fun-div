@@ -131,4 +131,6 @@ python3 scripts/build_pages.py
 page linking to the slides, exercise HTML, and student ZIP. The staging script
 copies an explicit set of presentation files, generates the student ZIP, and
 excludes `logs/`, raw research datasets, caches, and `renv/` from the website.
+Generated slide plots in `figure/` are included. The build checks the entry
+page, slides, and exercise for missing local resources before publishing.
 This does not remove files from the repository's Git history.
