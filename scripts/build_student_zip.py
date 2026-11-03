@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Package an explicit list of student files, optionally rendering the exercise.
+"""Package lecture slides and student exercises, optionally refreshing HTML.
 
 Run from any directory: python3 scripts/build_student_zip.py
 Requires only Python 3. --render also requires working Quarto/R packages.
@@ -16,18 +16,22 @@ from zipfile import ZIP_DEFLATED, ZipFile
 ROOT = Path(__file__).resolve().parents[1]
 FOLDER = "phy-fun-div"
 FILES = (
+    "main.qmd",
+    "main.html",
+    "setup.qmd",
     "diversity_example.qmd",
     "data/samp.csv",
     "data/dummy_trait.csv",
     "data/dummy_tree.newick",
     "appendixA.htm",
     "LICENSE",
-    "assets/fontawesome-free-7.1.0-web/LICENSE.txt",
-    "assets/fontawesome-free-7.1.0-web/css/all.min.css",
-    "assets/fontawesome-free-7.1.0-web/js/all.min.js",
 )
 DIRECTORIES = (
-    "assets/fontawesome-free-7.1.0-web/webfonts",
+    "assets",
+    "images",
+    "figure",
+    "main_files",
+    "libs",
 )
 PROJECT = """Version: 1.0
 
@@ -53,9 +57,14 @@ START = """AFEC 2026: Diversity calculation
 6. Run the R chunks in order with their green play buttons. You do not
    need to render the document during class.
 
+Open main.html in a browser to view the lecture slides. main.qmd is their
+Quarto source; setup.qmd contains its shared setup. Re-rendering the slides
+requires Quarto and additional instructor packages; it is not needed for
+viewing the slides or running the exercises.
+
 If diversity_example.html is included, open it in a browser to read the
-worked example. Keep its accompanying folders beside it so that figures
-and tables load. External links require internet access.
+worked example. Keep all accompanying folders in place so that figures,
+styles, and tables load. External links require internet access.
 
 Git, cloning, and renv are not needed. The ZIP does not include R packages.
 
@@ -64,11 +73,14 @@ setwd("docs"). This is expected; continue with the following here::here()
 chunks, including setwd(".."), to return to the project folder.
 
 Contents:
+- main.html / main.qmd: lecture slides and their Quarto source
+- setup.qmd: shared slide setup
+- main_files/, images/, figure/, libs/: slide display dependencies
 - diversity_example.qmd: exercises and R code
 - data/: the three datasets used in the exercises
 - docs/: directory used in the relative-path demonstration
 - appendixA.htm: reference table of diversity metrics
-- assets/: fonts and scripts used by the notebook
+- assets/: themes, styles, fonts, scripts, and their licenses
 - LICENSE: teaching-material license
 
 Instructor: Masatoshi Katabuchi
@@ -80,6 +92,10 @@ def build(output: Path, render: bool = False) -> None:
     files = list(FILES)
     directories = list(DIRECTORIES)
     if render:
+        # Refresh both presentations before collecting the bundle.
+        subprocess.run(
+            ["quarto", "render", "main.qmd"], cwd=ROOT, check=True,
+        )
         # Refresh cached chunks so the handout matches the current source.
         subprocess.run(
             ["quarto", "render", "diversity_example.qmd", "--to", "html",
@@ -90,7 +106,7 @@ def build(output: Path, render: bool = False) -> None:
         directories.append("diversity_example_files")
 
     # Validate before creating/replacing the ZIP. No repository-wide globbing:
-    # credentials, renv, slides, research data and caches stay out of the bundle.
+    # credentials, renv, research data and caches stay out of the bundle.
     for name in files:
         if not (ROOT / name).is_file():
             raise FileNotFoundError(ROOT / name)
@@ -135,7 +151,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--render", action="store_true",
-        help="Render and include current HTML results (requires Quarto and R packages)",
+        help="Refresh slides and include the rendered exercise HTML (requires Quarto/R)",
     )
     args = parser.parse_args()
     build(args.output.resolve(), render=args.render)

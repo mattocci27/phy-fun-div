@@ -88,12 +88,16 @@ the whole folder, read `START_HERE.txt`, open `phy-fun-div.Rproj` in RStudio,
 install the listed R packages, and run chunks in `diversity_example.qmd`.
 Git and `renv` are not required.
 
-The bundle includes only the exercise, its three input datasets, display
-dependencies, the reference appendix, licenses, and a small RStudio project.
-The `docs/` directory supports the relative-path demonstration. Slides,
-research files, caches, and the instructor's R environment are excluded.
+The bundle includes `main.html` and `main.qmd`, the shared slide setup,
+slide images and display dependencies, the exercise and its three input
+datasets, the reference appendix, licenses, and a small RStudio project.
+Open `main.html` in a browser to view the slides without rendering. The
+`docs/` directory supports the relative-path demonstration. Research data,
+caches, and the instructor's R environment are excluded. Re-rendering
+`main.qmd` requires Quarto and the slide packages used in `setup.qmd`.
 
-To include a freshly rendered HTML handout and its figures, run
+To refresh the lecture slides and include a freshly rendered HTML handout
+and its figures, run
 `python3 scripts/build_student_zip.py --render` with the instructor's working
 R/Quarto environment. This refreshes notebook caches before packaging; if rendering
 fails, the ZIP is not replaced. Use `--output /path/to/handout.zip` to choose
